@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.67 $
-// Revision date : $Date: 2004/12/31 17:21:21 $
+// Revision      : $Revision: 1.68 $
+// Revision date : $Date: 2005/01/01 11:43:08 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -679,12 +679,14 @@ Imap4::command_fetchheader (guint msn) throw (imap_err)
 	// Did an error happen?
 	if (!socket_->status()) throw imap_socket_err();
 	if (cnt<0) throw imap_dos_err();
-	if ((line.find (tag() + "OK") != 0) || (mail.size()==0))
+	if ((line.find (tag() + "OK") != 0) || (mail.size()<2))
 		throw imap_command_err();
 		
-	// Remove last line (should contain a closing parenthesis). Note:
-	// We need the (hopefully empty;-) line before because it separates
-	// header and mail text
+	// Remove the last line (should contain a closing parenthesis).
+	// Note: We need the empty line before because it separates the
+	// header from the mail text
+	if ((mail[mail.size()-1]!=")") && (mail[mail.size()-2].size()!=0))
+		throw imap_command_err();
 	mail.pop_back();
 	return mail;
 }
