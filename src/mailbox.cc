@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2004/12/23 13:26:25 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2004/12/30 23:49:14 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -186,6 +186,7 @@ Mailbox::start_entry_point (gpointer data)
 {
 	MAILBOX(data)->start();
 }
+
 void
 Mailbox::start (void)
 {
@@ -194,7 +195,6 @@ Mailbox::start (void)
 	// destroyed so we cannot go any further past this point.
 	lookup();
 }
-
 
 void
 Mailbox::stop (void)
