@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: header.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/02/05 01:38:18 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/03/08 12:33:21 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : All information about a specific mail needed by gnubiff
 //
@@ -178,7 +178,7 @@ Header::date (const std::string date)
 	static const std::string months = "JanFebMarAprMayJunJulAugSepOctNovDec";
 	ss >> temp;
 	month = months.find (temp);
-	if (((guint)month == std::string::npos) || (month % 3 != 0))
+	if (((std::string::size_type)month == std::string::npos) || (month%3 != 0))
 		month = 0;
 	month = month / 3 + 1;
 	// year
