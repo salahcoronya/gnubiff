@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2004/12/08 22:50:54 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2004/12/09 23:10:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -836,8 +836,9 @@ Imap4::parse_bodystructure_parameters (std::string list, PartInfo &partinfo)
 				parameter=value;
 				continue;
 			}
+
 			// Look for parameters we need
-			if (parameter=="charset")
+			if ((parameter=="charset") || (parameter == "CHARSET"))
 				partinfo.charset=value;
 			continue;
 		}

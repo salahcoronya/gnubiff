@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/06 12:08:41 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/12/08 14:36:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -232,16 +232,22 @@ Popup::update (void)
 	// mail are at the end of each mailbox. We then need to compute
 	// the exact number of mail to display for each mailbox.
 	std::vector <gint> count;
-	for (guint i=0; i<biff_->size(); i++)
-		count.push_back (0);
-	guint index = 0;
-	for (guint i=0; i< biff_->popup_size_; i++) {
-		if (count[index] < gint(biff_->mailbox(index)->unreads()))
-			count[index]++;
-		index++;
-		if (index >= biff_->size())
-			index = 0;
+
+	if (biff_->popup_use_size_) {
+		for (guint i=0; i<biff_->size(); i++)
+			count.push_back (0);
+		guint index = 0;
+		for (guint i=0; i< biff_->popup_size_; i++) {
+			if (count[index] < gint(biff_->mailbox(index)->unreads()))
+				count[index]++;
+			index++;
+			if (index >= biff_->size())
+				index = 0;
+		}
 	}
+	else
+		for (guint i=0; i<biff_->size(); i++)
+			count.push_back (biff_->mailbox(i)->unreads());	
 
 	// Now we populate list
 	for (guint j=0; j<biff_->size(); j++) {
