@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: local.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/12/03 17:16:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -34,6 +34,7 @@
 
 #include "mailbox.h"
 #include <fam.h>
+#include <string>
 
 #define LOCAL(x)					((Local *)(x))
 
@@ -61,6 +62,7 @@ public:
 	// ========================================================================	
 	void start (void);								// start method
 	void stop (void);								// stop method
+	virtual std::string file_to_monitor (void);
 };
 
 #endif

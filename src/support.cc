@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/04/04 22:08:28 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/04/05 14:23:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -213,6 +213,25 @@ Support::numbersequence_to_vector (const std::string &seq,
 	for (guint i = inf_bound; i <= sup_bound; i++)
 		vec.push_back (i);
 	return true;
+}
+
+/**
+ *  Add the name of a file (or directory) to the given path {\em path}.
+ *
+ *  @param  path  Path to which {\em file} will be added.
+ *  @param  file  Name of the file (or directory) that will be added to
+ *                {\em path}.
+ *  @return       Resulting path or the empty string in case of an error.
+ */
+std::string 
+Support::add_file_to_path (std::string path, std::string file)
+{
+	std::string result = std::string ("");
+	gchar *filename = g_build_filename (path.c_str(), file.c_str(), NULL);
+	if (filename)
+		result = std::string (filename);
+	g_free (filename);
+	return result;
 }
 
 /**

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh.cc,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/04/01 13:24:49 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/04/05 14:23:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -133,4 +133,16 @@ Mh::fetch (void)
 			file.close();
 		}
 	}
+}
+
+/**
+ *  Give the name of the file that shall be monitored by FAM. For the mh
+ *  protocol this is the ".mh_sequences" file.
+ *
+ *  @return    Name of the file to be monitored.
+ */
+std::string 
+Mh::file_to_monitor (void)
+{
+	return add_file_to_path (address(), std::string(".mh_sequences"));
 }
