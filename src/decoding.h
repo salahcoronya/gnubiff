@@ -20,7 +20,7 @@
 //
 // File          : $RCSfile: decoding.h,v $
 // Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/12/12 17:13:26 $
+// Revision date : $Date: 2004/12/13 20:53:25 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -42,6 +42,7 @@ class Decoding
 {
 protected:
 	std::string decode_base64 (const std::string &);
+	std::string decode_qencoding (const std::string &);
 	std::string decode_quotedprintable (const std::string &);
 };
 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/12/10 14:17:46 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/13 20:53:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -604,7 +604,7 @@ Popup::parse_header (std::string text)
 			std::string decoded;
 			utf8_part=NULL;
 			if ((encoding == 'Q') || (encoding == 'q'))
-				decoded=decode_quotedprintable(copy_part);
+				decoded=decode_qencoding(copy_part);
 			else if ((encoding == 'B') || (encoding == 'b'))
 				decoded=decode_base64(copy_part);
 			else
