@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2004/12/31 15:52:39 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2004/12/31 16:08:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -82,6 +82,7 @@ public:
 									gboolean toplevel=true);
 	gboolean parse_bodystructure_parameters (std::string, class PartInfo &);
 	void command_capability (void) throw (imap_err);
+	std::vector<std::string> command_fetchheader (guint) throw (imap_err);
 	std::vector<int> command_searchnotseen (void) throw (imap_err);
 	void command_waitforack (gint num=0) throw (imap_err);
 	void reset_tag();
