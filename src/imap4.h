@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/01/01 20:55:08 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/01/01 21:33:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -64,7 +64,7 @@ class Imap4 : public Mailbox {
 	virtual void threaded_start (guint delay = 0);
 	void start (void);
 	void fetch (void);
-	gint connect (void);
+	void connect (void);
 	void fetch_mails (void);
 
 	class imap_err : public std::exception {};	 // General Imap Exception
