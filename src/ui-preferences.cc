@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/10/13 21:45:51 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/10/13 21:49:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -29,6 +29,7 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
+#include <cstdio>
 #include <sstream>
 #include "ui-preferences.h"
 #include "ui-properties.h"
