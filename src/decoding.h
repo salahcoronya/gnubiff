@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/03/03 16:58:02 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2005/03/03 17:44:32 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -49,6 +49,7 @@ protected:
 	// Mail body and header
 	gboolean decode_body (std::vector<std::string> &mail, std::string encoding,
 						  guint bodypos = 0, gboolean skip_header = true);
+	gchar *decode_headerline (std::string line);
 	gboolean get_quotedstring (std::string line, std::string &str, guint &pos,
 							   gchar quoted = '"', gboolean test_start = true,
 							   gboolean end_ok = false);
@@ -64,6 +65,7 @@ protected:
 	// Converting
 	gchar* utf8_to_imaputf7 (const gchar *, gssize);
 	std::string ascii_strdown (const std::string &str);
+	gchar *charset_to_utf8 (std::string text, std::string charset);
 
 public:
 	// Password

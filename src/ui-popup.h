@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/01/18 21:26:36 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/01/19 22:29:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -81,11 +81,6 @@ protected:
 	void on_enter (GdkEventCrossing *event);
 	void on_leave (GdkEventCrossing *event);
 	void on_select (GtkTreeSelection *selection);
-
-private:
-	/* util */
-	gchar *parse_header (std::string text);
-	gchar *convert (std::string text, std::string charset);
 };
 
 #endif

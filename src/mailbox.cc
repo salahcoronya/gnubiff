@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.65 $
-// Revision date : $Date: 2005/03/04 14:18:59 $
+// Revision      : $Revision: 1.66 $
+// Revision date : $Date: 2005/03/05 00:07:00 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -623,7 +623,7 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 
 			// Get Token
 			if (!get_mime_token (line, partinfo.encoding_, cte_pos)) {
-				h.add_to_body (_("[Cannot parse content transfer encoding header line]"));
+				h.body (_("[Cannot parse content transfer encoding header line]"));
 				continue;
 			}
 		}
