@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.37 $
-// Revision date : $Date: 2005/03/09 16:04:32 $
+// Revision      : $Revision: 1.38 $
+// Revision date : $Date: 2005/03/10 17:48:20 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -133,7 +133,7 @@ Biff::Biff (guint ui_mode, std::string filename)
 		load ();
 	}
 	else {
-		g_warning (_("Configuration file (%s) not found !"),
+		g_warning (_("Configuration file (%s) not found!"),
 				   value_gchar ("config_file"));
 		mailbox_.push_back (new Mailbox (this));
 	}

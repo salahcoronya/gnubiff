@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/02/03 15:09:15 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2005/02/05 01:38:19 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
