@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2004/12/29 20:31:53 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2004/12/30 23:49:14 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -333,5 +333,16 @@ const gint preventDoS_headerLines_=2048;
  * \end{itemize}
  */
 const gint preventDoS_lineLength_=16384;
+
+/**
+ * To prevent being DoS attacked (see above): For several IMAP4 commands the
+ * server's response can consist of more than one line. This constant gives the
+ * maximum number of lines being read (additional to the first line) before
+ * gnubiff suspects a DoS attack.
+ * 
+ * Currently this constant is used when reading the response to the following
+ * commands: FETCH (BODYSTRUCTURE).
+ */
+const gint preventDoS_imap4_multilineResponse_=8;
 
 #endif

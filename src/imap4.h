@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/01/01 22:56:05 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2005/01/02 14:53:46 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -105,7 +105,9 @@ class Imap4 : public Mailbox {
  private:
 	// ========================================================================
 	//	Internal stuff
-	// ========================================================================	
+	// ========================================================================
+
+	guint isfinished_fetchbodystructure(std::string,guint) throw (imap_err);
 	gboolean parse_bodystructure (std::string, class PartInfo &,
 								  gboolean toplevel=true);
 	gboolean parse_bodystructure_parameters (std::string, class PartInfo &);
