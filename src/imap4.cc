@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/10/14 11:20:24 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/11/05 17:50:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -75,7 +75,11 @@ gint Imap4::connect (void)
 #endif
 
 	// Connection
-	if (!socket_->open (hostname_, port_, use_ssl_, certificate_)) return 0;
+	if (!socket_->open (hostname_, port_, use_ssl_, certificate_)) {
+		socket_->status (SOCKET_STATUS_ERROR);
+		status_ = MAILBOX_ERROR;
+		return 0;
+	}
 
 #ifdef DEBUG
 	g_message ("[%d] Connected to %s on port %d", uin_, hostname_.c_str(), port_);
