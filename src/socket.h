@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2004/12/29 12:56:40 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/01/03 20:32:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -115,5 +115,19 @@ public:
 	void bypass_certificate (gboolean b)		{bypass_certificate_ = b;}
 #endif
 };
+
+/* TEMP_FAILURE_RETRY seems to be available only on Linux. For systems that
+ * don't have this macro we provide our own version. This code was taken from
+ * file "/usr/include/unistd.h" from Debian package "libc6-dev"
+ * version 2.3.2.ds1-20. */
+#ifndef TEMP_FAILURE_RETRY
+#define TEMP_FAILURE_RETRY(expression) \
+	(__extension__ \
+	 ({ long int __result; \
+		do __result = (long int) (expression); \
+		while (__result == -1L && errno == EINTR); \
+		__result; }))
+#endif
+
 
 #endif
