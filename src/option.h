@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/02/01 00:16:15 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -68,6 +68,9 @@ const guint OPTFLG_CHANGE = 32;
 const guint OPTFLG_UPDATE = 64;
 /// The option is a space separated list of strings (string)
 const guint OPTFLG_STRINGLIST = 128;
+
+/// Option cannot be changed by the user
+const guint OPTFLG_USER_NO_CHANGE = OPTFLG_FIXED | OPTFLG_AUTO;
 
 enum OptionType {OPTTYPE_NONE = 0, OPTTYPE_UINT, OPTTYPE_STRING, OPTTYPE_BOOL};
 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2005/02/06 21:05:14 $
+// Revision      : $Revision: 1.33 $
+// Revision date : $Date: 2005/02/06 21:46:30 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -28,8 +28,6 @@
 //
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
-
-#include "support.h"
 
 #include <sstream>
 
@@ -39,7 +37,7 @@
 #include "gtk_image_animation.h"
 #include "biff.h"
 #include "mailbox.h"
-
+#include "nls.h"
 
 /* "C" bindings */
 extern "C" {
@@ -618,7 +616,7 @@ Preferences::expert_show_context_menu (GdkEventButton *event)
 		return false;
 
 	// Can option not be changed?
-	if (option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO))
+	if (option->flags() & OPTFLG_USER_NO_CHANGE)
 		return false;
 
 	// Create menu
@@ -666,7 +664,7 @@ Preferences::expert_edit_value (void)
 	if (!expert_get_option (opts, option, treeiter))
 		return;
 
-	if (option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO))
+	if (option->flags() & OPTFLG_USER_NO_CHANGE)
 		return;
 
 	// Edit entry in cell for editing the value
@@ -708,7 +706,7 @@ Preferences::expert_add_option_list (void)
 			gint id = -1;
 
 			// Ignore fixed options?
-			if ((option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO)) && !showfixed)
+			if ((option->flags() & OPTFLG_USER_NO_CHANGE) && !showfixed)
 				continue;
 
 			// Create displayed name by concatenating group and name
@@ -845,10 +843,10 @@ Preferences::expert_update_option (const gchar *name, Options *options,
 
 	// Update option
 	const gchar *value = options->to_string(name).c_str();
-	gboolean italic = ((!(option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO)))
+	gboolean italic = ((!(option->flags() & OPTFLG_USER_NO_CHANGE))
 					   && (!option->is_default ())
 					   && (biff_->value_bool ("expert_hilite_changed")));
-	gboolean edit = ((!(option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO)))
+	gboolean edit = ((!(option->flags() & OPTFLG_USER_NO_CHANGE))
 					 && (option->type() != OPTTYPE_BOOL));
 	gtk_list_store_set (expert_liststore, iter,
 						COL_EXP_VALUE, value,
@@ -909,7 +907,7 @@ Preferences::expert_toggle_option (void)
 
 	if (option->type() != OPTTYPE_BOOL)
 		return;
-	if (option->flags() & (OPTFLG_FIXED | OPTFLG_AUTO))
+	if (option->flags() & OPTFLG_USER_NO_CHANGE)
 		return;
 
 	// Toggle option
