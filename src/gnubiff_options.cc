@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/01/31 14:58:07 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -212,6 +212,11 @@ Gnubiff_Options::add_options_general (void)
 		"Shall the expert dialog for editing all options be shown?",
 								 false, OPTFLG_NONE, OPTGUI_NONE,
 								 "", NULL, s5));
+	// EXPERT_SHOW_FIXED
+	add_option (new Option_Bool ("expert_show_fixed", OPTGRP_GENERAL,
+		"Shall options be displayed in the expert dialog that cannot be "
+		"changed?",
+								 true));
 }
 
 void 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/02/01 00:16:15 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -84,9 +84,12 @@ public:
 	gboolean from_strings (guint groups,
 						   std::map<std::string,std::string> &map);
 
-	void gui_get (guint groups, GladeXML *xml, std::string filename);
-	void gui_set (guint groups, GladeXML *xml, std::string filename);
-	void gui_show (guint groups, GladeXML *xml, std::string filename);
+	void gui_get (guint groups, GladeXML *xml, std::string filename,
+				  Option *option = NULL);
+	void gui_set (guint groups, GladeXML *xml, std::string filename,
+				  Option *option = NULL);
+	void gui_show (guint groups, GladeXML *xml, std::string filename,
+				   Option *option = NULL);
 
 	std::string group_help (guint group) {return groups_[group]->help();};
 	std::string group_name (guint group) {return groups_[group]->name();};
@@ -125,6 +128,8 @@ protected:
 private:
 	void gui_all (guint whattodo, guint groups, GladeXML *xml,
 				  const std::string filename);
+	void gui_all (guint whattodo, guint groups, GladeXML *xml,
+				  const std::string filename, Option *option);
 };
 
 #endif
