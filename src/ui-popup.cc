@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/13 21:45:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -530,7 +530,7 @@ Popup::parse_header (std::string text)
 					g_free (utf8_part);
 					utf8_text = buffer;
 				}
-				copy_part.clear();
+				copy_part.erase();
 			}
 			i+=2; 
 			if (i >= copy.size()) {
@@ -558,7 +558,7 @@ Popup::parse_header (std::string text)
 				copy_part = _("* error *");
 				break;
 			}
-			copy_part.clear();
+			copy_part.erase();
 			while ((i < copy.size()) && (copy.substr(i,2) != "?="))
 				copy_part += copy[i++];
 			if (i >= copy.size()) {
