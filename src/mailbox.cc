@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/10/13 17:13:47 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/11/05 16:38:14 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -337,7 +337,7 @@ Mailbox::lookup_thread (void)
 				  protocol_ = PROTOCOL_POP3;
 				}
 			}
-			else if ((line.find("* OK") == 0)||((line.find("* PREAUTH")== 0)) {
+			else if ((line.find("* OK") == 0)||(line.find("* PREAUTH")== 0)) {
 				s.write ("A001 LOGOUT\r\n");
 				s.close ();
 				protocol_ = PROTOCOL_IMAP4;
