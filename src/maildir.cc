@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/03/26 22:22:23 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2005/03/26 22:43:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -64,7 +64,7 @@ void
 Maildir::fetch (void)
 {
 	int saved_status = status();
-  
+
 	// Build directory name
 	gchar *base = g_path_get_basename (address().c_str());
 	std::string directory;
@@ -103,6 +103,11 @@ Maildir::fetch (void)
 		if (d_name[0] == '.')
 			continue;
 
+		// If the mail is already known, we don't need to parse it
+		std::string uid = std::string (d_name);
+		if (new_mail (uid))
+			continue;
+
 		std::ifstream file;
 		gchar *tmp = g_build_filename (directory.c_str(), d_name, NULL);
 		std::string filename(tmp);
@@ -115,7 +120,7 @@ Maildir::fetch (void)
 				getline(file, line);
 				mail.push_back (line);
 			}
-			parse (mail, d_name);
+			parse (mail, uid);
 			mail.clear();
 		}
 		else
