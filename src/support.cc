@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/12/05 00:22:36 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/12/16 11:45:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -102,18 +102,18 @@ gb_substitute(std::string format, std::string chars,
 			return result;
 
 		// '%%'
-		if (format.at(pos+1)=='%')
+		if (format[pos+1] == '%')
 		{
 			result+='%';
 			continue;
 		}
 
 		// generic case
-		if ((cpos=chars.find(format.at(pos+1)))==std::string::npos)
+		if ((cpos = chars.find(format[pos+1])) == std::string::npos)
 			continue;
-		result+=toinsert.at(cpos);
+		result += toinsert[cpos];
 	}
 	if (prevpos<len)
-		result.append(format,prevpos,len-prevpos);
+		result.append (format, prevpos, len-prevpos);
 	return result;
 }

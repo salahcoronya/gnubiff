@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/01/05 17:48:52 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/01/05 18:21:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -35,6 +35,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <unistd.h>
 
 #ifdef USE_GNOME
 #  include "ui-applet-gnome.h"

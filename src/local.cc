@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/28 09:35:41 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -33,6 +33,7 @@
 
 #include <errno.h>
 #include <signal.h>
+#include <unistd.h>
 
 #include "local.h"
 #include "ui-applet.h"

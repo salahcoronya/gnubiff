@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/01/05 23:11:59 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/01/08 23:09:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -31,6 +31,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <time.h>
 #include <utime.h>
 
 #include "file.h"

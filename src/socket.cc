@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/01/06 00:06:00 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/01/06 00:35:35 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,6 +38,7 @@
 #include <netdb.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
