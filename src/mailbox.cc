@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.70 $
-// Revision date : $Date: 2005/03/09 16:16:49 $
+// Revision      : $Revision: 1.71 $
+// Revision date : $Date: 2005/03/12 22:02:36 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -566,19 +566,19 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 
 		// Sender
 		if ((line.find ("From:") == 0) && (line.size() > 6)) {
-			h.sender (line.substr (6));
+			h.sender (decode_headerline (line.substr (6)));
 			continue;
 		}
 
 		// Subject
 		if ((line.find ("Subject:") == 0) && (line.size() > 9)) {
-			h.subject (line.substr (9));
+			h.subject (decode_headerline (line.substr (9)));
 			continue;
 		}
 
 		// Date
 		if ((line.find ("Date:") == 0) && (line.size() > 6)) {
-			h.date (line.substr (6));
+			h.date (decode_headerline (line.substr (6)));
 			continue;
 		}
 

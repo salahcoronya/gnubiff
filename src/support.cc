@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/03/10 17:48:22 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/03/10 19:43:22 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -49,20 +49,20 @@
  *              characters of {\em str}, nul-terminated
  */
 gchar* 
-gb_utf8_strndup(const gchar *str, gsize n)
+gb_utf8_strndup (const gchar *str, gsize n)
 {
     // No String
-	if (str==NULL)
+	if (str == NULL)
 		return NULL;
 
 	// Find the first character not to be copied
-	gsize i=0;
-	const gchar *lastpos=str;
-	while ((i++<n)&&(*lastpos))
-		lastpos=g_utf8_next_char(lastpos);
+	gsize i = 0;
+	const gchar *lastpos = str;
+	while ((i++ < n) && (*lastpos))
+		lastpos = g_utf8_next_char (lastpos);
 
-	gsize len=lastpos-str;
-	return g_strndup(str,MAX(len,n));
+	gsize len = lastpos-str;
+	return g_strndup (str, MAX (len,n));
 }
 
 /**
