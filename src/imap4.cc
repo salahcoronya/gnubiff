@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.123 $
-// Revision date : $Date: 2005/03/29 15:01:38 $
+// Revision      : $Revision: 1.124 $
+// Revision date : $Date: 2005/03/29 15:29:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -665,14 +665,12 @@ Imap4::command_fetchuid (std::set<guint> msn) throw (imap_err)
 	if (!msn.size())
 		return uid;
 
-	std::stringstream ss;
-	std::set<guint>::iterator i = msn.begin();
-	ss << *(i++);
-	while (i != msn.end())
-		ss << "," << *(i++);
+	std::string msnstr;
+	msnstr = vector_to_numbersequence<std::set<guint>::iterator>(msn.begin (),
+				msn.end (), ",", ":");
 
 	// Send command
-	sendline ("FETCH " + ss.str () + " (UID)");
+	sendline ("FETCH " + msnstr + " (UID)");
 
 	// Get all untagged responses that are of interest
 	std::set<guint>::size_type cnt = msn.size() + 1; // prevent DoS
