@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/02/01 17:12:48 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2005/03/08 10:34:33 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -93,7 +93,7 @@ public:
 				guint authentication = AUTH_SSL,
 				std::string certificate = "",
 				guint timeout = 5);
-	gint close (void);
+	void close (void);
 	gint write (std::string line, gboolean print = true);
 	gint read  (std::string &line,
 				gboolean print = true,

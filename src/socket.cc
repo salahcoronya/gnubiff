@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2005/03/07 14:11:32 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2005/03/08 10:34:33 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -270,34 +270,44 @@ Socket::open (std::string hostname,
 	return 1;
 }
 
-
-gint
+/**
+ *  Close the socket.
+ */
+void 
 Socket::close (void)
 {
+	// Is socket already closed?
+	if (sd_ == SD_CLOSE) {
+#ifdef HAVE_LIBSSL
+		if (ssl_) {
+			SSL_free (ssl_);
+			ssl_ = NULL;
+		}
+#endif
+		return;
+	}
+
 #ifdef DEBUG
 	g_message ("[%d] CLOSE %s:%d", uin_, hostname_.c_str(), port_);
 #endif
-	std::string line;  
-	if (sd_ != SD_CLOSE) {
-		fcntl (sd_, F_SETFL, O_NONBLOCK);
-		guint cnt = 1 + mailbox_->biff()->value_uint ("prevdos_close_socket");
-		do {
-			read (line, false, false);
-		} while ((!line.empty()) && (cnt--));
-	}
+
+	// Read lines that are not yet read
+	std::string line;
+	fcntl (sd_, F_SETFL, O_NONBLOCK);
+	guint cnt = 1 + mailbox_->biff()->value_uint ("prevdos_close_socket");
+	do {
+		read (line, false, false);
+	} while ((!line.empty()) && (cnt--));
 
 #ifdef HAVE_LIBSSL
-	if (use_ssl_ && ssl_) {
-		if (sd_ != SD_CLOSE)
-			SSL_shutdown (ssl_);
+	if (ssl_) {
+		SSL_shutdown (ssl_);
 		SSL_free (ssl_);
-		ssl_ = 0;
+		ssl_ = NULL;
 	}
 #endif
-	if(sd_ != SD_CLOSE)
-		::close (sd_);
+	::close (sd_);
 	sd_ = SD_CLOSE;
-	return 1;
 }
 
 gint
