@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.71 $
-// Revision date : $Date: 2005/03/12 22:02:36 $
+// Revision      : $Revision: 1.72 $
+// Revision date : $Date: 2005/03/13 13:46:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -528,6 +528,15 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 	gboolean status = true; // set to false if mail should not be stored
 	guint len = mail.size ();
 	PartInfo partinfo;
+
+	// If we have an uid and this uid is known we do not need to parse the mail
+	if ((uid.size() > 0) && (hidden_.find (uid) != hidden_.end ())) {
+		new_seen_.insert (uid);
+#ifdef DEBUG
+		g_message ("[%d] Ignored mail with id \"%s\"", uin (), uid.c_str ());
+#endif
+		return;
+	}
 
 	// Information about the mail obtained before?
 	if (pi != NULL)
