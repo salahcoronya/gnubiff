@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/04 18:49:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -156,6 +156,7 @@ public:
 	// ========================================================================	
 	Mailbox (class Biff *biff);
 	Mailbox (const Mailbox &other);
+	Mailbox &operator= (const Mailbox &other);
 	virtual ~Mailbox (void);
 
 	// ========================================================================

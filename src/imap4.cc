@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2004/12/06 12:08:41 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2004/12/06 12:14:32 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -270,13 +270,18 @@ Imap4::fetch_status (void)
 	// By default we consider to have an error status
 	status_ = MAILBOX_CHECK;
 
-	// Check password is not empty
+	// First try: try to guess password by looking at other mailboxes
+	if (password_.empty())
+		password_ = biff_->password (this);
+
+	// Second try: ask to the user
 	if (password_.empty()) {
 		gdk_threads_enter ();
 		ui_auth_->select (this);
 		gdk_threads_leave ();
 	}
 
+	// No way, user do not want to help us, we simply return
 	if (password_.empty()) {
 		status_ = MAILBOX_ERROR;
 		return;

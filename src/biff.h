@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: biff.h,v $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -140,6 +140,7 @@ public:
 	void add (Mailbox *mailbox);					// add a new mailbox
 	Mailbox *replace (Mailbox *from, Mailbox *to);	// replace a mailbox (from) with another (to)
 	void remove (Mailbox *mailbox);					// remove a mailbox
+	std::string password (Mailbox *mailbox);		// try to find a password for this mailbox
 
 	// ================================================================================
 	//  i/o
