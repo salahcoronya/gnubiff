@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/12/13 20:53:25 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/14 11:13:30 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -176,7 +176,6 @@ public:
 	void lookup (void);								// try to guess mailbox format
 	void parse (std::vector<std::string> &mail,		// parse a mail 
 				int status = -1);
-	gboolean decode_body (std::vector<std::string> &,std::string); // decode mail body
 
 	// ========================================================================
 	//  access

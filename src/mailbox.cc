@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2004/12/13 20:53:25 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2004/12/14 11:13:30 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -543,43 +543,4 @@ void Mailbox::parse (std::vector<std::string> &mail, int status)
 				new_unread_.push_back(h);
 			new_seen_.push_back (mailid);
 		}
-}
-
-/** 
- * Decodes the body of a mail.
- * The part of the mail's body that will be displayed by gnubiff is decoded.
- * The encoding is given by the parameter {\em encoding} and must be obtained
- * before. Currently supported encodings are 7bit, 8bit and quoted-printable.
- * If called with an unsupported encoding the mail's body is replaced with an
- * error message.
- *
- * @param  mail      C++ vector of C++ strings consisting of the lines of the
- *                   mail.
- * @param  encoding  C++ string for the encoding of the mail's body.
- * @return           Boolean indicating success.
- */
-gboolean 
-Mailbox::decode_body (std::vector<std::string> &mail, std::string encoding)
-{
-	// Skip header
-	guint bodypos=0;
-	while ((bodypos<mail.size()) && (!mail[bodypos].empty()))
-		bodypos++;
-	bodypos++;
-
-	// 7bit, 8bit encoding: nothing to do
-	if ((encoding=="7bit") || (encoding=="8bit"));
-	else if (encoding=="quoted-printable")
-		for (guint i=bodypos;i<mail.size();i++)
-			mail[i]=decode_quotedprintable(mail[i]);
-	// Unknown encoding: Replace body text by a error message
-	else {
-		mail.erase(mail.begin()+bodypos, mail.end());
-		gchar *tmp=g_strdup_printf(_("[The encoding \"%s\" of this mail can't be decoded]"),encoding.c_str());
-		mail.push_back(std::string(tmp));
-		g_free(tmp);
-		return true;
-	}
-
-	return true;
 }

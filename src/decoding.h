@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/12/13 20:53:25 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/13 22:36:12 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -37,13 +37,18 @@
 #endif
 #include <glib.h>
 #include <string>
+#include <vector>
 
 class Decoding
 {
 protected:
+	gboolean decode_body (std::vector<std::string> &,std::string);
+
+	// Encodings
 	std::string decode_base64 (const std::string &);
 	std::string decode_qencoding (const std::string &);
 	std::string decode_quotedprintable (const std::string &);
+	std::vector<std::string> decode_quotedprintable (const std::vector<std::string> &, guint pos=0);
 };
 
 #endif
