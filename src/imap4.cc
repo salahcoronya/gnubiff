@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.86 $
-// Revision date : $Date: 2005/01/03 00:03:00 $
+// Revision      : $Revision: 1.87 $
+// Revision date : $Date: 2005/01/03 12:01:31 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -426,7 +426,7 @@ Imap4::command_capability (void) throw (imap_err)
 	line[line.size()-1]=' ';
 
 	// Looking for supported capabilities
-	idleable_=(line.find (" IDLE ") != std::string::npos);
+	idleable_ = use_idle () && (line.find (" IDLE ") != std::string::npos);
 
 	if (line.find (" LOGINDISABLED ") != std::string::npos) {
 		command_logout();
@@ -442,8 +442,8 @@ Imap4::command_capability (void) throw (imap_err)
  * @param     partinfo Partinfo structure with information of the relevant
  *                     part of the mail as returned by
  *                     Imap4::command_fetchbodystructure().
- * @param     mail     C++ vector of C++ strings containing the header lines of
- *                     the mail (inclusive the separating empty line).
+ * @param     mail     Vector containing the mail's header lines (inclusive
+ *                     the separating empty line).
  * @exception imap_command_err
  *                     This exception is thrown when we get an unexpected
  *                     response.
