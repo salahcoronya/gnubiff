@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.35 $
-// Revision date : $Date: 2005/01/16 22:24:17 $
+// Revision      : $Revision: 1.36 $
+// Revision date : $Date: 2005/01/18 13:54:12 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -285,6 +285,9 @@ public:
 	// ========================================================================
 	//  access
 	// ========================================================================
+
+	gboolean find_mail (std::string mailid, header &mail);
+
 	const std::string name (void)						{return name_;}
 	void name (const std::string value)					{name_ = value;}
 

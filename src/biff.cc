@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/01/17 16:41:40 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/01/18 13:54:12 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -228,7 +228,29 @@ Biff::popup_format (std::string format)
 	popup_format_ = format;
 }
 
-guint
+/**
+ *  Search in all mailboxes for the mail with id {\em mailid}.
+ *
+ *  @param  mailid  Gnubiff mail identifier of the mail to find
+ *  @param  mail    Here the header of the found mail is returned. If no mail
+ *                  with id {\em mailid} exists, {\em mail} remains unchanged.
+ *  @returns        Boolean indicating if a mail exists or not.
+ */
+gboolean 
+Biff::find_mail (std::string mailid, struct header_ &mail)
+{
+	gboolean ok = false;
+
+	g_mutex_lock (mutex_);
+	for (guint i=0; (i < mailbox_.size()) && !ok; i++)
+		if (mailbox_[i]->find_mail (mailid, (header &)mail))
+			ok = true;
+	g_mutex_unlock (mutex_);
+
+	return ok;
+}
+
+guint 
 Biff::size (void)
 {
 	g_mutex_lock (mutex_);
