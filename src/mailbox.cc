@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.48 $
-// Revision date : $Date: 2005/01/19 22:29:26 $
+// Revision      : $Revision: 1.49 $
+// Revision date : $Date: 2005/01/27 13:51:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -218,14 +218,13 @@ Mailbox::fetch (void)
 void
 Mailbox::read (gboolean value)
 {
-	if (!g_mutex_trylock (mutex_))
+	if ((!value) || (!g_mutex_trylock (mutex_)))
 		return;
-	if (value == true) {
-		hidden_.clear();
-		hidden_ = seen_;
-		unread_.clear();
-		biff_->save();
-	}
+	hidden_.clear();
+	hidden_ = seen_;
+	unread_.clear();
+	mails_to_be_displayed_.clear ();
+	biff_->save();
 	g_mutex_unlock (mutex_);
 }
 
@@ -737,7 +736,7 @@ Mailbox::find_mail (std::string mailid, Header &mail)
 	gboolean ok = false;
 
 	g_mutex_lock (mutex_);
-	if (ok = (unread_.find (mailid) != unread_.end ()))
+	if ((ok = (unread_.find (mailid) != unread_.end ())))
 		mail = unread_[mailid];
 	g_mutex_unlock (mutex_);
 
