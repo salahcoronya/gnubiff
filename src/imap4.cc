@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/14 11:20:24 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -107,18 +107,28 @@ gint Imap4::connect (void)
 
 	gboolean check = FALSE;
 	while (socket_->read (line)) {
-		if (line.find ("A002 OK") != std::string::npos) {
+		if (line.find ("A002 OK") == 0) {
 			check = true;
 			break;
 		}
-		else if (line.find ("A002") != std::string::npos)
+		else if (line.find ("A002") == 0)
+		{
+			socket_->write ("A003 LOGOUT\r\n");
+			socket_->close ();
 			break;
+		}
 	}
 
-	if (!socket_->status()) return 0;
+	if (!socket_->status()||!check)
+	{
+		socket_->status (SOCKET_STATUS_ERROR);
+		status_ = MAILBOX_ERROR;
+		g_warning (_("[%d] Unable to select folder %s on host %s"), uin_,
+				   folder_.c_str(), hostname_.c_str());
+		return 0;
+	}
 
-	if (check)
-		socket_->status(SOCKET_STATUS_OK);
+	socket_->status(SOCKET_STATUS_OK);
 
 	return 1;
 }
