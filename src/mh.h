@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/04/05 16:17:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -32,10 +32,12 @@
 #ifndef __MH_H__
 #define __MH_H__
 
-#include "local.h"
+#include <glib.h>
+#include <vector>
+#include "mh_basic.h"
 
 
-class Mh : public Local {
+class Mh : public Mh_Basic {
 
 protected:
 	std::vector<guint> 		saved_;			// saved uild's
@@ -43,16 +45,16 @@ protected:
 public:
 	// ========================================================================
 	//  base
-	// ========================================================================	
+	// ========================================================================
 	Mh (class Biff *biff);
 	Mh (const Mailbox &other);
 	~Mh (void);
 
 	// ========================================================================
 	//  main
-	// ========================================================================	
-	int connect (void);
-	void fetch (void);
+	// ========================================================================
+	gboolean get_messagenumbers (std::vector<guint> &msn,
+								 gboolean empty = true);
 	std::string file_to_monitor (void);
 };
 

@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/02/02 14:31:22 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/02/02 17:46:29 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -55,6 +55,7 @@ const guint	PROTOCOL_IMAP4		=	3;
 const guint	PROTOCOL_MAILDIR	=	4;
 const guint	PROTOCOL_MH			=	5;
 const guint	PROTOCOL_APOP		=	6;
+const guint	PROTOCOL_MH_BASIC	=	7;
 
 const guint	AUTH_AUTODETECT		=	0;
 const guint	AUTH_USER_PASS		=	1;

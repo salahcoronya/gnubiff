@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2005/03/27 19:25:23 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2005/03/31 11:22:07 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -34,10 +34,10 @@
 
 const guint Gnubiff_Options::protocol_int[] = {
 	PROTOCOL_NONE, PROTOCOL_FILE, PROTOCOL_POP3, PROTOCOL_IMAP4,
-	PROTOCOL_MAILDIR, PROTOCOL_MH, PROTOCOL_APOP, 0
+	PROTOCOL_MAILDIR, PROTOCOL_MH, PROTOCOL_APOP, PROTOCOL_MH_BASIC, 0
 };
 const gchar *Gnubiff_Options::protocol_gchar[] = {
-	"-", "file", "pop3", "imap4", "maildir", "mh", "apop", NULL
+	"-", "file", "pop3", "imap4", "maildir", "mh", "apop", "mhbasic", NULL
 };
 
 /**

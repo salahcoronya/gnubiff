@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.124 $
-// Revision date : $Date: 2005/03/29 15:29:05 $
+// Revision      : $Revision: 1.125 $
+// Revision date : $Date: 2005/04/06 18:57:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -1201,7 +1201,7 @@ Imap4::parse_bodystructure (std::string structure, PartInfo &partinfo,
 		}
 
 		// Alphanumerical character
-		if (g_ascii_isalnum (c))	{
+		if (g_ascii_isalnum (c)) {
 			if ((multipart) && (nestlevel == 0))
 				return false;
 			if (!multipart)
