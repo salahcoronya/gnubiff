@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.38 $
-// Revision date : $Date: 2005/03/10 17:48:20 $
+// Revision      : $Revision: 1.39 $
+// Revision date : $Date: 2005/03/20 15:55:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -403,9 +403,9 @@ Biff::upgrade_options (void)
 		std::stringstream tmpstr (config_version);
 		guint tmp;
 		tmpstr >> tmp;
-		version  = 100*100*tmp;
+		version  = 1000*1000*tmp;
 		tmpstr >> tmp;
-		version += 100*tmp;
+		version += 1000*tmp;
 		tmpstr >> tmp;
 		version += tmp;
 	}
