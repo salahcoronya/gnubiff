@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/02/07 23:02:36 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/02/14 16:13:51 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -605,4 +605,10 @@ Gnubiff_Options::add_options_security (void)
 		"   * POP3: maximum response line length is 512 (see RFC 1939 3.)\n"
 		"This option is currently used for all network protocols.",
 								 16384));
+	// PREVDOS_CLOSE_SOCKET
+	add_option (new Option_UInt ("prevdos_close_socket", OPTGRP_SECURITY,
+		"Maximum number of lines to be read when the socket for a network "
+		"connection is closed.\n"
+		"This option is used for all network protocols.",
+								 64));
 }

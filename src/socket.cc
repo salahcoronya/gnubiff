@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/02/01 17:12:48 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2005/02/03 15:09:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -269,11 +269,12 @@ Socket::close (void)
 	std::string line;  
 	if (sd_ != SD_CLOSE) {
 		fcntl (sd_, F_SETFL, O_NONBLOCK);
+		guint cnt = 1 + mailbox_->biff()->value_uint ("prevdos_close_socket");
 		do {
 			read (line, false, false);
-		} while (!line.empty());
+		} while ((!line.empty()) && (cnt--));
 	}
-  
+
 #ifdef HAVE_LIBSSL
 	if (use_ssl_ && ssl_) {
 		if (sd_ != SD_CLOSE)
