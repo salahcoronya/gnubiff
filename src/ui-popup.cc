@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2004/12/21 21:21:14 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2004/12/27 18:02:13 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -203,11 +203,11 @@ Popup::create (void)
 
 
 /** 
- * Update popup list
+ * Update popup list.
  *   Be careful that we're responsible for freeing memory of updated
  *   field within tree store. Easy solution is to collect every (gchar
  *   *) used in tree store and to free them next time we enter this
- *   function (saved_strings)
+ *   function (saved_strings).
  **/
 void
 Popup::update (void)

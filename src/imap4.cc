@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.62 $
-// Revision date : $Date: 2004/12/31 15:52:39 $
+// Revision      : $Revision: 1.63 $
+// Revision date : $Date: 2004/12/31 16:08:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -591,7 +591,7 @@ Imap4::idle_renew_loop() throw (imap_err)
  *    \item IDLE: If the server has the IDLE capability, gnubiff uses the
  *          IDLE command instead of polling.
  *    \item LOGINDISABLED: The server wants us not to login.
- * \end{\itemize}
+ * \end{itemize}
  * 
  * @exception imap_command_err
  *                     In case of an unexpected server's response or if a
