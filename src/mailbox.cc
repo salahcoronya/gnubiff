@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.68 $
-// Revision date : $Date: 2005/03/08 12:33:21 $
+// Revision      : $Revision: 1.69 $
+// Revision date : $Date: 2005/03/08 16:58:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -706,7 +706,7 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 			h.add_to_body ("\n...");
 	}
 	else {
-		gchar *tmp = g_strdup_printf (_("[This message has a not supported "
+		gchar *tmp = g_strdup_printf (_("[This message has an unsupported "
 										"content type: \"%s/%s\"]"),
 									  partinfo.type_.c_str(),
 									  partinfo.subtype_.c_str());
