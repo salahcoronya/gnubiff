@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/12/29 12:56:40 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/29 21:27:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -63,7 +63,6 @@ public:
 	void start (void);
 	void fetch (void);
 	gint connect (void);
-	void fetch_status (void);
 	void fetch_header (void);
 
 	class imap_err : public std::exception {};	 // General Imap Exception
