@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.43 $
-// Revision date : $Date: 2004/12/19 00:03:15 $
+// Revision      : $Revision: 1.44 $
+// Revision date : $Date: 2004/12/23 08:41:38 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -119,6 +119,10 @@ Imap4::fetch (void)
 		gdk_threads_enter();
 		biff_->applet()->update();
 		gdk_threads_leave();
+
+		// If we have reported the new mail, then set the status to old
+		if (status_ == MAILBOX_NEW)
+			status_ = MAILBOX_OLD;
 	}
 }
 
@@ -598,6 +602,10 @@ Imap4::fetch_header (void)
 				gdk_threads_enter();
 				biff_->applet()->update();
 				gdk_threads_leave();
+
+				// If we have reported the new mail, then set the status to old
+				if (status_ == MAILBOX_NEW)
+					status_ = MAILBOX_OLD;
 			}
 
 			if (timetag_)
