@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: socket.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -190,7 +190,7 @@ Socket::open (std::string hostname,
 #endif
 	status_ = SOCKET_STATUS_OK;
 	return 1;
-};
+}
 
 
 gint
