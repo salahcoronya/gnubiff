@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/01/31 14:58:07 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/02/02 14:31:22 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -77,7 +77,6 @@ const guint OPTGRP_POPUP		=	4;
 const guint OPTGRP_MAILBOX		=	8;
 const guint OPTGRP_INFORMATION	=	16;
 const guint OPTGRP_SECURITY		=	32;
-const guint OPTGRP_MAILS		=	64;
 
 class Gnubiff_Options : public Options {
 public:
@@ -88,6 +87,7 @@ protected:
 	void add_options_information (void);
 	void add_options_mailbox (void);
 	void add_options_popup (void);
+	void add_options_security (void);
 private:
 	const static guint protocol_int[];
 	const static gchar *protocol_gchar[];

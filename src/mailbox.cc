@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.52 $
-// Revision date : $Date: 2005/02/01 17:12:48 $
+// Revision      : $Revision: 1.53 $
+// Revision date : $Date: 2005/02/02 15:33:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -562,8 +562,9 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid)
 			do {
 				h.body += mail[i++] + std::string("\n");
 				j++;
-			} while ((j<10) && (i < mail.size()));
-			if (j == 10)
+			} while ((j < biff_->value_uint ("popup_body_lines"))
+					 && (i < mail.size()));
+			if (j == biff_->value_uint ("popup_body_lines"))
 				h.body += std::string("...");
 		}
 	}

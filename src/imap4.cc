@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.113 $
-// Revision date : $Date: 2005/01/27 13:50:56 $
+// Revision      : $Revision: 1.114 $
+// Revision date : $Date: 2005/01/31 14:58:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -624,7 +624,7 @@ Imap4::command_fetchheader (guint msn) throw (imap_err)
 			 address().c_str(), port());
 #endif
 	std::string line;
-	gint cnt = 5 + preventDoS_additionalLines_;
+	gint cnt = 5 + biff_->value_uint ("prevdos_additional_lines");
 	while ((readline (line, false, true, false)) && (cnt--)) {
 		if (line.find (tag()) == 0)
 			break;
@@ -922,7 +922,7 @@ Imap4::waitfor_ack (std::string msg, gint num) throw (imap_err)
 	// Reset server response code map
 	ok_response_codes_.clear ();
 
-	num+=1+preventDoS_additionalLines_;
+	num += 1 + biff_->value_uint ("prevdos_additional_lines");
 	while ((readline (line)) && (num--))
 		if (line.find (tag()) == 0)
 			break;
@@ -976,7 +976,7 @@ Imap4::waitfor_ack_untaggedresponse (std::string key, std::string contbegin,
 	ok_response_codes_.clear ();
 
 	// We need to set a limit to lines read (DoS attacks).
-	num += 1 + preventDoS_additionalLines_;
+	num += 1 + biff_->value_uint ("prevdos_additional_lines");
 
 	while (num--) {
 		readline (line);
@@ -1033,7 +1033,7 @@ Imap4::waitfor_untaggedresponse (guint msn, std::string key,
 	ok_response_codes_.clear ();
 
 	// We need to set a limit to lines read (DoS attacks).
-	num+=1+preventDoS_additionalLines_;
+	num += 1 + biff_->value_uint ("prevdos_additional_lines");
 
 	while (num--) {
 		readline (line);
@@ -1653,7 +1653,7 @@ gint
 Imap4::readline_ignoreinfo (std::string &line, gboolean print, gboolean check,
 							gboolean checkline) throw (imap_err)
 {
-	gint cnt=1+preventDoS_ignoreinfo_, status;
+	gint cnt = 1 + biff_->value_uint ("prevdos_ignore_info"), status;
 
 	do {
 		status=readline (line, print, check, checkline);

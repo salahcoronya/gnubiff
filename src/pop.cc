@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/01/19 22:29:26 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -340,7 +340,8 @@ Pop::command_top (std::vector<std::string> &mail, guint msg) throw (pop_err)
 	g_print ("** Message: [%d] RECV(%s:%d): (message) ", uin(),
 			 address().c_str(), port());
 #endif
-	gint cnt = preventDoS_headerLines_ + bodyLinesToBeRead_ + 1;
+	gint cnt = biff_->value_uint ("prevdos_header_lines");
+	cnt += bodyLinesToBeRead_ + 1;
 	do {
 		readline (line, false, true, false);
 		// Remove trailing '\n'
