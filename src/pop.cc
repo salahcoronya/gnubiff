@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/04 18:49:05 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/12/14 20:39:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -229,16 +229,16 @@ Pop::fetch_header (void)
 	std::vector<std::string> mail;
 	for (guint i=0; i < n; i++) {
 		std::stringstream s;
-		s << (i+start) << " " << linesToBeRead_;
+		s << (i+start) << " " << bodyLinesToBeRead_;
 		mail.clear();
-		// Get header and first lines of mail (see constant linesToBeRead_)
+		// Get header and first lines of mail (see constant bodyLinesToBeRead_)
 		line = "TOP " + s.str() + "\r\n";
 		if (!socket_->write (line)) return;
 #ifdef DEBUG
 		g_print ("** Message: [%d] RECV(%s:%d): (message) ", uin_, address_.c_str(), port_);
 #endif
 		if (!socket_->read (line, false)) return;
-		gint cnt = preventDoS_headerLines_+linesToBeRead_+1;
+		gint cnt = preventDoS_headerLines_+bodyLinesToBeRead_+1;
 		do {
 			if (!socket_->read (line, false)) return;
 			if (line.size() > 1) {
