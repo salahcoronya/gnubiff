@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.117 $
-// Revision date : $Date: 2005/02/05 01:38:18 $
+// Revision      : $Revision: 1.118 $
+// Revision date : $Date: 2005/02/06 22:30:32 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -474,7 +474,7 @@ Imap4::command_fetchbody (guint msn, class PartInfo &partinfo,
 	}
 
 	// Insert character set into header
-	if (partinfo.charset_!="") {
+	if (partinfo.charset_ != "") {
 		line = "Content-type: " + partinfo.mimetype_ + "; charset=";
 		line+= partinfo.charset_;
 		mail.insert (mail.begin(), line);
