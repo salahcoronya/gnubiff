@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2004/12/27 00:00:22 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2004/12/29 20:31:53 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -147,9 +147,6 @@ protected:
 	std::vector<guint>			hidden_;			// mails that won't be displayed
 	std::vector<guint>			seen_;				// mails already seen   
 	std::vector<guint>			new_seen_;			// mails already seen (tmp buffer)
-
-	static class Authentication *ui_auth_;			// ui to get username & password
-	static GStaticMutex			ui_auth_mutex_;		// Lock to avoid conflicts
 	template<class T> static gboolean contains_new (std::vector<T> newlist, std::vector<T> oldlist); // Comparing newlist to oldlist for new elements
 
 public:

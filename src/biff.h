@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/12/20 23:40:10 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/12/27 18:02:13 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -113,6 +113,8 @@ protected:
 	std::string						passtable_;		// encryption table
 	std::vector<class Mailbox *>	mailbox_;		// mailboxes
 	GMutex *						mutex_;			// access mutex
+	class Authentication			*ui_auth_;		// ui to get username & password
+	GMutex							*ui_auth_mutex_;// Lock to avoid conflicts
 	gint							count_;			// counter used during loading
 	class Preferences	*			preferences_;	// preferences ui
 	class Popup *					popup_;			// popup ui
@@ -145,7 +147,7 @@ public:
 	void add (Mailbox *mailbox);					// add a new mailbox
 	Mailbox *replace (Mailbox *from, Mailbox *to);	// replace a mailbox (from) with another (to)
 	void remove (Mailbox *mailbox);					// remove a mailbox
-	std::string password (Mailbox *mailbox);		// try to find a password for this mailbox
+	gboolean password (Mailbox *mailbox);		// try to find a password for this mailbox
 
 	// ================================================================================
 	//  i/o
