@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/02/02 17:46:29 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/02/03 15:09:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -119,7 +119,6 @@ Pop::start (void) throw (pop_err)
 		status (MAILBOX_ERROR);
 		unread_.clear ();
 		seen_.clear ();
-		new_mails_to_be_displayed_.clear ();
 		socket_->close ();
 	}
 
