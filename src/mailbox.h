@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/01/02 21:16:56 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/01/03 12:01:31 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -103,7 +103,10 @@ typedef struct _header {
 
 #define MAILBOX(x)					((Mailbox *)(x))
 
-
+/**
+ * Generic mailbox intended as base for implementing mailboxes for a specific
+ * protocol. 
+ */
 class Mailbox : public Decoding {
 
 protected:
@@ -157,6 +160,14 @@ public:
 	Mailbox (const Mailbox &other);
 	Mailbox &operator= (const Mailbox &other);
 	virtual ~Mailbox (void);
+
+	// ========================================================================
+	//  exceptions
+	// ========================================================================
+
+	/** General exception for mailboxes. This only serves as base for more
+	 *  more specific exceptions. */
+	class mailbox_err : public std::exception {};
 
 	// ========================================================================
 	//  main

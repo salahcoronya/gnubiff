@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/14 20:17:22 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/16 11:45:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -55,7 +55,7 @@ Decoding::decode_body (std::vector<std::string> &mail, std::string encoding)
 	bodypos++;
 
 	// 7bit, 8bit encoding: nothing to do
-	if ((encoding=="7bit") || (encoding=="8bit") || (encoding=="binary"));
+	if ((encoding=="7bit") || (encoding=="8bit")); // || (encoding=="binary"));
 	// Quoted-Printable
 	else if (encoding=="quoted-printable") {
 		std::vector<std::string> decoded=decode_quotedprintable(mail, bodypos);
