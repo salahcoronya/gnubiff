@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.119 $
-// Revision date : $Date: 2005/02/20 22:20:04 $
+// Revision      : $Revision: 1.120 $
+// Revision date : $Date: 2005/03/03 15:10:50 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -317,9 +317,7 @@ Imap4::fetch_mails (void) throw (imap_err)
 		// FETCH BODY
 		command_fetchbody (*i, partinfo, mail);
 
-		// Decode and parse mail
-		if (partinfo.part_ != "")
-			decode_body (mail, partinfo.encoding_);
+		// Parse mail
 		parse (mail, mailid, &partinfo);
 	}
 }
