@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2004/12/05 21:57:23 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2004/12/06 12:08:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -613,6 +613,7 @@ Imap4::fetch_header (void)
 			socket_->close ();
 			idling = false;
 			idled_ = false;
+			return;
 		}
 		if (!socket_->status()) break;
 	} while (idling);
