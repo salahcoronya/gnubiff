@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/01/13 21:31:34 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/01/16 22:24:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -43,20 +43,13 @@
 
 #include <glib.h>
 #include <string>
+#include "gnubiff_options.h"
 
 
 const gint	SOCKET_TIMEOUT			=	 2;
 const gint	SOCKET_STATUS_OK		=	 1;
 const gint	SOCKET_STATUS_ERROR		=	 0;
 const gint	SD_CLOSE				=	-1;
-
-const gint	AUTH_AUTODETECT			=	0;
-const gint	AUTH_USER_PASS			=	1;
-const gint	AUTH_APOP				=	2;
-const gint	AUTH_SSL				=	3;
-const gint	AUTH_CERTIFICATE		=	4;
-
-
 
 class Socket {
 

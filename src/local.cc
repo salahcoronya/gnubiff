@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/01/11 08:47:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -83,7 +83,8 @@ Local::start (void)
 	}
 
 	// start monitoring
-	if( FAMMonitorFile (&fam_connection_, address_.c_str(), &fam_request_, NULL) < 0) {
+	if( FAMMonitorFile (&fam_connection_, address().c_str(), &fam_request_,
+						NULL) < 0) {
 		FAMClose (&fam_connection_);
 		g_mutex_unlock (monitor_mutex_);
 		return ;
@@ -122,9 +123,10 @@ Local::start (void)
 	// Ok, we got an error, just retry monitoring
 	if (status != 1) {
 #if DEBUG
-		g_message ("[%d] FAM error, start fetch in %d second(s)", uin_, delay_);
+		g_message ("[%d] FAM error, start fetch in %d second(s)", uin(),
+				   delay());
 #endif
-		sleep (delay_);
+		sleep (delay());
 		start ();
 	}
 }

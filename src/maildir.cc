@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/21 00:03:17 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -45,12 +45,12 @@
 // ========================================================================	
 Maildir::Maildir (Biff *biff) : Local (biff)
 {
-	protocol_ = PROTOCOL_MAILDIR;
+	value ("protocol", PROTOCOL_MAILDIR);
 }
 
 Maildir::Maildir (const Mailbox &other) : Local (other)
 {
-	protocol_ = PROTOCOL_MAILDIR;
+	value ("protocol", PROTOCOL_MAILDIR);
 }
 
 Maildir::~Maildir (void)
@@ -66,17 +66,17 @@ Maildir::fetch (void)
 	DIR *dir;
 	struct stat file_stat;
 	struct dirent *dent;
-	int saved_status = status_;
+	int saved_status = status();
   
 	// Build directory name
-	gchar *base=g_path_get_basename(address_.c_str());
+	gchar *base = g_path_get_basename (address().c_str());
 	std::string directory;
-	if (base==std::string("new"))
-		directory=address_;
+	if (base == std::string("new"))
+		directory = address ();
 	else
 	{
-		gchar *tmp=g_build_filename(address_.c_str(),"new",NULL);
-		directory=std::string(tmp);
+		gchar *tmp = g_build_filename (address().c_str(), "new", NULL);
+		directory = std::string(tmp);
 		g_free(tmp);
 	}
 	g_free(base);
@@ -84,21 +84,21 @@ Maildir::fetch (void)
 	// Check for existence of a new mail directory
 	if ((stat (directory.c_str(), &file_stat) != 0)||(!S_ISDIR(file_stat.st_mode))) {
 		g_warning (_("Cannot find new mail directory (%s)"), directory.c_str());
-		status_ = MAILBOX_ERROR;
+		status (MAILBOX_ERROR);
 		return;
 	}
 
 	// Try to open new mail directory
 	if ((dir = opendir (directory.c_str())) == NULL) {
 		g_warning (_("Cannot open new mail directory (%s)"), directory.c_str());
-		status_ = MAILBOX_ERROR;
+		status (MAILBOX_ERROR);
 		return;
 	}
 
 	std::vector<std::string> mail;
 	std::string line; 
 	// Read new mails
-	while ((dent = readdir(dir)) && (new_unread_.size() < (unsigned int)(biff_->max_mail_))) {
+	while ((dent = readdir(dir)) && (new_unread_.size() < (biff_->value_uint ("max_mail")))) {
 		if (dent->d_name[0]=='.')
 			continue;
 
@@ -124,5 +124,5 @@ Maildir::fetch (void)
 	closedir (dir);
 
 	// Restore status
-	status_ = saved_status;
+	status (saved_status);
 }
