@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/21 00:03:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -68,9 +68,6 @@ Maildir::fetch (void)
 	struct dirent *dent;
 	int saved_status = status_;
   
-	// Status will be restored in the end if no problem occured
-	status_ = MAILBOX_CHECK;
-
 	// Build directory name
 	gchar *base=g_path_get_basename(address_.c_str());
 	std::string directory;
@@ -98,8 +95,6 @@ Maildir::fetch (void)
 		return;
 	}
 
-	new_unread_.clear();
-	new_seen_.clear();
 	std::vector<std::string> mail;
 	std::string line; 
 	// Read new mails
@@ -130,10 +125,4 @@ Maildir::fetch (void)
 
 	// Restore status
 	status_ = saved_status;
-
-	if ((unread_ == new_unread_) && (unread_.size() > 0))
-		status_ = MAILBOX_OLD;
-
-	unread_ = new_unread_;
-	seen_ = new_seen_;
 }

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2004/12/26 16:40:37 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/12/28 09:35:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -70,7 +70,7 @@ Local::start (void)
 	// at this point we need to explicitely call the get function since
 	// monitoring will start from now on. Even if the mailbox was full,
 	// no change appears yet, so we force it.
-	fetch ();
+	start_checking ();
 	gdk_threads_enter();
 	biff_->applet()->update();
 	gdk_threads_leave();
@@ -100,7 +100,7 @@ Local::start (void)
 		}
 
 		if (fam_event_.code == FAMChanged) {
-			fetch ();
+			start_checking ();
 			gdk_threads_enter();
 			biff_->applet()->update();
 			gdk_threads_leave();
