@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/12/08 14:36:26 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/12/10 09:17:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -720,7 +720,6 @@ gchar *
 Popup::convert (std::string text, std::string charset)
 {
 	gchar *utf8 = (char *) text.c_str();
-
 	if (!charset.empty())
 		utf8 = g_convert (text.c_str(), -1, "utf-8", charset.c_str(), 0,0,0);
 	else
