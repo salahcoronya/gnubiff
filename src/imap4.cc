@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.116 $
-// Revision date : $Date: 2005/02/03 15:09:15 $
+// Revision      : $Revision: 1.117 $
+// Revision date : $Date: 2005/02/05 01:38:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -221,13 +221,6 @@ Imap4::connect (void) throw (imap_err)
 {
 	// Resetting the tag counter
 	reset_tag();
-
-	// Check standard port
-	if (!use_other_port())
-		if (authentication() == AUTH_USER_PASS)
-			port (143);
-		else
-			port (993);
 
 #ifdef DEBUG
 	g_message ("[%d] Trying to connect to %s on port %d", uin(),

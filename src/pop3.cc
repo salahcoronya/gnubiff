@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop3.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/01/04 23:07:05 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -88,13 +88,6 @@ void
 Pop3::connect (void) throw (pop_err)
 {
 	std::string line;
-
-	// Check standard port
-	if (!use_other_port())
-		if (authentication() == AUTH_USER_PASS)
-			port (110);
-		else
-			port (995);
 
 	// Open the socket
 	Pop::connect ();
