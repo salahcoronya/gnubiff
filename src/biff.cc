@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/01/03 16:17:27 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/01/05 16:16:43 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -466,7 +466,7 @@ Biff::save (void)
 		std::stringstream seen;
 		for (std::set<guint>::iterator j = mailbox_[i]->hidden().begin();
 			 j != mailbox_[i]->hidden().end(); j++)
-			seen << *j;
+			seen << *j << " ";
 		save_para("seen",seen.str());
 		save_endblock();
 	}
