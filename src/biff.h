@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: biff.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -167,6 +167,8 @@ public:
 
 	/* I/O */
 	gboolean load (void);
+	std::string save_para(const gchar *,std::string,guint indent=4);
+	std::string save_para(const gchar *,gint,guint indent=4);
 	gboolean save (void);
 	void xml_start_element (GMarkupParseContext *context,
 							const gchar *element_name,
