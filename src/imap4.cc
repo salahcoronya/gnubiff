@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.96 $
-// Revision date : $Date: 2005/01/07 02:37:41 $
+// Revision      : $Revision: 1.97 $
+// Revision date : $Date: 2005/01/07 14:31:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -806,6 +806,7 @@ Imap4::command_logout (void) throw (imap_err)
 {
 	// Sending the command
 	sendline ("LOGOUT");
+	// Acknowledgment is read (and ignored) when closing socket
 	// Closing the socket
 	socket_->close ();
 }
