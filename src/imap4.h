@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.29 $
-// Revision date : $Date: 2005/01/02 21:16:56 $
+// Revision      : $Revision: 1.30 $
+// Revision date : $Date: 2005/01/02 23:19:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -131,8 +131,11 @@ class Imap4 : public Mailbox {
 				   throw (imap_err);
 	gint readline (std::string &, gboolean debug=true, gboolean check=true,
 				   gboolean checkline=true) throw (imap_err);
-	void update_applet();						 // Update the applet to new IMAP state.
-	void idle() throw (imap_err);		         // Begin idle IMAP mode.
+	gint readline_ignoreinfo (std::string &, gboolean debug=true,
+							  gboolean check=true, gboolean checkline=true)
+							  throw (imap_err);
+	void update_applet();
+	void idle() throw (imap_err);
 };
 
 /**
