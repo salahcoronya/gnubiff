@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: header.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/01/19 22:35:04 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/02/05 01:38:18 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : All information about a specific mail needed by gnubiff
 //
@@ -158,7 +158,6 @@ public:
 		}
 	};
 
-	// FIXME: Date comparisions should not be string based!
 	/// Comparing the date of two headers
 	struct compare_date : public bin_fun_
 	{
@@ -168,7 +167,6 @@ public:
 		}
 	};
 
-	// FIXME: Date comparisions should not be string based!
 	/// Comparing the date of two headers (reversed)
 	struct compare_date_rev : public bin_fun_
 	{
