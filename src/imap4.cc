@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.45 $
-// Revision date : $Date: 2004/12/26 23:04:52 $
+// Revision      : $Revision: 1.46 $
+// Revision date : $Date: 2004/12/27 00:00:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -457,7 +457,8 @@ Imap4::fetch_header (void)
 #ifdef DEBUG
 			g_print ("\n");
 #endif
-			if ((!socket_->status()) || (cnt<0)) return;
+			// Did an error happen?
+			if ((!socket_->status()) || (cnt<0) || (mail.size()==0)) return;
 
 			// Remove last line (should contain a closing parenthesis). Note:
 			// We need the (hopefully empty;-) line before because it separates
