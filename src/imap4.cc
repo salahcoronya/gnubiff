@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.105 $
-// Revision date : $Date: 2005/01/09 11:02:21 $
+// Revision      : $Revision: 1.106 $
+// Revision date : $Date: 2005/01/09 19:29:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -136,9 +136,6 @@ Imap4::start (void)
 		}
 		socket_->close ();
 
-		// Do we need to get our mutex back?
-//		if (idled_)
-//			g_mutex_lock (mutex_);
 		idled_ = false;
 	}
 
@@ -366,16 +363,13 @@ Imap4::fetch_mails (void) throw (imap_err)
 void 
 Imap4::idle (void) throw (imap_err)
 {
+	idled_ = true;
 	gboolean sentdone=false; // "DONE\r\n" sent by command_idle()?
 
 	// Currently we will never exit this loop unless an error occurs,
 	// probably due to the loss of a connection.	Basically our loop is:
 	// (update applet)->(wait in idle for mail change)->(Get Mail headers)
 	while (true) {
-		// While idling we don't need the lock, nothing important changes
-		idled_ = true;
-//		g_mutex_unlock (mutex_);
-
 		// When in idle state, we won't exit this thread function
 		// so we have to update applet in the meantime
 		update_applet();
@@ -395,10 +389,10 @@ Imap4::idle (void) throw (imap_err)
 		waitfor_ack();
 
 		// Get mails
-//		g_mutex_lock (mutex_);
-		idled_ = false;
+
 		fetch_mails();
 	}
+	idled_ = false;
 }
 
 /**

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.29 $
-// Revision date : $Date: 2005/01/06 00:06:00 $
+// Revision      : $Revision: 1.30 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -208,6 +208,7 @@ protected:
 	/** This vector contains the uids of all those mails that will be
 	 *  displayed (in the opposite order). */
 	std::vector<std::string>    mails_to_be_displayed_;
+	std::vector<std::string>    new_mails_to_be_displayed_;
 
 public:
 	// ========================================================================
