@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/03/06 19:45:44 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/03/09 14:35:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -56,7 +56,6 @@ public:
 	//  general
 	// ================================================================================
 	std::string		passtable_;					// encryption table
-	static void bug_report_msg (void);
 
 protected:
 	// ================================================================================

@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2004/12/04 18:49:05 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/12/16 11:45:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -44,5 +44,9 @@
 
 gchar* gb_utf8_strndup(const gchar *, gsize);
 std::string gb_substitute(std::string, std::string, std::vector<std::string>);
+
+#define unknown_internal_error() (unknown_internal_error_ (__FILE__, __LINE__, __func__))
+
+void unknown_internal_error_(const gchar *file, guint line, const gchar *func);
 
 #endif
