@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/01/31 14:58:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/02/01 00:16:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -115,6 +115,12 @@ public:
 	void expert_create (void);
 	void expert_add_option_list (void);
 	void expert_on_selection (GtkTreeSelection *selection);
+	void expert_ok (void);
+	void expert_reset (void);
+protected:
+	gboolean expert_get_option (class Options *&options,class Option *&option);
+	gboolean expert_get_option (class Options *&options, class Option *&option,
+								GtkTreeIter &treeiter, GtkListStore *&store);
 };
 
 #endif

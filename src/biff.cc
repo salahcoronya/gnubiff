@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2005/01/20 10:11:30 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2005/01/31 14:58:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -451,8 +451,8 @@ Biff::save (void)
 	g_mutex_unlock (mutex_);
 
 	// Save options common to all mailboxes (each group of options separate)
-	std::map<guint, Option_Group *>::iterator it = groups().begin();
-	while (it != groups().end()) {
+	std::map<guint, Option_Group *>::iterator it = groups()->begin();
+	while (it != groups()->end()) {
 		std::string name = it->second->name ();
 		to_strings (it->first, name_value);
 		it++;

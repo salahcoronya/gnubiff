@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/01/16 22:24:17 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -85,7 +85,7 @@ public:
 	 **/
 	gint open  (std::string hostname = "",
 				gushort port = 0,
-				gint authentication = AUTH_SSL,
+				guint authentication = AUTH_SSL,
 				std::string certificate = "",
 				guint timeout = 5);
 	gint close (void);

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/01/19 22:45:00 $
+// File          : $RCSfile: gnubiff_options.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/01/31 14:58:07 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -267,7 +267,7 @@ Gnubiff_Options::add_options_mailbox (void)
 	const static gchar *s4[] = {"autodetect", "user_pass", "apop", "ssl",
 								"certificate", NULL};
 	add_option (new Option_UInt ("authentication", OPTGRP_MAILBOX,
-		"Authentication to be used when connection to the server via the "
+		"Authentication to be used when connecting to the server via the "
 		"internet.",
 								 AUTH_AUTODETECT, OPTFLG_ID_INT_STRICT 
 								 | OPTFLG_FIXED, i4, s4));

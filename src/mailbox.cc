@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.50 $
-// Revision date : $Date: 2005/01/28 21:53:10 $
+// Revision      : $Revision: 1.51 $
+// Revision date : $Date: 2005/01/31 14:58:08 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -71,7 +71,7 @@ Mailbox::Mailbox (Biff *biff)
 Mailbox::Mailbox (const Mailbox &other)
 {
 	biff_			  = other.biff_;
-	add_option (other);
+	add_option ((Mailbox &)other);
 
 	status (MAILBOX_UNKNOWN);
 	timetag_= 0;
@@ -86,7 +86,7 @@ Mailbox::operator= (const Mailbox &other)
 		return *this;
 	biff_			  = other.biff_;
 	guint saved_uin = value_uint ("uin");
-	add_option (other);
+	add_option ((Mailbox &)other);
 	value ("uin", saved_uin);
 	return *this;
 }

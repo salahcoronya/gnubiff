@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2005/01/06 00:35:35 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2005/01/11 08:47:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -95,7 +95,7 @@ Socket::~Socket (void)
 gint
 Socket::open (std::string hostname,
 			  gushort port,
-			  gint authentication,
+			  guint authentication,
 			  std::string certificate,
 			  guint timeout)
 {

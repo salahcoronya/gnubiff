@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/01/31 17:41:06 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/02/01 00:16:15 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -88,10 +88,17 @@ public:
 	virtual gboolean from_string (const std::string &value) {return false;};
 	virtual void set_gui (std::vector<GtkWidget *> &widgets) {};
 	virtual void get_gui (std::vector<GtkWidget *> &widgets) {};
+	/**
+	 *  Reset the option to the default value.
+	 *
+	 *  Remark: Instead of calling this function directly better call
+	 *  Options::reset(). This function handles flags like OPTFLG_CHANGE!
+	 */
 	virtual void reset (void) {};
 	virtual gboolean is_default (void) {return false;};
 	virtual std::string default_string (void) {return std::string("");};
 	virtual Option *copy (void) {return new Option(*this);};
+	std::string flags_string (std::string sep = std::string("; "));
 
 	/// Access function to Option::flags_
 	guint flags (void) const {return flags_;}
@@ -144,6 +151,7 @@ public:
 	void get_gui (std::vector<GtkWidget *> &widgets);
 	void set_gui (std::vector<GtkWidget *> &widgets);
 	void reset (void);
+	std::string allowed_ids (std::string sep = std::string(" "));
 	gboolean is_default (void) {return value_ == default_;};
 	Option *copy (void) {return new Option_UInt(*this);};
 
@@ -214,6 +222,7 @@ public:
 	void get_values (std::set<std::string> &values, gboolean empty = true);
 	void get_vector (std::vector<guint> &vector, gchar sep = ' ',
 					 gboolean empty = true);
+
 	/// Access function to Option_UInt::value_
 	std::string value (void) {return value_;};
 	/// Access function to Option_UInt::value_
