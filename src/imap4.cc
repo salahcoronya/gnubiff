@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2004/12/05 00:22:36 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2004/12/05 10:48:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -649,7 +649,8 @@ Imap4::parse_bodystructure (std::string structure,gint &size,gboolean toplevel)
 	else
 	{
 		// One part only! Is it text/plain?
-		if (structure.find("\"text\" \"plain\" ") != 0)
+		if ((structure.find("\"text\" \"plain\" ") != 0) &&
+			(structure.find("\"TEXT\" \"PLAIN\" ") != 0))
 			return std::string("");
 		pos=15;
 		block=3;
