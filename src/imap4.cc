@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.54 $
-// Revision date : $Date: 2004/12/29 16:36:50 $
+// Revision      : $Revision: 1.55 $
+// Revision date : $Date: 2004/12/29 17:02:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -656,10 +656,9 @@ Imap4::idle (void) throw (imap_err)
 		std::string line = idle_renew_loop();
 		
 		// Did we loose the lock?
-		if (line.find ("* BYE") != std::string::npos) throw imap_command_err();
+		if (line.find ("* BYE") == 0) throw imap_command_err();
 		
-		line = std::string ("DONE") +std::string ("\r\n");
-		if (!socket_->write (line)) throw imap_socket_err();
+		if (!socket_->write (std::string("DONE\r\n"))) throw imap_socket_err();
 		
 		// Either we got a OK or a BYE
 		gint cnt=preventDoS_additionalLines_;
@@ -696,11 +695,11 @@ Imap4::idle_renew_loop() throw (imap_err)
 {
 	gboolean idleRenew = false;	 // If we should renew the IDLE again.
 	std::string line;
-	do
-	{
+	do {
 		idleRenew = false;
-		line = std::string ("IDLE");
-		if (!send (line)) throw imap_socket_err();
+
+		// IDLE
+		if (!send (std::string("IDLE"))) throw imap_socket_err();
 		
 		// Read acknowledgement
 		if (!socket_->read (line)) throw imap_socket_err();

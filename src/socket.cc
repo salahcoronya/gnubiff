@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2004/12/14 11:13:30 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2004/12/29 12:56:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -406,7 +406,7 @@ Socket::read (std::string &line,
  *
  * @param  timeout   Time in seconds for timeout duration.
  */
-void
+void 
 Socket::set_read_timeout(gint timeout)
 {
 	struct timeval tv;
