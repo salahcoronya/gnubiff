@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.52 $
-// Revision date : $Date: 2004/12/29 13:38:45 $
+// Revision      : $Revision: 1.53 $
+// Revision date : $Date: 2004/12/29 16:22:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -721,7 +721,7 @@ Imap4::idle_renew_loop() throw (imap_err)
 				// out again, with no received data.
 				throw imap_socket_err();
 			}
-			if (line.find ("OK IDLE") == std::string::npos)	{
+			if (line.find (tag() + "OK") != 0) {
 				// We may receive email notification before the server
 				// receives the DONE command, in which case we would get
 				// something like "XXX EXISTS" here before "OK IDLE".
