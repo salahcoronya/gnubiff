@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2004/12/14 11:13:30 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2004/12/14 20:17:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -247,6 +247,12 @@ public:
 	guint &hidden (int i)								{return hidden_[i];}
 	guint hiddens (void)								{return hidden_.size();}
 };
+
+/**
+ * Maximum number of lines to be read from the mail body. This value should be
+ * greater than the value of the lines displayed;-) (see "src/ui-popup.cc").
+ */
+const gint linesToBeRead_=12;
 
 /**
  * In some situations we need to read a certain number of lines from the
