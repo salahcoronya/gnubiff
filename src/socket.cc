@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2004/12/31 13:36:12 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2004/12/31 15:03:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -299,16 +299,19 @@ Socket::write (std::string line,
 
 	status_ = -1;
 
+	// TEMP_FAILURE_RETRY will re-call the method if the write primitive
+	// is interrupted by a signal.
+	
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
-		if (SSL_write (ssl_, line.c_str(), line.size()) <= 0)
+		if (TEMP_FAILURE_RETRY(SSL_write (ssl_, line.c_str(), line.size())) <= 0)
 			status_ = SOCKET_STATUS_ERROR;
 		else
 			status_ = SOCKET_STATUS_OK;
 	}
 #endif
 	if (status_ == -1) {
-		if (::write (sd_, line.c_str(), line.size()) <= 0)
+		if (TEMP_FAILURE_RETRY(::write (sd_, line.c_str(), line.size())) <= 0)
 			status_ = SOCKET_STATUS_ERROR;
 		else
 			status_ = SOCKET_STATUS_OK;
@@ -345,6 +348,9 @@ Socket::read (std::string &line,
 
 	gint cnt=1+preventDoS_lineLength_; 
 
+	// TEMP_FAILURE_RETRY will re-call the method if the read primitive
+	// is interrupted by a signal.
+	
 	errno = 0;
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
