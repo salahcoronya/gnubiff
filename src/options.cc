@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/02/05 14:14:16 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/02/07 22:14:18 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -379,8 +379,11 @@ Options::update_gui (OptionsGUI whattodo, Option *option, GladeXML *xml,
 	while (ss >> gui_name)
 		widgets.push_back (get_widget (gui_name.c_str(), xml, file));
 
-	if (whattodo & OPTSGUI_GET)
+	if (whattodo & OPTSGUI_GET) {
 		option->get_gui (widgets);
+		if ((option->flags() & OPTFLG_CHANGE))
+			option_changed (option);
+	}
 
 	if (whattodo & OPTSGUI_SET)
 		option->set_gui (widgets);
