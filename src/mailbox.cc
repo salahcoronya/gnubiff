@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.44 $
-// Revision date : $Date: 2005/01/17 14:18:14 $
+// Revision      : $Revision: 1.45 $
+// Revision date : $Date: 2005/01/18 13:54:12 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -29,8 +29,8 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
+#include <algorithm>
 #include "support.h"
-
 #include "mailbox.h"
 #include "file.h"
 #include "maildir.h"
