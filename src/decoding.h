@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/14 20:17:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/16 11:45:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -39,10 +39,14 @@
 #include <string>
 #include <vector>
 
+/**
+ * This class is intended to provide functions needed for decoding and
+ * converting encodings used in mails. 
+ */
 class Decoding
 {
 protected:
-	gboolean decode_body (std::vector<std::string> &,std::string);
+	gboolean decode_body (std::vector<std::string> &, std::string);
 
 	// Encodings
 	std::string decode_base64 (const std::string &);
