@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.50 $
-// Revision date : $Date: 2004/12/29 12:56:40 $
+// Revision      : $Revision: 1.51 $
+// Revision date : $Date: 2004/12/29 13:11:45 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -629,7 +629,7 @@ Imap4::close (void)
 
 /**
  * Begin the IMAP idle mode.  This method will not return until
- * either we recieve IMAP notifications (new mail...), or the server
+ * either we receive IMAP notifications (new mail...), or the server
  * terminates for some reason.
  *
  * @exception      imap_err if a problem occurs while processing
