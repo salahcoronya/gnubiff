@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/10/13 16:59:31 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/11/05 13:00:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -162,7 +162,7 @@ public:
 	void remove (guint uin);						// remove mailbox identified by its uin
 	void add (Mailbox *mailbox);					// add a new mailbox
 	void lookup (void);								// lookup format of all mailboxes
-	void lookup (Mailbox *mailbox);					// lookup format of a specific mailbox
+	gboolean lookup (Mailbox *mailbox);				// lookup format of a specific mailbox
 	void lookup (guint index);						// lookup format of a specific mailbox
 	void lookup_thread (void);						// lookup thread
 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/11/16 15:55:42 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/11/26 14:58:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -200,19 +200,11 @@ gboolean Mailbox::watch_timeout (void) {
  **/
 void
 Mailbox::watch_thread (void) {
-	if (protocol_ == PROTOCOL_NONE) {
-		biff_->lookup (this);
-		if (!g_mutex_trylock (watch_mutex_)) {
-#ifdef DEBUG
-			g_message ("[%d] Cannot lock watch mutex\n", uin_);
-#endif
+	// If no protocol is specified try to determine it. If this is successful
+	// the mailbox has been deleted, so return immediately
+	if (protocol_ == PROTOCOL_NONE)
+		if (biff_->lookup (this))
 			return;
-		}
-		watch_off();
-		biff_->applet()->watch_on();
-		g_mutex_unlock (watch_mutex_);
-		return;
-	}
 
 	if (!g_mutex_trylock (watch_mutex_)) {
 #ifdef DEBUG
@@ -229,7 +221,8 @@ Mailbox::watch_thread (void) {
 	watch_off();
 
 	// Nobody should access status in write mode but this thread, so we're safe
-	get_status();
+	if (protocol_ != PROTOCOL_NONE)
+		get_status();
 	// If Mailbox is still in checking status an error occured
 	if (status_==MAILBOX_CHECKING)
 		status_=MAILBOX_ERROR;
