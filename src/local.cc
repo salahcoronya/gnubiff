@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/12/03 17:16:58 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/06 16:18:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -123,8 +123,6 @@ Local::start (void)
 void Local::stop (void)
 {
 	Mailbox::stop ();
-	g_mutex_lock (monitor_mutex_);
 	if (FAMCONNECTION_GETFD (&fam_connection_)) 
 		FAMCancelMonitor (&fam_connection_, &fam_request_);
-	g_mutex_unlock (monitor_mutex_);
 }
