@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.33 $
-// Revision date : $Date: 2005/02/27 13:33:18 $
+// Revision      : $Revision: 1.34 $
+// Revision date : $Date: 2005/03/06 19:45:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -416,7 +416,7 @@ Biff::upgrade_options (void)
 		g_message (_("Successfully converted all options."));
 	else {
 		options_bad = options_bad.substr (0, options_bad.size()-2);
-		g_message (_("Successfully converted some options. The following "
+		g_warning (_("Successfully converted some options. The following "
 					 "options must be updated manually: %s."),
 				   options_bad.c_str());
 	}
