@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: mailbox.cc,v $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -41,6 +41,7 @@
 #include "biff.h"
 #include "socket.h"
 #include "ui-authentication.h"
+#include "nls.h"
 
 
 // ========================================================================

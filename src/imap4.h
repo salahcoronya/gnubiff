@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: imap4.h,v $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -44,8 +44,10 @@ protected:
 	class Socket *				socket_;		// socket to talk to server
 	std::vector<int>			saved_;			// saved uidl's
 	gboolean					idleable_;		// does server support the IDLE capability ?
-	gboolean					idled_;			// Is the  server ucrrently idled
+	gboolean					idled_;			// Is the  server currently idled
 
+	std::string					tag_;			// 
+	guint						tagcounter_;	//
 public:
 	// ========================================================================
 	//  base
@@ -63,6 +65,16 @@ public:
 	gint connect (void);
 	void fetch_status (void);
 	void fetch_header (void);
+
+ private:
+	// ========================================================================
+	//  Internal stuff
+	// ========================================================================	
+	std::string parse_bodystructure (std::string, gint &,
+									 gboolean toplevel=true);
+	void reset_tag();
+	std::string tag();
+	gint send(std::string,gboolean debug=true);
 };
 
 #endif

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: pop.cc,v $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -238,6 +238,7 @@ Pop::fetch_header (void)
 		g_print ("** Message: [%d] RECV(%s:%d): (message) ", uin_, address_.c_str(), port_);
 #endif
 		if (!socket_->read (line, false)) return;
+		gint cnt = preventDoS_headerLines_+13;
 		do {
 			if (!socket_->read (line, false)) return;
 			if (line.size() > 1) {
@@ -248,7 +249,9 @@ Pop::fetch_header (void)
 			}
 			else
 				mail.push_back ("");
-		} while (line != ".\r");
+		} while ((line != ".\r") && (0 < cnt--));
+		if (cnt <= 0)
+			return;
 #ifdef DEBUG
 		g_print("\n");
 #endif

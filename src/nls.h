@@ -18,14 +18,14 @@
  *
  * This file is part of gnubiff.
  *
- * $Id$
+ * $Id: nls.h,v 1.1 2004/10/06 13:21:57 nicolasrougier Exp $
  *
  */
 #ifndef __NLS_H__
 #define __NLS_H__
 
 #ifdef HAVE_CONFIG_H
-#   include "../config/config.h"
+#   include "config.h"
 #endif
 
 #ifdef ENABLE_NLS
