@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/01/02 23:57:36 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/01/03 16:17:27 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -169,6 +169,10 @@ Mailbox::threaded_start (guint delay)
 	//  or later (delay is given in seconds) ?
 	else
 		start_delayed_entry_point (this);
+
+#if DEBUG
+	g_message ("[%d] Start fetch in %d second(s)", uin_, delay);
+#endif
 }
 
 gboolean

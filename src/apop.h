@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: apop.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/01/03 17:24:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -50,7 +50,7 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================	
-	int connect (void);
+	void connect (void) throw (pop_err);
 };
 
 #endif
