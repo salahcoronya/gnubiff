@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/01/02 14:53:46 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/01/02 16:11:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -117,6 +117,7 @@ class Imap4 : public Mailbox {
 	PartInfo command_fetchbodystructure (guint) throw (imap_err);
 	std::vector<std::string> command_fetchheader (guint) throw (imap_err);
 	void command_login (void) throw (imap_err);
+	void command_logout (void) throw (imap_err);
 	std::vector<int> command_searchnotseen (void) throw (imap_err);
 	void command_select (void) throw (imap_err);
 	void waitforack (gint num=0) throw (imap_err);
@@ -127,7 +128,6 @@ class Imap4 : public Mailbox {
 													 // periodically. 
 	void update_applet();						 // Update the applet to new IMAP state.
 	void idle() throw (imap_err);		         // Begin idle IMAP mode.
-	void close();								 // Cleanup and close IMAP connection.
 };
 
 /**
