@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2004/12/27 20:29:12 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2004/12/28 13:23:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -303,22 +303,13 @@ Biff::password (Mailbox *m)
 	g_message ("[%d] Looking for password for %s:%d", m->uin(), m->address().c_str(), m->port());
 #endif
 
-	for (guint i=0; i < size(); i++) {
+	for (guint i=0; i < size(); i++)
 		if ((mailbox(i) != m) 
 			&& (mailbox(i)->address() == m->address())
 			&& (mailbox(i)->username() == m->username())
-			&& (mailbox(i)->port() == m->port())) {
-#if DEBUG
-			g_message ("[%d] Found a match from %d (%s:%d)", m->uin(), mailbox(i)->uin(), mailbox(i)->address().c_str(), mailbox(i)->port());
-#endif
+			&& (mailbox(i)->port() == m->port())
+			&& (!mailbox(i)->password().empty()))
 			return mailbox(i)->password();
-		}
-		else {
-#if DEBUG
-			g_message ("[%d] %d (%s:%d) does not match", m->uin(), mailbox(i)->uin(), mailbox(i)->address().c_str(), mailbox(i)->port());
-#endif			
-		}
-	}
 	return "";
 }
 
