@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/03/13 13:46:52 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/03/28 21:11:50 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -68,6 +68,7 @@ protected:
 				std::string::size_type pos=0);
 
 	// Converting
+	std::string utf8_to_imaputf7 (std::string str);
 	gchar* utf8_to_imaputf7 (const gchar *, gssize);
 	std::string ascii_strdown (const std::string &str);
 	gchar *charset_to_utf8 (std::string text, std::string charset);
