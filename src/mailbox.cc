@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.37 $
-// Revision date : $Date: 2005/01/13 23:35:25 $
+// Revision      : $Revision: 1.38 $
+// Revision date : $Date: 2005/01/14 08:08:20 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -596,8 +596,10 @@ Mailbox::start_checking (void)
 
 	// Determine new mailbox status
 	if (status_ == MAILBOX_CHECK) {
-		if (unread_.size() == 0)
+		if (new_unread_.size() == 0)
 			status_ = MAILBOX_EMPTY;
+		else if (unread_.size() < new_unread_.size())
+			status_ = MAILBOX_NEW;
 		else if (!std::includes (unread_.begin(), unread_.end(),
 								 new_unread_.begin(), new_unread_.end(),
 								 less_pair_first()))		 
