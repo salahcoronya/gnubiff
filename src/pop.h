@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/01/04 21:19:57 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/01/05 14:54:38 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -45,7 +45,7 @@ class Pop : public Mailbox {
 protected:
 	/// Socket to talk to the server
 	class Socket *	 			socket_;
-	/// Vector for the saved unique identifiers of the mails
+	/// Set for the saved unique identifiers of the mails
 	std::set<std::string> 		saved_uid_;
 
 public:

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: file.cc,v $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -110,7 +110,7 @@ void File::fetch (void)
 	// Restore acces and modification time
 	utime (address_.c_str(), &timbuf);
 
-	if ((unread_ == new_unread_) && (new_unread_.size() > 0))
+	if ((unread_ == new_unread_) && (unread_.size()>0))
 		status_ = MAILBOX_OLD;
 	else if (new_unread_.size() > 0)
 		status_ = MAILBOX_NEW;
