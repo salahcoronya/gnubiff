@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.31 $
-// Revision date : $Date: 2005/01/06 00:06:00 $
+// Revision      : $Revision: 1.32 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -574,7 +574,7 @@ Mailbox::start_checking (void)
 	// While checking no one else must have read access: Too many things are
 	// changing.
 	// NOTE: When idling etc. while checking, this lock must be freed
-	g_mutex_lock (mutex_);
+//	g_mutex_lock (mutex_);
 
 	// Initialization
 	status_ = MAILBOX_CHECK;
@@ -594,7 +594,7 @@ Mailbox::start_checking (void)
 	unread_ = new_unread_;
 	seen_ = new_seen_;
 
-	g_mutex_unlock (mutex_);
+//	g_mutex_unlock (mutex_);
 }
 
 /**

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.104 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.105 $
+// Revision date : $Date: 2005/01/09 11:02:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -137,8 +137,8 @@ Imap4::start (void)
 		socket_->close ();
 
 		// Do we need to get our mutex back?
-		if (idled_)
-			g_mutex_lock (mutex_);
+//		if (idled_)
+//			g_mutex_lock (mutex_);
 		idled_ = false;
 	}
 
@@ -374,7 +374,7 @@ Imap4::idle (void) throw (imap_err)
 	while (true) {
 		// While idling we don't need the lock, nothing important changes
 		idled_ = true;
-		g_mutex_unlock (mutex_);
+//		g_mutex_unlock (mutex_);
 
 		// When in idle state, we won't exit this thread function
 		// so we have to update applet in the meantime
@@ -395,7 +395,7 @@ Imap4::idle (void) throw (imap_err)
 		waitfor_ack();
 
 		// Get mails
-		g_mutex_lock (mutex_);
+//		g_mutex_lock (mutex_);
 		idled_ = false;
 		fetch_mails();
 	}
