@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/01/18 21:26:33 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/01/19 22:29:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -482,8 +482,10 @@ Biff::save_para (const gchar *name, guint value)
 void 
 Biff::load_para(const gchar *name, gboolean &var)
 {
-	if (buffer_load_.find (std::string(name)) == buffer_load_.end())
+	if (buffer_load_.find (std::string(name)) == buffer_load_.end()) {
 		g_warning(_("Parameter \"%s\" not present, using default value"),name);
+		return;
+	}
 	std::string value = buffer_load_[std::string(name)];
 
 	if ((value == "1") || (value == "true"))
@@ -507,8 +509,10 @@ Biff::load_para(const gchar *name, guint &var)
 {
 	guint temp;
 
-	if (buffer_load_.find (std::string(name)) == buffer_load_.end())
+	if (buffer_load_.find (std::string(name)) == buffer_load_.end()) {
 		g_warning(_("Parameter \"%s\" not present, using default value"),name);
+		return;
+	}
 	std::istringstream strin(buffer_load_[std::string(name)]);
 	if (strin >> temp)
 		var = temp;
@@ -527,8 +531,10 @@ Biff::load_para(const gchar *name, guint &var)
 void 
 Biff::load_para(const gchar *name, std::string &var)
 {
-	if (buffer_load_.find (std::string(name)) == buffer_load_.end())
+	if (buffer_load_.find (std::string(name)) == buffer_load_.end()) {
 		g_warning(_("Parameter \"%s\" not present, using default value"),name);
+		return;
+	}
 	var = buffer_load_[std::string(name)];
 }
 
@@ -542,8 +548,10 @@ Biff::load_para(const gchar *name, std::string &var)
 void 
 Biff::load_para(const gchar *name, std::set<std::string> &var)
 {
-	if (buffer_load_.find (std::string(name)) == buffer_load_.end())
+	if (buffer_load_.find (std::string(name)) == buffer_load_.end()) {
 		g_warning(_("Parameter \"%s\" not present, using default value"),name);
+		return;
+	}
 	std::istringstream strin (buffer_load_[std::string(name)]);
 	std::string value;
 
