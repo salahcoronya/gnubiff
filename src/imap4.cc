@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.70 $
-// Revision date : $Date: 2005/01/01 16:16:24 $
+// Revision      : $Revision: 1.71 $
+// Revision date : $Date: 2005/01/01 16:57:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -569,8 +569,11 @@ Imap4::command_fetchbody (guint msn, class PartInfo &partinfo,
 	}
 
 	// Insert character set into header
-	if (partinfo.charset_!="")
-		mail.insert (mail.begin(), std::string("charset=") + partinfo.charset_ + std::string(";"));
+	if (partinfo.charset_!="") {
+		line = "Content-type: " + partinfo.mimetype_ + "; charset=";
+		line+= partinfo.charset_;
+		mail.insert (mail.begin(), line);
+	}
 
 	// Note: We are only interested in the first lines, there
 	// are at most 1000 characters per line (see RFC 2821 4.5.3.1),
