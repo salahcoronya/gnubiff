@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/07 19:28:07 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/12/08 22:50:54 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -70,12 +70,22 @@ public:
 	// ========================================================================
 	//  Internal stuff
 	// ========================================================================	
-	std::string parse_bodystructure (std::string, gint &, std::string &,
-									 std::string &, gboolean toplevel=true);
-	gboolean parse_bodystructure_parameters (std::string, std::string &);
+	gboolean parse_bodystructure (std::string, class PartInfo &,
+								  gboolean toplevel=true);
+	gboolean parse_bodystructure_parameters (std::string, class PartInfo &);
 	void reset_tag();
 	std::string tag();
 	gint send(std::string,gboolean debug=true);
+};
+
+class PartInfo
+{
+ public:
+	std::string part;
+	std::string mimetype;
+	std::string encoding;
+	std::string charset;
+	gint size;
 };
 
 #endif
