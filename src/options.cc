@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/02/02 10:24:01 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/02/02 14:31:22 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -408,7 +408,7 @@ Options::update_gui (OptionsGUI whattodo, Option *option, GladeXML *xml,
 					continue;
 				if (whattodo & OPTSGUI_SENSITIVE)
 					gtk_widget_set_sensitive (other, ok);
-				else
+				if (whattodo & OPTSGUI_SHOW)
 					ok ? gtk_widget_show (other) : gtk_widget_hide (other);
 			}
 		}
