@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.42 $
-// Revision date : $Date: 2005/01/16 22:24:16 $
+// Revision      : $Revision: 1.43 $
+// Revision date : $Date: 2005/01/17 12:33:29 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -676,7 +676,7 @@ Mailbox::load_data (void)
 {
 	g_mutex_lock (mutex_);
 	biff_->load_para ("protocol", protocol_);
-	biff_->load_para ("authentication", (guint)authentication_);
+	biff_->load_para ("authentication", (guint &)authentication_);
 	biff_->load_para ("name", name_);
 	biff_->load_para ("address", address_);
 	biff_->load_para ("username", username_);
