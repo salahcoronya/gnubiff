@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/11/14 23:19:35 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2004/11/16 13:26:36 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -168,10 +168,7 @@ Imap4::get_status (void)
 	if (password_.empty())
 		ui_authentication_->select (this);
 
-	if (password_.empty()) {
-		status_ = MAILBOX_ERROR;
-		return;
-	}
+	if (password_.empty()) return;
 
 	// Connection and authentification
 	if (!connect ()) return;
@@ -261,16 +258,10 @@ Imap4::get_header (void)
 	if (password_.empty())
 		ui_authentication_->select (this);
 
-	if (password_.empty()) {
-		status_ = MAILBOX_ERROR;
-		return;
-	}
+	if (password_.empty()) return;
 
 	// Connection and authentification
-	if (!connect ()) {
-		status_ = MAILBOX_ERROR;
-		return;
-	}
+	if (!connect ()) return;
 
 	// SEARCH NOT SEEN
 	if (!socket_->write ("A003 SEARCH NOT SEEN\r\n")) return;
