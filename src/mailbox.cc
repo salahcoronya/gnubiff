@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.47 $
-// Revision date : $Date: 2005/01/18 21:26:35 $
+// Revision      : $Revision: 1.48 $
+// Revision date : $Date: 2005/01/19 22:29:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -613,6 +613,11 @@ Mailbox::update_mailbox_status (void)
 	mails_to_be_displayed_ = new_mails_to_be_displayed_;
 	hidden_ = new_hidden;
 	g_mutex_unlock (mutex_);
+
+	// Clear sets for next update
+	new_unread_.clear ();
+	new_seen_.clear ();
+	new_mails_to_be_displayed_.clear ();
 }
 
 /**
@@ -621,11 +626,8 @@ Mailbox::update_mailbox_status (void)
 void 
 Mailbox::start_checking (void)
 {
-	// Initialization
+	// Set mailbox status
 	status_ = MAILBOX_CHECK;
-	new_unread_.clear ();
-	new_seen_.clear ();
-	new_mails_to_be_displayed_.clear ();
 
 	// Fetch mails and update status
 	fetch ();
