@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.49 $
-// Revision date : $Date: 2005/03/08 12:33:21 $
+// Revision      : $Revision: 1.50 $
+// Revision date : $Date: 2005/03/08 16:58:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -148,7 +148,7 @@ public:
 	void update_mailbox_status (void);
 	void start_checking (void);
 	void mail_displayed (void);
-	void parse (std::vector<std::string> &mail,		// parse a mail
+	void parse (std::vector<std::string> &mail,
 				std::string uid = std::string(""),
 				class PartInfo *pi = NULL, class Header *hh = NULL,
 				guint pos = 0);
