@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/01/05 18:21:17 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/01/05 23:11:59 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -209,6 +209,10 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 		new_saved_uid.insert (uid);
 
 		if (statusonly)
+			continue;
+
+		// Check if mail is already known
+		if (new_mail (uid))
 			continue;
 
 		// TOP

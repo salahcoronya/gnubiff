@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.19 $
-// Revision date : $Date: 2005/01/03 13:40:49 $
+// Revision      : $Revision: 1.20 $
+// Revision date : $Date: 2005/01/03 20:32:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -405,5 +405,6 @@ Socket::set_read_timeout(gint timeout)
 	tv.tv_sec = timeout;
 	tv.tv_usec = 0;
 	if (setsockopt(sd_, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) == -1)
-		g_error("Could not set read timeout on socket: %s", strerror(errno));
+		g_warning (_("Could not set read timeout on socket: %s"),
+				   strerror(errno));
 }
