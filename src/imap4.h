@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2004/12/31 15:38:21 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2004/12/31 15:52:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -72,6 +72,7 @@ public:
 												 // or not expected, or not
 	                                             // responded by OK.
 	class imap_dos_err : public imap_err {};	 // We've been attacked DoS style!
+	class imap_nologin_err : public imap_err {}; // The server doesn't want us to login
 	
  private:
 	// ========================================================================
