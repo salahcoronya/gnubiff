@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.81 $
-// Revision date : $Date: 2005/01/02 18:08:01 $
+// Revision      : $Revision: 1.82 $
+// Revision date : $Date: 2005/01/02 21:16:56 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -651,9 +651,11 @@ Imap4::command_fetchheader (guint msn) throw (imap_err)
  * keeping the connection active.
  *
  * @param sentdone Reference to a boolean. When returning this is true if
- *                 "DONE" (for the last "IDLE") is already sent to server,
+ *                 "DONE" (for the last "IDLE") is already sent to the server,
  *                 and false if the caller still has to send "DONE".
  * @return         Returns the last line received from the IMAP server.
+ * @exception imap_command_err
+ *                 This exception is thrown when we get an unexpected response.
  * @exception imap_socket_err
  *                 This exception is thrown if a network error occurs.
  */
