@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/01/19 22:45:00 $
+// File          : $RCSfile: option.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -95,6 +95,18 @@ Option_UInt::to_string (void)
 
 	std::stringstream ss;
 	ss << value_;
+	return ss.str();
+}
+
+std::string 
+Option_UInt::default_string (void)
+{
+	// Test whether there is an identifier for this value
+	if (int_id_.find (default_) != int_id_.end ())
+		return int_id_[default_];
+
+	std::stringstream ss;
+	ss << default_;
 	return ss.str();
 }
 
@@ -227,6 +239,12 @@ std::string
 Option_String::to_string (void)
 {
 	return value_;
+}
+
+std::string 
+Option_String::default_string (void)
+{
+	return default_;
 }
 
 gboolean 
