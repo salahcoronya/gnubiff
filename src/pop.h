@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/01/05 14:54:38 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/01/05 23:11:59 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -95,6 +95,7 @@ public:
 	void command_quit (void) throw (pop_err);
 	guint command_stat (void) throw (pop_err);
 	void command_top (std::vector<std::string> &, guint) throw (pop_err);
+	std::map<guint,std::string> command_uidl_all (guint) throw (pop_err);
 	std::string command_uidl (guint) throw (pop_err);
 	gint readline (std::string &, gboolean print=true, gboolean check=true,
 				   gboolean checkline=true) throw (pop_err);
