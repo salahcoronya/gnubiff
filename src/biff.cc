@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.39 $
-// Revision date : $Date: 2005/03/20 15:55:21 $
+// Revision      : $Revision: 1.40 $
+// Revision date : $Date: 2005/03/26 22:51:54 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -109,7 +109,7 @@ Biff::Biff (guint ui_mode, std::string filename)
 	passtable_ += "FEDCBA9876543210";
 	//  and then we remove duplicated characters
 	std::string buffer;
-	for (guint i=0; i<passtable_.size(); i++)
+	for (std::string::size_type i = 0; i < passtable_.size(); i++)
 		if (buffer.find(passtable_[i]) == std::string::npos)
 			buffer += passtable_[i];
 	passtable_ = buffer;
@@ -185,7 +185,7 @@ Biff::find_mail (std::string mailid, Header &mail)
 	gboolean ok = false;
 
 	g_mutex_lock (mutex_);
-	for (guint i=0; (i < mailbox_.size()) && !ok; i++)
+	for (guint i = 0; (i < mailbox_.size()) && !ok; i++)
 		if (mailbox_[i]->find_mail (mailid, mail))
 			ok = true;
 	g_mutex_unlock (mutex_);
@@ -215,7 +215,7 @@ Biff::get (guint uin)
 {
 	Mailbox *find = 0;
 	g_mutex_lock (mutex_);
-	for (guint i=0; i<mailbox_.size(); i++)
+	for (guint i = 0; i < mailbox_.size(); i++)
 		if (mailbox_[i]->uin() == uin) {
 			find = mailbox_[i];
 			break;
@@ -237,7 +237,8 @@ Biff::replace (Mailbox *from, Mailbox *to)
 {
 	Mailbox *inserted = 0;
 	g_mutex_lock (mutex_);
-	for(std::vector<Mailbox *>::iterator i = mailbox_.begin(); i != mailbox_.end(); i++)
+	for (std::vector<Mailbox *>::iterator i = mailbox_.begin();
+		 i != mailbox_.end(); i++)
 		if ((*i) == from) {
 			(*i) = to;
 
@@ -258,7 +259,8 @@ void
 Biff::remove (Mailbox *mailbox)
 {
 	g_mutex_lock (mutex_);
-	for(std::vector<Mailbox *>::iterator i = mailbox_.begin(); i != mailbox_.end(); i++)
+	for(std::vector<Mailbox *>::iterator i = mailbox_.begin();
+		i != mailbox_.end(); i++)
 		if ((*i) == mailbox) {
 			mailbox_.erase(i);
 			break;
@@ -297,7 +299,7 @@ Biff::password (Mailbox *m)
 			   m->username().c_str(), m->address().c_str(), m->port());
 #endif
 
-	for (guint i=0; i < size(); i++)
+	for (guint i = 0; i < size(); i++)
 		if ((mailbox(i) != m) 
 			&& (mailbox(i)->address() == m->address())
 			&& (mailbox(i)->username() == m->username())
