@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/02/07 12:32:41 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/02/07 22:14:17 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -214,6 +214,7 @@ Gnubiff_Options::add_options_general (void)
 		"Shall options be displayed in the expert dialog that cannot be "
 		"changed?",
 								 true));
+#ifdef DEBUG
 	// EXPERT_SHOW_NOSHOW
 	add_option (new Option_Bool ("expert_show_noshow", OPTGRP_GENERAL,
 		"Shall options be displayed in the expert dialog that are flagged "
@@ -222,6 +223,7 @@ Gnubiff_Options::add_options_general (void)
 		"changed by setting other options. Viewing them may be of interest "
 		"when debugging.",
 								 false));
+#endif
 	// EXPERT_SEARCH_VALUES
 	add_option (new Option_Bool ("expert_search_values", OPTGRP_GENERAL,
 		"When searching for options that contain a given string, examine "
