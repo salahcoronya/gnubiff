@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2004/12/11 14:24:02 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2004/12/12 17:13:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -503,10 +503,9 @@ Imap4::fetch_header (void)
 
 			// Read end of command
 			cnt=1+preventDoS_additionalLines_;
-			while (((socket_->read(line, false) > 0)) && (cnt--)) {
+			while (((socket_->read(line, false) > 0)) && (cnt--))
 				if (line.find (tag()) == 0)
 					break;
-			}
 			if ((!socket_->status()) || (cnt<0)) return;
 
 
