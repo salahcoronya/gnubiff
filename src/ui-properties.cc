@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/21 17:06:19 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/22 15:07:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -436,7 +436,7 @@ Properties::on_apply (GtkWidget *widget)
 			mailbox_->port (mailbox_->other_port());
 		}
 
-		if (((mailbox_->protocol() != PROTOCOL_APOP) && (selected_auth_ == AUTH_APOP)) || (mailbox_->status() == MAILBOX_UNKNOWN)) {
+		if (((mailbox_->protocol() != PROTOCOL_APOP)|| (mailbox_->status() == MAILBOX_UNKNOWN)) && (selected_auth_ == AUTH_APOP)) {
 			Mailbox *mailbox = new Apop (*mailbox_);
 			preferences_->biff()->replace (mailbox_, mailbox);
 		}
