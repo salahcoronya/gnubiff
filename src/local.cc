@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/20 22:59:52 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/26 16:40:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -120,7 +120,10 @@ Local::start (void)
 
 	// Ok, we got an error, just retry monitoring
 	if (status != 1) {
-		sleep (1);
+#if DEBUG
+		g_message ("[%d] FAM error, start fetch in %d second(s)", uin_, delay_);
+#endif
+		sleep (delay_);
 		start ();
 	}
 }

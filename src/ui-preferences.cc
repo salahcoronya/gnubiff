@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/12/22 21:01:56 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/27 18:37:36 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -206,6 +206,7 @@ Preferences::create (void)
 		gtk_widget_set_sensitive (get("applet_sticky_check"), false);
 		gtk_widget_set_sensitive (get("applet_keepabove_check"), false);
 	}
+
 
 	return true;
 }
