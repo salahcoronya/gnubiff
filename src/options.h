@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/02/01 17:12:48 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/02/01 21:47:34 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -42,6 +42,13 @@
 #include <set>
 #include <string>
 #include "option.h"
+
+enum OptionsGUI { OPTSGUI_GET = 1,
+				  OPTSGUI_SET = 2,
+				  OPTSGUI_SENSITIVE = 4,
+				  OPTSGUI_SHOW = 8,
+				  OPTSGUI_UPDATE = 14 // SET | SENSITIVE | SHOW
+};
 
 class Options {
 public:
@@ -84,12 +91,10 @@ public:
 	gboolean from_strings (guint groups,
 						   std::map<std::string,std::string> &map);
 
-	void gui_get (guint groups, GladeXML *xml, std::string filename,
-				  Option *option = NULL);
-	void gui_set (guint groups, GladeXML *xml, std::string filename,
-				  Option *option = NULL);
-	void gui_show (guint groups, GladeXML *xml, std::string filename,
-				   Option *option = NULL);
+	void update_gui (OptionsGUI whattodo, guint groups, GladeXML *xml,
+					 const std::string filename);
+	void update_gui (OptionsGUI whattodo, Option *option, GladeXML *xml,
+					 const std::string filename);
 
 	std::string group_help (guint group) {return groups_[group]->help();};
 	std::string group_name (guint group) {return groups_[group]->name();};
@@ -124,12 +129,6 @@ protected:
 	 *  @param option Pointer to the option that is to be updated.
 	 */
 	virtual void option_update (Option *option) {};
-
-private:
-	void gui_all (guint whattodo, guint groups, GladeXML *xml,
-				  const std::string filename);
-	void gui_all (guint whattodo, guint groups, GladeXML *xml,
-				  const std::string filename, Option *option);
 };
 
 #endif
