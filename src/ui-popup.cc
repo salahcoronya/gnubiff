@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/01/11 08:47:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -346,10 +346,11 @@ Popup::show (std::string name)
 	if (biff_->popup_use_geometry_)
 		gtk_window_parse_geometry (dialog, biff_->popup_geometry_.c_str());
 	if (biff_->popup_be_sticky_)
-		gtk_window_stick(dialog);
+		gtk_window_stick (dialog);
 	else
-		gtk_window_unstick(dialog);
-	gtk_window_set_keep_above(dialog, biff_->popup_keep_above_);
+		gtk_window_unstick (dialog);
+	gtk_window_set_keep_above (dialog, biff_->popup_keep_above_);
+	gtk_window_set_skip_pager_hint (dialog, !biff_->popup_pager_);
 
 	g_static_mutex_lock (&timer_mutex_);
 	if (poptag_ > 0) 

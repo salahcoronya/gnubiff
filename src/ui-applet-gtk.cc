@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/04 20:38:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/27 18:02:13 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -204,6 +204,7 @@ AppletGtk::show (std::string name)
 	else
 		gtk_window_unstick(dialog);
 	gtk_window_set_keep_above(dialog, biff_->applet_keep_above_);
+	gtk_window_set_skip_pager_hint (dialog, !biff_->applet_pager_);
 }
 
 
