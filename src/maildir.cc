@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/13 17:13:55 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -92,12 +92,13 @@ Maildir::get_status (void)
 		return;
 	}
 
-	// Read number of entries (but '.'  and '..')
+	// Read number of entries (not counting files beginning with '.',
+	// including "." and "..")
 	while ((dent = readdir(dir)))
 		if (dent->d_name[0] != '.')
 			dirsize++;
 	closedir (dir); 
-   
+
 	// No entry  = no new mail
 	if (dirsize == 0)
 		status_ = MAILBOX_EMPTY;
