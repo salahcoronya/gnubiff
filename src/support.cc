@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/03/10 19:43:22 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/03/13 13:46:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -31,6 +31,7 @@
 
 #include <sys/utsname.h>
 #include <glib.h>
+#include <gtk/gtk.h>
 #include <nls.h>
 #include <sstream>
 #include <string>
