@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2004/12/06 21:24:41 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2004/12/07 19:28:06 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -687,7 +687,7 @@ Imap4::parse_bodystructure (std::string structure, gint &size,
 			gint oldpos=pos;
 			while ((pos<len) && (structure.at(pos++)!='"'));
 			// 6th block is the encoding
-			if (block==6)
+			if ((block==6) && (nestlevel==0) && (!multipart))
 				encoding=structure.substr(oldpos,pos-oldpos-1);
 			continue;
 		}
