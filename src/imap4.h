@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.33 $
-// Revision date : $Date: 2005/01/03 16:55:34 $
+// Revision      : $Revision: 1.34 $
+// Revision date : $Date: 2005/01/03 17:24:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -68,7 +68,15 @@ class Imap4 : public Mailbox {
 	// ========================================================================
 	/** Generic exception for IMAP mailboxes serving as a base for more
 	 *  specific exceptions. */
-	class imap_err : public mailbox_err {};
+	class imap_err : public mailbox_err
+	{
+	public:
+		/** Constructor. 
+		 *
+		 * @param mailboxerror Whether this exception should imply a mailbox
+		 *                     error status or not. The default is true. */
+		imap_err (gboolean mailboxerror=true) : mailbox_err (mailboxerror) {}
+	};
 	/** Exception for a socket connection failure. Usually this is thrown when
 	 *  reading or writing. */
 	class imap_socket_err : public imap_err {};
@@ -80,7 +88,15 @@ class Imap4 : public Mailbox {
 	 *     \item There is an unexpected response by the server to the command
 	 *     \item The command is not responded by OK
 	 *  \end{itemize} */
-	class imap_command_err : public imap_err {};
+	class imap_command_err : public imap_err
+	{
+	public:
+		/** Constructor. 
+		 *
+		 * @param mailboxerror Whether this exception should imply a mailbox
+		 *                     error status or not. The default is true. */
+		imap_command_err(gboolean mailboxerror=true):imap_err(mailboxerror) {}
+	};
 	/// This exception is thrown when a DoS attack is suspected. 
 	class imap_dos_err : public imap_err {};
 	/** This exception is thrown when login isn't possible. This can happen in

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/01/03 16:17:27 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/01/03 17:24:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -170,9 +170,24 @@ public:
 	// ========================================================================
 	//  exceptions
 	// ========================================================================
-	/** General exception for mailboxes. This only serves as a base for more
+	/** Generic exception for mailboxes. This only serves as a base for more
 	 *  more specific exceptions. */
-	class mailbox_err : public std::exception {};
+	class mailbox_err : public std::exception
+	{
+	private:
+		/** If {\em mailboxerror_} is true this exception will imply a mailbox
+		 *  error status when handled, otherwise lookup will be terminated but
+		 *  mailbox status will be left untouched. */
+		gboolean mailboxerror_;
+	public:
+		/** Constructor. 
+		 *
+		 * @param mailboxerror Whether this exception should imply a mailbox
+		 *                     error status or not. The default is true. */
+		mailbox_err (gboolean mailboxerror=true) {mailboxerror_=mailboxerror;}
+		/// Access function to mailbox_err::mailboxerror_. 
+		gboolean is_mailboxerror() {return mailboxerror_;}
+	};
 
 	// ========================================================================
 	//  main
