@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/12/04 20:38:22 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/12/06 21:24:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -568,8 +568,10 @@ Preferences::on_check_changed (GtkWidget *widget)
 							  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(get("newmail_command_check"))));
 	gtk_widget_set_sensitive (get("double_command_entry"),
 							  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(get("double_command_check"))));
-	gtk_widget_set_sensitive (get("applet_geometry_entry"),
-							  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(get("applet_geometry_check"))));
+	if (biff_->ui_mode_ != GNOME_MODE) {
+		gtk_widget_set_sensitive (get("applet_geometry_entry"),
+								  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(get("applet_geometry_check"))));
+	}
 	gtk_widget_set_sensitive (get("newmail_text_entry"),
 							  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(get("newmail_text_check"))));
 	gtk_widget_set_sensitive (get("newmail_image_entry"),
