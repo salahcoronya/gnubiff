@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/02/03 15:09:15 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/02/22 16:09:43 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -204,7 +204,8 @@ Socket::open (std::string hostname,
 		g_static_mutex_unlock (&hostname_mutex_);
 		::close (sd_);
 		sd_ = SD_CLOSE;
-		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+				   hostname_.c_str(), port_);
 		return 0;
 	}
 
@@ -212,9 +213,15 @@ Socket::open (std::string hostname,
 
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
-		if (certificate_.size() > 0){
-			if (!SSL_CTX_load_verify_locations (context_, certificate_.c_str(), NULL)) {
-				g_warning(_("[%d] Failed to load certificate (%s) for %s"), uin_, hostname_.c_str(), certificate_.c_str(), hostname_.c_str());
+		if (certificate_.size() > 0) {
+			const gchar *capath = mailbox_->biff()->value_gchar ("dir_certificates");
+			if (*capath == '\0')
+				capath = NULL;
+			if (!SSL_CTX_load_verify_locations (context_, certificate_.c_str(),
+												capath)) {
+				g_warning(_("[%d] Failed to load certificate (%s) for %s"),
+						  uin_, hostname_.c_str(), certificate_.c_str(),
+						  hostname_.c_str());
 				::close (sd_);
 				sd_ = SD_CLOSE;
 				return 0;
@@ -228,7 +235,8 @@ Socket::open (std::string hostname,
 		if ((!ssl_) || (SSL_set_fd (ssl_, sd_) == 0)) {
 			::close (sd_);
 			sd_ = SD_CLOSE;
-			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+					   hostname_.c_str(), port_);
 			return 0;
 		}
 		if (SSL_connect (ssl_) != 1) {

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/03/04 14:18:59 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2005/03/06 19:45:44 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -262,6 +262,11 @@ Gnubiff_Options::add_options_general (void)
 	add_option (new Option_Bool ("pref_allow_resize", OPTGRP_GENERAL,
 		"Shall it be allowed to resize the preferences dialog window?",
 								 false));
+	// DIR_CERTIFICATES
+	add_option (new Option_String ("dir_certificates", OPTGRP_GENERAL,
+		"Directory in which to look for certificates when building the "
+		"certificate chain.",
+								   "/etc/ssl/certs/"));
 }
 
 /// Add options that are for information purposes only
