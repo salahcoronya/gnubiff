@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.56 $
-// Revision date : $Date: 2005/02/06 22:30:32 $
+// Revision      : $Revision: 1.57 $
+// Revision date : $Date: 2005/02/07 12:32:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -481,7 +481,7 @@ Mailbox::lookup (void)
  *                     be determined.
  */
 Mailbox * 
-Mailbox::lookup_local(Mailbox &oldmailbox)
+Mailbox::lookup_local (Mailbox &oldmailbox)
 {
 	Mailbox *mailbox=NULL;
 	const gchar *address=oldmailbox.address().c_str();

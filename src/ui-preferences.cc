@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.33 $
-// Revision date : $Date: 2005/02/06 21:46:30 $
+// Revision      : $Revision: 1.34 $
+// Revision date : $Date: 2005/02/07 12:32:42 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -685,6 +685,7 @@ Preferences::expert_add_option_list (void)
 	if (!biff_->value_bool ("use_expert"))
 		return;
 	gboolean showfixed = biff_->value_bool ("expert_show_fixed");
+	gboolean shownoshow = biff_->value_bool ("expert_show_noshow");
 
 	GtkTreeIter iter;
 
@@ -707,6 +708,10 @@ Preferences::expert_add_option_list (void)
 
 			// Ignore fixed options?
 			if ((option->flags() & OPTFLG_USER_NO_CHANGE) && !showfixed)
+				continue;
+
+			// Show "No Show" options?
+			if ((option->flags() & OPTFLG_NOSHOW) && !shownoshow)
 				continue;
 
 			// Create displayed name by concatenating group and name

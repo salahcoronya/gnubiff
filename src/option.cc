@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/02/01 00:16:15 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -85,6 +85,8 @@ Option::flags_string (std::string sep)
 		result += "option is automatically updated each time it is read" + sep;
 	if (flags_ & OPTFLG_STRINGLIST)
 		result += "option is a list" + sep;
+	if (flags_ & OPTFLG_NOSHOW)
+		result += "option is not to be shown" + sep;
 	return result.substr (0, result.size()-2);
 }
 
