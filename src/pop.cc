@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/11/17 16:21:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -191,6 +191,7 @@ Pop::get_header (void)
 		g_print ("** Message: [%d] RECV(%s:%d): (message) ", uin_, hostname_.c_str(), port_);
 #endif
 		if (!socket_->read (line, false)) return;
+		gint cnt=preventDoS_headerLines_+13;
 		do {
 			if (!socket_->read (line, false)) return;
 			if (line.size() > 1) {
@@ -204,7 +205,7 @@ Pop::get_header (void)
 			}
 			else
 				mail.push_back ("");
-		} while (line != ".\r");
+		} while ((line != ".\r") && (0<cnt--));
 #ifdef DEBUG
 		g_print("\n");
 #endif
