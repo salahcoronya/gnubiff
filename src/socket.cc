@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/02/22 16:09:43 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2005/03/07 14:11:32 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -104,6 +104,9 @@ Socket::open (std::string hostname,
 	if ((authentication == AUTH_SSL) || (authentication == AUTH_CERTIFICATE))
 		use_ssl_ = true;
 	certificate_ = certificate;
+
+	// Get options' values to avoid periodic lookups
+	prevdos_line_length_=mailbox_->biff()->value_uint ("prevdos_line_length");
 
 	struct sockaddr_in sin;
 	struct hostent *host;
@@ -352,7 +355,7 @@ Socket::read (std::string &line, gboolean print, gboolean check)
 	line = "";
 	status_ = -1;
 
-	gint cnt = 1 + mailbox_->biff()->value_uint ("prevdos_line_length");
+	gint cnt = 1 + prevdos_line_length_;
 
 	// TEMP_FAILURE_RETRY will re-call the method if the read primitive
 	// is interrupted by a signal.

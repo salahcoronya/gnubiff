@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/01/31 14:58:22 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -60,6 +60,11 @@ protected:
 	guint				uin_;
 	gboolean			use_ssl_;
 	std::string			certificate_;
+	/** Maximum length of a line being read from the socket before assuming
+	 *  a DoS attack. When opening a connection this variable is set by
+	 *  taking the value of the option "prevdos_line_length" (this is done
+	 *  to avoid looking up the option for every line being read). */
+	guint				prevdos_line_length_;
 # ifdef HAVE_LIBSSL
 	SSL_CTX *					context_;
 	SSL *						ssl_;
