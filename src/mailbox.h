@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.50 $
-// Revision date : $Date: 2005/03/08 16:58:37 $
+// Revision      : $Revision: 1.51 $
+// Revision date : $Date: 2005/03/29 11:57:32 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -44,6 +44,7 @@
 #include "decoding.h"
 #include "header.h"
 #include "socket.h"
+#include "support.h"
 
 /** This struct is needed (when using STL algorithms for
  *  std::map<std::string,Header>) for comparisons of
@@ -62,7 +63,7 @@ struct less_pair_first : public std::binary_function<std::pair<std::string,Heade
  * Generic mailbox intended as base for implementing mailboxes for a specific
  * protocol. 
  */
-class Mailbox : public Decoding, public Gnubiff_Options {
+class Mailbox : public Decoding, public Gnubiff_Options, public Support {
 
 protected:
 	// ========================================================================

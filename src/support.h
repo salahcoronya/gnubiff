@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/03/10 17:48:22 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/04/04 22:08:28 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -57,6 +57,11 @@ protected:
 	// Advanced string functions
 	std::string substitute (std::string format, std::string chars,
 							std::vector<std::string> toinsert);
+	gboolean numbersequence_to_vector (const std::string &seq,
+									   std::vector<guint> &vec,
+									   gboolean empty = true, char sep = ',',
+									   char range = '-');
+
 public:
 	// Debugging
 	static void unknown_internal_error_ (const gchar *file, guint line,
