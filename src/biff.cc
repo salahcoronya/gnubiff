@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2004/12/20 23:40:10 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2004/12/27 18:02:13 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -302,7 +302,8 @@ Biff::password (Mailbox *m)
 	for (guint i=0; i < size(); i++) {
 		if ((mailbox(i) != m)
 			&& (mailbox(i)->address() == m->address())
-			&& (mailbox(i)->username() == m->username()))
+			&& (mailbox(i)->username() == m->username())
+			&& (mailbox(i)->port() == m->port()))
 			return mailbox(i)->password();
 	}
 	return "";
