@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/01/03 20:32:21 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/01/13 21:31:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -45,7 +45,7 @@
 #include <string>
 
 
-const gint	SOCKET_TIMEOUT		=	 2;
+const gint	SOCKET_TIMEOUT			=	 2;
 const gint	SOCKET_STATUS_OK		=	 1;
 const gint	SOCKET_STATUS_ERROR		=	 0;
 const gint	SD_CLOSE				=	-1;

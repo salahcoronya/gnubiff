@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.33 $
-// Revision date : $Date: 2005/01/13 23:35:26 $
+// Revision      : $Revision: 1.34 $
+// Revision date : $Date: 2005/01/16 01:29:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -275,6 +275,8 @@ public:
 	void update_mailbox_status (void);
 	void start_checking (void);
 	void mail_displayed (void);
+	void load_data (void);
+	void save_data (void);
 	void parse (std::vector<std::string> &mail,		// parse a mail 
 				int status = -1, std::string uid = std::string(""));
 
@@ -287,8 +289,8 @@ public:
 	const guint protocol (void)							{return protocol_;}
 	void protocol (const guint value)					{protocol_ = value;}
 
-	const guint authentication(void)					{return authentication_;}
-	void authentication (const guint value)				{authentication_ = value;}	
+	const gint authentication(void)					{return authentication_;}
+	void authentication (const gint value)				{authentication_ = value;}	
 
 	const std::string address (void)					{return address_;}
 	void address (const std::string value)				{address_ = value;}

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2004/12/16 11:45:34 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/01/01 22:56:00 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -56,6 +56,10 @@ protected:
 
 	// Converting
 	gchar* utf8_to_imaputf7(const gchar *, gssize);
+
+	// Password
+	std::string encrypt_password (const std::string &, const std::string &);
+	std::string decrypt_password (const std::string &, const std::string &);
 };
 
 #endif
