@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-applet-gtk.h,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,17 +38,23 @@
 class AppletGtk : public Applet {
 
  public:
-	/* base */
+	// ========================================================================
+	//  base
+	// ========================================================================	
 	AppletGtk (class Biff *biff);
 	~AppletGtk (void);
 
-	/* main */
-	void update (void);
+	// ========================================================================
+	//  main
+	// ========================================================================	
+	void update (gboolean no_popup = false);
 	gint create (void);
 	void show (std::string name = "dialog");
 	void tooltip_update (void);
 
-	/* callbacks */
+	// ========================================================================
+	//  callbacks
+	// ========================================================================	
 	gboolean on_button_press (GdkEventButton *event);
 	void on_menu_command (void);
 	void on_menu_mark (void);

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2004/12/04 16:38:36 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -157,7 +157,7 @@ int mainGTK (int argc, char **argv) {
 
 	// Show setup panel or start gnubiff directly
 	if (no_configure) {
-		biff->applet()->update();
+		biff->applet()->update(true);
 		biff->applet()->show();
 		if (biff->check_mode_ == AUTOMATIC_CHECK)
 			biff->applet()->start (3);
@@ -183,7 +183,7 @@ static gboolean gnubiff_applet_factory (PanelApplet *applet, const gchar *iid, g
 		biff->applet()->dock ((GtkWidget *) applet);
 		biff->preferences()->synchronize();
 		biff->applet()->show ();
-		biff->applet()->update ();
+		biff->applet()->update (true);
 		if (biff->check_mode_ == AUTOMATIC_CHECK)
 			biff->applet()->start (3);
 	}

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-applet-gtk.cc,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -119,13 +119,13 @@ AppletGtk::create (void)
 
 
 void
-AppletGtk::update (void)
+AppletGtk::update (gboolean no_popup)
 {
 	// Is there another update going on ?
 	if (!g_mutex_trylock (update_mutex_))
 		return;
 
-	Applet::update();
+	Applet::update(no_popup);
 
 	std::string text;
 	guint unread = unread_markup (text);

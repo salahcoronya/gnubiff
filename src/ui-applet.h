@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-applet.h,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -57,7 +57,7 @@ public:
 	// ========================================================================	
 	void start (guint delay=0);						// start monitoring
 	void stop  (void);								// stop monitoring
-	virtual void update (void) = 0;					// update applet
+	virtual void update (gboolean no_popup = false);// update applet
 	virtual void dock (GtkWidget *applet) {};		// dock applet
 
 	guint       unread_markup (std::string &text);	// build unread markup string

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-preferences.cc,v $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -469,7 +469,7 @@ Preferences::on_close (GtkWidget *widget)
 	hide();
 	if (biff_->check_mode_ == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
-	biff_->applet()->update();
+	biff_->applet()->update(true);
 	biff_->applet()->show();
 }
 
@@ -517,7 +517,7 @@ Preferences::on_destroy (GtkWidget *widget,  GdkEvent *event)
 	hide ();
 	if (biff_->check_mode_ == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
-	biff_->applet()->update();
+	biff_->applet()->update(true);
 	biff_->applet()->show();
 	return true;
 }
@@ -528,7 +528,7 @@ Preferences::on_delete (GtkWidget *widget,  GdkEvent *event)
 	hide ();
 	if (biff_->check_mode_ == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
-	biff_->applet()->update();
+	biff_->applet()->update(true);
 	biff_->applet()->show();
 	return true;
 }
