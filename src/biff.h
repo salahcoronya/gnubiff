@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/01/31 14:58:07 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/03/06 19:45:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -56,6 +56,7 @@ public:
 	//  general
 	// ================================================================================
 	std::string		passtable_;					// encryption table
+	static void bug_report_msg (void);
 
 protected:
 	// ================================================================================
