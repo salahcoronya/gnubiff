@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/01/11 08:47:40 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/01/31 14:58:08 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -83,14 +83,20 @@ Local::start (void)
 	}
 
 	// start monitoring
-	if( FAMMonitorFile (&fam_connection_, address().c_str(), &fam_request_,
-						NULL) < 0) {
+	gint status;
+	if (protocol() == PROTOCOL_MAILDIR)
+		status = FAMMonitorDirectory (&fam_connection_, address().c_str(),
+									  &fam_request_, NULL);
+	else
+		status = FAMMonitorFile (&fam_connection_, address().c_str(),
+								 &fam_request_, NULL);
+	if (status < 0) {
 		FAMClose (&fam_connection_);
 		g_mutex_unlock (monitor_mutex_);
-		return ;
+		return;
 	}
 
-	int status = 1;
+	status = 1;
 	while (status == 1) {
 		status = FAMNextEvent (&fam_connection_, &fam_event_);
 		if( status < 0 ) {
