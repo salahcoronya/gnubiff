@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2005/01/09 19:49:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -205,9 +205,12 @@ protected:
 	 *  gnubiff during the present update. These ids will be transfered to
 	 *  Mailbox::seen_ once the update is completed successfully. */
 	std::set<std::string>		new_seen_;
-	/** This vector contains the uids of all those mails that will be
-	 *  displayed (in the opposite order). */
+	/** This vector contains the gnubiff mail ids of all those mails that will
+	 *  be displayed (in the opposite order). */
 	std::vector<std::string>    mails_to_be_displayed_;
+	/** Into this vector the gnubiff mail ids of all those mails that will
+	 *  be displayed (in the opposite order) when the current update is
+	 *  finished are inserted. */
 	std::vector<std::string>    new_mails_to_be_displayed_;
 
 public:
