@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2004/12/04 18:49:05 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2004/12/04 20:21:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -227,9 +227,7 @@ Socket::open (std::string hostname,
 		}
 
 		if ((certificate_.size() > 0) && (SSL_get_verify_result(ssl_) != X509_V_OK)) {
-			gdk_threads_enter ();
 			ui_certificate_->select (this);
-			gdk_threads_leave ();
 			if (!bypass_certificate_) {
 				SSL_free (ssl_);
 				ssl_ = NULL;

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2004/12/05 13:22:16 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2004/12/05 21:57:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -600,7 +600,7 @@ Imap4::fetch_header (void)
 			line = std::string ("DONE") +std::string ("\r\n");
 			if (!socket_->write (line)) idling = false;
 		
-			// Either we got an 
+			// Either we got a OK or a BYE
 			do {
 				if (!socket_->read (line)) break;
 				// Do we lost lock ?

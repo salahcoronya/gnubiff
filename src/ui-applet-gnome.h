@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/04 20:38:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -42,7 +42,6 @@ class AppletGnome : public Applet {
 
 protected:
 	GtkWidget *		applet_;
-	GtkWidget *		about_;
 
 public:
 	// ========================================================================

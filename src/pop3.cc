@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: pop3.cc,v $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -68,11 +68,8 @@ int
 Pop3::connect (void)
 {
 	// show authentication if password is empty
-	if (password_.empty()) {
-		gdk_threads_enter ();
+	if (password_.empty())
 		ui_auth_->select (this);
-		gdk_threads_leave ();
-	}
 
 	// if it is still empty after authentication, just return
 	if (password_.empty()) {
