@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/22 15:07:07 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/12/22 18:15:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -382,7 +382,7 @@ Properties::on_apply (GtkWidget *widget)
 			mailbox_->address(newaddress);
 			// If possible create a correct mailbox, otherwise a generic one
 			// (to force lookup)
-			if (!(mailbox=Mailbox::lookup_local(mailbox_)))
+			if (!(mailbox=Mailbox::lookup_local(*mailbox_)))
 				mailbox=new Mailbox (*mailbox_);
 			preferences_->biff()->replace (mailbox_, mailbox);
 		}
