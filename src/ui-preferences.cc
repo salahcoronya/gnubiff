@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/02/01 21:47:34 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/02/01 22:37:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -700,10 +700,13 @@ Preferences::expert_ok (void)
 	opts->from_string (option->name(), value);
 
 	// Update GUI
-	biff_->gui_set (OPTGRP_ALL, xml_, filename_, option);
-	biff_->gui_show (OPTGRP_ALL, xml_, filename_, option);
-	gtk_list_store_set (store, &treeiter, COL_EXP_VALUE,
-						opts->to_string(option->name()).c_str(), -1);
+	if (option->group() != OPTGRP_MAILBOX) {
+		biff_->gui_set (OPTGRP_ALL, xml_, filename_, option);
+		biff_->gui_show (OPTGRP_ALL, xml_, filename_, option);
+		gtk_list_store_set (store, &treeiter, COL_EXP_VALUE,
+							opts->to_string(option->name()).c_str(), -1);
+	}
+	// FIXME: Update mailbox GUI widgets if dialog is shown
 }
 
 /**
