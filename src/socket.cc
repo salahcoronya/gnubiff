@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/01/11 08:47:40 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/02/01 17:12:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -343,7 +343,7 @@ Socket::read (std::string &line, gboolean print, gboolean check)
 	line = "";
 	status_ = -1;
 
-	gint cnt=1+preventDoS_lineLength_; 
+	gint cnt = 1 + mailbox_->biff()->value_uint ("prevdos_line_length");
 
 	// TEMP_FAILURE_RETRY will re-call the method if the read primitive
 	// is interrupted by a signal.

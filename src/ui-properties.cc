@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/02/02 10:24:01 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/02/02 14:31:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -417,7 +417,7 @@ Properties::on_apply (GtkWidget *widget)
 			preferences_->biff()->replace (mailbox_, mailbox);
 		}
 	}
-	preferences_->synchronize();	
+	preferences_->synchronize();
 }
 
 void
