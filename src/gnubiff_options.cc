@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/02/01 17:12:48 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/02/01 21:47:32 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -217,6 +217,12 @@ Gnubiff_Options::add_options_general (void)
 		"Shall options be displayed in the expert dialog that cannot be "
 		"changed?",
 								 true));
+	// EXPERT_SEARCH_VALUES
+	add_option (new Option_Bool ("expert_search_values", OPTGRP_GENERAL,
+		"When searching for options that contain a given string, examine "
+		"option name and value if this option is true, otherwise examine "
+		"only the option name?",
+								 false));
 }
 
 void 
