@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.48 $
-// Revision date : $Date: 2005/03/07 17:43:00 $
+// Revision      : $Revision: 1.49 $
+// Revision date : $Date: 2005/03/08 12:33:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -78,9 +78,7 @@ protected:
 
 	void option_changed (Option *option);
 	void option_update (Option *option);
-	gboolean parse_contenttype (std::string line, std::string &type,
-								std::string &subtype,
-								std::map<std::string, std::string> &map);
+	gboolean parse_contenttype (std::string line, class PartInfo &partinfo);
 
 	/// Mail headers of mails that have not been read yet
 	std::map<std::string, Header> unread_;
