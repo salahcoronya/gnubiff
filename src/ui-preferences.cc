@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/02/05 17:00:34 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2005/02/05 17:53:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -744,10 +744,13 @@ Preferences::expert_update_option_list ()
 		else
 			option_opts = biff_->get (id);
 
-		// Update option
-		expert_update_option (name, option_opts, store, &iter);
-
-		valid = gtk_tree_model_iter_next (GTK_TREE_MODEL (store), &iter);
+		// Update option (remove options to non existing mailboxes)
+		if (option_opts) {
+			expert_update_option (name, option_opts, store, &iter);
+			valid = gtk_tree_model_iter_next (GTK_TREE_MODEL (store), &iter);
+		}
+		else
+			valid = gtk_list_store_remove (store, &iter);
 	}
 }
 
