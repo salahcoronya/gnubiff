@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.90 $
-// Revision date : $Date: 2005/01/03 17:24:37 $
+// Revision      : $Revision: 1.91 $
+// Revision date : $Date: 2005/01/03 23:12:08 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -1297,8 +1297,7 @@ Imap4::sendline (std::string command, gboolean print, gboolean check)
  *                  SOCKET_STATUS_OK if {\em check} is true.
  * @exception imap_command_err
  *                  This exception is thrown if {\em line} contains a negative
- *                  untagged response and {\em check} and {\em checkline} are
- *                  true.
+ *                  untagged response and {\em checkline} is true.
  * @exception imap_socket_err
  *                  This exception is thrown if a network error occurs.
  */
@@ -1346,8 +1345,7 @@ Imap4::readline (std::string &line, gboolean print, gboolean check,
  *                  SOCKET_STATUS_OK if {\em check} is true.
  * @exception imap_command_err
  *                  This exception is thrown if {\em line} contains a negative
- *                  untagged response and {\em check} and {\em checkline} are
- *                  true.
+ *                  untagged response and {\em checkline} is true.
  * @exception imap_dos_err
  *                  This exception is thrown when a DoS attack is suspected.
  * @exception imap_socket_err
