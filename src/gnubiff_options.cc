@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/02/26 17:48:33 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/02/27 13:33:18 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -101,7 +101,7 @@ Gnubiff_Options::add_options_applet (void)
 	// NEWMAIL_TEXT
 	add_option (new Option_String ("newmail_text", OPTGRP_APPLET,
 		"Text to be printed into the applet if new mails are present "
-        "(%d is the number of mails).",
+        "(%d is the number of new messages).",
 								   "%d", OPTFLG_NONE, OPTGUI_ENTRY,
 								   "newmail_text_entry"));
 	// USE_NEWMAIL_IMAGE
