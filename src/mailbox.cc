@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2005/01/09 19:49:41 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2005/01/10 13:39:13 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -587,9 +587,11 @@ Mailbox::start_checking (void)
 		status_ = MAILBOX_OLD;
 
 	// Save obtained values
+	g_mutex_lock (mutex_);
 	unread_ = new_unread_;
 	seen_ = new_seen_;
 	mails_to_be_displayed_ = new_mails_to_be_displayed_;
+	g_mutex_unlock (mutex_);
 }
 
 /**
