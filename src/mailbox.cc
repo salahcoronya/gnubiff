@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.38 $
-// Revision date : $Date: 2005/01/14 08:08:20 $
+// Revision      : $Revision: 1.39 $
+// Revision date : $Date: 2005/01/14 17:20:55 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -608,11 +608,18 @@ Mailbox::start_checking (void)
 			status_ = MAILBOX_OLD;
 	}
 
+	// Remove mails from hidden that are no longer needed
+	std::set<std::string> new_hidden;
+	std::set_intersection (hidden_.begin(), hidden_.end(),
+						   new_seen_.begin(), new_seen_.end(),
+						   std::insert_iterator<std::set<std::string> > (new_hidden, new_hidden.begin()));
+
 	// Save obtained values
 	g_mutex_lock (mutex_);
 	unread_ = new_unread_;
 	seen_ = new_seen_;
 	mails_to_be_displayed_ = new_mails_to_be_displayed_;
+	hidden_ = new_hidden;
 	g_mutex_unlock (mutex_);
 }
 
