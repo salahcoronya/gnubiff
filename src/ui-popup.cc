@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.28 $
-// Revision date : $Date: 2005/03/13 13:46:52 $
+// Revision      : $Revision: 1.29 $
+// Revision date : $Date: 2005/03/21 15:18:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -303,15 +303,15 @@ Popup::update (void)
 			size = 1;
 
 		// Subject
-		gchar *subject = gb_utf8_strndup ((*h)->subject().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_subject")));
+		gchar *subject = utf8_strndup ((*h)->subject().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_subject")));
 		saved_strings.push_back (subject);
 
 		// Date
-		gchar *date = gb_utf8_strndup ((*h)->date().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_date")));
+		gchar *date = utf8_strndup ((*h)->date().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_date")));
 		saved_strings.push_back (date);
 
 		// Sender
-		gchar *sender = gb_utf8_strndup ((*h)->sender().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_sender")));
+		gchar *sender = utf8_strndup ((*h)->sender().c_str(), std::max<guint> (size, biff_->value_uint ("popup_size_sender")));
 		saved_strings.push_back (sender);
 
 		// Mail identifier

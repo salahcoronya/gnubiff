@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/03/28 22:06:11 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/03/31 16:05:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -236,7 +236,7 @@ GUI::create_insert_version (void)
 		const gchar *text = gtk_label_get_label (label);
 		if (!text)
 			continue;
-		std::string newtext = gb_substitute (text, chars, toinsert);
+		std::string newtext = substitute (text, chars, toinsert);
 		gtk_label_set_label (label, newtext.c_str());
 	}
 }

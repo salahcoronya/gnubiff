@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/03/28 21:11:50 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/03/29 15:29:05 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -40,8 +40,10 @@
 #include <vector>
 
 /**
- * This class is intended to provide functions needed for decoding and
- * converting encodings used in mails. 
+ * This class is intended to provide functions needed for decoding,
+ * encoding and converting encodings used in mails.
+ *
+ * @see In the class Support are various other support functions.
  */
 class Decoding
 {

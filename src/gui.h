@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/03/31 16:05:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,9 +38,10 @@
 #include <string>
 #include <gtk/gtk.h>
 #include <glade/glade.h>
+#include "support.h"
 
 
-class GUI {
+class GUI : public Support {
 
 protected:
 	GladeXML *		xml_;		// interface description using XML/glade-2 file
