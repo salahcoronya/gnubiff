@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/02/07 22:14:17 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/02/07 23:02:36 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -235,6 +235,10 @@ Gnubiff_Options::add_options_general (void)
 		"Shall all options that have not their default values and are "
 		"editable by the user be highlighted?",
 								 true));
+	// PREF_ALLOW_RESIZE
+	add_option (new Option_Bool ("pref_allow_resize", OPTGRP_GENERAL,
+		"Shall it be allowed to resize the preferences dialog window?",
+								 false));
 }
 
 void 

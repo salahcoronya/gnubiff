@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2005/02/07 12:32:42 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2005/02/07 22:14:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -432,6 +432,10 @@ Preferences::synchronize (void)
 	else
 		biff_->value ("check_mode", AUTOMATIC_CHECK);
 	on_stop (0);
+
+	// Make preferences dialog resizeable (if this is the user's wish)
+	gtk_window_set_resizable (GTK_WINDOW (get("dialog")),
+							  biff_->value_bool ("pref_allow_resize"));
 }
 
 
