@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: mailbox.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -172,5 +172,18 @@ public:
 	guint hiddens (void)								{return hidden_.size();}
 
 };
+
+/**
+ * In some situations we need to read a certain number of lines from the
+ * network to get the line we want. Unfortunately this number may vary in
+ * reality because of the following reasons:
+ *  * There exist different extensions to the protocols
+ *  * Not all servers implement protocols correctly
+ *  * There is a DoS attack
+ * To prevent being DoS attacked we need to set a limit of additional lines
+ * that are being read. This is done by the following constant.
+ */
+const gint preventDoS_additionalLines_=16;
+
 
 #endif
