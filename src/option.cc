@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/02/07 22:14:18 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/03/02 13:02:16 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -383,20 +383,21 @@ Option_String::get_values (std::set<std::string> &values, gboolean empty)
 
 	std::string tmp;
 	guint len = value_.size();
-	for (guint j = 0; j < len; j++) {
-		if ((value_[j] == ' ') && (tmp.size() > 0)) {
-			values.insert (tmp);
-			tmp = "";
-			continue;
+
+	guint pos = 0;
+	while (pos < len) {
+		// Remove spaces
+		while ((pos < len) && (value_[pos] == ' '))
+			pos++;
+
+		// Get quoted string
+		if (pos < len) {
+			if (get_quotedstring (value_, tmp, pos, ' ', false, true))
+				values.insert (tmp);
+			else
+				break; // we stop if there is an error
 		}
-		if ((value_[j] == '\\') && (j == len-1))
-			continue;
-		if (value_[j] == '\\')
-			j++;
-		tmp += value_[j];
 	}
-	if (tmp.size() > 0)
-		values.insert (tmp);
 }
 
 void 

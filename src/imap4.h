@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.45 $
-// Revision date : $Date: 2005/01/13 23:35:25 $
+// Revision      : $Revision: 1.46 $
+// Revision date : $Date: 2005/01/19 08:37:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -200,29 +200,6 @@ class Imap4 : public Mailbox {
 									 std::string contbegin = std::string (""));
 	void update_applet();
 	void idle() throw (imap_err);
-};
-
-/**
- * Information about one part of a multi-part mail. If the mail consists only
- * of one part the information is valid for the whole mail.
- */
-class PartInfo
-{
- public:
-	/** Part identifier as needed for the IMAP command FETCH (see
-	 *  RFC 3501 6:4:5). This is the part of the mail that will be displayed
-	 *  by gnubiff (if possible). */
-	std::string part_;
-	/// MIME type of this part. Currently only "text/plain" is supported.
-	std::string mimetype_;
-	/** Encoding of this part. Currently supported encodings are 7bit, 8bit and
-	 *  quoted-printable. Encodings yet to be supported are binary and base64.
-	 */
-	std::string encoding_;
-	/// Character set of this part
-	std::string charset_;
-	/// Size of this part in bytes
-	gint size_;
 };
 
 #endif
