@@ -20,7 +20,7 @@
 //
 // File          : $RCSfile: support.cc,v $
 // Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision date : $Date: 2004/10/13 21:45:51 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -49,17 +49,17 @@ gchar*
 gb_utf8_strndup(const gchar *str, gsize n)
 {
     // No String
-	 if (str==NULL)
-	 	  return NULL;
+	if (str==NULL)
+		return NULL;
 
-	 // Find the first character not to be copied
-	 gsize i=0;
-	 const gchar *lastpos=str;
-	 while ((i++<n)&&(*lastpos))
-		  lastpos=g_utf8_next_char(lastpos);
+	// Find the first character not to be copied
+	gsize i=0;
+	const gchar *lastpos=str;
+	while ((i++<n)&&(*lastpos))
+		lastpos=g_utf8_next_char(lastpos);
 
-	 gsize len=lastpos-str;
-	 return g_strndup(str,MAX(len,n));
+	gsize len=lastpos-str;
+	return g_strndup(str,MAX(len,n));
 }
 
 /**
