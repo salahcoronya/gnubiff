@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/01/04 21:19:57 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/01/05 14:54:38 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -205,7 +205,8 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 	std::set<std::string> buffer;
 	for (guint i=0; i< num; i++) {
 		// UIDL
-		buffer.insert (command_uidl (i+start));
+		std::string uid=command_uidl (i+start);
+		buffer.insert (uid);
 
 		if (statusonly)
 			continue;
@@ -214,7 +215,7 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 		command_top (mail, start + i);
 
 		// Parse mail
-		parse (mail, MAIL_UNREAD);
+		parse (mail, MAIL_UNREAD, uid);
 	}
 
 	// Determine new mailbox status
