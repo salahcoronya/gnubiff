@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/14 11:13:30 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -44,6 +44,8 @@
 #include <glib.h>
 #include <string>
 
+
+const gint	SOCKET_TIMEOUT		=	 2;
 const gint	SOCKET_STATUS_OK		=	 1;
 const gint	SOCKET_STATUS_ERROR		=	 0;
 const gint	SD_CLOSE				=	-1;
@@ -99,13 +101,15 @@ public:
 	gint read  (std::string &line,
 				gboolean debug = true,
 				gboolean check = true);
-
+  
 	/**
 	 * access
 	 **/
 	void status (const gint status)				{status_ = status;}
 	gint status (void)							{return status_;}
 	std::string hostname (void)					{return hostname_;}
+	void set_read_timeout(gint timeout);
+
 #ifdef HAVE_LIBSSL
 	SSL *ssl (void)								{return ssl_;}
 	const gboolean bypass_certificate (void)	{return bypass_certificate_;}
