@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/01/14 17:45:21 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/01/16 22:24:16 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -377,7 +377,7 @@ Biff::save_newblock(const gchar *name)
  * Ends the last opened block of options in the configuration file.
  */
 void 
-Biff::save_endblock()
+Biff::save_endblock(void)
 {
 	const gchar *fmt="%*s</%s>\n";
 	gchar *esc=g_markup_printf_escaped(fmt,save_blocks.size()*2-2,"",
