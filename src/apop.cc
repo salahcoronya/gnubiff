@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: apop.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/06 21:24:41 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/12/14 11:13:30 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -149,7 +149,7 @@ Apop::connect (void)
 		sprintf (&hex_response[i*2], "%02x", response[i]);
 	hex_response[32] = '\0';
 #else
-	g_message (_("[%d] Problem with crypto that should have been detected at configure time", uin_));
+	g_message (_("[%d] Problem with crypto that should have been detected at configure time"), uin_);
 	return 0;
 #endif
 
