@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.108 $
-// Revision date : $Date: 2005/01/13 23:35:25 $
+// Revision      : $Revision: 1.109 $
+// Revision date : $Date: 2005/01/16 01:29:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -278,7 +278,7 @@ Imap4::connect (void) throw (imap_err)
 	readline (line);
 
 	// CAPABILITY
-	command_capability(true);
+	command_capability (false);
 
 	// LOGIN
 	command_login();
@@ -429,6 +429,7 @@ Imap4::command_capability (gboolean check_rc) throw (imap_err)
 
 	// Looking for supported capabilities
 	idleable_ = use_idle () && (line.find (" IDLE ") != std::string::npos);
+
 
 	if (line.find (" LOGINDISABLED ") != std::string::npos) {
 		command_logout();
