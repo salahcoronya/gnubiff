@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2005/01/13 16:45:40 $
+// Revision      : $Revision: 1.33 $
+// Revision date : $Date: 2005/01/13 23:35:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -272,6 +272,7 @@ public:
 	void lookup (void);								// try to guess mailbox format
 	static Mailbox *lookup_local(Mailbox &);        // try to guess mailbox format for a local mailbox
 	gboolean new_mail (std::string &);
+	void update_mailbox_status (void);
 	void start_checking (void);
 	void mail_displayed (void);
 	void parse (std::vector<std::string> &mail,		// parse a mail 

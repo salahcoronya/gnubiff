@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.107 $
-// Revision date : $Date: 2005/01/09 19:49:41 $
+// Revision      : $Revision: 1.108 $
+// Revision date : $Date: 2005/01/13 23:35:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -356,6 +356,7 @@ Imap4::idle (void) throw (imap_err)
 	while (true) {
 		// When in idle state, we won't exit this thread function
 		// so we have to update applet in the meantime
+		update_mailbox_status ();
 		update_applet();
 
 		if (timetag_)
@@ -363,18 +364,17 @@ Imap4::idle (void) throw (imap_err)
 		timetag_ = 0;
 
 		// IDLE
-		std::string line = command_idle (sentdone);
+		command_idle (sentdone);
 
 		if (!sentdone)
 			if (socket_->write (std::string("DONE\r\n")) != SOCKET_STATUS_OK)
 				throw imap_socket_err();
 
 		// Getting the acknowledgment
-		waitfor_ack();
+		waitfor_ack ();
 
 		// Get mails
-
-		fetch_mails();
+		fetch_mails ();
 	}
 	idled_ = false;
 }

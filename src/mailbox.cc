@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.39 $
-// Revision date : $Date: 2005/01/14 17:20:55 $
+// Revision      : $Revision: 1.40 $
+// Revision date : $Date: 2005/01/15 13:42:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -580,33 +580,25 @@ Mailbox::mail_displayed (void)
 }
 
 /**
- * Start checking for new messages.
+ *  Determine the new status of the mailbox and keep the values obtained in the
+ *  last update.
  */
 void 
-Mailbox::start_checking (void)
+Mailbox::update_mailbox_status (void)
 {
-	// Initialization
-	status_ = MAILBOX_CHECK;
-	new_unread_.clear ();
-	new_seen_.clear ();
-	new_mails_to_be_displayed_.clear ();
-
-	// Fetch mails
-	fetch ();
-
 	// Determine new mailbox status
-	if (status_ == MAILBOX_CHECK) {
-		if (new_unread_.size() == 0)
-			status_ = MAILBOX_EMPTY;
-		else if (unread_.size() < new_unread_.size())
-			status_ = MAILBOX_NEW;
-		else if (!std::includes (unread_.begin(), unread_.end(),
-								 new_unread_.begin(), new_unread_.end(),
-								 less_pair_first()))		 
-			status_ = (unread_ == new_unread_) ? MAILBOX_OLD : MAILBOX_NEW;
-		else
-			status_ = MAILBOX_OLD;
-	}
+	if (status_ != MAILBOX_CHECK)
+		return;
+	if (new_unread_.size() == 0)
+		status_ = MAILBOX_EMPTY;
+	else if (unread_.size() < new_unread_.size())
+		status_ = MAILBOX_NEW;
+	else if (!std::includes (unread_.begin(), unread_.end(),
+									 new_unread_.begin(), new_unread_.end(),
+									 less_pair_first()))		 
+		status_ = (unread_ == new_unread_) ? MAILBOX_OLD : MAILBOX_NEW;
+	else
+		status_ = MAILBOX_OLD;
 
 	// Remove mails from hidden that are no longer needed
 	std::set<std::string> new_hidden;
@@ -621,6 +613,23 @@ Mailbox::start_checking (void)
 	mails_to_be_displayed_ = new_mails_to_be_displayed_;
 	hidden_ = new_hidden;
 	g_mutex_unlock (mutex_);
+}
+
+/**
+ * Start checking for new messages.
+ */
+void 
+Mailbox::start_checking (void)
+{
+	// Initialization
+	status_ = MAILBOX_CHECK;
+	new_unread_.clear ();
+	new_seen_.clear ();
+	new_mails_to_be_displayed_.clear ();
+
+	// Fetch mails and update status
+	fetch ();
+	update_mailbox_status ();
 }
 
 /**
