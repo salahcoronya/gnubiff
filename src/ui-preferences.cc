@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.40 $
-// Revision date : $Date: 2005/03/21 15:18:26 $
+// Revision      : $Revision: 1.41 $
+// Revision date : $Date: 2005/03/21 17:38:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -248,6 +248,8 @@ gint
 Preferences::create (void)
 {
 	GUI::create ();
+
+	// Create expert tab
 	expert_create ();
 
 	// Mailboxes list

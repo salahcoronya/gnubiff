@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/01/31 14:58:07 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/03/07 17:43:00 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -127,7 +127,9 @@ int mainGTK (int argc, char **argv) {
 	poptcon = poptGetContext ("gnubiff", argc,  (const char **) argv, options, 0);
 	while ((status = poptGetNextOpt(poptcon)) >= 0);
 	if (status < -1) {
-		fprintf (stderr, "%s: %s\n\n", poptBadOption(poptcon, POPT_BADOPTION_NOALIAS),  poptStrerror(status));
+		fprintf (stderr, "%s: %s\n\n",
+				 poptBadOption (poptcon, POPT_BADOPTION_NOALIAS),
+				 poptStrerror (status));
 		poptPrintHelp (poptcon, stderr, 0);
 		exit (1);
 	}
@@ -142,9 +144,12 @@ int mainGTK (int argc, char **argv) {
 	gtk_init (&argc, &argv);
 
 	// Print version information if requested and exit
-	if (print_version)
-	{
+	if (print_version) {
+#ifdef IS_CVS_VERSION
+		g_print ("gnubiff version "PACKAGE_VERSION" CVS\n");
+#else
 		g_print ("gnubiff version "PACKAGE_VERSION"\n");
+#endif
 		exit (EXIT_SUCCESS);
 	}
 

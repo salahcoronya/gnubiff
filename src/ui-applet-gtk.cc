@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/01/31 14:58:22 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/03/21 15:33:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -315,10 +315,6 @@ AppletGtk::on_menu_about (void)
 {
 	biff_->popup()->hide();
 	biff_->preferences()->hide();
-	std::string package = "<span size=\"xx-large\"><b>";
-	package += PACKAGE_STRING;
-	package += "</b></span>";
-	gtk_label_set_markup (GTK_LABEL (get("about_version")), package.c_str());
 	GUI::show ("about");
 }
 

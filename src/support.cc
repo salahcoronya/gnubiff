@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/03/28 20:41:40 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/03/29 10:56:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -153,7 +153,8 @@ unknown_internal_error_ (const gchar *file, guint line, const gchar *func)
 	ss << "line        : " << line << "\n";
 	ss << "function    : " << func << "\n";
 	ss << "date        : " << __DATE__ << " " << __TIME__ << "\n";
-	ss << "gnubiff     : " << PACKAGE_VERSION << "\n";
+	ss << "gnubiff     : " << PACKAGE_VERSION << " ";
+	ss <<                     IS_CVS_VERSION ? "CVS\n" : "\n";
 	ss << "\n";
 	ss << "system      : " << uts.sysname << " " << uts.release << " ";
 	ss <<                     uts.version << " " << uts.machine << "\n";
