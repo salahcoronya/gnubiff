@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/03/13 13:46:52 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/03/22 15:17:20 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -92,15 +92,15 @@ std::string
 gb_substitute(std::string format, std::string chars,
 			  std::vector<std::string> toinsert)
 {
-	guint pos=0,cpos,prevpos=0;
-	guint len=format.length();
+	std::string::size_type pos = 0, cpos, prevpos=0;
+	std::string::size_type len = format.length();
 	std::string result("");
 
-	while ((pos<len)&&(pos=format.find("%",prevpos))!=std::string::npos)
+	while ((pos<len) && (pos=format.find("%",prevpos)) != std::string::npos)
     {
-		if (prevpos<pos)
-			result.append(format,prevpos,pos-prevpos);
-		prevpos=pos+2;
+		if (prevpos < pos)
+			result.append (format, prevpos, pos-prevpos);
+		prevpos = pos+2;
 		// '%' at end of string
 		if (pos+1==len)
 			return result;
