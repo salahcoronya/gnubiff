@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/02/22 16:09:42 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/02/25 12:33:38 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -215,7 +215,16 @@ Gnubiff_Options::add_options_general (void)
 #else
 								 true,
 #endif
-								 OPTFLG_NONE, OPTGUI_NONE, "", NULL, s5));
+								 OPTFLG_NONE, OPTGUI_TOGGLE,
+								 "expert_show_tab_check", NULL, s5));
+	// EXPERT_EDIT_OPTIONS
+	const static gchar *s6[] = {"!expert_warning_vbox", "expert_editing_vbox",
+								NULL};
+	add_option (new Option_Bool ("expert_edit_options", OPTGRP_GENERAL,
+		"Shall expert mode editing be enabled? Otherwise a warning message is "
+		"shown inside of the expert tab.",
+								 false, OPTFLG_NONE, OPTGUI_TOGGLE,
+								 "expert_edit_options_check", NULL, s6));
 	// EXPERT_SHOW_FIXED
 	add_option (new Option_Bool ("expert_show_fixed", OPTGRP_GENERAL,
 		"Shall options be displayed in the expert dialog that cannot be "
