@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2005/01/03 15:35:42 $
+// Revision      : $Revision: 1.33 $
+// Revision date : $Date: 2005/01/03 16:55:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -66,8 +66,8 @@ class Imap4 : public Mailbox {
 	// ========================================================================
 	//  exceptions
 	// ========================================================================
-
-	/// General exception for IMAP mailbox. 
+	/** Generic exception for IMAP mailboxes serving as a base for more
+	 *  specific exceptions. */
 	class imap_err : public mailbox_err {};
 	/** Exception for a socket connection failure. Usually this is thrown when
 	 *  reading or writing. */

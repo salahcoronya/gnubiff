@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2004/12/15 17:35:42 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2004/12/27 00:00:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -90,9 +90,22 @@ Pop::start (void)
 void
 Pop::fetch (void)
 {
-	fetch_status();
-	if ((status_ == MAILBOX_NEW) || (status_ == MAILBOX_EMPTY))
-		fetch_header();
+	try {
+		fetch_status();
+		if ((status_ == MAILBOX_NEW) || (status_ == MAILBOX_EMPTY))
+			fetch_header();
+	}
+	catch (pop_err& err) {
+		// Catch all errors that are un-recoverable and result in
+		// closing the connection, and resetting the mailbox status.
+#if DEBUG
+		g_warning ("[%d] Pop exception: %s", uin_, err.what());
+#endif
+		status_ = MAILBOX_ERROR;
+		unread_.clear ();
+		seen_.clear ();
+		socket_->close ();
+	}
 
 	if (!GTK_WIDGET_VISIBLE (biff_->popup()->get())) {
 		gdk_threads_enter();

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2005/01/03 15:35:42 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2005/01/03 16:17:27 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -170,7 +170,7 @@ public:
 	// ========================================================================
 	//  exceptions
 	// ========================================================================
-	/** General exception for mailboxes. This only serves as base for more
+	/** General exception for mailboxes. This only serves as a base for more
 	 *  more specific exceptions. */
 	class mailbox_err : public std::exception {};
 

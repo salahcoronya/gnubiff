@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: pop3.h,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -34,7 +34,9 @@
 
 #include "pop.h"
 
-
+/**
+ * Mailbox for the POP3 protocol. 
+ */
 class Pop3 : public Pop {
 
 public:
