@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/02/14 16:07:50 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2005/02/14 17:42:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -35,6 +35,7 @@
 #include <utime.h>
 
 #include "file.h"
+#include "nls.h"
 
 // ========================================================================
 //  base
@@ -76,6 +77,7 @@ void File::fetch (void)
 	std::ifstream file;
 	file.open (address().c_str());
 	if (!file.is_open()) {
+		g_warning (_("Cannot open %s."), address().c_str());
 		status (MAILBOX_ERROR);
 		return;
 	}
@@ -100,7 +102,7 @@ void File::fetch (void)
 			mail.clear();
 			header = true;
 		}
-		if (line.size() == 0) {
+		if ((line.size() == 0) && header) {
 			header = false;
 			cnt = max_cnt;
 		}
