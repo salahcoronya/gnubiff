@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2004/12/12 17:22:34 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2004/12/12 20:48:49 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -579,42 +579,4 @@ Mailbox::decode_body (std::vector<std::string> &mail, std::string encoding)
 	}
 
 	return true;
-}
-
-/**
- * Decoding a quoted-printable encoded string. 
- *
- * @param  todec  C++ string to be decoded
- * @return        C++ string with the decoded string {\em todec}
- */
-std::string 
-Mailbox::decode_quotedprintable (std::string todec)
-{
-	guint pos=0,len=todec.length();
-	std::string result;
-	gint decoded;
-
-	while (pos<len)
-	{
-		switch (gchar c=todec.at(pos++))
-		{
-			case '=':
-				pos+=2;
-				if (pos>len)
-					return result;
-				if ((decoded=g_ascii_xdigit_value(todec.at(pos-1)))<0)
-					break;
-				if ((decoded+=16*g_ascii_xdigit_value(todec.at(pos-2)))<0)
-					break;
-				result+=decoded;
-				break;
-			case '_':
-				result+=' ';
-				break;
-			default:
-				result+=c;
-				break;
-		}
-	}
-	return result;
 }
