@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/01/02 12:26:25 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/01/02 21:16:56 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -319,7 +319,7 @@ Socket::write (std::string line,
 
 #ifdef DEBUG
 	if (debug)
-		g_print ("** Message: [%d] SEND(%s:%d): %s", uin_, hostname_.c_str(), port_, line.c_str());
+		g_message ("[%d] SEND(%s:%d): %s", uin_, hostname_.c_str(), port_, line.c_str());
 #endif
 
 	if ((debug) && (!status_)) {
