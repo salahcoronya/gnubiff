@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/02/05 01:38:18 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/02/05 16:19:34 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -384,9 +384,9 @@ Gnubiff_Options::add_options_mailbox (void)
 								 | OPTFLG_NOSAVE));
 	// USE_IDLE
 	add_option (new Option_Bool ("use_idle", OPTGRP_MAILBOX,
-		"Shall the IDLE command be used if the server supports it? This is "
-		"usually a good idea. But if multiple clients connect to the same "
-		"mailbox this can lead to connection errors (depending on the "
+		"Shall the IDLE command be used if the IMAP4 server supports it? "
+		"This is usually a good idea. But if multiple clients connect to the "
+		"same mailbox this can lead to connection errors (depending on the "
 		"internal server configuration). For users encountering this problem "
 		"it is better not to use idling but use polling instead.",
 								 true));
