@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-popup.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -37,6 +37,7 @@
 #include "ui-popup.h"
 #include "mailbox.h"
 #include "nls.h"
+#include "support.h"
 
 
 /**
@@ -241,7 +242,7 @@ Popup::update (void)
 				// Subject
 				buffer = parse_header (biff_->mailbox(j)->unread(i).subject);
 				gchar *subject;
-				subject = g_strndup (buffer, biff_->popup_max_subject_size_);
+				subject = gb_utf8_strndup (buffer, biff_->popup_max_subject_size_);
 				g_free (buffer);
 				saved_strings.push_back (subject);
 
@@ -251,7 +252,7 @@ Popup::update (void)
 				
 				// Sender
 				gchar *buffer = parse_header (biff_->mailbox(j)->unread(i).sender);
-				gchar *sender = g_strndup (buffer, biff_->popup_max_sender_size_);
+				gchar *sender = gb_utf8_strndup (buffer, biff_->popup_max_sender_size_);
 				g_free (buffer);
 				saved_strings.push_back (sender);
 
