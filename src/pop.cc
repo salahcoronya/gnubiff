@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/01/13 23:35:26 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -222,7 +222,7 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 		command_top (mail, start + i);
 
 		// Parse mail
-		parse (mail, MAIL_UNREAD, uid);
+		parse (mail, uid);
 	}
 }
 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/13 20:53:25 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/01/18 21:26:36 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -56,7 +56,7 @@ protected:
 	class Biff *		biff_;				// Biff owner
 	gint				poptag_;			// Tag for pop timer
 	static GStaticMutex	timer_mutex_;		// Mutex for timer tag access
-	header				selected_header_;	// Current selected header
+	Header				selected_header_;	// Current selected header
 	GtkTreeSelection *	tree_selection_;	// Current tree selection
 	gboolean			consulting_;		// Tag to know if we're consulting a mail
 	gint				x_;					// Last mouse x position known
