@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2005/01/13 16:12:36 $
+// Revision      : $Revision: 1.37 $
+// Revision date : $Date: 2005/01/13 23:35:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -555,10 +555,11 @@ void Mailbox::parse (std::vector<std::string> &mail, int status,
 			// and maybe it has been gnubifficaly marked as "seen".
 			//
 			h.setmailid (uid);
-			if (hidden_.find (h.mailid_) == hidden_.end ())
+			if (hidden_.find (h.mailid_) == hidden_.end ()) {
 				new_unread_[h.mailid_] = h;
+				new_mails_to_be_displayed_.push_back (h.mailid_);
+			}
 			new_seen_.insert (h.mailid_);
-			new_mails_to_be_displayed_.push_back (h.mailid_);
 #ifdef DEBUG
 			g_message ("[%d] Parsed mail with id \"%s\"", uin_,
 					   h.mailid_.c_str ());
