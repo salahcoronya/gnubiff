@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/01/31 14:58:22 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/02/02 14:31:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -169,24 +169,27 @@ Applet::update (gboolean no_popup)
 		unread += biff_->mailbox(i)->unreads();
 	}
 
-	if ((!no_popup) && (newmail == true) && (unread > 0) && (force_popup_ == false) && (biff_->value_bool ("use_newmail_command"))) {
+	if ((!no_popup) && (newmail == true) && (unread > 0)
+		&& (force_popup_ == false)
+		&& (biff_->value_bool ("use_newmail_command"))) {
 		std::string command = biff_->value_string ("newmail_command") + " &";
 		system (command.c_str());
 	}
 
-	// If there are no mails to display then hide popup
-	if ((!no_popup) && !unread && (biff_->value_bool ("use_popup") 
-								   || force_popup_)
-		&& biff_->popup())
-		biff_->popup()->hide();
+	if (!no_popup && (biff_->popup())) {
+		// If there are no mails to display then hide popup
+		if (!unread && (biff_->value_bool ("use_popup") || force_popup_))
+			biff_->popup()->hide();
 
-	if ((!no_popup) && unread && ((biff_->value_bool ("use_popup") && newmail)
-								  || (force_popup_))) {
-		biff_->popup()->update();
-		biff_->popup()->show();
+		// Otherwise update and display the popup
+		if (unread && ((biff_->value_bool ("use_popup") && newmail)
+					   || (force_popup_))) {
+			biff_->popup()->update();
+			biff_->popup()->show();
+		}
 	}
 
-	// Mail has been display now
+	// Mail has been displayed now
 	for (unsigned int i=0; i<biff_->size(); i++)
 		biff_->mailbox(i)->mail_displayed ();
 
