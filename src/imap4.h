@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.28 $
-// Revision date : $Date: 2005/01/02 18:08:02 $
+// Revision      : $Revision: 1.29 $
+// Revision date : $Date: 2005/01/02 21:16:56 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -127,8 +127,8 @@ class Imap4 : public Mailbox {
 										  throw (imap_err);
 	void reset_tag();
 	std::string tag();
-	gint send (std::string,gboolean debug=true, gboolean check=true)
-			   throw (imap_err);
+	gint sendline (std::string,gboolean debug=true, gboolean check=true)
+				   throw (imap_err);
 	gint readline (std::string &, gboolean debug=true, gboolean check=true,
 				   gboolean checkline=true) throw (imap_err);
 	void update_applet();						 // Update the applet to new IMAP state.
