@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2004/12/04 18:49:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -316,7 +316,7 @@ Socket::read (std::string &line,
 			  gboolean check)
 {
 	char buffer;
-	int status;
+	int status = 0;
 	line = "";
 	status_ = -1;
 

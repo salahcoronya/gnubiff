@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/11/07 17:47:59 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/12/04 18:49:05 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -97,7 +97,7 @@ gb_utf8_to_imaputf7(const gchar *str, gssize len)
 	std::string result;
 	gssize cnt_len=0;
 	gboolean printableascii=true;
-	const gchar *start;
+	const gchar *start = str;
 
 	while (((len<0) && (*str!='\0')) || (cnt_len<len) || (!printableascii))
 	{
