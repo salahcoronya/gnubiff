@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: imap4.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -41,6 +41,8 @@ class Imap4 : public Mailbox {
 protected:
 	class Socket *			socket_;
 	std::vector<int>		saved_;
+	std::string parse_bodystructure (std::string, gint &,
+									 gboolean toplevel=true);
 
 public:
 	/* Base */
