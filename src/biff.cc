@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2004/12/30 23:49:14 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/01/03 16:17:27 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -464,8 +464,9 @@ Biff::save (void)
 		save_para("use_other_port",mailbox_[i]->use_other_port());
 		save_para("other_port",mailbox_[i]->other_port());
 		std::stringstream seen;
-		for (guint j=0; j<mailbox_[i]->hiddens(); j++)
-		    seen << mailbox_[i]->hidden(j) << " ";
+		for (std::set<guint>::iterator j = mailbox_[i]->hidden().begin();
+			 j != mailbox_[i]->hidden().end(); j++)
+			seen << *j;
 		save_para("seen",seen.str());
 		save_endblock();
 	}
@@ -716,7 +717,7 @@ Biff::xml_start_element (GMarkupParseContext *context,
 			mailbox_[count_]->hidden().clear();
 			guint mailid;
 			while (strin >> mailid)
-				mailbox_[count_]->hidden().push_back (mailid);
+				mailbox_[count_]->hidden().insert (mailid);
 		}
 
 		//
