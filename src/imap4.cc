@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.77 $
-// Revision date : $Date: 2005/01/02 14:53:46 $
+// Revision      : $Revision: 1.78 $
+// Revision date : $Date: 2005/01/02 16:11:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -568,7 +568,7 @@ Imap4::command_fetchbody (guint msn, class PartInfo &partinfo,
 #endif
 	// Read text
 	gint lineno=0, bytes=textsize+3; // ")\r\n" at end of mail
-	while ((bytes>0) && ((socket_->read(line, false) > 0))) {
+	while ((bytes>0) && ((socket_->read(line, false, false) > 0))) {
 		bytes-=line.size()+1; // don't forget to count '\n'!
 		if ((line.size() > 0) && (lineno++<bodyLinesToBeRead_)) {
 			mail.push_back (line.substr(0, line.size()-1));
