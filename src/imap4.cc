@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.46 $
-// Revision date : $Date: 2004/12/27 00:00:22 $
+// Revision      : $Revision: 1.47 $
+// Revision date : $Date: 2004/12/27 15:57:27 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -463,7 +463,8 @@ Imap4::fetch_header (void)
 			// Remove last line (should contain a closing parenthesis). Note:
 			// We need the (hopefully empty;-) line before because it separates
 			// header and mail text
-			mail.pop_back();
+			if (mail.size() > 0)
+				mail.pop_back();
 
 
 			// FETCH BODYSTRUCTURE
