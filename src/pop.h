@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/01/03 17:24:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -83,6 +83,12 @@ public:
 	virtual int connect (void) = 0;
 	void fetch_status (void);
 	void fetch_header (void);
+
+ protected:
+	gint readline (std::string &, gboolean print=true, gboolean check=true,
+				   gboolean checkline=true) throw (pop_err);
+	gint sendline (std::string, gboolean print=true, gboolean check=true)
+				   throw (pop_err);
 };
 
 #endif

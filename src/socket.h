@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/14 11:13:30 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/29 12:56:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -96,10 +96,9 @@ public:
 				std::string certificate = "",
 				guint timeout = 5);
 	gint close (void);
-	gint write (std::string line,
-				gboolean debug = true);
+	gint write (std::string line, gboolean print = true);
 	gint read  (std::string &line,
-				gboolean debug = true,
+				gboolean print = true,
 				gboolean check = true);
   
 	/**
