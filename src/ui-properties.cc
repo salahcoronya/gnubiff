@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/08 13:31:04 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/18 18:24:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -362,6 +362,8 @@ Properties::on_apply (GtkWidget *widget)
 	if (selected_type_ == TYPE_AUTODETECT) {
 		mailbox_->address (gtk_entry_get_text (GTK_ENTRY (get("address_entry"))));
 		mailbox_->protocol (PROTOCOL_NONE);
+		Mailbox *mailbox = new Mailbox (*mailbox_);
+		preferences_->biff()->replace (mailbox_, mailbox);
 	}
 
 	// Second case: type has been set to local and protocol was already local, we
@@ -380,6 +382,8 @@ Properties::on_apply (GtkWidget *widget)
 		else {
 			mailbox_->address (gtk_entry_get_text (GTK_ENTRY (get("address_entry"))));
 			mailbox_->protocol (PROTOCOL_NONE);
+			Mailbox *mailbox = new Mailbox (*mailbox_);
+			preferences_->biff()->replace (mailbox_, mailbox);
 		}
 	}
 	
