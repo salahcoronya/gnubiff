@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/02/01 23:06:42 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/02/02 10:24:00 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -274,9 +274,9 @@ Gnubiff_Options::add_options_mailbox (void)
 								   "address_entry"));
 	// AUTHENTICATION
 	const static guint i4[] = {AUTH_AUTODETECT, AUTH_USER_PASS, AUTH_APOP,
-							   AUTH_SSL, AUTH_CERTIFICATE, 0};
+							   AUTH_SSL, AUTH_CERTIFICATE, AUTH_NONE, 0};
 	const static gchar *s4[] = {"autodetect", "user_pass", "apop", "ssl",
-								"certificate", NULL};
+								"certificate", "-", NULL};
 	add_option (new Option_UInt ("authentication", OPTGRP_MAILBOX,
 		"Authentication to be used when connecting to the server via the "
 		"internet.",

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/01/13 23:35:26 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -162,7 +162,7 @@ Applet::update (gboolean no_popup)
 	gboolean newmail = false;
 	int unread = 0;
 	for (unsigned int i=0; i<biff_->size(); i++) {
-		gint status = biff_->mailbox(i)->status();
+		guint status = biff_->mailbox(i)->status();
 
 		if (status == MAILBOX_NEW)
 			newmail = true;

@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-properties.h,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -54,7 +54,7 @@ protected:
 	GtkSizeGroup *		group_;
 
 	gint				selected_type_;
-	gint				selected_auth_;
+	guint				selected_auth_;
 
 public:
 	// ========================================================================

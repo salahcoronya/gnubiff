@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/01/19 22:45:00 $
+// File          : $RCSfile: gnubiff_options.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/01/31 14:58:07 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -61,6 +61,7 @@ const guint	AUTH_USER_PASS		=	1;
 const guint	AUTH_APOP			=	2;
 const guint	AUTH_SSL			=	3;
 const guint	AUTH_CERTIFICATE	=	4;
+const guint	AUTH_NONE			=	(guint)-1;
 
 const guint	MAILBOX_ERROR		=	0;
 const guint	MAILBOX_EMPTY		=	1;
