@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.33 $
-// Revision date : $Date: 2004/12/10 14:17:46 $
+// Revision      : $Revision: 1.34 $
+// Revision date : $Date: 2004/12/11 14:24:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -517,7 +517,8 @@ Imap4::fetch_header (void)
 			else if (textsize == 0)
 				mail.push_back(std::string(""));
 			else {
-				mail.insert (mail.begin(), std::string("charset=") +  partinfo.charset + std::string(";"));
+				if (partinfo.charset!="")
+					mail.insert (mail.begin(), std::string("charset=") +  partinfo.charset + std::string(";"));
 
 
 				// Note: We are only interested in the first 12 lines, there
@@ -567,6 +568,8 @@ Imap4::fetch_header (void)
 #endif
 			if (!socket_->status()) return;
 
+			if (partinfo.part!="")
+				decode_body (mail, partinfo.encoding);
 			parse (mail, MAIL_UNREAD);
 		}
 
