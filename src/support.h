@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/04/05 14:23:34 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/04/05 16:17:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -63,8 +63,10 @@ protected:
 									   char range = '-');
 
 	// File functions
-	std::string add_file_to_path (const std::string path,
-								  const std::string file);
+	static std::string add_file_to_path (const std::string &path,
+										 const std::string file);
+	static std::string path_get_basename (const std::string &path);
+	static std::string path_get_dirname (const std::string &path);
 public:
 	// Debugging
 	static void unknown_internal_error_ (const gchar *file, guint line,
