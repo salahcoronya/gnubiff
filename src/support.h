@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/11/07 17:47:59 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/04 18:49:05 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Functions that should be present in glib;-)
 //
@@ -43,7 +43,6 @@
 #include <vector>
 
 gchar* gb_utf8_strndup(const gchar *, gsize);
-gchar* gb_utf8_to_imaputf7(const gchar *, gssize);
 std::string gb_substitute(std::string, std::string, std::vector<std::string>);
 
 #endif

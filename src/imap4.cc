@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.39 $
-// Revision date : $Date: 2004/12/14 20:39:44 $
+// Revision      : $Revision: 1.40 $
+// Revision date : $Date: 2004/12/15 17:35:31 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -213,7 +213,7 @@ gint Imap4::connect (void)
 
 	// SELECT
 	gboolean check = false;
-	gchar *folder_imaputf7=gb_utf8_to_imaputf7(folder_.c_str(),-1);
+	gchar *folder_imaputf7=utf8_to_imaputf7(folder_.c_str(),-1);
 	if (folder_imaputf7)
 	{
 		line=std::string("SELECT \"") + folder_imaputf7 + "\"";

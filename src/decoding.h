@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/13 22:36:12 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/14 20:17:22 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -49,6 +49,9 @@ protected:
 	std::string decode_qencoding (const std::string &);
 	std::string decode_quotedprintable (const std::string &);
 	std::vector<std::string> decode_quotedprintable (const std::vector<std::string> &, guint pos=0);
+
+	// Converting
+	gchar* utf8_to_imaputf7(const gchar *, gssize);
 };
 
 #endif
