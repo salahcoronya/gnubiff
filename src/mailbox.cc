@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.72 $
-// Revision date : $Date: 2005/03/13 13:46:52 $
+// Revision      : $Revision: 1.73 $
+// Revision date : $Date: 2005/03/15 18:53:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -651,10 +651,11 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 	// Content type: multipart/mixed and multipart/alternative
 	// Because we only have the first lines of the message we have to take the
 	// first part whether it is displayable for gnubiff or not.
-	// See RFC 2046
+	// See RFC 2046, RFC 2015 ("multipart/signed")
 	if ((partinfo.type_ == "multipart")
 		&& ((partinfo.subtype_ == "mixed")
-			|| (partinfo.subtype_ == "alternative"))) {
+			|| (partinfo.subtype_ == "alternative")
+			|| (partinfo.subtype_ == "signed"))) {
 		gboolean ok = true;
 
 		// Get boundary
