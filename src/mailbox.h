@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/11/11 16:50:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -185,5 +185,11 @@ public:
  */
 const gint preventDoS_additionalLines_=16;
 
+/**
+ * To prevent being DoS attacked (see above): Limit for length of a read line.
+ * SMTP: maximum line length is 1001 (see RFC 2821 4.5.3.1)
+ * IMAP: no maximum line length
+ */
+const gint preventDoS_lineLength_=16384;
 
 #endif
