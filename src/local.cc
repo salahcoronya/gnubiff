@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: local.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/12/03 17:16:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -82,7 +82,7 @@ Local::start (void)
 
 	// at this point we need to explicitely call the get function since
 	// monitoring will start from now on. Even if the mailbox was full,
-	// no change appears ye, so we force it.
+	// no change appears yet, so we force it.
 	fetch ();
 	gdk_threads_enter();
 	biff_->applet()->update();
