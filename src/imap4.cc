@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.103 $
-// Revision date : $Date: 2005/01/08 18:34:10 $
+// Revision      : $Revision: 1.104 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -1427,7 +1427,7 @@ Imap4::save_untagged_response (std::string &line) throw (imap_err)
 	guint pos_sep = line.find (" ", pos);
 
 	if (pos_sep == std::string::npos)
-		last_untagged_response_key_ = line.substr (pos, line.size()-pos+1);
+		last_untagged_response_key_ = line.substr (pos, line.size()-pos-1);
 	else {
 		if (pos == pos_sep) throw imap_command_err();
 		last_untagged_response_key_ = line.substr (pos, pos_sep-pos);
