@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/13 16:59:31 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -35,6 +35,7 @@
 #ifdef HAVE_CONFIG_H
 #   include <config.h>
 #endif
+#include <sstream>
 #include <string>
 #include <vector>
 #include <glib.h>
@@ -167,8 +168,14 @@ public:
 
 	/* I/O */
 	gboolean load (void);
-	std::string save_para(const gchar *,std::string,guint indent=4);
-	std::string save_para(const gchar *,gint,guint indent=4);
+protected:
+	std::vector<const gchar *> save_blocks;
+	std::stringstream save_file;
+	void save_newblock(const gchar *);
+	void save_endblock();
+	void save_para(const gchar *,std::string);
+	void save_para(const gchar *,gint);
+public:
 	gboolean save (void);
 	void xml_start_element (GMarkupParseContext *context,
 							const gchar *element_name,
