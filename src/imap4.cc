@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.84 $
-// Revision date : $Date: 2005/01/02 23:19:01 $
+// Revision      : $Revision: 1.85 $
+// Revision date : $Date: 2005/01/02 23:57:35 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -771,7 +771,6 @@ Imap4::command_logout (void) throw (imap_err)
 	// Closing the socket
 	socket_->close ();
 }
-
 
 /**
  * Sending the IMAP command "SELECT" to the server. The user chosen folder on
