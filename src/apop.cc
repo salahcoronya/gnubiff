@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: apop.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -119,7 +119,7 @@ Apop::connect (void)
 		sprintf (&hex_response[i*2], "%02x", response[i]);
 	hex_response[32] = '\0';
 #else
-	g_message (_("[%d] Problem with crypto that should have been detected at configure time", uin_));
+	g_message (_("[%d] Problem with crypto that should have been detected at configure time"), uin_);
 	return 0;
 #endif
 
