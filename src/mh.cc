@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/13 17:13:55 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -181,13 +181,13 @@ Mh::get_header (void)
 		std::stringstream s;
 		s << saved_[i];
 
-		std::string filename;
-		if (location_[location_.size()-1] != '/')
-			filename = location_ + std::string("/") + s.str();
-		else
-			filename = location_ + s.str();
 		mail.clear();
-		file.open (filename.c_str());
+
+		gchar *filename=g_build_filename(location_.c_str(),
+										 s.str().c_str(),NULL);
+		file.open (filename);
+        g_free(filename);
+
 		if (file.is_open()) {
 			while (!file.eof()) {
 				getline(file, line);
