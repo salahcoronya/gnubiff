@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: ui-applet.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -226,8 +226,9 @@ void Applet::process (void) {
 			guint i;
 			while ((i = command.find ("%s")) != std::string::npos) {
 				command.erase (i, 2);
-				std::string filename = std::string("\"") + biff_->sound_file_ + std::string("\"");
-				command.insert(i, filename);
+				gchar *quoted=g_shell_quote(biff_->sound_file_.c_str());
+				command.insert(i,quoted);
+				g_free(quoted);
 			}
 			while ((i = command.find ("%v")) != std::string::npos) {
 				command.erase (i, 2);
