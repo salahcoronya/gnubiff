@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/01/08 23:09:03 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/01/11 08:47:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -105,11 +105,4 @@ void File::fetch (void)
  
 	// Restore access and modification time
 	utime (address_.c_str(), &timbuf);
-
-	if (new_unread_.size() > 0)
-		status_ = MAILBOX_NEW;
-	else if (new_unread_.size() == 0)
-		status_ = MAILBOX_EMPTY;
-	else
-		status_ = MAILBOX_ERROR;
 }

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2004/12/22 10:15:28 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2004/12/29 12:56:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -185,6 +185,10 @@ Applet::update (gboolean no_popup)
 		biff_->popup()->update();
 		biff_->popup()->show();
 	}
+
+	// Mail has been display now
+	for (unsigned int i=0; i<biff_->size(); i++)
+		biff_->mailbox(i)->mail_displayed ();
 
 	force_popup_ = false;
 }

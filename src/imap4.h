@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.43 $
-// Revision date : $Date: 2005/01/08 23:09:04 $
+// Revision      : $Revision: 1.44 $
+// Revision date : $Date: 2005/01/09 19:49:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -59,8 +59,6 @@ class Imap4 : public Mailbox {
 	 *  not send it. See also RFC 3501 2.3.1.1.
 	 */
 	std::string					uidvalidity_;
-	/// Set for the saved unique identifiers of the mails
-	std::set<std::string> 		saved_mailid_;
 	/** Map of pairs (atom, arg) that represent the last sent server response
 	 *  codes via untagged "* OK" server responses. */
 	std::map<std::string, std::string> ok_response_codes_;

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/01/08 18:34:10 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/01/08 23:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -119,6 +119,7 @@ Pop::start (void) throw (pop_err)
 		status_ = MAILBOX_ERROR;
 		unread_.clear ();
 		seen_.clear ();
+		new_mails_to_be_displayed_.clear ();
 		socket_->close ();
 	}
 
@@ -182,7 +183,6 @@ Pop::fetch (void) throw (pop_err)
 void 
 Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 {
-	std::set<std::string> new_saved_uid;
 	std::map<guint,std::string> msg_uid;
 
 	// STAT
@@ -210,7 +210,6 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 			uid = command_uidl (i+start);
 		else
 			uid = msg_uid[i+start];
-		new_saved_uid.insert (uid);
 
 		if (statusonly)
 			continue;
@@ -225,16 +224,6 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 		// Parse mail
 		parse (mail, MAIL_UNREAD, uid);
 	}
-
-	// Determine new mailbox status
-	if (new_saved_uid.empty ())
-		status_ = MAILBOX_EMPTY;
-	else if (!std::includes(saved_uid_.begin(), saved_uid_.end(),
-						   new_saved_uid.begin(), new_saved_uid.end()))
-		status_ = MAILBOX_NEW;
-	else
-		status_ = MAILBOX_OLD;
-	saved_uid_ = new_saved_uid;
 }
 
 /**
