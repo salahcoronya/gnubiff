@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/01/31 14:58:07 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/03/03 15:10:50 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -51,6 +51,8 @@ protected:
 	gboolean get_quotedstring (std::string line, std::string &str, guint &pos,
 							   gchar quoted = '"', gboolean test_start = true,
 							   gboolean end_ok = false);
+	gboolean get_mime_token (std::string line, std::string &str, guint &pos,
+							 gboolean lowercase = true);
 
 	// Encodings
 	std::string decode_base64 (const std::string &);
