@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.37 $
-// Revision date : $Date: 2005/01/05 23:11:59 $
+// Revision      : $Revision: 1.38 $
+// Revision date : $Date: 2005/01/07 02:37:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -66,8 +66,8 @@ class Imap4 : public Mailbox {
 	std::map<std::string, std::string> ok_response_codes_;
 	/// Was the last line sent by the server an untagged response?
 	gboolean					last_untagged_response_;
-	/// Arguments of the last untagged response. This value may be empty.
-	std::string					last_untagged_response_arg_;
+	/// Contents of the last untagged response. This value may be empty.
+	std::string					last_untagged_response_cont_;
 	/// Keyword of the last untagged response
 	std::string					last_untagged_response_key_;
 	/** Message sequence number of the last untagged response. This value is
@@ -160,7 +160,7 @@ class Imap4 : public Mailbox {
 	void waitfor_ack (std::string msg=std::string(""),
 					  gint num=0) throw (imap_err);
 	void waitfor_untaggedresponse (guint, std::string,
-								   std::string argbegin = std::string(""),
+								   std::string contbegin = std::string(""),
 								   gint num = 0) throw (imap_err);
 	void reset_tag();
 	std::string tag();
@@ -177,7 +177,7 @@ class Imap4 : public Mailbox {
 							 throw (imap_err);
 	void save_untagged_response (std::string &) throw (imap_err);
 	gboolean test_untagged_response (guint, std::string,
-									 std::string argbegin = std::string (""));
+									 std::string contbegin = std::string (""));
 	void update_applet();
 	void idle() throw (imap_err);
 };
