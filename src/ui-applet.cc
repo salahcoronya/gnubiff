@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/12/21 16:09:41 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/12/21 21:46:40 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -175,7 +175,8 @@ Applet::update (gboolean no_popup)
 	}
 
 	// If there are no mails to display then hide popup
-	if ((!no_popup) && !unread && (biff_->use_popup_  || force_popup_))
+	if ((!no_popup) && !unread && (biff_->use_popup_  || force_popup_)
+		&& biff_->popup())
 		biff_->popup()->hide();
 
 	if ((!no_popup) && unread && ((biff_->use_popup_ && newmail) || (force_popup_))) {
