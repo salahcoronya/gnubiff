@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/10/13 15:48:25 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/10/14 09:52:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -267,22 +267,24 @@ Socket::read (std::string &line,
 	line = "";
 	status_ = -1;
 
+	gint cnt=1004; // see RFC 2821 4.5.3.1
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
-		while (((status = SSL_read (ssl_, &buffer, 1)) > 0) && (buffer != '\n'))
+		while ((0<cnt--) && ((status = SSL_read (ssl_, &buffer, 1)) > 0)
+			     && (buffer != '\n'))
 			line += buffer;
-		if (status > 0)
+		if ((status > 0) && (cnt>=0))
 			status_ = SOCKET_STATUS_OK;
 		else
 			status_ = SOCKET_STATUS_ERROR;
 	}
 #endif
 	if (status_ == -1) {
-		guint cnt=0; // see RFC 2821 4.5.3.1
-		while ((cnt++<1004) && ((status = ::read (sd_, &buffer, 1)) > 0)
-				 && (buffer != '\n'))
+
+		while ((0<cnt--) && ((status = ::read (sd_, &buffer, 1)) > 0)
+			     && (buffer != '\n'))
 			line += buffer;
-		if ((status > 0) && (cnt<=1004))
+		if ((status > 0) && (cnt>=0))
 			status_ = SOCKET_STATUS_OK;
 		else
 			status_ = SOCKET_STATUS_ERROR;
