@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2004/12/12 17:13:26 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2004/12/13 20:53:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -149,6 +149,8 @@ protected:
 	std::vector<guint>			new_seen_;			// mails already seen (tmp buffer)
 
 	static class Authentication *ui_auth_;			// ui to get username & password
+	static GStaticMutex			ui_auth_mutex_;		// Lock to avoid conflicts
+
 
 
 public:

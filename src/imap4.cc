@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.35 $
-// Revision date : $Date: 2004/12/12 17:13:26 $
+// Revision      : $Revision: 1.36 $
+// Revision date : $Date: 2004/12/13 22:07:00 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -276,9 +276,11 @@ Imap4::fetch_status (void)
 
 	// Second try: ask to the user
 	if (password_.empty()) {
+		g_static_mutex_lock (&ui_auth_mutex_);
 		gdk_threads_enter ();
 		ui_auth_->select (this);
 		gdk_threads_leave ();
+		g_static_mutex_unlock (&ui_auth_mutex_);
 	}
 
 	// No way, user do not want to help us, we simply return
