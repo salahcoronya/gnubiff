@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/01/01 22:10:53 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/01/01 22:56:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -117,7 +117,7 @@ class Imap4 : public Mailbox {
 	void command_login (void) throw (imap_err);
 	std::vector<int> command_searchnotseen (void) throw (imap_err);
 	void command_select (void) throw (imap_err);
-	void command_waitforack (gint num=0) throw (imap_err);
+	void waitforack (gint num=0) throw (imap_err);
 	void reset_tag();
 	std::string tag();
 	gint send(std::string,gboolean debug=true);
