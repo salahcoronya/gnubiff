@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2004/12/06 12:08:41 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -50,21 +50,30 @@ extern "C" {
 								GdkEventCrossing *event,
 								gpointer data)
 	{
-		((AppletGnome *) data)->tooltip_update ();
+		if (data)
+			((AppletGnome *) data)->tooltip_update ();
+		else
+			unknown_internal_error ();
 	}
 
 	void APPLET_GNOME_on_change_orient (GtkWidget *widget,
 										PanelAppletOrient orient,
 										gpointer data)
 	{
-		((AppletGnome *) data)->update();
+		if (data)
+			((AppletGnome *) data)->update();
+		else
+			unknown_internal_error ();
 	}
 
 	void APPLET_GNOME_on_change_size (GtkWidget *widget,
 									  int size,
 									  gpointer data)
 	{
-		((AppletGnome *) data)->update ();
+		if (data)
+			((AppletGnome *) data)->update ();
+		else
+			unknown_internal_error ();
 	}
 
 	void APPLET_GNOME_on_change_background (GtkWidget *widget,
@@ -73,44 +82,64 @@ extern "C" {
 											GdkPixmap *pixmap,
 											gpointer data)
 	{
-		((AppletGnome *) data)->update ();
+		if (data)
+			((AppletGnome *) data)->update ();
+		else
+			unknown_internal_error ();
 	}
 
 	gboolean APPLET_GNOME_on_button_press (GtkWidget *widget,
 										   GdkEventButton *event,
 										   gpointer data)
 	{
-		return ((AppletGnome *) data)->on_button_press (event);
+		if (data)
+			return ((AppletGnome *) data)->on_button_press (event);
+		else
+			unknown_internal_error ();
+		return false;
 	}
 
 	void APPLET_GNOME_on_menu_properties (BonoboUIComponent *uic,
 										  gpointer data,
 										  const gchar *verbname)
 	{
-		((AppletGnome *) data)->on_menu_properties (uic, verbname);
+		if (data)
+			((AppletGnome *) data)->on_menu_properties (uic, verbname);
+		else
+			unknown_internal_error ();
 	}
 
 	void APPLET_GNOME_on_menu_command (BonoboUIComponent *uic,
 									   gpointer data,
 									   const gchar *verbname)
 	{
-		((AppletGnome *) data)->on_menu_command (uic, verbname);
+		if (data)
+			((AppletGnome *) data)->on_menu_command (uic, verbname);
+		else
+			unknown_internal_error ();
 	}
 
 	void APPLET_GNOME_on_menu_mail_read (BonoboUIComponent *uic,
 										 gpointer data,
 										 const gchar *verbname)
 	{
-		((AppletGnome *) data)->on_menu_mail_read (uic, verbname);
+		if (data)
+			((AppletGnome *) data)->on_menu_mail_read (uic, verbname);
+		else
+			unknown_internal_error ();
 	}
 
 	gboolean APPLET_GNOME_reconnect (gpointer data)
 	{
-		g_signal_connect (G_OBJECT (((AppletGnome *)data)->panelapplet()),
-						  "change_background",
-						  GTK_SIGNAL_FUNC (APPLET_GNOME_on_change_background),
-						  data);
-		return FALSE;
+		if (data) {
+			g_signal_connect (G_OBJECT (((AppletGnome *)data)->panelapplet()),
+							  "change_background",
+							  GTK_SIGNAL_FUNC (APPLET_GNOME_on_change_background),
+							  data);
+		}
+		else
+			unknown_internal_error ();
+		return false;
 	}
 }
 
