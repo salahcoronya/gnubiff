@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: header.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/01/19 22:35:04 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/02/05 01:38:18 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : All information about a specific mail needed by gnubiff
 //
@@ -47,6 +47,22 @@ bool
 Header::operator == (const Header &other) const
 {
 	return (mailid_ == other.mailid_);
+}
+
+/**
+ *  Substitute mail body by error message (if such a message is present).
+ *  If no error message is present nothing is done.
+ */
+void 
+Header::error_to_body (void)
+{
+	if (error_.size() == 0)
+		return;
+
+	// Substitute body by error message and update charset (error messages are
+	// in the charset given by the locale)
+	body (error_);
+	charset ("");
 }
 
 /**

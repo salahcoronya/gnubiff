@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: header.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/02/14 15:54:04 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/02/27 11:02:50 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : All information about a specific mail needed by gnubiff
 //
@@ -44,12 +44,15 @@
 class Header {
 public:
 	void add_to_body (const std::string text);
+	void error_to_body (void);
 	static gboolean sort_headers (std::vector<Header *> &ptr_headers,
 								  std::string sort_order);
 
 protected:
-	/// First lines of the mail' body
+	/// First lines of the mail's body
 	std::string		body_;
+	/// Error message to be displayed instead of the mail's body
+	std::string		error_;
 	/// Characterset of the mail's body
 	std::string		charset_;
 	/// Date of the mail
@@ -180,12 +183,16 @@ public:
 	/// Access function to Header::body_
 	std::string body (void) const {return body_;}
 	/// Access function to Header::body_
+	void body (const std::string body) {body_ = body;}
+	/// Access function to Header::error_
+	std::string error (void) const {return error_;}
+	/// Access function to Header::error_
+	void error (const std::string error) {error_ = error;}
+	/// Access function to Header::date_
 	std::string date (void) const {return date_;}
 	void date (const std::string date);
 	/// Access function to Header::date_collate_key_
 	std::string date_sort (void) const {return date_collate_key_;}
-	/// Access function to Header::body_
-	void body (const std::string body) {body_ = body;}
 	/// Access function to Header::charset_
 	std::string charset (void) const {return charset_;}
 	/// Access function to Header::charset_

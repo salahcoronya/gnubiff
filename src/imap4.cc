@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.120 $
-// Revision date : $Date: 2005/03/03 15:10:50 $
+// Revision      : $Revision: 1.121 $
+// Revision date : $Date: 2005/03/03 17:44:32 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -463,9 +463,9 @@ Imap4::command_fetchbody (guint msn, class PartInfo &partinfo,
 
 	// Do we have to get any plain text?
 	if (partinfo.part_ == "") {
-		mail.push_back(std::string(_("[This mail has no \"text/plain\" part]")));
-		partinfo.type_ = "text";
-		partinfo.subtype_ = "plain";
+		partinfo.error_ = std::string (_("[This message has no part with a "
+										 "supported content type]"));
+		mail.push_back(std::string(""));
 		return;
 	}
 	else if (partinfo.size_ == 0) {

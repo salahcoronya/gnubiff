@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.47 $
-// Revision date : $Date: 2005/03/04 14:18:59 $
+// Revision      : $Revision: 1.48 $
+// Revision date : $Date: 2005/03/07 17:43:00 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -270,6 +270,9 @@ class PartInfo
 	 *  RFC 3501 6:4:5). This is the part of the mail that will be displayed
 	 *  by gnubiff (if possible). */
 	std::string part_;
+	/** Error message. When the mail will be displayed the mail's body is
+	 *  substituted by this message. */
+	std::string error_;
 	/// MIME type
 	std::string type_;
 	/// MIME subtype
