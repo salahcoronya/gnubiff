@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2004/12/12 17:13:26 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2004/12/12 17:22:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -246,7 +246,7 @@ Mailbox::read (gboolean value)
 //          1.2.1 If last address component is '.mh_sequences' then Mh
 //                                                             else File
 //
-//      1.3 Is the address not a file, not a directory then Unknwonw
+//      1.3 Is the address not a file, not a directory then Unknown
 //
 //
 //   2. Else (Pop3, Apop or Imap4)
