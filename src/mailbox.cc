@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2004/11/16 14:04:54 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2004/11/16 15:55:42 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -202,6 +202,15 @@ void
 Mailbox::watch_thread (void) {
 	if (protocol_ == PROTOCOL_NONE) {
 		biff_->lookup (this);
+		if (!g_mutex_trylock (watch_mutex_)) {
+#ifdef DEBUG
+			g_message ("[%d] Cannot lock watch mutex\n", uin_);
+#endif
+			return;
+		}
+		watch_off();
+		biff_->applet()->watch_on();
+		g_mutex_unlock (watch_mutex_);
 		return;
 	}
 

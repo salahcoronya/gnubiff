@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/10/29 15:42:27 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/11/05 13:00:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -292,9 +292,12 @@ Biff::lookup (guint index)
 			}
 		
 		// Delete old mailbox and replace it with the new one
-		Mailbox *old_mailbox = mailbox_[index];
+		// Problem: Can't delete old mailbox at this moment because this
+		// thread returns to it when this function ends. It must be deleted
+		// later. ATM: Memory Leak
+//		Mailbox *old_mailbox = mailbox_[index];
 		mailbox_[index] = mailbox;
-		delete old_mailbox;
+//		delete old_mailbox;
 	}
 	gdk_threads_enter();
 	preferences_->synchronize();
