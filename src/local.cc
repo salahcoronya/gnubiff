@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/03/03 22:30:27 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2005/03/26 22:10:20 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -107,7 +107,8 @@ Local::start (void)
 			return ;
 		}
 
-		if (fam_event_.code & FAMChanged) {
+		if ((fam_event_.code == FAMChanged)
+			|| ((fam_event_.code == FAMCreated))) {
 			start_checking ();
 			gdk_threads_enter();
 			biff_->applet()->update();
