@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
+// File          : $RCSfile: imap4.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2004/10/06 13:21:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -50,7 +50,6 @@ Imap4::Imap4 (Biff *biff) : Mailbox (biff)
 Imap4::Imap4 (const Mailbox &other) : Mailbox (other)
 {
 	protocol_ = PROTOCOL_IMAP4;
-	folder_   = "INBOX";
 	socket_   = new Socket (this);
 }
 
