@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/11/05 17:50:57 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2004/11/07 17:47:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -115,7 +115,12 @@ gint Imap4::connect (void)
 		g_free(folder_imaputf7);
 		if (!socket_->write (s.c_str())) return 0;
 
-		while (socket_->read (line))
+		// We need to set a limit to lines read (DoS Attacks).
+		// According to RFC 3501 6.3.1 there must be exactly seven lines
+		// before the "A002 OK ..." line. In reality responses seem to vary;-)
+		// Is a limit of 10 okay? RSo
+		guint cnt=10;
+		while ((socket_->read (line)) && (cnt--))
 		{
 			if (line.find ("A002 OK") == 0)
 			{
