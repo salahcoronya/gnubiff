@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2004/12/07 19:28:06 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2004/12/07 23:15:21 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -514,6 +514,8 @@ Imap4::fetch_header (void)
 			// Is there any plain text?
 			if (part=="")
 				mail.push_back(std::string(_("[This mail has no \"text/plain\" part]")));
+			else if (textsize == 0)
+				mail.push_back(std::string(""));
 			else {
 				// Note: We are only interested in the first 12 lines, there
 				// are at most 1000 characters per line (see RFC 2821 4.5.3.1),
