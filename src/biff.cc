@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.35 $
-// Revision date : $Date: 2005/03/08 15:41:08 $
+// Revision      : $Revision: 1.36 $
+// Revision date : $Date: 2005/03/09 14:35:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -117,9 +117,9 @@ Biff::Biff (guint ui_mode, std::string filename)
 	// Does the configuration file exist?
 	std::ifstream file;
 	file.open (value_gchar ("config_file"));
-	if (file.is_open()) {
-		file.close();
-		load();
+	if (file.is_open ()) {
+		file.close ();
+		load ();
 	}
 	else {
 		g_warning (_("Configuration file (%s) not found !"),
@@ -147,7 +147,7 @@ Biff::Biff (guint ui_mode, std::string filename)
 	popup_->create();
 
 	// Authentication dialog
-	ui_auth_mutex_=g_mutex_new ();
+	ui_auth_mutex_ = g_mutex_new ();
 	ui_auth_ = new Authentication ();
 }
 
@@ -587,7 +587,13 @@ Biff::load (void)
 	parser.text          = 0;
 	parser.passthrough   = 0;
 	parser.error         = BIFF_xml_error;
-	GMarkupParseContext *context = g_markup_parse_context_new (&parser, GMarkupParseFlags (0), this, 0);
+	GMarkupParseContext *context;
+	context = g_markup_parse_context_new (&parser, GMarkupParseFlags (0),
+										  this, 0);
+	if (!context) {
+		g_warning (_("Cannot create XML parser for config file"));
+		return false;
+	}
 
 	// Parse the file
 	gboolean status = TRUE;
