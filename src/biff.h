@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/01/19 22:29:25 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/01/31 14:58:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -108,8 +108,9 @@ public:
 protected:
 	std::vector<const gchar *> save_blocks;
 	std::stringstream save_file;
-	void save_newblock(const gchar *);
-	void save_endblock(void);
+	void save_newblock (const gchar *name);
+	void save_endblock (void);
+	void upgrade_options (void);
 public:
 	void save_parameters (std::map<std::string,std::string> &map,
 						  std::string block = std::string(""));
