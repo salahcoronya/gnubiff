@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/01/19 22:45:00 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/01/31 14:58:22 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -325,7 +325,7 @@ void Preferences:: hide (std::string name) {
 }
 
 
-void
+void 
 Preferences::synchronize (class Mailbox *mailbox, GtkListStore *store, GtkTreeIter *iter)
 {
 	if (mailbox) {
