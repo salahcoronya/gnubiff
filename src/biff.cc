@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/10/06 13:21:57 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2004/10/13 16:59:31 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -139,8 +139,12 @@ Biff::Biff (gint ui_mode,
 
 	if (!filename.empty())
 		filename_ = filename;
-	else 
-		filename_ = std::string (g_get_home_dir ()) + std::string ("/.gnubiffrc");
+	else
+	{
+		gchar *filename=g_build_filename(g_get_home_dir (),".gnubiffrc", NULL);
+		filename_ = std::string (filename);
+		g_free(filename);
+	}
 
 	// Does configuration file exist ?
 	std::ifstream file;

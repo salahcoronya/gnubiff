@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/10/13 17:13:55 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/10/13 17:17:53 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -162,7 +162,11 @@ Maildir::get_header (void)
 		if (dent->d_name[0]=='.')
 			continue;
 		std::ifstream file;
-		std::string filename = directory + std::string("/") + std::string (dent->d_name);
+
+		gchar *tmp=g_build_filename(directory.c_str(),dent->d_name);
+		std::string filename(tmp);
+		g_free(tmp);
+
 		file.open (filename.c_str());
 		if (file.is_open()) {
 			while (!file.eof()) {
@@ -173,9 +177,8 @@ Maildir::get_header (void)
 			parse (mail);
 			mail.clear();
 		}
-		else {
+		else
 			g_warning (_("Cannot open %s."), filename.c_str());
-		}
 		file.close();
 	}
 	closedir (dir);
