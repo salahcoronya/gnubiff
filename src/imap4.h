@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2005/01/02 16:42:17 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2005/01/02 18:08:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -116,17 +116,21 @@ class Imap4 : public Mailbox {
 							std::vector<std::string> &) throw (imap_err);
 	PartInfo command_fetchbodystructure (guint) throw (imap_err);
 	std::vector<std::string> command_fetchheader (guint) throw (imap_err);
+	std::string command_idle(gboolean &) throw (imap_err);
 	void command_login (void) throw (imap_err);
 	void command_logout (void) throw (imap_err);
 	std::vector<int> command_searchnotseen (void) throw (imap_err);
 	void command_select (void) throw (imap_err);
-	void waitforack (std::string msg=std::string(""),
-					 gint num=0) throw (imap_err);
+	void waitfor_ack (std::string msg=std::string(""),
+					  gint num=0) throw (imap_err);
+	std::string waitfor_untaggedresponse (std::string, gint num=0)
+										  throw (imap_err);
 	void reset_tag();
 	std::string tag();
-	gint send(std::string,gboolean debug=true, gboolean check=true);
-	std::string idle_renew_loop() throw (imap_err);	 // Renew IDLE state
-													 // periodically. 
+	gint send (std::string,gboolean debug=true, gboolean check=true)
+			   throw (imap_err);
+	gint readline (std::string &, gboolean debug=true, gboolean check=true,
+				   gboolean checkline=true) throw (imap_err);
 	void update_applet();						 // Update the applet to new IMAP state.
 	void idle() throw (imap_err);		         // Begin idle IMAP mode.
 };

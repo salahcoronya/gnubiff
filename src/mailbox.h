@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2004/12/30 23:49:14 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/01/02 16:11:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -308,6 +308,7 @@ const gint bodyLinesToBeRead_=12;
  * network to get the line we want. Unfortunately this number may vary in
  * reality because of the following reasons:
  * \begin{itemize}
+ *    \item The server sends some warning messages (see RFC 3501 7.1.2)
  *    \item There is no limit for the response
  *    \item There exist different extensions to the protocols
  *    \item Not all servers implement protocols correctly

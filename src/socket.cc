@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2004/12/31 15:03:15 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/01/02 12:26:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -396,15 +396,6 @@ Socket::read (std::string &line,
 	// NOTE: It would be my take that there should not be mailbox specific
 	// handling in the socket processing.	 -Byron
 	
-	// Check imap4
-	if (mailbox_->protocol() == PROTOCOL_IMAP4) {
-		if (line.find ("* BYE") == 0) {
-			close();
-			status_ = SOCKET_STATUS_ERROR;
-			mailbox_->status (MAILBOX_ERROR);
-		}
-	}
-
 	// Check pop
 	if ((mailbox_->protocol() == PROTOCOL_APOP) || (mailbox_->protocol() == PROTOCOL_POP3)) {
 		 if (line.find ("-ERR") == 0) {
