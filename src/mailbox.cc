@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/11/05 16:49:15 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2004/11/16 14:04:54 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -447,11 +447,10 @@ void Mailbox::parse (std::vector<std::string> &mail, int status)
 			h.status = MAIL_READ;
 		else if ((mail[i].empty()) && h.body.empty()) {
 			guint j = 0;
-			do {
+			i++; // We are not interested in the empty line
+			while ((j++<10) && (i < mail.size()))
 				h.body += mail[i++] + std::string("\n");
-				j++;
-			} while ((j<10) && (i < mail.size()));
-			if (j == 10)
+			if ((j == 11) && (i+1<mail.size()))
 				h.body += std::string("...");
 		}
 	}
