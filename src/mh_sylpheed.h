@@ -21,23 +21,23 @@
 // File          : $RCSfile: mh.h,v $
 // Revision      : $Revision: 1.4 $
 // Revision date : $Date: 2005/04/06 21:38:15 $
-// Author(s)     : Nicolas Rougier
-// Short         : 
+// Author(s)     : Robert Sowada, Nicolas Rougier
+// Short         : Mh protocol as used by Sylpheed
 //
 // This file is part of gnubiff.
 //
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
-#ifndef __MH_H__
-#define __MH_H__
+#ifndef __MH_SYLPHEED_H__
+#define __MH_SYLPHEED_H__
 
 #include <glib.h>
 #include <vector>
 #include "mh_basic.h"
 
 
-class Mh : public Mh_Basic {
+class Mh_Sylpheed : public Mh_Basic {
 
 protected:
 
@@ -45,9 +45,9 @@ public:
 	// ========================================================================
 	//  base
 	// ========================================================================
-	Mh (class Biff *biff);
-	Mh (const Mailbox &other);
-	~Mh (void);
+	Mh_Sylpheed (class Biff *biff);
+	Mh_Sylpheed (const Mailbox &other);
+	~Mh_Sylpheed (void);
 
 	// ========================================================================
 	//  main

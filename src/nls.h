@@ -1,26 +1,34 @@
-/* gnubiff -- a mail notification program
- * Copyright (c) 2000-2004 Nicolas Rougier
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this software; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- *
- * This file is part of gnubiff.
- *
- * $Id: nls.h,v 1.1 2004/10/06 13:21:57 nicolasrougier Exp $
- *
- */
+// ========================================================================
+// gnubiff -- a mail notification program
+// Copyright (c) 2000-2005 Nicolas Rougier
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+// 02111-1307, USA.
+// ========================================================================
+//
+// File          : $RCSfile: nls.h,v $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/04/06 16:51:39 $
+// Author(s)     : Nicolas Rougier
+// Short         : 
+//
+// This file is part of gnubiff.
+//
+// -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
+// ========================================================================
+
 #ifndef __NLS_H__
 #define __NLS_H__
 

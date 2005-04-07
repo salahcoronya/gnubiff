@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/02/02 17:46:29 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/04/06 21:38:15 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -56,6 +56,7 @@ const guint	PROTOCOL_MAILDIR	=	4;
 const guint	PROTOCOL_MH			=	5;
 const guint	PROTOCOL_APOP		=	6;
 const guint	PROTOCOL_MH_BASIC	=	7;
+const guint	PROTOCOL_MH_SYLPHEED=	8;
 
 const guint	AUTH_AUTODETECT		=	0;
 const guint	AUTH_USER_PASS		=	1;
