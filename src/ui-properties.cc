@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/02/03 15:09:15 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/02/07 23:02:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -594,7 +594,7 @@ Properties::auth_view (gboolean visible)
 #ifndef HAVE_LIBSSL
 	if ((auth == AUTH_SSL) || (auth == AUTH_CERTIFICATE))
 #  ifdef HAVE_CRYPTO
-		if (selected_type == TYPE_POP)
+		if (selected_type_ == TYPE_POP)
 			auth = AUTH_APOP;
 #  else
 		auth = AUTH_USER_PASS;

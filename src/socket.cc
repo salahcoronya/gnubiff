@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.28 $
-// Revision date : $Date: 2005/03/08 10:34:33 $
+// Revision      : $Revision: 1.29 $
+// Revision date : $Date: 2005/03/20 13:29:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -29,8 +29,7 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
-#include "support.h"
-
+#include <errno.h>
 #include <sstream>
 #include <cstdio>
 #include <unistd.h>
@@ -46,6 +45,7 @@
 #include "mailbox.h"
 #include "socket.h"
 #include "nls.h"
+#include "support.h"
 
 
 // ========================================================================
