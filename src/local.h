@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2004/12/03 17:16:58 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/04/05 16:17:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -52,17 +52,19 @@ protected:
 public:
 	// ========================================================================
 	//  base
-	// ========================================================================	
+	// ========================================================================
 	Local (class Biff *biff);
 	Local (const Mailbox &other);
 	virtual ~Local (void);
 
 	// ========================================================================
 	//  main
-	// ========================================================================	
+	// ========================================================================
 	void start (void);								// start method
 	void stop (void);								// stop method
 	virtual std::string file_to_monitor (void);
+	void parse_single_message_file (const std::string &filename,
+									const std::string uid = std::string (""));
 };
 
 #endif
