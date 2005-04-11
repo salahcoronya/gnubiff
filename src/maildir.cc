@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/04/06 22:49:21 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/04/11 20:19:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -72,7 +72,7 @@ Maildir::fetch (void)
 	const gchar *d_name;
 	// Read new mails
 	while ((d_name = g_dir_read_name (gdir)) && (new_unread_.size() < maxnum)){
-		// Filenames that begin with '.' are no messages in maildir protocol
+		// Filenames that begin with '.' are not messages in maildir protocol
 		if (d_name[0] == '.')
 			continue;
 
