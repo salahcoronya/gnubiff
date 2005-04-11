@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.125 $
-// Revision date : $Date: 2005/04/06 18:57:39 $
+// Revision      : $Revision: 1.126 $
+// Revision date : $Date: 2005/04/06 21:38:15 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -117,6 +117,7 @@ Imap4::threaded_start (guint delay)
 void 
 Imap4::start (void)
 {
+	// Is there already someone watching this mailbox?
 	if (!g_mutex_trylock (monitor_mutex_))
 		return;
 
