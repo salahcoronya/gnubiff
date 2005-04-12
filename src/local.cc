@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/04/11 20:19:05 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/04/11 21:55:09 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -61,7 +61,7 @@ Local::~Local (void)
 // ========================================================================
 //  main
 // ========================================================================	
-void
+void 
 Local::start (void)
 {
 	// Is there already someone watching this mailbox?
@@ -158,7 +158,8 @@ Local::fam_monitoring (void) throw (local_err)
 	}
 }
 
-void Local::stop (void)
+void 
+Local::stop (void)
 {
 	Mailbox::stop ();
 	if (FAMCONNECTION_GETFD (&fam_connection_)) 

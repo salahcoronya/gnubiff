@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/04/11 20:19:05 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/04/11 21:55:09 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -65,6 +65,8 @@ public:
 	class local_err : public mailbox_err {};
 	/// Exception for a problem with the file alteration monitor (FAM).
 	class local_fam_err : public local_err {};
+	/// Exception for a problem when opening or reading a file
+	class local_file_err : public local_err {};
 
 	// ========================================================================
 	//  main

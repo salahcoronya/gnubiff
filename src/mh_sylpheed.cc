@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: mh.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/04/06 21:38:15 $
+// File          : $RCSfile: mh_sylpheed.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/04/07 14:46:53 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //
@@ -76,10 +76,14 @@ Mh_Sylpheed::~Mh_Sylpheed (void)
  *                 returned
  *  @param  empty  Whether the vector shall be emptied before obtaining the
  *                 message numbers (the default is true)
+ *  @exception local_file_err
+ *                 This exception is thrown when the file ".sylpheed_mark"
+ *                 could not be opened.
  *  @return        Boolean indicating success
  */
 gboolean 
 Mh_Sylpheed::get_messagenumbers (std::vector<guint> &msn, gboolean empty)
+									throw (local_err)
 {
 	// Empty the vector if wished for
 	if (empty)
@@ -89,8 +93,7 @@ Mh_Sylpheed::get_messagenumbers (std::vector<guint> &msn, gboolean empty)
 	std::string filename = add_file_to_path (address (), ".sylpheed_mark");
 	std::ifstream file;
 	file.open (filename.c_str ());
-	if ((!file.is_open ()) || (file.eof()))
-		return false;
+	if ((!file.is_open ()) || (file.eof())) throw local_file_err ();
 
 	// Get version of file
 	guint32 version;

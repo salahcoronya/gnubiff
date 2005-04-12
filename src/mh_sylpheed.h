@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: mh.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/04/06 21:38:15 $
+// File          : $RCSfile: mh_sylpheed.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/04/07 14:46:53 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //
@@ -53,7 +53,7 @@ public:
 	//  main
 	// ========================================================================
 	gboolean get_messagenumbers (std::vector<guint> &msn,
-								 gboolean empty = true);
+								 gboolean empty = true) throw (local_err);
 	std::string file_to_monitor (void);
 };
 
