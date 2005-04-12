@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/02/07 23:02:37 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/04/08 13:42:35 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -363,6 +363,8 @@ Properties::on_apply (GtkWidget *widget)
 
 		if (((mailbox_->protocol() != PROTOCOL_FILE) &&
 			 (mailbox_->protocol() != PROTOCOL_MH) &&
+			 (mailbox_->protocol() != PROTOCOL_MH_BASIC) &&
+			 (mailbox_->protocol() != PROTOCOL_MH_SYLPHEED) &&
 			 (mailbox_->protocol() != PROTOCOL_MAILDIR))
 			|| (mailbox_->address() == oldaddress))
 		{
@@ -474,7 +476,10 @@ Properties::type_view (void)
 	guint protocol = mailbox_->protocol ();
 	selected_type_ = TYPE_AUTODETECT;
 
-	if ((protocol == PROTOCOL_FILE) || (protocol == PROTOCOL_MH) || (protocol == PROTOCOL_MAILDIR)) {
+	if ((protocol == PROTOCOL_FILE) || (protocol == PROTOCOL_MH)
+		|| (protocol == PROTOCOL_MH_BASIC)
+		|| (protocol == PROTOCOL_MH_SYLPHEED)
+		|| (protocol == PROTOCOL_MAILDIR)) {
 		selected_type_ = TYPE_LOCAL;
 	}
 	else if ((protocol == PROTOCOL_POP3) || (protocol == PROTOCOL_APOP)) {
