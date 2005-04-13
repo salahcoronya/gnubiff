@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_sylpheed.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/04/13 09:14:23 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/04/13 12:01:03 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //
@@ -96,11 +96,11 @@ Mh_Sylpheed::get_messagenumbers (std::vector<guint> &msn, gboolean empty)
 	std::ifstream file;
 	file.open (filename.c_str ());
 	if (!file.is_open ()) throw local_file_err ();
-	if (file.eof()) throw local_info_err();
 
 	// Get version of file
 	guint32 version;
 	file.read ((char *)&version, sizeof(version));
+	if (file.eof()) throw local_info_err();
 	if (version != 2) {
 		g_warning (_("Version \"%u\" of sylpheed mark file not supported"),
 					 version);

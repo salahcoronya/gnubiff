@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/03/29 15:29:05 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/04/13 15:43:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -55,6 +55,10 @@ gboolean
 Decoding::decode_body (std::vector<std::string> &mail, std::string encoding,
 					   std::string::size_type bodypos, gboolean skip_header)
 {
+	// If mail is empty or bodypos invalid: Nothing has to be decoded
+	if ((mail.size() == 0) || (bodypos >= mail.size()))
+		return true;
+
 	// Skip header
 	if (skip_header) {
 		while ((bodypos<mail.size()) && (!mail[bodypos].empty()))

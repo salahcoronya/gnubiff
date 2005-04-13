@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/04/13 09:14:23 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/04/13 12:01:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -219,8 +219,8 @@ Local::parse_single_message_file (const std::string &filename,
 	// Read header and first lines of message
 	gboolean header = true;
 	guint cnt = max_cnt;
+	getline (file, line); // Read first line to correctly set eof
 	while ((!file.eof ()) && (cnt > 0)) {
-		getline(file, line);
 		// End of header?
 		if ((line.size() == 0) && header)
 			header = false;
@@ -229,8 +229,10 @@ Local::parse_single_message_file (const std::string &filename,
 			cnt--;
 			mail.push_back (line);
 		}
+		// Read next line
+		getline(file, line);
 	}
-	file.close();
+	file.close ();
 
 	// Parse message
 	parse (mail, uid);
