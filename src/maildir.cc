@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/04/11 20:19:05 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/04/11 20:27:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -36,16 +36,29 @@
 // ========================================================================
 //  base
 // ========================================================================	
+/**
+ * Constructor. The local mailbox for the maildir protocol is created from
+ * scratch.
+ *
+ * @param biff Pointer to the instance of Gnubiff.
+ */
 Maildir::Maildir (Biff *biff) : Local (biff)
 {
 	value ("protocol", PROTOCOL_MAILDIR);
 }
 
+/**
+ * Constructor. The local mailbox for the maildir protocol is created by
+ * taking the attributes of the existing mailbox {\em other}.
+ *
+ * @param other Mailbox from which the attributes are taken.
+ */
 Maildir::Maildir (const Mailbox &other) : Local (other)
 {
 	value ("protocol", PROTOCOL_MAILDIR);
 }
 
+/// Destructor
 Maildir::~Maildir (void)
 {
 }

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/03/31 11:22:07 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -40,16 +40,29 @@
 // ========================================================================
 //  base
 // ========================================================================	
+/**
+ * Constructor. The local mailbox for the file protocol is created from
+ * scratch.
+ *
+ * @param biff Pointer to the instance of Gnubiff.
+ */
 File::File (Biff *biff) : Local (biff)
 {
 	value ("protocol", PROTOCOL_FILE);
 }
 
+/**
+ * Constructor. The local mailbox for the file protocol is created by
+ * taking the attributes of the existing mailbox {\em other}.
+ *
+ * @param other Mailbox from which the attributes are taken.
+ */
 File::File (const Mailbox &other) : Local (other)
 {
 	value ("protocol", PROTOCOL_FILE);
 }
 
+/// Destructor
 File::~File (void)
 {
 }

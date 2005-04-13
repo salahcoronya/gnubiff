@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/04/11 21:55:09 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,7 +38,9 @@
 
 #define LOCAL(x)					((Local *)(x))
 
-
+/**
+ *  Base class for all local mailbox protocols.
+ */
 class Local : public Mailbox {
 
 protected:

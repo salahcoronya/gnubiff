@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/04/11 21:55:09 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -43,20 +43,31 @@
 // ========================================================================
 //  base
 // ========================================================================	
+/**
+ * Constructor. The local mailbox is created from scratch.
+ *
+ * @param biff Pointer to the instance of Gnubiff.
+ */
 Local::Local (Biff *biff) : Mailbox (biff)
 {
 	fam_connection_.fd = 0;
 }
 
+/**
+ * Constructor. The local mailbox is created by taking the attributes of
+ * the existing mailbox {\em other}.
+ *
+ * @param other Mailbox from which the attributes are taken.
+ */
 Local::Local (const Mailbox &other) : Mailbox (other)
 {
 	fam_connection_.fd = 0;
 }
 
+/// Destructor
 Local::~Local (void)
 {
 }
-
 
 // ========================================================================
 //  main

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_sylpheed.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/04/07 14:46:53 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //
@@ -38,8 +38,8 @@
 //  base
 // ========================================================================	
 /**
- * Constructor. The local mailbox for the mh protocol is created from
- * scratch.
+ * Constructor. The local mailbox for the mh protocol (as used by sylpheed)
+ * is created from scratch.
  *
  * @param biff Pointer to the instance of Gnubiff.
  */
@@ -49,8 +49,8 @@ Mh_Sylpheed::Mh_Sylpheed (Biff *biff) : Mh_Basic (biff)
 }
 
 /**
- * Constructor. The local mailbox for the mh protocol is created by
- * taking the attributes of the existing mailbox {\em other}.
+ * Constructor. The local mailbox for the mh protocol (as used by sylpheed)
+ * is created by taking the attributes of the existing mailbox {\em other}.
  *
  * @param other Mailbox from which the attributes are taken.
  */
