@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/03/28 21:11:44 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/03/29 15:29:05 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -77,7 +77,8 @@ Decoding::decode_body (std::vector<std::string> &mail, std::string encoding,
 		gchar *tmp = g_strdup_printf (_("[The encoding \"%s\" of this mail "
 										"can't be decoded]"),
 									  encoding.c_str());
-		mail.push_back (std::string(tmp));
+		if (tmp)
+			mail.push_back (std::string(tmp));
 		g_free (tmp);
 		return false;
 	}
