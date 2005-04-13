@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/04/12 14:40:52 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/04/13 09:14:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -69,6 +69,10 @@ public:
 	class local_fam_err : public local_err {};
 	/// Exception for a problem when opening or reading a file
 	class local_file_err : public local_err {};
+	/** This exception should be thrown if there is a problem when obtaining
+	 *  information that is necessary to get and parse the messages (e.g. if
+	 *  no message sequence numbers can be obtained). */
+	class local_info_err : public local_err {};
 
 	// ========================================================================
 	//  main
@@ -78,7 +82,7 @@ public:
 	void stop (void);								// stop method
 	virtual std::string file_to_monitor (void);
 	void parse_single_message_file (const std::string &filename,
-									const std::string uid = std::string (""));
+				const std::string uid = std::string ("")) throw (local_err);
 };
 
 #endif

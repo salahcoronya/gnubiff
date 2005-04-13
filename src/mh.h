@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/04/07 14:46:53 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -52,8 +52,8 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================
-	gboolean get_messagenumbers (std::vector<guint> &msn,
-								 gboolean empty = true) throw (local_err);
+	void get_messagenumbers (std::vector<guint> &msn,
+							 gboolean empty = true) throw (local_err);
 	std::string file_to_monitor (void);
 };
 

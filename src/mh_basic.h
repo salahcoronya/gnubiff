@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: mh.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/04/05 16:17:48 $
+// File          : $RCSfile: mh_basic.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/04/06 22:49:21 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Base class for all local protocols similar to mh
 //
@@ -48,17 +48,17 @@ protected:
 public:
 	// ========================================================================
 	//  base
-	// ========================================================================	
+	// ========================================================================
 	Mh_Basic (class Biff *biff);
 	Mh_Basic (const Mailbox &other);
 	~Mh_Basic (void);
 
 	// ========================================================================
 	//  main
-	// ========================================================================	
-	virtual gboolean get_messagenumbers (std::vector<guint> &msn,
-										 gboolean empty = true);
-	void fetch (void);
+	// ========================================================================
+	virtual void get_messagenumbers (std::vector<guint> &msn,
+									 gboolean empty = true) throw (local_err);
+	void fetch (void) throw (local_err);
 };
 
 #endif
