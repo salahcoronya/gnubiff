@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/04/11 20:27:51 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/04/13 09:14:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -66,7 +66,10 @@ Maildir::~Maildir (void)
 // ========================================================================
 //  main
 // ========================================================================	
-void
+/**
+ *  Get and parse new messages.
+ */
+void 
 Maildir::fetch (void)
 {
 	// Try to open new mail directory

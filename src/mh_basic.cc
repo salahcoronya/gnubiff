@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_basic.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/04/06 22:49:21 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/04/11 20:19:05 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Base class for all local protocols similar to mh
 //
@@ -66,7 +66,7 @@ Mh_Basic::~Mh_Basic (void)
 // ========================================================================	
 
 /**
- *  Get new messages.
+ *  Get and parse new messages.
  */
 void 
 Mh_Basic::fetch (void)

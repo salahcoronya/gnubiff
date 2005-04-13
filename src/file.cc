@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/04/12 14:40:52 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/04/13 09:14:23 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -70,6 +70,9 @@ File::~File (void)
 // ========================================================================
 //  main
 // ========================================================================	
+/**
+ *  Get and parse new messages.
+ */
 void File::fetch (void) throw (local_err)
 {
 	struct stat file_stat;
