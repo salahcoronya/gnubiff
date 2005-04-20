@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_sylpheed.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/04/12 14:40:52 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/04/13 12:01:03 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //
@@ -36,7 +36,12 @@
 #include <vector>
 #include "mh_basic.h"
 
-
+/**
+ * Local mailbox for the mh protocol (as used by sylpheed).
+ *
+ * Note: The file ".sylpheed_mark" in which sylpheed saves information about
+ * messages is at the moment not platform independent!
+ */
 class Mh_Sylpheed : public Mh_Basic {
 
 protected:
