@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.29 $
-// Revision date : $Date: 2005/03/20 13:29:15 $
+// Revision      : $Revision: 1.30 $
+// Revision date : $Date: 2005/04/08 13:42:35 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -223,8 +223,7 @@ Socket::open (std::string hostname,
 			if (!SSL_CTX_load_verify_locations (context_, certificate_.c_str(),
 												capath)) {
 				g_warning(_("[%d] Failed to load certificate (%s) for %s"),
-						  uin_, hostname_.c_str(), certificate_.c_str(),
-						  hostname_.c_str());
+						  uin_, certificate_.c_str(), hostname_.c_str());
 				::close (sd_);
 				sd_ = SD_CLOSE;
 				return 0;

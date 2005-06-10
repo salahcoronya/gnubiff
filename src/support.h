@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/04/06 16:51:40 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/04/06 18:57:39 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -39,6 +39,7 @@
 
 
 #include <glib.h>
+#include <sstream>
 #include <string>
 #include <vector>
 
