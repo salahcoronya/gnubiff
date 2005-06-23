@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.51 $
-// Revision date : $Date: 2005/03/29 11:57:32 $
+// Revision      : $Revision: 1.52 $
+// Revision date : $Date: 2005/04/05 14:23:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -153,6 +153,8 @@ public:
 				std::string uid = std::string(""),
 				class PartInfo *pi = NULL, class Header *hh = NULL,
 				guint pos = 0);
+	guint static standard_port (guint protocol, guint auth,
+								gboolean strict = true);
 
 	// ========================================================================
 	//  access
