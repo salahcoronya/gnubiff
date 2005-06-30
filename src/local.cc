@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/04/13 20:52:02 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/06/30 21:01:44 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -170,9 +170,7 @@ Local::fam_monitoring (void) throw (local_err)
 	status = 1;
 	while (status == 1) {
 		// Wait for next event
-		g_mutex_lock (fam_mutex_);
 		status = FAMNextEvent (&fam_connection_, &fam_event_);
-		g_mutex_unlock (fam_mutex_);
 		if ((status < 0 ) && (errno == EINTR))
 			break;
 		if (status < 0) throw local_fam_err();
