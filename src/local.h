@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/04/13 09:14:23 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/04/13 12:01:03 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -34,6 +34,7 @@
 
 #include "mailbox.h"
 #include <fam.h>
+#include <glib.h>
 #include <string>
 
 #define LOCAL(x)					((Local *)(x))
@@ -50,6 +51,18 @@ protected:
 	FAMConnection   fam_connection_;
 	FAMRequest      fam_request_;
 	FAMEvent        fam_event_;
+	/**
+	 *  This boolean indicates whether a FAM connection is being open or not.
+	 *  It must only be read or changed when the fam_mutex_ is locked by the
+	 *  thread.
+	 */
+	gboolean        fam_is_open_;
+	/**
+	 *  This mutex must be locked before calling any FAM function. To call
+	 *  FAMOpen or FAMClose and change the value of Local::fam_is_open_
+	 *  the Mailbox::monitor_mutex_ must be locked.
+	 */
+	GMutex          *fam_mutex_;
 
 public:
 	// ========================================================================
