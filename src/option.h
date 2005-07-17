@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/02/07 22:14:18 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/03/03 15:10:51 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -198,8 +198,12 @@ public:
 	void value (gboolean val) {value_ = (guint)val;};
 	/// Access function to Option_UInt::gui_sensitive_
 	void gui_sensitive (std::set<std::string> &gs) {gs = gui_sensitive_;};
-	/// Access function to Option_UInt::gui_sensitive_neg_
+	/// Access function to Option_UInt::gui_sensitive_
+	std::set<std::string> &gui_sensitive (void) {return gui_sensitive_;};
+	/// Access function to Option_UInt::gui_show_
 	void gui_show (std::set<std::string> &gs) {gs = gui_show_;};
+	/// Access function to Option_UInt::gui_show_
+	std::set<std::string> &gui_show (void) {return gui_show_;};
 private:
 	static const gchar *ids_[3];
 	static const guint ints_[3];

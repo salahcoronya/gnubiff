@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.41 $
-// Revision date : $Date: 2005/03/21 17:38:10 $
+// Revision      : $Revision: 1.42 $
+// Revision date : $Date: 2005/03/31 16:05:19 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -485,6 +485,7 @@ Preferences::synchronize (void)
 
 	// Insert the values of the options into the GUI widgets
 	biff_->update_gui (OPTSGUI_UPDATE, OPTGRP_ALL, xml_, filename_);
+	biff_->update_gui (xml_, filename_);
 
 	// Expert dialog
 	if (biff_->value_bool ("expert_show_tab"))
@@ -671,6 +672,7 @@ Preferences::on_check_changed (GtkWidget *widget)
 	}
 	// Disable and enable certain GUI elements depending on values of some
 	// options
+	biff_->update_gui (xml_, filename_);
 	biff_->update_gui (OptionsGUI (OPTSGUI_SENSITIVE | OPTSGUI_SHOW),
 					   OPTGRP_ALL, xml_, filename_);
 }
