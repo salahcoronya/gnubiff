@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2005/04/04 22:08:28 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2005/07/22 23:48:42 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -382,7 +382,7 @@ Popup::show (std::string name)
 	// automatically when presenting the window but may then gained manually
 	gtk_window_set_accept_focus (dialog, false);
 	gtk_window_present (dialog);
-	gtk_window_set_accept_focus (dialog, true);
+//	gtk_window_set_accept_focus (dialog, true);
 
 	if (biff_->value_bool ("popup_use_geometry"))
 		gtk_window_parse_geometry (dialog, biff_->value_gchar ("popup_geometry"));
