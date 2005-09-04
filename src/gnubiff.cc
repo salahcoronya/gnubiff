@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/03/07 17:43:00 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/03/31 16:05:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,12 +38,6 @@
 #  include <gnome.h>
 #  include <panel-applet.h>
 #endif
-
-#include "biff.h"
-#include "ui-preferences.h"
-#include "ui-applet.h"
-
-
 
 #include "biff.h"
 #include "ui-preferences.h"
