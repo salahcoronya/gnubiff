@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.42 $
-// Revision date : $Date: 2005/03/31 16:05:19 $
+// Revision      : $Revision: 1.44 $
+// Revision date : $Date: 2005/07/17 14:28:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -573,7 +573,7 @@ Preferences::on_close (GtkWidget *widget)
 	if (biff_->value_uint ("check_mode") == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
 	biff_->applet()->update(true);
-	biff_->applet()->show();
+	((AppletGUI *)biff_->applet())->show();
 }
 
 
@@ -621,7 +621,7 @@ Preferences::on_destroy (GtkWidget *widget,  GdkEvent *event)
 	if (biff_->value_uint ("check_mode") == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
 	biff_->applet()->update(true);
-	biff_->applet()->show();
+	((AppletGUI *)biff_->applet())->show();
 	return true;
 }
 
@@ -632,7 +632,7 @@ Preferences::on_delete (GtkWidget *widget,  GdkEvent *event)
 	if (biff_->value_uint ("check_mode") == AUTOMATIC_CHECK)
 		biff_->applet()->start (3);
 	biff_->applet()->update(true);
-	biff_->applet()->show();
+	((AppletGUI *)biff_->applet())->show();
 	return true;
 }
 

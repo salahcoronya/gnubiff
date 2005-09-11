@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/04 20:38:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2004/12/06 12:08:41 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -38,7 +38,7 @@
 #include "ui-applet.h"
 
 
-class AppletGnome : public Applet {
+class AppletGnome : public AppletGUI {
 
 protected:
 	GtkWidget *		applet_;
@@ -64,10 +64,6 @@ public:
 	//  callbacks
 	// ========================================================================	
 	gboolean on_button_press (GdkEventButton *event);
-	void on_menu_properties (BonoboUIComponent *uic, const gchar *verbname);
-	void on_menu_command (BonoboUIComponent *uic, const gchar *verbname);
-	void on_menu_mail_read (BonoboUIComponent *uic, const gchar *verbname);
-	void on_menu_about (BonoboUIComponent *uic, const gchar *verbname);
 };
 
 #endif
