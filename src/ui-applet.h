@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/04 20:38:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -83,7 +83,8 @@ public:
 	guint       unread_markup (std::string &text);	// build unread markup string
 	std::string tooltip_text (void);				// build tooltip text
 
-	void show_preferences (void);
+	void show_dialog_preferences (void);
+	void hide_dialog_preferences (void);
 	void show_about (void);
 	void hide_about (void);
 };

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/03/31 16:05:19 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -89,7 +89,7 @@ extern "C" {
 	void APPLET_GTK_on_menu_preferences (GtkWidget *widget, gpointer data)
 	{
 		if (data)
-			((AppletGtk *) data)->show_preferences ();
+			((AppletGtk *) data)->show_dialog_preferences ();
 		else
 			unknown_internal_error ();
 	}

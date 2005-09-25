@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.44 $
-// Revision date : $Date: 2005/07/17 14:28:28 $
+// Revision      : $Revision: 1.45 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -397,19 +397,36 @@ Preferences::expert_create (void)
 	expert_add_option_list ();
 }
 
-void
+/**
+ *  Show the preferences dialog.
+ *
+ *  @param  name  Widget's name of the dialog. The default is "dialog".
+ */
+void 
 Preferences::show (std::string name)
 {
+	// Is glade file okay?
 	if (!xml_)
 		return;
+
+	// Update all widgets and texts in the dialog
 	synchronize ();
-	biff_->applet()->stop ();
+
 	gtk_widget_show (get(name));
 }
 
-void Preferences:: hide (std::string name) {
+/**
+ *  Hide the preferences dialog.
+ *
+ *  @param  name  Widget's name of the dialog. The default is "dialog".
+ */
+void 
+Preferences::hide (std::string name)
+{
+	// Is glade file okay?
 	if (!xml_)
 		return;
+
 	gtk_widget_hide (get(name));
 }
 

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/04/04 22:08:28 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -284,13 +284,27 @@ AppletGUI::tooltip_text (void)
  *  Show the preferences dialog.
  */
 void 
-AppletGUI::show_preferences (void)
+AppletGUI::show_dialog_preferences (void)
 {
 	// Hide the popup window
 	biff_->popup()->hide();
 
 	// Show the dialog
 	biff_->preferences()->show();
+
+	// Stop monitoring mailboxes
+	stop ();
+}
+
+
+/**
+ *  Hide the preferences dialog.
+ */
+void 
+AppletGUI::hide_dialog_preferences (void)
+{
+	// Hide the dialog
+	biff_->preferences()->hide();
 }
 
 /**

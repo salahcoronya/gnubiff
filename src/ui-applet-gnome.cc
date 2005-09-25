@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/03/21 15:33:09 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -103,7 +103,7 @@ extern "C" {
 										  const gchar *verbname)
 	{
 		if (data)
-			((AppletGnome *) data)->show_preferences ();
+			((AppletGnome *) data)->show_dialog_preferences ();
 		else
 			unknown_internal_error ();
 	}
