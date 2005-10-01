@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/09/11 20:35:37 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/09/25 22:09:04 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -165,7 +165,7 @@ AppletGnome::dock (GtkWidget *applet)
  
 	panel_applet_setup_menu_from_file (PANEL_APPLET (applet),
 									   NULL,
-									   "GNOME_gnubiffApplet.xml",
+									   GNUBIFF_UIDIR"/GNOME_gnubiffApplet.xml",
 									   NULL,
 									   gnubiffMenuVerbs,
 									   this);
