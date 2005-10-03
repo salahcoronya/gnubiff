@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/03/31 16:05:18 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/04/04 22:08:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -132,11 +132,11 @@ extern "C" {
 		int accept_id = GPOINTER_TO_INT (user_data);
 		if (response_id == accept_id) {
 			char *uri;
-			uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(dialog));
+			uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER(dialog));
 			if (uri)
 				g_free(uri);
 			else
-				g_signal_stop_emission_by_name(dialog, "response");
+				g_signal_stop_emission_by_name (dialog, "response");
 		}
 	}
 
