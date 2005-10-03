@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.31 $
-// Revision date : $Date: 2005/07/22 23:48:42 $
+// Revision      : $Revision: 1.32 $
+// Revision date : $Date: 2005/07/24 20:52:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -126,9 +126,9 @@ Popup::~Popup (void)
 }
 
 gint
-Popup::create (void)
+Popup::create (gpointer callbackdata)
 {
-	GUI::create();
+	GUI::create(this);
 
 	GtkTreeModel *model;
 

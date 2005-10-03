@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/01/19 22:29:26 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/03/08 11:55:12 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -69,7 +69,7 @@ protected:
 	virtual ~Popup (void);
 
 	/* main */
-	virtual gint create (void);
+	virtual gint create (gpointer callbackdata);
 	void update (void);
 	void show (std::string name = "dialog");
 

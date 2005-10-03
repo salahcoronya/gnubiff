@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/03/31 16:05:18 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/04/04 22:08:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -53,7 +53,7 @@ public:
 	virtual ~GUI (void);
 
 	/* main */
-	virtual gint create (void);
+	virtual gint create (gpointer callbackdata);
 	void create_insert_version (void);
 	virtual void show (std::string name = "dialog");
 	virtual void hide (std::string name = "dialog");

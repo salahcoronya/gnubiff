@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/02/02 14:31:22 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/06/23 20:12:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -67,7 +67,7 @@ public:
 	~Properties (void);
 
 	/* main */
-	gboolean create (void);
+	gboolean create (gpointer callbackdata);
 	void show (std::string name = "dialog");
 
 	// ========================================================================

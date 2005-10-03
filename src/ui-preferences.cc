@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.46 $
-// Revision date : $Date: 2005/09/25 22:09:04 $
+// Revision      : $Revision: 1.47 $
+// Revision date : $Date: 2005/10/02 23:46:43 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -230,7 +230,7 @@ Preferences::Preferences (Biff *biff) : GUI (GNUBIFF_DATADIR"/preferences.glade"
 {
 	biff_ = biff;
 	properties_ = new Properties (this);
-	properties_->create ();
+	properties_->create (properties_);
 	selected_ = 0;
 	added_ = 0;
 	// Widgets
@@ -245,9 +245,9 @@ Preferences::~Preferences (void)
 }
 
 gint
-Preferences::create (void)
+Preferences::create (gpointer callbackdata)
 {
-	GUI::create ();
+	GUI::create (this);
 
 	// Create expert tab
 	expert_create ();

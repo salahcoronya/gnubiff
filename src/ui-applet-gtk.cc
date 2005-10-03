@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/10/02 23:46:43 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/10/03 14:31:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -129,9 +129,9 @@ AppletGtk::~AppletGtk (void)
 }
 
 gint
-AppletGtk::create (void)
+AppletGtk::create (gpointer callbackdata)
 {
-	GUI::create();
+	GUI::create(this);
 	GtkImageAnimation *anim = new GtkImageAnimation (GTK_IMAGE(get("image")));
 	g_object_set_data (G_OBJECT(get("image")), "_animation_", anim);
 	anim->open (biff_->value_string ("nomail_image"));

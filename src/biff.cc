@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.44 $
-// Revision date : $Date: 2005/04/07 14:46:52 $
+// Revision      : $Revision: 1.45 $
+// Revision date : $Date: 2005/09/11 20:35:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -149,15 +149,15 @@ Biff::Biff (guint ui_mode, std::string filename)
 #else
 	applet_ = new AppletGtk (this);
 #endif
-	((AppletGUI *)applet_)->create();
+	((AppletGUI *)applet_)->create(applet_);
 
 	// Preferences
 	preferences_ = new Preferences (this);
-	preferences_->create ();
+	preferences_->create (preferences_);
 
 	// Popup
 	popup_ = new Popup (this);
-	popup_->create();
+	popup_->create(popup_);
 
 	// Authentication dialog
 	ui_auth_mutex_ = g_mutex_new ();

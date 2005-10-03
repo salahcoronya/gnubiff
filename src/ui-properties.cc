@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/06/24 22:35:33 $
+// Revision      : $Revision: 1.20 $
+// Revision date : $Date: 2005/07/17 14:28:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -108,9 +108,9 @@ Properties::~Properties (void)
 }
 
 gboolean
-Properties::create (void)
+Properties::create (gpointer callbackdata)
 {
-	gboolean result = GUI::create();
+	gboolean result = GUI::create(this);
 
 	group_ = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 	gtk_size_group_add_widget (group_, get ("name"));

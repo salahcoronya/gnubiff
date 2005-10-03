@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/02/05 23:35:30 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/02/06 21:01:16 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -67,7 +67,7 @@ public:
 	 **/
 	Preferences (class Biff *biff);
 	~Preferences (void);
-	gint create (void);
+	gint create (gpointer callbackdata);
 
 	/**
 	 * Main
