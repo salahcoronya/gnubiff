@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/10/02 23:46:43 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/10/03 14:31:07 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -62,6 +62,7 @@ public:
 	void execute_command (std::string option_command,
 						  std::string option_use_command = "");
 	std::string get_mailbox_status_text (void);
+	guint get_number_of_unread_messages (void);
 };
 
 /**
@@ -84,7 +85,8 @@ public:
 	guint unread_markup (std::string &text);	// build unread markup string
 	virtual void update (gboolean no_popup = false,
 						 std::string widget_image = "",
-						 std::string widget_text = "");
+						 std::string widget_text = "",
+						 std::string widget_container = "");
 
 	void show_dialog_preferences (void);
 	void hide_dialog_preferences (void);
