@@ -1,5 +1,5 @@
 # gnubiff -- a mail notification program
-# Copyright (C) 2000-2004 Nicolas Rougier
+# Copyright (C) 2000-2005 Nicolas Rougier
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Library General Public
@@ -34,13 +34,14 @@
 # - The third number is the patch number and it usually will only
 #    refer to releases fixing bugs
 #
-# Current version is 1.4.0
+# Current version is 2.1.6
 
-AC_PREREQ(2.53)
-AC_INIT(gnubiff, 1.4.0, rougier@loria.fr)
-AM_INIT_AUTOMAKE
+AC_PREREQ(2.59)
+AC_INIT([gnubiff],[2.1.6],[gnubiff-bugs@lists.sourceforge.net])
+AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_HEADERS([config/config.h])
 AC_CONFIG_SRCDIR([src/gnubiff.cc])
-AC_CONFIG_HEADERS(config.h)
+AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
 ######################################################################
@@ -52,15 +53,31 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AC_PROG_LIBTOOL
 
 ######################################################################
 #                         Checks for libraries                       #
 ######################################################################
-AC_HAVE_LIBRARY(popt)
-AC_HAVE_LIBRARY(ssl)
-AC_HAVE_LIBRARY(crypto, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions),
-                [AC_HAVE_LIBRARY(k5crypto, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions))])
+AC_CHECK_LIB([popt],[main], ,
+	AC_MSG_ERROR([
+	Cannot find popt library
+	Please consider installing it before installing gnubiff
+	])
+)
+
+AC_CHECK_LIB([fam],[main], ,
+	AC_MSG_ERROR([
+	Cannot find fam (File Alteration Monitor) library
+	Please consider installing it before installing gnubiff
+    ])
+)
+
+AC_CHECK_LIB([ssl],[main])
+
+AC_CHECK_LIB(crypto, MD5_Init, [
+	AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions)
+	LIBS="$LIBS -lcrypto"], [
+	AC_CHECK_LIB(ssl, MD5_init, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions))])
+
 GTK_REQUIRED="gtk+-2.0 >= 2.4"
 GDK_PIXBUF_REQUIRED="gdk-pixbuf-2.0 >= 2.4"
 GMODULE_REQUIRED="gmodule-2.0 >= 2.4"
@@ -101,20 +118,21 @@ AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_MALLOC
 AC_FUNC_STAT
 AC_FUNC_UTIME_NULL
-AC_CHECK_FUNCS([gethostbyname memset socket strchr strerror strrchr strstr utime])
+AC_CHECK_FUNCS([gethostbyname memset socket strchr strerror strrchr strstr utime bind_textdomain_codeset])
 
 
 
 ######################################################################
-#                       Internationalisation                         #
+#                       Internationalization                         #
 ######################################################################
 GETTEXT_PACKAGE=gnubiff
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
-                   [The prefix for our gettext translation domains.])
-ALL_LINGUAS="fr_FR fr_CA de nl ro es sv it"
+	               [The prefix for our gettext translation domains.])
 AC_PROG_INTLTOOL
-AM_GLIB_GNU_GETTEXT
+#AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
+
 
 
 ######################################################################
@@ -145,6 +163,8 @@ if test "$gnome" = yes; then
 fi
 AM_CONDITIONAL(USE_GNOME, test $gnome = yes, Define to 1 if you want to have GNOME support)
 
+
+
 ######################################################################
 #                        Save password option                        #
 ######################################################################
@@ -159,7 +179,7 @@ if test "$password" = yes; then
     [  --with-password-string  String to use to encrypt password (HIGHLY RECOMMENDED)],
         pstring=$withval, pstring="")
 	AH_TEMPLATE([PASSWORD_STRING])
-    if eval "test x$pstring = x"; then
+    if test "x$pstring" = "x"; then
 		AC_DEFINE_UNQUOTED(PASSWORD_STRING, "FEDCBA9876543210")
     else
 		AC_DEFINE_UNQUOTED(PASSWORD_STRING, "$withval")
@@ -172,11 +192,25 @@ AM_CONDITIONAL(PASSWORD_STRING, test "$password" = yes)
 
 
 ######################################################################
+#                           expert tab default                       #
+######################################################################
+AC_ARG_ENABLE(expert,
+[  --disable-expert        disable showing expert tab as default, [default=yes]],
+	AC_DEFINE(EXPERT_SHOW_NO_TAB, 1, [Define to 1 to disable showing expert tab as default.])
+	expert="$enableval", expert="yes")
+
+
+
+######################################################################
 #                           debug support                            #
 ######################################################################
 AC_ARG_ENABLE(debug,
-[  --enable-debug          turn on debugging [default=no]],
-	AC_DEFINE(DEBUG, 1, [Define to 1 to enable debugging code.]),)
+		[  --enable-debug          turn on debugging [default=no]],
+AC_DEFINE(DEBUG, 1, [Define to 1 to enable debugging code.]),)
+
+AC_CHECK_FILE("CVS",
+			  [AC_DEFINE(IS_CVS_VERSION, 1, [Is a CVS version being used?])],
+			  [AC_DEFINE(IS_CVS_VERSION, 0, [Is a CVS version being used?])])
 
 
 
@@ -187,18 +221,22 @@ AC_CONFIG_FILES([
 Makefile
 src/Makefile
 po/Makefile.in
-pixmaps/Makefile
-sounds/Makefile
+ui/Makefile
+art/Makefile
+sound/Makefile
 doc/Makefile
 man1/Makefile
+config/gnubiff.spec
 ])
 AC_OUTPUT
+dnl file permissions in config subdirectory
+chmod +x config/mkinstalldirs config/ltmain.sh config/depcomp config/missing config/config.guess config/config.sub config/install-sh config/mdate-sh
 
 
 echo "--------------------------------------------------------------------------------"
 if test "$password" = yes; then
-	echo " Password saving: yes"
-	echo " Password string: $pstring"
+	echo " Password saving : yes"
+	echo " Password string : $pstring"
 	if test "x$pstring" = "x"; then
 		echo "  WARNING: You've not defined a string to encrypt password (--with-password-string)"
 		echo "           Default string will be used but it is less secure than using your own."
@@ -206,19 +244,29 @@ if test "$password" = yes; then
 fi
 
 if test "$password" = no; then
-echo " Password saving: no"
+echo " Password saving : no"
 echo "  If you want gnubiff to save password within configuration"
 echo "  file, use ./configure --with-password [--with-password-string=\"any string you like...]\""
-echo "  But be careful, it is highly unsecure, you've been warned !"
+echo "  But be careful, it is highly unsecure, you've been warned!"
 fi
 
-echo " Gnome support: $gnome"
+echo " Gnome support   : $gnome"
 if test "$gnome" = "yes"; then
   if test "$prefix" != "`pkg-config libpanelapplet-2.0 --variable=prefix`"; then
-    echo "  WARNING: prefix should be "`pkg-config libpanelapplet-2.0 --variable=prefix`
-    echo "           but it is currently set to $prefix"
+    echo "  NOTE: The installation directory for gnubiff is currently set to"
+    echo "        \"$prefix\","
+    echo "        the default installation directory for gnome panel applications is"
+    echo "        \""`pkg-config libpanelapplet-2.0 --variable=prefix`"\"."
+    echo "        It may be necessary to add the path"
+    echo "        \"$prefix/lib/bonobo/servers/\""
+    echo "        to the file \"/etc/bonobo-activation/bonobo-activation-config.xml\""
+    echo "        (root privileges needed) or to execute"
+    echo "        \"activation-client --add-path=$prefix/lib/bonobo/servers/\""
+    echo "        (no root privileges needed) before gnubiff can be added to the panel."
   fi
 fi
+
+echo " Expert tab      : $expert"
 
 echo ""
 echo " Just type 'make' and then 'make install' to install gnubiff"

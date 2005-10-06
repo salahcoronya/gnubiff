@@ -1,33 +1,272 @@
 gnubiff -- History of visible changes.
 
-Copyright (C) 2000-2004, Nicolas Rougier <Nicolas.Rougier@loria.fr>
+Copyright (C) 2000-2005, Nicolas Rougier <Nicolas.Rougier@loria.fr>
 See the end for copying conditions.
-Please send gnubiff bug reports to Nicolas.Rougier@loria.fr.
+Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
+
+Version 2.1.5
+This is a minor bugfix release. Changes:
+ * Fixed some FAM and GAMIN related problems
+ * Fixed problems when displaying non ASCII characters when using non UTF-8
+   locales
+ * Some other bugfixes
+
+Version 2.1.4
+This is a major bugfix release. Changes:
+ * Support for mh mailboxes as used by Sylpheed
+ * Handling of mh protocols optimized
+ * Czech translation (thanks to Josef Vybiral)
+ * Compliance with RFC 2047
+ * Race conditions in FAM code fixed
+ * Various other bugfixes
+
+Version 2.1.3
+This is a major bugfix release. Changes:
+ * Maildir protocol fixed (thanks to Alexis S. L. Carvalho)
+ * Mh protocol fixed
+ * Fixes for 64 bit systems (thanks to David Mosberger)
+ * Various other bugfixes
+Note: The default behavior when using file protocol has changed. The access
+time of the mail file is no longer reset by default. This can be changed by
+setting the option "file_restore_atime" to true.
+
+Version 2.1.2
+This is a major bugfix release. Changes:
+ * Many bug fixes
+ * Improved displaying of messages
+ * Vietnamese translation available
+
+Version 2.1.1
+Major bugfix release. Many thanks to Byron Foster and Calum Mackay for their
+help in creating this release. Changes:
+ * Many bug fixes
+ * Review of network code
+ * Applet and Popup window can be set to be sticky, kept above all other
+   windows and not appear in pagers
+ * Idling can be disabled (IMAP4)
+ * Mails are now only fetched once per session
+ * Out of the box support for FreeBSD (thanks to Tim Bishop)
+ * Expert editing mode for all options provided by gnubiff (including internal
+   options)
+ * Sorting order of headers in popup can be configured
+
+Version 2.1.0
+ * Nicolas Rougier
+   - New & simpler interface
+   - Support of the IDLE state for imap4 (no more polling)
+   - Support of the FAM (File Alteration Monitor)
+     (no more polling for file/folder protocols)
+   - Better detection of mailbox format
+   - Bugfix: IMAP4 idle state test to avoid checking twice
+   - Bugfix: Popup was shown on exiting preferences
+   - Put back credits
+   - Updated French translations
+   - Fix a bug with IMAP4 idle feature (not recognizing the BYE command)
+   - Added a TODO file to keep track of features/bugs to be implemented/fixed
+   - Bugfix: Testing of "\"text\" \"plain\"" in imap4 parsing was wrong
+             (some servers answer using upper cases letter)
+   - Modified credits apperance in the preferences panel (and remove the
+     about menu from gnome applet popup menu)
+   - Bugfix: socket was closed twice when lock was lost in IDLE state
+   - Bugfix: modify the configure script to have errors if popt or fam
+             libraries not present
+   - Sorted the contributors list
+   - Feature: When adding a mailbox and if one is selected, the new mailbox is
+	      copied from the selected one
+   - Feature: If password is empty, gnubiff try to find by looking at
+              other mailboxes and matching (address/username)
+   - Updated THANKS file
+   - Bugfix: display last received mail for each mailbox (up to	popup_size)
+   - Bugfix: Take popup_use_size_ into account
+   - Bugfix: Use of the decoded charset for imap4
+   - Bugfix: Added a lock for the ui-authentification/ui-certificate access 
+   - Bugfix: Fix a problem with certificate (not taking the HAVE_LIBSSL flag into account)
+   - Bugfix: Bad line fixed in apop.
+   - Bugfix: lock for ui-authentification access was not used in imap4
+   - Bugfix: Newly created mailboxes were not created properly
+* Robert Sowada (adapted by Nicolas Rougier from v2.0.3 to v2.1.0)
+   - Gnome version can determine itself if in standalone mode or panel mode
+   - Removed "--gtk" option, added "--applet" option in debug mode instead
+   - Added "--version" option to all versions of gnubiff
+   - "--help" option handled by "poptPrintHelp" in all versions of gnubiff
+   - Removed messages that are no longer necessary
+   - Bugfix: Using <return> in password entry
+   - Bugfix: return value of main
+   - Output of "--help" restructured
+   - Update of man page (command line options, version, date)
+   - Bugfix: Failure of select command (IMAP)
+   - Bugfix: Failure of opening connection (IMAP)
+   - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+     (if SSL is used, this was fixed for non-SSL connections in 2.0.2)
+   - Bugfix: Handling network writing/reading errors
+   - Bugfix/Feature: Support for international Mailbox names for IMAP
+   - Security Bugfix: DoS attacks by sending a unterminated response to the
+     SELECT, SEARCH, FETCH (IMAP) and TOP (POP3) commands anticipated
+   - Bugfix: User set value for maximum number of mail to be collected is now
+     respected (IMAP)
+   - Bugfix: Fetching mails is no longer stopped if certain strings are in
+     mail or mail header (IMAP)
+   - Bugfix: First lines of email content are now displayed (IMAP)
+   - Bugfix: Displaying mails that do not end with a newline (IMAP)
+   - Feature: Only get first "text/plain" part of mail, not the whole mail;
+     don't get the whole part if it is very long (IMAP)
+   - Feature: Message if there is no "text/plain" part (IMAP)
+   - Bugfix: Creating different tags for different commands (IMAP)
+ * Robert Sowada
+   - Updated german translation
+   - Various small changes in GUI
+   - Updated "text" "plain" fix of Nicolas to make it safe for future
+     extensions
+   - Get encoding and character set of "text" "plain" part (IMAP4)
+   - Updated intltool utilities to version 0.32.1
+   - Ported local and distant mailbox detection code from 2.0.3 to 2.1.0
+   - Decoding of quotedprintable encoded mails (IMAP4)
+   - Error message for mails in unknown enoding (IMAP4)
+   - Bugfix: base64 decoding now rejects invalid encoded strings
+   - New source files for decoding and converting
+   - Separated q-encoding and quoted printable encoding
+   - Number of lines (of mail body) to be read is now a constant
+   - Bugfix: Setting file permissions of scripts in configure script
+     (fixes bug #1083485)
+   - Marked strings for translation (GNOME menu entries)
+   - Bugfix: DoS attacks in IDLE command (IMAP4)
+   - Bugfix: Hanging of local mailboxes
+   - Ported saving to configuration file code from 2.0.2 to 2.1.0
+   - Ported mh protocol fixes from 2.0.2 to 2.1.0
+   - Ported maildir protocol fixes from 2.0.2 to 2.1.0
+   - Ported substituting of "%d" from 2.0.2 to 2.1.0
+   - Bugfix: Selecting "File or Folder" or "Autodetect" in properties dialog
+   - Bugfix: Segfaults when all mails are read while popup is present
+   - Bugfixes in local mailbox detection; local mailboxes are identified
+     immediately
+   - Feature: Use of relative paths allowed (when not using autodetection)
+
+Version 2.0.3
+  * Roland Stigge:
+    - Updated man page (section 1, "GTK+")
+  * Robert Sowada:
+    - Changed version to 2.0.3
+    - Various small changes and bugfixes
+    - Updated german translation, updated po files
+    - Gnome version can determine itself if in standalone mode or panel mode
+    - Removed "--gtk" option, added "--applet" option in debug mode instead
+    - Added "--version" option to all versions of gnubiff
+    - "--help" option handled by "poptPrintHelp" in all versions of gnubiff
+    - Removed messages that are no longer necessary
+    - Bugfix: return value of main
+    - Output of "--help" restructured
+    - Code for saving the configuration file cleaned up
+    - Bugfix: Autodetection of IMAP
+    - Bugfix: Failure of select command (IMAP)
+    - Bugfix: Failure of opening connection (IMAP)
+    - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+      (if SSL is used, this was fixed for non-SSL connections in 2.0.2)
+    - Bugfix: Handling network writing/reading errors
+    - Bugfix/Feature: Support for international Mailbox names for IMAP
+    - Security Bugfix: DoS attacks by sending a unterminated response to the
+      SELECT, SEARCH, FETCH (IMAP) and TOP (POP3) commands anticipated
+    - Bugfix: User set value for maximum number of mail to be collected is now
+      respected (IMAP)
+    - Bugfix: Fetching mails is no longer stopped if certain strings are in
+      mail or mail header (IMAP)
+    - Bugfix: First lines of email content are now displayed (IMAP)
+    - Bugfix: Displaying mails that do not end with a newline (IMAP)
+    - Feature: Only get first "text/plain" part of mail, not the whole mail;
+      don't get the whole part if it is very long (IMAP)
+    - Feature: Message if there is no "text/plain" part (IMAP)
+    - Bugfix: Setting always status to MAILBOX_ERROR if an error occurs
+      (POP3 & IMAP)
+    - Bugfixes in displaying first lines of mails
+    - Bugfix: Creating different tags for different commands (IMAP)
+    - Update of man page (command line options, version, date)
+    - Bugfix: Handling of text lines beginning with a dot (IMAP & POP3)
+    - Bugfix: Deleting of mailboxes when detecting mailbox format
+    - Bugfix: Updating when connection for mailbox detection fails
+    - Bugfix: Using <return> in password entry
+  * Nicolas Rougier:
+    - Updated french translations
+	
+Version 2.0.2
+ * Some cosmetic fixes
+ * Bug fix in IMAP4 protocol
+ * Bug fix in APOP+SSL protocol handling
+ * Bug fix in seen mail handling being reset after error
+ * Bug fix in image choosing for preferences panel
+ * Bug fix when panel is vertically oriented
+ * Bug fix in applet or biff font to be always bold
+ * Bug fix when asking for password or certificate
+ * Bug fix in apop.cc (debug message)
+ * Mail count added in gtk applet window title
+ * Nicolas Rougier
+   - Some fixes for FreeBSD
+   - Imap4 bug when copying from another mailbox (folder_ was set to "INBOX")
+ * Roland Stigge:
+   - updated po/{nl,de}.po
+   - finally fixed g++-3.4 compile error (Debian bug #271288)
+ * Robert Sowada:
+   - Various small changes
+   - Bugfix: User can no longer make config file invalid by using XML 
+     sensitive characters in strings
+   - Bugfixes in setting file permissions
+   - File permissions are only set when creating a new config file. So the user
+     is able to change to less restrictive permissions if he/she wants to do
+     this
+   - Bugfix in detection of animation information (via filename)
+   - Bugfixes in detection of local mailbox format
+   - Bugfix in mh protocol
+   - Bugfixes in handling of sound filename
+   - Bugfixes in string handling
+   - Bugfix in "new mail" and "no mail" tooltips
+   - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+	
+Version 2.0.1
+ * Small buf fix that prevented GTK+ version to be compiled
+	
+Version 2.0.0
+ * gnubiff now officially part of the GNU project
+ * Complete redesign of interface inspired by MailNotification
+   by Jean-Yves Lefort.
+ * Automatic detection of mailbox format
+ * New option to tell gnubiff to never send passwords in clear
+ * Better handling of SSL certificate
+ * Various small bugfixes
+ * Security fix in possible buffer overflow (pop3.c)
+ * Security fix in pop3 (infinite uidl list would block gnubiff and
+   ultimately crashes it)
+ * Bugfix in geometry handling (was not saved properly)
+ * Bugfix in pop3 protocol to really get only most recent headers
+ * Bugfix in apop protocol which was really broken
+ * Bugfix in imap4 to handle server panic
+ * Bugfix in utf8 translation
+ * Added hidden files in gtk_file_chooser's
 
 
 Version 1.4.0
  * gnubiff now requires glib/gdk/gtk/libglade 2.4
  * Use of file chooser instead of file selector	
- * PNG animation support
+ * PNG simple animation support
  * Preview added when selecting images
  * Image/animation resizing with panel for GNOME version
  * Read mails are saved in configuration file
  * User can now choose text to be displayed when new mail and when no mail
- * New possibility to choose command to play sound
+ * Possibility to choose command to play sound
+ * Possibility to choose popup background color (to make it flashy)
+ * Possibility to hide image or/and text when no mail and when new mail
+ * File protocol has been improved to speedup things
  * Security fix: table used for password encryption is now configurable
    using the --with-password-string making your .gnubiffrc dependent on
    your gnubiff executable (far more secure than previously but still
    very unsecure).
- * Possibility to choose popup background color (to make it flashy)
- * Possibility to hide image or/and text when no mail and when new mail
  * Configure script has been changed to auto-detect gnome
  * Bug fix for automatic check at startup
  * Bug fix in IMAP4 protocol with user/password/folder fields
- * Bug fix in maildir with the static mtime field
+ * Bug fix in maildir protocol with the static mtime field
+ * Bug fix in file protocol with the static mtime field
  * Bug fix with mail read and popup preview
  * Bug fix with multi mailboxes and polltime
  * Bug fix in creating a default configuration file from void
- * Bug fix when no mailcox defined in confiration file
+ * Bug fix when no mailbox defined in confiration file
+ * Bug fix with gethostbyname which is no thread safe on some platform
  * --enable-debug option added to configure
 
 	
@@ -227,7 +466,7 @@ Version 0.1
 -------------------------------------------------------
 Copying information:
 
-Copyright (C) 2000-2004, Nicolas Rougier <Nicolas.Rougier@loria.fr>
+Copyright (C) 2000-2005, Nicolas Rougier <Nicolas.Rougier@loria.fr>
 
    Permission is granted to anyone to make or distribute verbatim copies
    of this document as received, in any medium, provided that the

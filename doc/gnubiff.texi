@@ -2,11 +2,12 @@
 @c %**start of header
 @setfilename gnubiff.info
 @settitle gnubiff
+@include version.texi
 @c %**end of header
 
 @copying
-This manual is for gnubiff version 1.4.0 Copyright @copyright{}
-2000-2004 Nicolas Rougier.
+This manual is for gnubiff version @value{VERSION} Copyright @copyright{}
+2000-2005 Nicolas Rougier.
 @quotation
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2
@@ -17,6 +18,10 @@ Free Documentation License''.
 @end quotation
 @end copying
 
+@dircategory Utilities
+@direntry
+* gnubiff: (gnubiff).       A mail notification program for Gtk and Gnome.
+@end direntry
 
 @titlepage
 @title gnubiff
@@ -67,7 +72,9 @@ Published by Nicolas Rougier
 @sp 1
 @noindent To have gnubiff to use a given encryption table:@*
 @command{./configure --with-password-string}
-
+@sp 1
+@noindent To disable the expert mode editing tab as default:@*
+@command{./configure --disable-expert}
 
 @include gpl.texi
 
@@ -81,14 +88,14 @@ gnubiff is part of the GNU project, released under the aegis of GNU.
 @sp 1
 gnubiff is a mail notification program that checks for mail, displays
 headers when new mail has arrived and allow to read first lines of new
-mails. It relies on the GNOME and GTK libraries but can be compiled and
-used with or without GNOME support. Supported protocols are pop3, apop,
-imap4, mh, qmail and mailfile.  Furthermore, gnubiff is fully
+messages. It relies on the GNOME and GTK+ libraries but can be compiled
+and used with or without GNOME support. Supported protocols are pop3,
+apop, imap4, mh, qmail and mailfile.  Furthermore, gnubiff is fully
 configurable with a lot of options like polltime, poptime, sounds, mail
 reader, mailbox names, etc. and can also filter spam.@* Note that
 gnubiff is not a mail reader even if it offers the possibility of
-reading very first lines of new mails. If you send some requests for
-specific features to be implemented, keep that in mind !
+reading very first lines of new messages. If you send some requests for
+specific features to be implemented, keep that in mind!
 @sp 1
 @noindent Homepage: http://gnubiff.sourceforge.net/
 
@@ -98,12 +105,12 @@ specific features to be implemented, keep that in mind !
 @chapter Start gnubiff
 @unnumberedsec
 @comment ------------------------------------------------------------
-Depending if you have compiled gnubff with or without GNOME libraries,
+Depending if you have compiled gnubiff with or without GNOME libraries,
 you'll be able to start gnubiff from command line or from the GNOME
 panel.
 
-@section How to start gnubiff in GTK mode when compiled without GNOME
-@command{gnubiff [-c|--config file] [-n|--noconfigure] [--version]}
+@section How to start gnubiff in GTK mode
+@command{gnubiff [-c|--config file] [-n|--noconfigure] [-v|--version] [-?|--help] [--usage]}
 @sp 1
 @table @samp
 @item -c file, --config file
@@ -113,23 +120,10 @@ default is '$HOME/.gnubiffrc'.
 Skip the configuration process.
 @item -v, --version
 Displays version number and exit
-@end table
-
-@sp 2
-
-@section How to start gnubiff in GTK mode when compiled with GNOME
-@command{gnubiff --gtk --[-c|--config file] [-n|--noconfigure] [--version]}@*
-or
-@command{gnubiff -g --[-c|--config file] [-n|--noconfigure] [--version]}
-@sp 1
-@table @samp
-@item -c file, --config file
-This option allows to specify an alternate configuration file,
-default is '$HOME/.gnubiffrc'.
-@item -n, --noconfigure
-Skip the configuration process.
-@item -v, --version
-Displays version number and exit
+@item -?, --help
+Shows a list of all supported options
+@item --usage
+Displays a brief usage message
 @end table
 
 @sp 2
@@ -187,8 +181,8 @@ cannot decide what is the size of a frame based on image size and so
 you have to provide this size with the name of the image. The convention
 is that frame size is given between parenthesis.@* 
 For example, "anim(64x64).png" means that frame size is 64 by 64
-pixels and then image should be 64 pixels width and n*64 pixels heigth
-where n is the number of frame.
+pixels and then image should be n*64 pixels wide and 64 pixels tall
+(where n is the number of frame).
 @sp 1
 @noindent To convert a gif animation to this format just type:@*
 @command{convert +append animation.gif animation(64x64).png}
@@ -205,39 +199,90 @@ Any omissions in this list are accidental.  Feel free to contact authors
 if you have been left out or some of your contributions are not listed.
 Please keep this list in alphabetical order.
 
+Authors:@*
 @itemize @bullet
-@item Calum Mackay
+@item gnubiff has originally been written by Nicolas Rougier
+@end itemize
+
+
+Developers:@*
+@itemize @bullet
+@item Nicolas Rougier
 @item Robert Sowada
-@item Grzegorz Gotawski
-@item Paul Kuliniewicz
-@item Adam Benjamin
-@item Theodore Tegos
-@item Achim Settelmeier
+@end itemize
+
+
+Maintainers:@*
+@itemize @bullet
+@item Tim Bishop
 @item Roland Stigge
-@item Barry Skidmore
-@item Jason Lowdermilk
-@item Marc-jano Knopp
-@item Suzan Wassman
-@item Philippe Berger
-@item Earl A. Killian
-@item Chistian Probst
-@item Hans-Ulrich Schaefer
-@item Josh Parsons
-@item Michael Moellney
-@item Dennis Bjorklund
-@item Craig  Agricola
-@item Bernhard Valenti
+@end itemize
+
+
+Translators:@*
+@itemize @bullet
+@item Victor Alonso (es)
+@item Elros Cyriatan (nl)
+@item Stefano Fabri (it)
+@item Nicols Lichtmaler (es)
+@item Michel Robitaille (fr)
+@item Nicolas Rougier (fr)
+@item Clytie Siddall (vi)
+@item David Smeringe (sv)
+@item Robert Sowada (de)
+@item Roland Stigge (de)
+@item Josef Vybiral (cs)
+@end itemize
+
+
+Various contributors:@*
+@itemize @bullet
+@item Craig Agricola
+@item Adam Benjamin
 @item Josh Berdine
-@item Michel Leunen
+@item Philippe Berger
+@item Wade Berrier
+@item Dennis Bjorklund
+@item Alexis S. L. Carvalho
+@item John Ellson
+@item Nicolas Evrard
 @item Greg Fenton
-@item Cai Yu
-@item Chris Snell
-@item Reid Rivenburgh
-@item Neil Muller
+@item Byron Foster
+@item Grzegorz Gotawski
+@item Samuel Hym
+@item Earl Killian
+@item Marc-Jano Knopp
+@item Paul Kuliniewicz
+@item Jean-Yves Lefort
+@item Michel Leunen
+@item Jason Lowdermilk
 @item Sascha Ludecke
-@item Richard Torkar
+@item Calum Mackay
+@item Michael Moellney
+@item Sophie Morel
+@item David Mosberger
+@item Neil Muller
+@item Josh Parsons
 @item Pete Phillips
+@item Christian Probst
+@item Jakub Raczkowski
+@item Reid Rivenburgh
+@item Hans-Ulrich Schaefer
+@item Achim Settelmeier
+@item Phil Shapiro
+@item Clytie Siddall
+@item Erik Sittman
+@item Barry Skidmore
+@item Chris Snell
 @item Blaise Tarr
+@item Theodore Tegos
+@item Iulian Tocu
+@item Richard Torkar
+@item Bernhard Valenti
+@item Dries Verachtert
+@item Hubert Verstraete
+@item Suzan Wassman
+@item Cai Yu
 @end itemize
 
 @bye
