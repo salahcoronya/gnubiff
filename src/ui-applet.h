@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/10/03 14:31:07 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/10/06 21:56:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -86,7 +86,8 @@ public:
 	virtual void update (gboolean no_popup = false,
 						 std::string widget_image = "",
 						 std::string widget_text = "",
-						 std::string widget_container = "");
+						 std::string widget_container = "",
+						 guint m_width=G_MAXUINT, guint m_height=G_MAXUINT);
 
 	void show_dialog_preferences (void);
 	void hide_dialog_preferences (void);
