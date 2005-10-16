@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/10/06 21:56:02 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/10/09 19:19:18 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -82,7 +82,7 @@ public:
 	// ========================================================================
 	virtual void dock (GtkWidget *applet) {};		// dock applet
 
-	guint unread_markup (std::string &text);	// build unread markup string
+	std::string unread_markup (guint unread);
 	virtual void update (gboolean no_popup = false,
 						 std::string widget_image = "",
 						 std::string widget_text = "",
