@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/10/06 21:56:02 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/10/30 23:02:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -140,7 +140,6 @@ AppletGtk::create (gpointer callbackdata)
 	return true;
 }
 
-
 void
 AppletGtk::update (gboolean no_popup)
 {
@@ -161,7 +160,6 @@ AppletGtk::update (gboolean no_popup)
 
 	g_mutex_unlock (update_mutex_);
 }
-
 
 void
 AppletGtk::show (std::string name)

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.79 $
-// Revision date : $Date: 2005/06/23 20:11:48 $
+// Revision      : $Revision: 1.80 $
+// Revision date : $Date: 2005/10/30 23:02:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -179,9 +179,14 @@ Mailbox::mark_messages_as_read (void)
 {
 	if (!g_mutex_trylock (mutex_))
 		return;
+
+	// All seen messages should be hidden; no unread messages
 	hidden_.clear();
 	hidden_ = seen_;
 	unread_.clear();
+
+	// FIXME: If there might be unread messages that haven't been fetched yet,
+	// they should be read now. Bug reported by Maik Wachsmuth
 
 	g_mutex_unlock (mutex_);
 }

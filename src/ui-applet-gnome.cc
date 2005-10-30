@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/10/09 19:35:39 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/10/30 23:02:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -196,8 +196,6 @@ AppletGnome::update (gboolean no_popup)
 	// Is there another update going on?
 	if (!g_mutex_trylock (update_mutex_))
 		return;
-
-	Applet::update (no_popup);
 
 	// Get panel's size and orientation
 	guint size = panel_applet_get_size (panelapplet ());
