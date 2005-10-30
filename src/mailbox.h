@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.52 $
-// Revision date : $Date: 2005/04/05 14:23:17 $
+// Revision      : $Revision: 1.53 $
+// Revision date : $Date: 2005/06/23 20:12:05 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -142,7 +142,7 @@ public:
 	virtual void start (void);						// start method (to be overidden)
 	virtual void stop (void);						// stop method (to be overidden)
 	virtual void fetch (void);						// fetch headers (if any)
-	void read (gboolean value=true);				// mark/unmark mailbox as read
+	void mark_messages_as_read (void);
 	void lookup (void);								// try to guess mailbox format
 	static Mailbox *lookup_local(Mailbox &);        // try to guess mailbox format for a local mailbox
 	gboolean new_mail (std::string &);

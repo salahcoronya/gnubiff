@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/10/16 20:21:03 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/10/23 19:45:42 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -58,7 +58,7 @@ public:
 	void start (guint delay=0);
 	void stop  (void);
 	virtual void update (gboolean no_popup = false);
-	void mark_mails_as_read (void);
+	void mark_messages_as_read (void);
 	void execute_command (std::string option_command,
 						  std::string option_use_command = "");
 	std::string get_mailbox_status_text (void);

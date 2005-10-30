@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/10/03 15:17:51 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/10/06 21:56:02 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -81,7 +81,7 @@ extern "C" {
 								  gpointer data)
 	{
 		if (data)
-			((AppletGtk *) data)->mark_mails_as_read ();
+			((AppletGtk *) data)->mark_messages_as_read ();
 		else
 			unknown_internal_error ();
 	}
@@ -208,9 +208,9 @@ AppletGtk::on_button_press (GdkEventButton *event)
 		update ();
 	}
 
-	// Single middle click: mark mails as read
+	// Single middle click: mark messages as read
 	else if (event->button == 2)
-		mark_mails_as_read ();
+		mark_messages_as_read ();
 
 	// Single right click: popup menu
 	else if (event->button == 3) {

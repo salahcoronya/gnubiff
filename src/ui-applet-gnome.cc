@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/10/09 19:19:18 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/10/09 19:35:39 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -124,7 +124,7 @@ extern "C" {
 										 const gchar *verbname)
 	{
 		if (data)
-			((AppletGnome *) data)->mark_mails_as_read ();
+			((AppletGnome *) data)->mark_messages_as_read ();
 		else
 			unknown_internal_error ();
 	}
@@ -269,9 +269,9 @@ AppletGnome::on_button_press (GdkEventButton *event)
 		force_popup_ = true;
 		update ();
 	}
-	// Single middle click: mark mails as read
+	// Single middle click: mark messages as read
 	else if (event->button == 2)
-		mark_mails_as_read ();	
+		mark_messages_as_read ();	
 
 	return false;
 }
