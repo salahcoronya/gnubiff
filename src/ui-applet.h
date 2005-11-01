@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2005/10/30 23:02:51 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2005/11/01 13:57:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -81,8 +81,6 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================
-	virtual void dock (GtkWidget *applet) {};		// dock applet
-
 	virtual void update (gboolean no_popup = false,
 						 std::string widget_image = "",
 						 std::string widget_text = "",

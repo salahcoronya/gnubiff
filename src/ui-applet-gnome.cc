@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/11/01 13:57:10 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/11/01 14:44:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -152,7 +152,12 @@ AppletGnome::~AppletGnome (void)
 {
 }
 
-void
+/**
+ *  Set properties of the gnubiff gnome panel applet.
+ *
+ *  @param applet  Gnome Panel widget of gnubiff.
+ */
+void 
 AppletGnome::dock (GtkWidget *applet)
 {
 	static const BonoboUIVerb gnubiffMenuVerbs [] = {
