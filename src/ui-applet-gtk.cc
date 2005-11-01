@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/10/30 23:02:51 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/10/30 23:32:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -120,7 +120,7 @@ extern "C" {
 	}
 }
 
-AppletGtk::AppletGtk (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.glade")
+AppletGtk::AppletGtk (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.glade", this)
 {
 }
 

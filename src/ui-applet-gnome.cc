@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/10/30 23:02:51 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2005/10/30 23:32:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -144,7 +144,7 @@ extern "C" {
 }
 
 
-AppletGnome::AppletGnome (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.glade")
+AppletGnome::AppletGnome (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.glade", this)
 {
 }
 

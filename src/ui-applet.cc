@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2005/10/23 19:45:42 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2005/10/30 23:02:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -305,12 +305,16 @@ Applet::get_mailbox_status_text (void)
 /**
  *  Constructor.
  *
- *  @param  biff     Pointer to the biff object of the current gnubiff session.
- *  @param  filename Name of the glade file that contains the GUI information.
+ *  @param  biff         Pointer to the biff object of the current gnubiff
+ *                       session.
+ *  @param  filename     Name of the glade file that contains the GUI
+ *                       information.
+ *  @param  callbackdata Pointer to be passed to the GUI callback functions.
  */
-AppletGUI::AppletGUI (Biff *biff, std::string filename) : Applet (biff),
-														  GUI (filename)
+AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
+          : Applet (biff), GUI (filename)
 {
+	GUI::create (callbackdata);
 }
 
 /// Destructor
