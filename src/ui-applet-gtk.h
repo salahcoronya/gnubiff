@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/09/11 20:35:37 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -48,7 +48,6 @@ class AppletGtk : public AppletGUI {
 	//  main
 	// ========================================================================	
 	void update (gboolean no_popup = false);
-	gint create (gpointer callbackdata);
 	void show (std::string name = "dialog");
 	void tooltip_update (void);
 

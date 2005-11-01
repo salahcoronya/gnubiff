@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/10/30 23:02:51 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2005/11/01 13:57:10 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -315,6 +315,12 @@ AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
           : Applet (biff), GUI (filename)
 {
 	GUI::create (callbackdata);
+
+	// Create image animation
+	GtkImageAnimation *anim = new GtkImageAnimation (GTK_IMAGE(get("image")));
+	g_object_set_data (G_OBJECT(get("image")), "_animation_", anim);
+	anim->open (biff_->value_string ("newmail_image"));
+	anim->start();
 }
 
 /// Destructor
