@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.47 $
-// Revision date : $Date: 2005/10/02 23:46:43 $
+// Revision      : $Revision: 1.48 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -434,7 +434,6 @@ Preferences::hide (std::string name)
 	// Hide the preferences dialog
 	gtk_widget_hide (get(name));
 }
-
 
 void 
 Preferences::synchronize (class Mailbox *mailbox, GtkListStore *store, GtkTreeIter *iter)

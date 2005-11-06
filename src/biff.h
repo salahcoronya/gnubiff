@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/03/10 17:48:22 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/11/06 19:58:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -65,7 +65,6 @@ protected:
 	GMutex *						mutex_;			// access mutex
 	class Authentication			*ui_auth_;		// ui to get username & password
 	GMutex							*ui_auth_mutex_;// Lock to avoid conflicts
-	class Preferences	*			preferences_;	// preferences ui
 	class Applet *					applet_;		// applet ui
 	/// Buffer for temporary saving values when loading the config file
 	std::map<std::string,std::string> buffer_load_;
@@ -85,7 +84,6 @@ public:
 	gboolean find_mail (std::string mailid, Header &mail);
 	class Mailbox * mailbox (guint index);
 	class Mailbox * get (guint uin);
-	class Preferences *preferences (void)		{return preferences_;}
 	class Applet *applet (void)					{return applet_;}
 
 	// ================================================================================

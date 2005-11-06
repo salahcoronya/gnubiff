@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/03/08 11:55:12 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -72,6 +72,7 @@ protected:
 	virtual gint create (gpointer callbackdata);
 	void update (void);
 	void show (std::string name = "dialog");
+	void hide (std::string name = "dialog");
 
 	/* callbacks */
 	gboolean on_delete (GtkWidget *widget, GdkEvent *event);
