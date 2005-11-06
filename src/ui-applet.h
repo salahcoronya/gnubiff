@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/11/01 19:49:58 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2005/11/06 19:58:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -56,7 +56,7 @@ public:
 	// ========================================================================
 	void start (guint delay=0);
 	void stop  (void);
-	virtual gboolean update (gboolean no_popup = false);
+	virtual gboolean update (gboolean init = false);
 	void mark_messages_as_read (void);
 	void execute_command (std::string option_command,
 						  std::string option_use_command = "");
@@ -84,7 +84,7 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================
-	virtual gboolean update (gboolean no_popup = false,
+	virtual gboolean update (gboolean init = false,
 							 std::string widget_image = "",
 							 std::string widget_text = "",
 							 std::string widget_container = "",
