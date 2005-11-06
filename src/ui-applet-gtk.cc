@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/11/01 13:57:10 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/11/01 14:44:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -128,14 +128,14 @@ AppletGtk::~AppletGtk (void)
 {
 }
 
-void
+gboolean 
 AppletGtk::update (gboolean no_popup)
 {
 	// Is there another update going on ?
 	if (!g_mutex_trylock (update_mutex_))
-		return;
+		return false;
 
-	AppletGUI::update (no_popup, "image", "unread", "fixed");
+	gboolean newmail=AppletGUI::update (no_popup, "image", "unread", "fixed");
 
 	// Update window manager decorations
 	gboolean decorated = gtk_window_get_decorated (GTK_WINDOW(get("dialog")));
@@ -147,6 +147,7 @@ AppletGtk::update (gboolean no_popup)
 	show();
 
 	g_mutex_unlock (update_mutex_);
+	return newmail;
 }
 
 void

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.47 $
-// Revision date : $Date: 2005/11/01 13:57:10 $
+// Revision      : $Revision: 1.48 $
+// Revision date : $Date: 2005/11/01 19:49:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -47,7 +47,6 @@
 #include "ui-preferences.h"
 #include "ui-properties.h"
 #include "ui-applet-gtk.h"
-#include "ui-popup.h"
 #include "mailbox.h"
 #include "file.h"
 #include "maildir.h"
@@ -158,10 +157,6 @@ Biff::Biff (guint ui_mode, std::string filename)
 	// Preferences
 	preferences_ = new Preferences (this);
 	preferences_->create (preferences_);
-
-	// Popup
-	popup_ = new Popup (this);
-	popup_->create(popup_);
 
 	// Authentication dialog
 	ui_auth_mutex_ = g_mutex_new ();
