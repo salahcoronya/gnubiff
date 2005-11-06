@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.43 $
-// Revision date : $Date: 2005/04/06 21:38:15 $
+// Revision      : $Revision: 1.44 $
+// Revision date : $Date: 2005/04/07 14:46:52 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -252,7 +252,8 @@ Biff::replace (Mailbox *from, Mailbox *to)
 		}
 	g_mutex_unlock (mutex_);
 
-	if ((inserted) && (!GTK_WIDGET_VISIBLE(preferences_->get())))
+	if ((inserted) && (!preferences_
+					   || !GTK_WIDGET_VISIBLE(preferences_->get())))
 		inserted->threaded_start (3);	
 	return inserted;
 }
