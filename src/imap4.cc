@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.127 $
-// Revision date : $Date: 2005/04/11 21:55:00 $
+// Revision      : $Revision: 1.128 $
+// Revision date : $Date: 2005/11/06 19:58:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -168,7 +168,7 @@ void
 Imap4::fetch (void) throw (imap_err)
 {
 	// Is there a password? Can we obtain it?
-	if (!biff_->password(this)) throw imap_nologin_err();
+	if (!biff_->get_password_for_mailbox (this)) throw imap_nologin_err();
 
 	// Connection and authentification
 	connect();

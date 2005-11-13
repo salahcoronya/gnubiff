@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/11/06 20:15:28 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/11/06 23:24:50 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -67,6 +67,8 @@ public:
 	/// @see AppletGUI::mailbox_to_be_replaced ()
 	virtual void mailbox_to_be_replaced (class Mailbox *from,
 										 class Mailbox *to) {};
+	/// @see AppletGUI::get_password_for_mailbox ()
+	virtual void get_password_for_mailbox (class Mailbox *mb) {};
 	virtual gboolean can_monitor_mailboxes (void);
 };
 
@@ -79,6 +81,10 @@ protected:
 	class Popup						*popup_;
 	/// Pointer to the preferences dialog
 	class Preferences				*preferences_;
+	/** Pointer to the authentication dialog (needed for getting the user id
+	 *  and password)
+	 */
+	class Authentication			*ui_auth_;
 	/// Shall the popup be forced on the next update?
 	gboolean						force_popup_;
 public:
@@ -100,6 +106,7 @@ public:
 	virtual std::string get_number_of_unread_messages_text (void);
 
 	void mailbox_to_be_replaced (class Mailbox *from, class Mailbox *to);
+	virtual void get_password_for_mailbox (class Mailbox *mb);
 	virtual gboolean can_monitor_mailboxes (void);
 
 	void show_dialog_preferences (void);

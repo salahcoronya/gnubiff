@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2005/08/07 14:28:23 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2005/11/06 19:58:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -150,7 +150,7 @@ void
 Pop::fetch (void) throw (pop_err)
 {
 	// Is there a password? Can we obtain it?
-	if (!biff_->password(this)) {
+	if (!biff_->get_password_for_mailbox (this)) {
 		g_warning (_("[%d] Empty password"), uin());
 		throw pop_nologin_err();
 	}

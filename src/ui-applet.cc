@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2005/11/06 20:15:28 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2005/11/06 23:24:50 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -39,6 +39,7 @@
 #include "mailbox.h"
 #include "support.h"
 #include "ui-applet.h"
+#include "ui-authentication.h"
 #include "ui-popup.h"
 #include "ui-preferences.h"
 
@@ -315,14 +316,17 @@ AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
 	anim->open (biff_->value_string ("newmail_image"));
 	anim->start();
 
-	// Preferences
+	// Create preferences dialog
 	preferences_ = new Preferences (biff_);
 	preferences_->create (preferences_);
 
-	// Create popup
+	// Create popup dialog
 	force_popup_ = false;
 	popup_ = new Popup (biff_);
 	popup_->create (popup_);
+
+	// Create authentication dialog
+	ui_auth_ = new Authentication ();
 }
 
 /// Destructor
@@ -607,4 +611,15 @@ gboolean
 AppletGUI::can_monitor_mailboxes (void)
 {
 	return !(visible_dialog_popup ());
+}
+
+/**
+ *  Ask the user for the user id and password of the mailbox {\em mb}.
+ *
+ *  @param  mb Mailbox
+ */
+void 
+AppletGUI::get_password_for_mailbox (Mailbox *mb)
+{
+	ui_auth_->select (mb);
 }

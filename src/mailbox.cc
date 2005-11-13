@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.80 $
-// Revision date : $Date: 2005/10/30 23:02:51 $
+// Revision      : $Revision: 1.81 $
+// Revision date : $Date: 2005/10/30 23:32:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -485,7 +485,7 @@ Mailbox::lookup (void)
 	// After replace, "this" is destroyed so we must return immediately
 	if (mailbox) {
 		g_mutex_unlock (monitor_mutex_);
-		biff_->replace (this, mailbox);
+		biff_->replace_mailbox (this, mailbox);
 		return;
 	}
 

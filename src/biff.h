@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.19 $
-// Revision date : $Date: 2005/11/06 19:58:57 $
+// Revision      : $Revision: 1.20 $
+// Revision date : $Date: 2005/11/06 23:24:50 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -58,14 +58,15 @@ public:
 	std::string		passtable_;					// encryption table
 
 protected:
-	// ================================================================================
+	// ========================================================================
 	//  internal
-	// ================================================================================
+	// ========================================================================
 	std::vector<class Mailbox *>	mailbox_;		// mailboxes
 	GMutex *						mutex_;			// access mutex
-	class Authentication			*ui_auth_;		// ui to get username & password
-	GMutex							*ui_auth_mutex_;// Lock to avoid conflicts
-	class Applet *					applet_;		// applet ui
+	/// Mutex for obtaining passwords
+	GMutex							*auth_mutex_;
+	/// Applet user interface
+	class Applet *					applet_;
 	/// Buffer for temporary saving values when loading the config file
 	std::map<std::string,std::string> buffer_load_;
 
@@ -90,9 +91,9 @@ public:
 	//  main
 	// ================================================================================
 	void add (Mailbox *mailbox);					// add a new mailbox
-	Mailbox *replace (Mailbox *from, Mailbox *to);	// replace a mailbox (from) with another (to)
+	Mailbox *replace_mailbox (Mailbox *from, Mailbox *to);
 	void remove (Mailbox *mailbox);					// remove a mailbox
-	gboolean password (Mailbox *mailbox);		// try to find a password for this mailbox
+	gboolean get_password_for_mailbox (Mailbox *mailbox);
 	void option_changed (Option *option);
 	void option_update (Option *option);
 

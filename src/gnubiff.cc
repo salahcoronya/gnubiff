@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/09/11 20:35:37 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/11/06 23:24:50 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -118,7 +118,8 @@ int mainGTK (int argc, char **argv) {
 	};
 
 	// Parse command line
-	poptcon = poptGetContext ("gnubiff", argc,  (const char **) argv, options, 0);
+	poptcon = poptGetContext ("gnubiff", argc,  (const char **) argv,
+							  options, 0);
 	while ((status = poptGetNextOpt(poptcon)) >= 0);
 	if (status < -1) {
 		fprintf (stderr, "%s: %s\n\n",
