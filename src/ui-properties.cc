@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/10/03 15:17:51 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/11/13 21:42:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -418,7 +418,7 @@ Properties::on_cancel (GtkWidget *widget)
 	hide ();
 	Preferences *prefs = preferences_;
 	if (prefs->added()) {
-		prefs->biff()->remove (prefs->biff()->get(prefs->added()->uin()));
+		prefs->biff()->remove_mailbox (prefs->biff()->get(prefs->added()->uin()));
 		prefs->added(0);
 		prefs->synchronize ();		
 	}
