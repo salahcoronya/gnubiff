@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.51 $
-// Revision date : $Date: 2005/11/13 21:42:47 $
+// Revision      : $Revision: 1.52 $
+// Revision date : $Date: 2005/11/13 22:09:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -221,6 +221,10 @@ Biff::get (guint uin)
 	g_mutex_unlock (mutex_);
 	return find;
 }
+
+// ============================================================================
+//  main
+// ============================================================================
 
 /**
  *  Add the new mailbox {\em mailbox} for monitoring.
@@ -656,7 +660,7 @@ Biff::load (void)
 
 	file.close ();
 
-	// Do we have an old config file?
+	// Do we have an config file from another version?
 	if (value_string ("version") != PACKAGE_VERSION)
 		upgrade_options ();
 
