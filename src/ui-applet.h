@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2005/11/06 23:24:50 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2005/11/13 21:42:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -61,8 +61,7 @@ public:
 	void execute_command (std::string option_command,
 						  std::string option_use_command = "");
 	std::string get_mailbox_status_text (void);
-	guint get_number_of_unread_messages (void);
-	virtual std::string get_number_of_unread_messages_text (void);
+	virtual std::string get_number_of_unread_messages (void);
 
 	/// @see AppletGUI::mailbox_to_be_replaced ()
 	virtual void mailbox_to_be_replaced (class Mailbox *from,
@@ -103,7 +102,7 @@ public:
 							 std::string widget_container = "",
 							 guint m_width = G_MAXUINT,
 							 guint m_height = G_MAXUINT);
-	virtual std::string get_number_of_unread_messages_text (void);
+	virtual std::string get_number_of_unread_messages (void);
 
 	void mailbox_to_be_replaced (class Mailbox *from, class Mailbox *to);
 	virtual void get_password_for_mailbox (class Mailbox *mb);
