@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2005/11/06 23:24:50 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2005/11/13 21:42:48 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -160,7 +160,7 @@ int mainGTK (int argc, char **argv) {
 		biff->applet()->update(true);
 		((AppletGtk *)biff->applet())->show();
 		if (biff->value_uint ("check_mode") == AUTOMATIC_CHECK)
-			biff->applet()->start (3);
+			biff->start_monitoring (3);
 	}
 	else
 		((AppletGUI *)biff->applet())->show_dialog_preferences();
@@ -186,7 +186,7 @@ static gboolean gnubiff_applet_factory (PanelApplet *applet, const gchar *iid,
 		biffapplet->show ();
 		biffapplet->update (true);
 		if (biff->value_uint ("check_mode") == AUTOMATIC_CHECK)
-			biff->applet()->start (3);
+			biff->start_monitoring (3);
 	}
 	return true;
 }

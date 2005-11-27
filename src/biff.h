@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2005/11/13 22:09:57 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2005/11/20 21:15:34 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -101,6 +101,8 @@ public:
 	void messages_displayed (void);
 	void remove_mailbox (Mailbox *mailbox);
 	Mailbox *replace_mailbox (Mailbox *from, Mailbox *to);
+	void start_monitoring (guint delay = 0);
+	void stop_monitoring (void);
 
 	// ========================================================================
 	//  options
