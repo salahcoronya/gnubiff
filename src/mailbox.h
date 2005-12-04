@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.53 $
-// Revision date : $Date: 2005/06/23 20:12:05 $
+// Revision      : $Revision: 1.54 $
+// Revision date : $Date: 2005/10/30 23:02:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -155,6 +155,14 @@ public:
 				guint pos = 0);
 	guint static standard_port (guint protocol, guint auth,
 								gboolean strict = true);
+
+	// ========================================================================
+	//  main -- messages
+	// ========================================================================
+
+	void get_message_headers (std::vector<Header *> &headers,
+							  gboolean use_max_num = false, guint max_num = 0,
+							  gboolean empty = false);
 
 	// ========================================================================
 	//  access

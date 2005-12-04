@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/11/20 21:15:34 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/11/27 20:17:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -52,9 +52,9 @@
 class Biff : public Gnubiff_Options {
 
 public:
-	// ================================================================================
+	// ========================================================================
 	//  general
-	// ================================================================================
+	// ========================================================================
 	std::string		passtable_;					// encryption table
 
 protected:
@@ -95,6 +95,8 @@ public:
 	// ========================================================================
 	void add_mailbox (Mailbox *mailbox);
 	guint get_number_of_mailboxes (void);
+	std::vector<Header *> get_message_headers (gboolean use_max_num = false,
+											   guint max_num = 0);
 	gboolean get_number_of_unread_messages (guint &num);
 	gboolean get_password_for_mailbox (Mailbox *mailbox);
 	void mark_messages_as_read (void);
