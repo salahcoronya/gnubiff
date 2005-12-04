@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/04/06 18:57:39 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/06/10 20:34:57 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -64,13 +64,16 @@ protected:
 	template<class Iter> std::string vector_to_numbersequence (Iter start,
 				Iter end, const std::string sep = std::string (", "),
 				const std::string range = std::string ("-"));
+public:
+	static guint version_to_integer (std::string versionstr,
+									 gchar sep = '.');
 
 	// File functions
 	static std::string add_file_to_path (const std::string &path,
 				const std::string file);
 	static std::string path_get_basename (const std::string &path);
 	static std::string path_get_dirname (const std::string &path);
-public:
+
 	// Debugging
 	static void unknown_internal_error_ (const gchar *file, guint line,
 				const gchar *func);
