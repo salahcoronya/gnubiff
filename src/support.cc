@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/04/06 16:51:40 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/06/10 20:34:57 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -213,6 +213,30 @@ Support::numbersequence_to_vector (const std::string &seq,
 	for (guint i = inf_bound; i <= sup_bound; i++)
 		vec.push_back (i);
 	return true;
+}
+
+/**
+ *  Convert a string in the format "x.y.z" to the integer 1000000x+1000y+z.
+ *
+ *  Note: There are no checks for the string to be in the format "x.y.z".
+ *
+ *  @param  versionstr  The string in "x.y.z" format.
+ *  @param  sep         Separator to be used in the string (default is '.').
+ *  @return             Integer 1000000x+1000y+z.
+ */
+guint 
+Support::version_to_integer (std::string versionstr, gchar sep)
+{
+	std::replace (versionstr.begin(), versionstr.end(), sep, ' ');
+	std::stringstream tmpstr (versionstr);
+	guint tmp, version;
+	tmpstr >> tmp;
+	version  = 1000*1000*tmp;
+	tmpstr >> tmp;
+	version += 1000*tmp;
+	tmpstr >> tmp;
+	version += tmp;
+	return version;
 }
 
 /**
