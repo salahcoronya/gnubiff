@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.2\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-08-21 00:51+0200\n"
+"POT-Creation-Date: 2005-12-08 23:48+0100\n"
 "PO-Revision-Date: 2005-04-03 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -80,49 +80,49 @@ msgstr "kugirango"
 msgid "Configuration file (%s) not found!"
 msgstr "IDOSIYE OYA Byabonetse"
 
-#: src/biff.cc:402
+#: src/biff.cc:421
 #, fuzzy, c-format
 msgid "Loaded config file from old gnubiff version \"%s\"."
 msgstr "IDOSIYE Bivuye ki/ bishaje Verisiyo"
 
-#: src/biff.cc:404
+#: src/biff.cc:423
 #, fuzzy
 msgid "Trying to convert all options."
 msgstr "Kuri GUHINDURA Byose Amahitamo"
 
-#: src/biff.cc:450
+#: src/biff.cc:458
 #, fuzzy
 msgid "Successfully converted all options."
 msgstr "Byose Amahitamo"
 
-#: src/biff.cc:453
+#: src/biff.cc:461
 #, fuzzy, c-format
 msgid ""
 "Successfully converted some options. The following options must be updated "
 "manually: %s."
 msgstr "Amahitamo Amahitamo"
 
-#: src/biff.cc:600
+#: src/biff.cc:608
 #, fuzzy, c-format
 msgid "Cannot open your configuration file (%s)"
 msgstr "Gufungura Iboneza IDOSIYE"
 
-#: src/biff.cc:616
+#: src/biff.cc:624
 #, fuzzy
 msgid "Cannot create XML parser for config file"
 msgstr "Kurema kugirango IDOSIYE"
 
-#: src/biff.cc:633
+#: src/biff.cc:641
 #, fuzzy, c-format
 msgid "Found no mailbox definition in your configuration file (%s)"
 msgstr "Oya Insobanuro in Iboneza IDOSIYE"
 
-#: src/biff.cc:680
+#: src/biff.cc:688
 #, fuzzy
 msgid "Illegal parameter format in config file"
 msgstr "Imiterere in IDOSIYE"
 
-#: src/biff.cc:709
+#: src/biff.cc:717
 #, fuzzy, c-format
 msgid "No protocol specified for mailbox %d"
 msgstr "Porotokole kugirango"
@@ -488,7 +488,7 @@ msgstr "Ikivugwaho"
 msgid "Date"
 msgstr "Itariki"
 
-#: src/support.cc:297
+#: src/support.cc:321
 #, fuzzy
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "

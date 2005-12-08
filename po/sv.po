@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.0\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-08-21 00:51+0200\n"
+"POT-Creation-Date: 2005-12-08 23:48+0100\n"
 "PO-Revision-Date: 2005-01-17 22:04+0100\n"
 "Last-Translator: David Smeringe <david.smeringe@telia.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -62,46 +62,46 @@ msgstr "Inställningar för avlusning:"
 msgid "Configuration file (%s) not found!"
 msgstr "Konfigurationsfil (%s) hittades inte !"
 
-#: src/biff.cc:402
+#: src/biff.cc:421
 #, c-format
 msgid "Loaded config file from old gnubiff version \"%s\"."
 msgstr ""
 
-#: src/biff.cc:404
+#: src/biff.cc:423
 msgid "Trying to convert all options."
 msgstr ""
 
-#: src/biff.cc:450
+#: src/biff.cc:458
 msgid "Successfully converted all options."
 msgstr ""
 
-#: src/biff.cc:453
+#: src/biff.cc:461
 #, c-format
 msgid ""
 "Successfully converted some options. The following options must be updated "
 "manually: %s."
 msgstr ""
 
-#: src/biff.cc:600
+#: src/biff.cc:608
 #, c-format
 msgid "Cannot open your configuration file (%s)"
 msgstr "Kan inte öppna din konfigurationsfil (%s)"
 
-#: src/biff.cc:616
+#: src/biff.cc:624
 #, fuzzy
 msgid "Cannot create XML parser for config file"
 msgstr "Kan inte öppna din konfigurationsfil (%s)"
 
-#: src/biff.cc:633
+#: src/biff.cc:641
 #, c-format
 msgid "Found no mailbox definition in your configuration file (%s)"
 msgstr "Hittade ingen brevlådedefinition i din konfigureringsfil (%s)"
 
-#: src/biff.cc:680
+#: src/biff.cc:688
 msgid "Illegal parameter format in config file"
 msgstr ""
 
-#: src/biff.cc:709
+#: src/biff.cc:717
 #, c-format
 msgid "No protocol specified for mailbox %d"
 msgstr ""
@@ -435,7 +435,7 @@ msgstr "Ämne"
 msgid "Date"
 msgstr "Datum"
 
-#: src/support.cc:297
+#: src/support.cc:321
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
 "to \"gnubiff-bugs@lists.sourceforge.net\".\n"
