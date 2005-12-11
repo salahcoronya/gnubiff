@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.19 $
-// Revision date : $Date: 2005/11/20 21:15:34 $
+// Revision      : $Revision: 1.20 $
+// Revision date : $Date: 2005/11/27 20:17:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -50,6 +50,7 @@ public:
 	// ========================================================================
 	Applet (class Biff *biff);
 	virtual ~Applet (void);
+	virtual void start (gboolean showpref = false);
 
 	// ========================================================================
 	//  main
@@ -90,6 +91,7 @@ public:
 	// ========================================================================
 	AppletGUI (class Biff *biff, std::string filename, gpointer callbackdata);
 	virtual ~AppletGUI (void);
+	virtual void start (gboolean showpref = false);
 
 	// ========================================================================
 	//  main

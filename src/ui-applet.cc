@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2005/11/20 21:15:34 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2005/11/27 20:17:17 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -60,6 +60,21 @@ Applet::~Applet (void)
 	g_mutex_lock (update_mutex_);
 	g_mutex_unlock (update_mutex_);
 	g_mutex_free (update_mutex_);
+}
+
+/**
+ *  Start the applet.
+ *
+ *  @param  showpref  If true and supported by the frontend the preferences
+ *                    dialog is shown before monitoring starts (the default is
+ *                    false).
+ */
+void 
+Applet::start (gboolean showpref)
+{
+	if (!showpref)
+		if (biff_->value_uint ("check_mode") == AUTOMATIC_CHECK)
+			biff_->start_monitoring (3);
 }
 
 /**
@@ -280,6 +295,26 @@ AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
 /// Destructor
 AppletGUI::~AppletGUI (void)
 {
+}
+
+
+/**
+ *  Start the applet.
+ *
+ *  @param  showpref  If true and supported by the frontend the preferences
+ *                    dialog is shown before monitoring starts (the default is
+ *                    false).
+ */
+void 
+AppletGUI::start (gboolean showpref)
+{
+	if (showpref)
+		show_dialog_preferences ();
+	else {
+		update (true);
+		show ();
+		Applet::start (false);
+	}
 }
 
 /**
