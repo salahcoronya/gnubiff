@@ -221,6 +221,7 @@ Maintainers:@*
 
 Translators:@*
 @itemize @bullet
+@item Wallner Adam (hu)
 @item Victor Alonso (es)
 @item Elros Cyriatan (nl)
 @item Stefano Fabri (it)
@@ -237,6 +238,7 @@ Translators:@*
 
 Various contributors:@*
 @itemize @bullet
+@item Wallner Adam
 @item Craig Agricola
 @item Adam Benjamin
 @item Josh Berdine

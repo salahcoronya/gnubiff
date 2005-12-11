@@ -2254,7 +2254,7 @@
 			<widget class="GtkTable" id="translators_table">
 			  <property name="border_width">12</property>
 			  <property name="visible">True</property>
-			  <property name="n_rows">11</property>
+			  <property name="n_rows">12</property>
 			  <property name="n_columns">2</property>
 			  <property name="homogeneous">True</property>
 			  <property name="row_spacing">3</property>
@@ -2277,8 +2277,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">8</property>
-			      <property name="bottom_attach">9</property>
+			      <property name="top_attach">9</property>
+			      <property name="bottom_attach">10</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2300,8 +2300,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">9</property>
-			      <property name="bottom_attach">10</property>
+			      <property name="top_attach">10</property>
+			      <property name="bottom_attach">11</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2323,8 +2323,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">10</property>
-			      <property name="bottom_attach">11</property>
+			      <property name="top_attach">11</property>
+			      <property name="bottom_attach">12</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2346,8 +2346,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">10</property>
-			      <property name="bottom_attach">11</property>
+			      <property name="top_attach">11</property>
+			      <property name="bottom_attach">12</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2369,8 +2369,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">8</property>
-			      <property name="bottom_attach">9</property>
+			      <property name="top_attach">9</property>
+			      <property name="bottom_attach">10</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2392,8 +2392,56 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">9</property>
-			      <property name="bottom_attach">10</property>
+			      <property name="top_attach">10</property>
+			      <property name="bottom_attach">11</property>
+			      <property name="y_options"></property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label20y">
+			      <property name="visible">True</property>
+			      <property name="label">Wallner Ádám &lt;small&gt;&lt;i&gt;(hu)&lt;/i&gt;&lt;/small&gt;</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">True</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="left_attach">0</property>
+			      <property name="right_attach">1</property>
+			      <property name="top_attach">0</property>
+			      <property name="bottom_attach">1</property>
+			      <property name="x_options">fill</property>
+			      <property name="y_options"></property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label21y">
+			      <property name="visible">True</property>
+			      <property name="label">&lt;span foreground=&quot;blue&quot; size=&quot;small&quot;&gt;(Wallner.Adam@hktv.hu)&lt;/span&gt;</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">True</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">1</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="left_attach">1</property>
+			      <property name="right_attach">2</property>
+			      <property name="top_attach">0</property>
+			      <property name="bottom_attach">1</property>
+			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
 			  </child>
@@ -2415,8 +2463,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">5</property>
-			      <property name="bottom_attach">6</property>
+			      <property name="top_attach">6</property>
+			      <property name="bottom_attach">7</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2439,8 +2487,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">5</property>
-			      <property name="bottom_attach">6</property>
+			      <property name="top_attach">6</property>
+			      <property name="bottom_attach">7</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2463,8 +2511,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">1</property>
-			      <property name="bottom_attach">2</property>
+			      <property name="top_attach">2</property>
+			      <property name="bottom_attach">3</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2487,8 +2535,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">1</property>
-			      <property name="bottom_attach">2</property>
+			      <property name="top_attach">2</property>
+			      <property name="bottom_attach">3</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2511,8 +2559,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">2</property>
-			      <property name="bottom_attach">3</property>
+			      <property name="top_attach">3</property>
+			      <property name="bottom_attach">4</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2535,8 +2583,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">2</property>
-			      <property name="bottom_attach">3</property>
+			      <property name="top_attach">3</property>
+			      <property name="bottom_attach">4</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2559,8 +2607,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">3</property>
-			      <property name="bottom_attach">4</property>
+			      <property name="top_attach">4</property>
+			      <property name="bottom_attach">5</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2583,8 +2631,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">3</property>
-			      <property name="bottom_attach">4</property>
+			      <property name="top_attach">4</property>
+			      <property name="bottom_attach">5</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2607,8 +2655,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">4</property>
-			      <property name="bottom_attach">5</property>
+			      <property name="top_attach">5</property>
+			      <property name="bottom_attach">6</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2631,8 +2679,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">4</property>
-			      <property name="bottom_attach">5</property>
+			      <property name="top_attach">5</property>
+			      <property name="bottom_attach">6</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2655,8 +2703,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">6</property>
-			      <property name="bottom_attach">7</property>
+			      <property name="top_attach">7</property>
+			      <property name="bottom_attach">8</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2679,8 +2727,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">7</property>
-			      <property name="bottom_attach">8</property>
+			      <property name="top_attach">8</property>
+			      <property name="bottom_attach">9</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2703,8 +2751,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">6</property>
-			      <property name="bottom_attach">7</property>
+			      <property name="top_attach">7</property>
+			      <property name="bottom_attach">8</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2727,8 +2775,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">7</property>
-			      <property name="bottom_attach">8</property>
+			      <property name="top_attach">8</property>
+			      <property name="bottom_attach">9</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2751,8 +2799,8 @@
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">0</property>
-			      <property name="bottom_attach">1</property>
+			      <property name="top_attach">1</property>
+			      <property name="bottom_attach">2</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2775,8 +2823,8 @@
 			    <packing>
 			      <property name="left_attach">1</property>
 			      <property name="right_attach">2</property>
-			      <property name="top_attach">0</property>
-			      <property name="bottom_attach">1</property>
+			      <property name="top_attach">1</property>
+			      <property name="bottom_attach">2</property>
 			      <property name="x_options">fill</property>
 			      <property name="y_options"></property>
 			    </packing>
@@ -2864,7 +2912,7 @@ Here is a list of these people:&lt;/small&gt;</property>
 				  <property name="left_margin">6</property>
 				  <property name="right_margin">6</property>
 				  <property name="indent">0</property>
-				  <property name="text">Craig Agricola, Adam Benjamin, Josh Berdine, Philippe Berger, Wade Berrier, Dennis Bjorklund, Alexis S. L. Carvalho, John Ellson, Nicolas Évrard, Greg Fenton, Byron Foster, Grzegorz Gotawski, Samuel Hym, Satou Kazuhito, Earl Killian, Marc-Jano Knopp, Paul Kuliniewicz, Jean-Yves Lefort, Michel Leunen, Jason Lowdermilk, Sascha Ludecke, Calum Mackay, Michael Moellney, Sophie Morel, David Mosberger, Neil Muller, Josh Parsons, Pete Phillips, Christian Probst, Jakub Raczkowski, Reid Rivenburgh, Hans-Ulrich Schaefer, Achim Settelmeier, Phil Shapiro, Clytie Siddall, Erik Sittman, Barry Skidmore, Chris Snell, Blaise Tarr, Theodore Tegos, Iulian Tocu, Richard Torkar, Bernhard Valenti, Dries Verachtert, Hubert Verstraete, Maik Wachsmuth, Suzan Wassman, Cai Yu</property>
+				  <property name="text">Wallner Ádám, Craig Agricola, Adam Benjamin, Josh Berdine, Philippe Berger, Wade Berrier, Dennis Bjorklund, Alexis S. L. Carvalho, John Ellson, Nicolas Évrard, Greg Fenton, Byron Foster, Grzegorz Gotawski, Samuel Hym, Satou Kazuhito, Earl Killian, Marc-Jano Knopp, Paul Kuliniewicz, Jean-Yves Lefort, Michel Leunen, Jason Lowdermilk, Sascha Ludecke, Calum Mackay, Michael Moellney, Sophie Morel, David Mosberger, Neil Muller, Josh Parsons, Pete Phillips, Christian Probst, Jakub Raczkowski, Reid Rivenburgh, Hans-Ulrich Schaefer, Achim Settelmeier, Phil Shapiro, Clytie Siddall, Erik Sittman, Barry Skidmore, Chris Snell, Blaise Tarr, Theodore Tegos, Iulian Tocu, Richard Torkar, Bernhard Valenti, Dries Verachtert, Hubert Verstraete, Maik Wachsmuth, Suzan Wassman, Cai Yu</property>
 				</widget>
 			      </child>
 			    </widget>

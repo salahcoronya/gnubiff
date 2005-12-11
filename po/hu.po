@@ -1,86 +1,81 @@
-# translation of es.po to 
-# translation of es.po to
-# translation of nuevo.po to
-# translation of es.po to
-# translation of es.po to
-# translation of es.po to
-# Spanish messages fot gnubiff
-# Copyright (C) 2000-2003 Nicolas Rougier.
-# This file is distributed under the same license as the gnubiff package.
-# Nicol�s Lichtmaier <niqueco@hotmail.com>, 2003, 2004.
+# translation of hu.po to Hungarian
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Adam Wallner <wallner.adam@hktv.hu>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
 "POT-Creation-Date: 2005-12-11 20:04+0100\n"
-"PO-Revision-Date: 2004-12-16 23:42+0100\n"
-"Last-Translator: \n"
-"Language-Team:  <es@li.org>\n"
+"PO-Revision-Date: 2005-12-03 23:07+0100\n"
+"Last-Translator: Adam Wallner <wallner.adam@hktv.hu>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.10.2\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: src/decoding.cc:85
 #, c-format
 msgid "[The encoding \"%s\" of this mail can't be decoded]"
-msgstr ""
+msgstr "[Ennek a levélnek a kódolását \"%s\" nem ismerem]"
 
 #: src/decoding.cc:128 src/decoding.cc:135 src/decoding.cc:140
 msgid "[Cannot decode this header line]"
-msgstr ""
+msgstr "[Nem tudom dekódolni ezt a fejlécsort]"
 
 #: src/decoding.cc:656
 #, c-format
 msgid "[Cannot convert character sets (from \"%s\" to \"utf-8\")]"
-msgstr ""
+msgstr "[Nem tudom konvertálni a karakterkódolást \"%s\"-ről \"utf-8\"ra.]"
 
 #: src/gnubiff.cc:98
 msgid "Start gnome applet from command line"
-msgstr "Iniciar applet de gnome desde la l�nea de comandos"
+msgstr "Gnome programocska indítása parancssorból"
 
 #: src/gnubiff.cc:106
 msgid "Configuration file to use"
-msgstr "Archivo de configuraci�n a utilizar"
+msgstr "Használandó konfigurációs fájl"
 
 #: src/gnubiff.cc:106
 msgid "file"
-msgstr "archivo"
+msgstr "fájl"
 
 #: src/gnubiff.cc:108
 msgid "Skip the configuration process"
-msgstr "Saltar el proceso de configuraci�n"
+msgstr "A konfigurációs procedúra kihagyása"
 
 #: src/gnubiff.cc:110
 msgid "Print version information and exit"
-msgstr "Imprimir versi�n y salir"
+msgstr "A verzióinformációk kiírása és kilépés"
 
 #: src/gnubiff.cc:117
 msgid "General command line options:"
-msgstr "Opciones generales de l�nea de comandos:"
+msgstr "Általános parancssori opciók:"
 
 #: src/gnubiff.cc:120
 msgid "Options for debugging:"
-msgstr "Opciones para depurar:"
+msgstr "Hibakeresési opciók:"
 
 #: src/biff.cc:138
-#, fuzzy, c-format
+#, c-format
 msgid "Configuration file (%s) not found!"
-msgstr "Archivo de configuraci�n (%s) no encontrado !"
+msgstr "A konfigurációs fájl (%s) nem található!"
 
 #: src/biff.cc:421
 #, c-format
 msgid "Loaded config file from old gnubiff version \"%s\"."
-msgstr ""
+msgstr "Régi gnubiff (\"%s\" verzió) konfigurációs fájl betöltődött."
 
 #: src/biff.cc:423
 msgid "Trying to convert all options."
-msgstr ""
+msgstr "Megpróbájuk konvertálni az összes opciót."
 
 #: src/biff.cc:458
 msgid "Successfully converted all options."
-msgstr ""
+msgstr "Minden opció sikeresen konvertálva."
 
 #: src/biff.cc:461
 #, c-format
@@ -88,106 +83,105 @@ msgid ""
 "Successfully converted some options. The following options must be updated "
 "manually: %s."
 msgstr ""
+"Néhány opció sikeresen konvertálva. A következő opciókat kézzel kell "
+"frissíteni: %s."
 
 #: src/biff.cc:608
 #, c-format
 msgid "Cannot open your configuration file (%s)"
-msgstr "No se puede abrir su archivo de configuraci�n (%s)"
+msgstr "Nem tudom megnyitni a konfigurációs fájlodat (%s)."
 
 #: src/biff.cc:624
-#, fuzzy
 msgid "Cannot create XML parser for config file"
-msgstr "No se puede abrir su archivo de configuraci�n (%s)"
+msgstr "Nem tudok XML feldolgozót készíteni a konfigurációs fájlhoz."
 
 #: src/biff.cc:641
 #, c-format
 msgid "Found no mailbox definition in your configuration file (%s)"
-msgstr ""
-"No se ha encontrado una definici�n de buz�n en su archivo de configuraci�n (%"
-"s)"
+msgstr "Nem találtam levélfiók-információt a konfigurációs fájlodban (%s)."
 
 #: src/biff.cc:688
 msgid "Illegal parameter format in config file"
-msgstr ""
+msgstr "Nem megfelelő paraméter formátum a konfigfájlban."
 
 #: src/biff.cc:717
 #, c-format
 msgid "No protocol specified for mailbox %d"
-msgstr ""
+msgstr "Nincs protokoll megadva a %d. levélfiókhoz."
 
 #: src/mailbox.cc:135
 #, c-format
 msgid "[%d] Unable to create thread: %s"
-msgstr "[%d] No se puede crear hilo: %s"
+msgstr "[%d] Nem sikerül szálat készíteni: %s"
 
 #: src/mailbox.cc:288
 #, c-format
 msgid "mailbox %d"
-msgstr "Buz�n %d"
+msgstr "%d. levélfiók"
 
 #: src/mailbox.cc:593
 msgid "<no date>"
-msgstr "<sin fecha>"
+msgstr "<nincs dátum>"
 
 #: src/mailbox.cc:594
 msgid "<no sender>"
-msgstr "<sin remitente>"
+msgstr "<nincs küldő>"
 
 #: src/mailbox.cc:595
 msgid "<no subject>"
-msgstr "<sin asunto>"
+msgstr "<nincs tárgy>"
 
 #: src/mailbox.cc:642
 msgid "[Cannot parse content type header line]"
-msgstr ""
+msgstr "[Nem sikerül a \"content type \" fejlécsor feldolgozása]"
 
 #: src/mailbox.cc:663
 msgid "[Cannot parse content transfer encoding header line]"
-msgstr ""
+msgstr "[Nem sikerül a \"content transfer encoding\" fejlécsor feldolgozása]"
 
 #: src/mailbox.cc:712
 msgid "[Malformed multipart message]"
-msgstr ""
+msgstr "[Hibás többrészes levél]"
 
 #: src/mailbox.cc:720
 msgid "[Can't find first part's beginning in the multipart message]"
-msgstr ""
+msgstr "[A többrészes üzenet első részének az eleje nem található]"
 
 #: src/mailbox.cc:766
 #, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
-msgstr ""
+msgstr "[Ennek az üzenet nem támogatott tartalomtípust tartalmaz: \"%s/%s\"]"
 
 #: src/header.cc:149
 #, c-format
 msgid "Can't sort mails by \"%s\""
-msgstr ""
+msgstr "Nem lehet csoportosítani a leveleket \"%s\" szerint."
 
 #: src/socket.cc:125 src/socket.cc:154 src/socket.cc:182 src/socket.cc:190
 #: src/socket.cc:198 src/socket.cc:210 src/socket.cc:240 src/socket.cc:249
 #, c-format
 msgid "[%d] Unable to connect to %s on port %d"
-msgstr "[%d] No se puede conectar a %s en el puerto %d"
+msgstr "[%d] Nem lehet kapcsolódni %s-hez %d porton."
 
 #: src/socket.cc:225
 #, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
-msgstr "[%d] Fallo al cargar el certificado (%s) para %s"
+msgstr "[%d] Nem lehet betölteni a tanusítványt (%s) %s-hez"
 
 #: src/socket.cc:262
 #, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
-msgstr "[%d] No se puede identificar el servidor remoto (%s en el puerto %d)"
+msgstr "[%d] Nem sikerül azonosítani a távoli gépet (%s %d porton)"
 
 #: src/socket.cc:347
 #, c-format
 msgid "[%d] Unable to write to %s on port %d"
-msgstr "[%d] No se puede escribir en %s en el puerto %d"
+msgstr "[%d] Nem lehet írni a %s-re a %d porton"
 
 #: src/socket.cc:409
 #, c-format
 msgid "[%d] Unable to read from %s on port %d"
-msgstr "[%d] No se puede leer desde %s en el puerto %d"
+msgstr "[%d] Nem lehet olvasni a %s-ről a %d porton"
 
 #: src/socket.cc:431
 #, c-format
@@ -197,21 +191,22 @@ msgstr ""
 #: src/file.cc:99
 #, c-format
 msgid "Cannot open %s."
-msgstr "No se puede abrir %s."
+msgstr "Nem lehet megnyitni %s-t. "
 
 #: src/imap4.cc:467
 msgid "[This message has no part with a supported content type]"
 msgstr ""
+"[Ennek az üzenetnek nincs támogatott tartalomtípussal rendelkező része]"
 
 #: src/imap4.cc:830
 #, c-format
 msgid "[%d] Unable to select folder %s on host %s"
-msgstr "[%d] No se puede seleccionar carpeta %s en el servidor %s"
+msgstr "[%d] Nem sikerült kiválasztani a(z) %s mappát a(z) %s gépen"
 
 #: src/imap4.cc:918
 #, c-format
 msgid "[%d] Unable to get acknowledgment from %s on port %d"
-msgstr "[%d]No se puede obtener confirmaci�n  desde %s en el puerto %d"
+msgstr "[%d] Nem kapok visszaigazolást a %s-től a %d porton"
 
 #: src/imap4.cc:977
 #, c-format
@@ -226,75 +221,69 @@ msgstr ""
 #: src/imap4.cc:1586
 #, c-format
 msgid "[%d] Server closes connection immediately:%s"
-msgstr ""
+msgstr "[%d] A szerver azonnal lezárta a kapcsolatot: %s"
 
 #: src/imap4.cc:1591
 #, c-format
 msgid "[%d] Internal server failure or unknown error:%s"
-msgstr ""
+msgstr "[%d] Belső szerver hibam, vagy ismeretlen hiba: %s"
 
 #: src/imap4.cc:1596
 #, c-format
 msgid "[%d] Warning from server:%s"
-msgstr ""
+msgstr "[%d] Figyelmeztetés a szervertől: %s"
 
 #: src/maildir.cc:83
 #, c-format
 msgid "Cannot open new mail directory (%s)"
-msgstr "No se puede abrir el directorio del correo nuevo (%s)"
+msgstr "Nem lehet megnyitni az új email könyvtárat (%s)"
 
 #: src/pop.cc:157
 #, c-format
 msgid "[%d] Empty password"
-msgstr "[%d] Contrase�a vac�a"
+msgstr "[%d] üres jelszó"
 
 #: src/pop.cc:516
 #, c-format
 msgid "[%d] Error message from POP3 server:%s"
-msgstr ""
+msgstr "[%d] Hibaüzenet a POP3 szervertől: %s"
 
 #: src/pop.cc:523
 #, c-format
 msgid "[%d] Did not get a positive response from POP3 server"
-msgstr ""
+msgstr "[%d] Nem kaptam pozitív választ a POP3 szervertől"
 
 #: src/apop.cc:103
 #, c-format
 msgid ""
 "[%d] Your pop server does not seem to accept apop protocol (no timestamp "
 "provided)"
-msgstr ""
-"[%d] Su servidor pop no parece aceptar el protocolo apop (no se propocion� "
-"una fecha)"
+msgstr "[%d] A pop szervered valószínűleg nem támogatja az apop protokollt"
 
 #: src/apop.cc:124
 #, c-format
 msgid ""
 "[%d] Problem with crypto that should have been detected at configure time"
 msgstr ""
-"[%d] Problema con la encriptaci�n que deber�a haber sido detectada en el "
-"momento de la configuraci�n."
 
 #: src/options.cc:506
 #, c-format
 msgid "Unknown option \"%s\""
-msgstr ""
+msgstr "Ismeretlen opció \"%s\""
 
 #: src/options.cc:513
 #, c-format
 msgid "Cannot set option \"%s\" to \"%s\""
-msgstr ""
+msgstr "Nem lehet a \"%s\" opciót \"%s\"-re állítani"
 
 #: src/options.cc:665 src/gui.cc:263
 #, c-format
 msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
 msgstr ""
-"No se puede encontrar el widget especificado (\"%s\") dentro de la "
-"estructura xml (\"%s\")"
 
 #: src/gnubiff_options.cc:132
 msgid "no mail"
-msgstr "sin mensajes"
+msgstr "nincs levél"
 
 #: src/gui.cc:196
 #, c-format
@@ -306,91 +295,85 @@ msgid ""
 "\n"
 "Please make sure package has been installed correctly."
 msgstr ""
-"No se puede construir el entorno.\n"
-"\n"
-"Nombre: %s\n"
-"Ruta: %s\n"
-"\n"
-"Aseg�rese de que el paquete se ha instalado correctamente."
 
 #: src/gui.cc:371
 msgid "GUI_connect requires working gmodule"
-msgstr "GUI_connect requiere un m�dulo operativo"
+msgstr ""
 
 #: src/gui.cc:378
 #, c-format
 msgid "Could not find signal handler '%s'."
-msgstr "No se puede encontrar el controlador de la se�al '%s'"
+msgstr ""
 
 #: src/ui-applet.cc:133
 msgid " unknown"
-msgstr " desconocido"
+msgstr " ismeretlen"
 
 #: src/ui-applet.cc:135
 msgid " error"
-msgstr " error"
+msgstr " hiba"
 
 #: src/ui-applet.cc:140
 msgid " checking..."
-msgstr " comprobando..."
+msgstr " ellenőrzése..."
 
 #: src/ui-applet-gtk.cc:163
 msgid "New mail"
-msgstr "Nuevo mensaje"
+msgstr "Új levél"
 
 #: src/ui-applet-gtk.cc:176
 msgid "No mail"
-msgstr "Sin mensajes"
+msgstr "Nincs levél"
 
 #: src/ui-preferences.cc:269 src/ui-popup.cc:160
 msgid "Mailbox"
-msgstr "Buz�n"
+msgstr "Levélfiók"
 
 #: src/ui-preferences.cc:283 src/ui-preferences.cc:365
 msgid "Type"
-msgstr "Tipo"
+msgstr "Típus"
 
 #: src/ui-preferences.cc:302
 msgid "Status"
-msgstr "Estado"
+msgstr "Státusz"
 
 #: src/ui-preferences.cc:317
 msgid "Security"
-msgstr "Seguridad"
+msgstr "Biztonság"
 
 #: src/ui-preferences.cc:329 src/ui-preferences.cc:656
 msgid "No mailbox selected"
-msgstr "No se han seleccionado buzones"
+msgstr "Nincs levélfiók kiválasztva"
 
 #: src/ui-preferences.cc:357
 msgid "Option"
-msgstr ""
+msgstr "Opció"
 
 #: src/ui-preferences.cc:375
 msgid "Value"
-msgstr ""
+msgstr "Érték"
 
 #: src/ui-preferences.cc:590
 msgid "_Start"
-msgstr "_Comenzar"
+msgstr "_Indítás"
 
 #: src/ui-preferences.cc:596 ui/preferences.glade:2998
 msgid "_Stop"
-msgstr "_Detener"
+msgstr "_Leállítás"
 
 #: src/ui-preferences.cc:607 src/ui-preferences.cc:614
 msgid "Browse for a new mail image"
-msgstr "Buscar una imagen para correo nuevo"
+msgstr ""
 
 #: src/ui-authentication.cc:88
 #, c-format
 msgid "Please enter your username and password for mailbox '%s'"
-msgstr "Introduzca su nombre de usuario y contrase�a para el buz�n '%s'"
+msgstr "Add meg a felhasználónevedet és a jelszavadat a %s levélfiókhoz"
 
 #: src/ui-certificate.cc:75
 #, c-format
 msgid "Unable to verify the identity of %s as a trusted site.\n"
-msgstr "No se puede verificar la identidad de %s como un sitio de confianza.\n"
+msgstr ""
 
 #: src/ui-certificate.cc:76
 #, c-format
@@ -398,50 +381,46 @@ msgid ""
 "Either site's certificate is incomplete or you're connected to a site "
 "pretending to be %s, possibly to obtain your password"
 msgstr ""
-"El certificado del sitio es incompleto o est� conectado a un sitio simulando "
-"ser %s, intentando obtener la contrase�a"
 
 #: src/ui-properties.cc:125 src/ui-properties.cc:152
 msgid "Autodetect"
-msgstr ""
+msgstr "Automatikus felismerés"
 
 #: src/ui-properties.cc:126
-#, fuzzy
 msgid "File or Folder"
-msgstr "Carpeta de buzones"
+msgstr "Fájl vagy mappa"
 
 #: src/ui-properties.cc:154
 msgid "User/Pass"
-msgstr ""
+msgstr "Felh./Jelszó"
 
 #: src/ui-properties.cc:156
 msgid "Encrypted User/Pass (apop)"
-msgstr ""
+msgstr "Titkosított Felh./Jelszó"
 
 #: src/ui-properties.cc:160
-#, fuzzy
 msgid "SSL with certificate"
-msgstr "_Certificado:"
+msgstr "SSL hitelesítéssel"
 
 #: src/ui-properties.cc:319
 msgid "Browse for a file or folder"
-msgstr "Buscar un archivo o carpeta"
+msgstr "Fájl vagy mappa tallózása"
 
 #: src/ui-properties.cc:325 ui/properties.glade:616
 msgid "Browse for a certificate file"
-msgstr "Buscar un archivo de certificado"
+msgstr "Tanusítvány tallózása"
 
 #: src/ui-popup.cc:172
 msgid "From"
-msgstr "De"
+msgstr "Feladó"
 
 #: src/ui-popup.cc:178
 msgid "Subject"
-msgstr "Asunto"
+msgstr "Téma"
 
 #: src/ui-popup.cc:184
 msgid "Date"
-msgstr "Fecha"
+msgstr "Dátum"
 
 #: src/support.cc:321
 msgid ""
@@ -453,265 +432,263 @@ msgstr ""
 
 #: src/GNOME_gnubiffApplet.xml.h:1 ui/applet-gtk.glade:125
 msgid "Mark mailboxes read"
-msgstr "Marcar buzones como le�dos"
+msgstr "Megjelölés olvasottként"
 
 #: src/GNOME_gnubiffApplet.xml.h:2
 msgid "Preferences..."
-msgstr "Preferencias..."
+msgstr "Beállítások..."
 
 #: src/GNOME_gnubiffApplet.xml.h:3
 msgid "Run command"
-msgstr "Ejecutar comando"
+msgstr "Parancs uttatása"
 
 #: src/GNOME_gnubiffApplet.server.in.h:1
 msgid "Mail notification program"
-msgstr ""
+msgstr "Email jelző program"
 
 #: src/GNOME_gnubiffApplet.server.in.h:2 ui/applet-gtk.glade:8
 msgid "gnubiff"
-msgstr "gnubiff"
+msgstr ""
 
 #: ui/applet-gtk.glade:7
 msgid "tooltip"
-msgstr "consejo"
+msgstr "Eszköztipp"
 
 #: ui/applet-gtk.glade:104
 msgid "Start command"
-msgstr "Ejecutar programa de correo"
+msgstr "Indító parancs"
 
 #: ui/applet-gtk.glade:146
 msgid "About"
-msgstr "Acerca de"
+msgstr "A programról"
 
 #: ui/applet-gtk.glade:173
 msgid "_Quit"
-msgstr ""
+msgstr "_Kilépés"
 
 #: ui/applet-gtk.glade:193
 msgid "About gnubiff"
-msgstr "Acerca de gnubiff"
+msgstr "A gnubiffről"
 
 #: ui/applet-gtk.glade:255 ui/preferences.glade:1895
-#, fuzzy
 msgid ""
 "<small> Gnubiff is part of the GNU project.\n"
 " It is released under the aegis of GNU.</small>"
 msgstr ""
-"Este programa es parte del proyecto GNU, desarrollado bajo el auspicio de "
-"GNU."
+"<small>A Gnubiff a GNU project része.\n"
+" Licensz: GNU/GPL .</small>"
 
 #: ui/applet-gtk.glade:363
 msgid "Ok"
-msgstr "Aceptar"
+msgstr ""
 
 #: ui/applet-gnome.glade:8
 msgid "Applet"
-msgstr "Applet"
+msgstr "Kisalkalmazás"
 
 #: ui/applet-gnome.glade:78
 msgid "00"
-msgstr "00"
+msgstr ""
 
 #: ui/preferences.glade:7
 msgid "gnubiff preferences"
-msgstr "Preferencias"
+msgstr "gnubiff beállítások"
 
 #: ui/preferences.glade:130
 msgid "When _double-clicked:"
-msgstr "Cuando se hace _doble clic:"
+msgstr "_Dupla kattintáskor:"
 
 #: ui/preferences.glade:152
 msgid "<b>General</b>"
-msgstr "<b>General</b>"
+msgstr "<b>Általános</b>"
 
 #: ui/preferences.glade:188
 msgid "<b>Mailboxes</b>"
-msgstr "<b>Buzones</b>"
+msgstr "<b>Levélfiókok</b>"
 
 #: ui/preferences.glade:226
 msgid "<b>Commands</b>"
-msgstr "<b>Comandos</b>"
+msgstr "<b>Parancsok</b>"
 
 #: ui/preferences.glade:309
 msgid "When _new mail:"
-msgstr "Cuando llega un _nuevo mensaje:"
+msgstr "Ha _új levél:"
 
 #: ui/preferences.glade:331
 msgid "The command to run when new mail arrives"
-msgstr "Comando a ejecutar cuando llegan nuevos mensajes"
+msgstr "A parancs, ami lefut j levél esetén"
 
 #: ui/preferences.glade:353
 msgid "The command to run when the icon is double-clicked"
-msgstr "Comando a ejecutar cuando se hace doble clic sobre el icono"
+msgstr "A parancs, ami lefut, amikor duplán kattintassz az ikonra"
 
 #: ui/preferences.glade:407
 msgid "_Restrict collected mail to"
-msgstr "_Restringir mensajes recolectados a"
+msgstr "Az üzenetek számának korlátozása (db): "
 
 #: ui/preferences.glade:445
 msgid "mail(s)"
-msgstr "mensaje(s)"
+msgstr "levél(ek)"
 
 #: ui/preferences.glade:483
 msgid "Mailboxes"
-msgstr "Buzones"
+msgstr "Levélfiókok"
 
 #: ui/preferences.glade:524 ui/preferences.glade:589
 msgid "Image filename"
-msgstr "Nombre de archivo de imagen"
+msgstr "Képfájl neve"
 
 #: ui/preferences.glade:546 ui/preferences.glade:611
 msgid "Browse for an image file"
-msgstr "Buscar un archivo de imagen"
+msgstr "Képfájl tallózása"
 
 #: ui/preferences.glade:548 ui/properties.glade:295
 msgid "_Browse..."
-msgstr "_Explorar..."
+msgstr "_Tallózás..."
 
 #: ui/preferences.glade:567
-#, fuzzy
 msgid "Text to display (%d is the number of new messages)"
-msgstr "Texto a mostrar (%d es el n�mero del nuevo mensaje)"
+msgstr "Megjelenítendő szöveg (%d a levelek száma)"
 
 #: ui/preferences.glade:613
 msgid "B_rowse..."
-msgstr "_Explorar..."
+msgstr "T_allózás..."
 
 #: ui/preferences.glade:632
 msgid "Text to display"
-msgstr "Texto a mostrar"
+msgstr "Megjelenítendő szöveg"
 
 #: ui/preferences.glade:654
 msgid "Applet geometry"
-msgstr "Posici�n del applet"
+msgstr "Kisalkalmazás geometria"
 
 #: ui/preferences.glade:676 ui/preferences.glade:1248
 msgid "Whether to use geometry"
-msgstr "Usar geometr�a o no"
+msgstr "Használjon-e geometriát"
 
 #: ui/preferences.glade:678 ui/preferences.glade:1250
 msgid "Use _geometry:"
-msgstr "Usar _geometr�a:"
+msgstr "Használjon _Geometriát:"
 
 #: ui/preferences.glade:700 ui/preferences.glade:748
 msgid "Whether to display a text"
-msgstr "Mostrar un texto o no"
+msgstr "Megjelenítsen-e szöveget"
 
 #: ui/preferences.glade:702
 msgid "Show _text:"
-msgstr "Mostrar _texto:"
+msgstr "Szö_veg megjelenítése:"
 
 #: ui/preferences.glade:724
 msgid "Whether to show an image"
-msgstr "Mostrar una imagen o no"
+msgstr "Megjelenítsen-e képet"
 
 #: ui/preferences.glade:726
 msgid "Show _image:"
-msgstr "Mostrar _imagen:"
+msgstr "_Kép megjelenítése:"
 
 #: ui/preferences.glade:750
 msgid "Show t_ext:"
-msgstr "Mostrar t_exto:"
+msgstr "Szöve_g megjelenítése:"
 
 #: ui/preferences.glade:772
 msgid "Whether to display an image"
-msgstr "Mostrar una imagen o no"
+msgstr "Megjelenítsen-e képet"
 
 #: ui/preferences.glade:774
 msgid "Show i_mage:"
-msgstr "Mostrar i_magen:"
+msgstr "Ké_p megjelenítése:"
 
 #: ui/preferences.glade:796 ui/preferences.glade:1296
 msgid "<b>Layout</b>"
-msgstr "<b>Disposici�n</b>"
+msgstr "<b>Elrendezés</b>"
 
 #: ui/preferences.glade:832
 msgid "<b>When new mail</b>"
-msgstr "<b>Cuando haya correo nuevo</b>"
+msgstr "<b>Új levél esetén</b>"
 
 #: ui/preferences.glade:870
 msgid "<b>When no mail</b>"
-msgstr "<b>Cuando no haya correo</b>"
+msgstr "<b>Ha nincs levél</b>"
 
 #: ui/preferences.glade:896 ui/preferences.glade:1223
 msgid "_Font:"
-msgstr "_Fuente:"
+msgstr "_Betűtípus:"
 
 #: ui/preferences.glade:921 ui/preferences.glade:1357
 msgid "The font to use to display information"
-msgstr "La fuente a usar para mostrar informaci�n"
+msgstr "Az információk megjelenítéséhez használt betűtípus"
 
 #: ui/preferences.glade:941 ui/preferences.glade:1378
 msgid "Whether to use window manager decoration"
-msgstr "Ventana emergente con decoraci�n o no"
+msgstr "Használjon-e ablakkezelő dekorációt"
 
 #: ui/preferences.glade:943 ui/preferences.glade:1380
 msgid "Use _decoration"
-msgstr "Usar _decoraci�n"
+msgstr "Használjon dekorációt"
 
 #: ui/preferences.glade:997
 msgid "Applet or Biff"
-msgstr "Applet o Biff"
+msgstr "Kisalkalmazás vagy Biff"
 
 #: ui/preferences.glade:1038
 msgid "second(s)"
-msgstr "segundo(s)"
+msgstr "másodperc"
 
 #: ui/preferences.glade:1061
 msgid "Time to display popup window"
-msgstr "Tiempo que se muestra la ventana emergente"
+msgstr "A felugró ablak megjelenítési ideje:"
 
 #: ui/preferences.glade:1084
 msgid "Popup geometry"
-msgstr "Usar geometr�a"
+msgstr "Felugró ablak geometriája"
 
 #: ui/preferences.glade:1106
 msgid "Whether to use format for header"
-msgstr "Usar formato en los encabezados o no"
+msgstr "Használjon-e formátumot a fejléchez"
 
 #: ui/preferences.glade:1108
 msgid "_Format:"
-msgstr "_Formato:"
+msgstr "_Formátum:"
 
 #: ui/preferences.glade:1130
 msgid "[sender max size]:[subject max size]:[date max size]"
-msgstr "[Tama�o del remitente]:[Tama�o del asunto]:[Tama�o de fecha]"
+msgstr "[Küldő max. hossza]:[Téma max. hossza]:[Dátum max. hossza]"
 
 #: ui/preferences.glade:1152
 msgid "Whether to restrict number of displayed headers"
-msgstr "Restringir el n�mero de encabezados mostrados o no"
+msgstr "Szabályozza-e a megjelenítendő fejlécek számát"
 
 #: ui/preferences.glade:1154
 msgid "_Restrict number to"
-msgstr "Restringir a"
+msgstr "_Fejlécek számának korlátozása"
 
 #: ui/preferences.glade:1176
 msgid "Maximum number of headers to display"
-msgstr "N�mero m�ximo de encabezados a mostrar"
+msgstr "A megjeleníthető fejlécek maximális száma"
 
 #: ui/preferences.glade:1199
 msgid "header(s)"
-msgstr "encabezado(s)"
+msgstr "fejléc(ek):"
 
 #: ui/preferences.glade:1272
 msgid "Whether to display the popup window"
-msgstr "Mostrar la ventana emergente o no"
+msgstr "Megjelenítse-e a felugró ablakot"
 
 #: ui/preferences.glade:1274
 msgid "_Display for"
-msgstr "Mostrar _durante:"
+msgstr "Megjelenítés ennyi időre:"
 
 #: ui/preferences.glade:1332
 msgid "<b>Headers</b>"
-msgstr "<b>Encabezados</b>"
+msgstr "<b>Fejlécek</b>"
 
 #: ui/preferences.glade:1453 ui/popup.glade:7
 msgid "Popup"
-msgstr "Ventana emergente"
+msgstr "Felugró ablakok"
 
 #: ui/preferences.glade:1506
 msgid "<b>Expert editing mode</b>"
-msgstr ""
+msgstr "<b>Szakértői szerkesztési mód</b> "
 
 #: ui/preferences.glade:1530
 msgid "Whether options can be edited in expert mode"
@@ -729,7 +706,7 @@ msgstr ""
 
 #: ui/preferences.glade:1556
 msgid "_Show expert tab"
-msgstr ""
+msgstr "_Szakértői fül megjelenítése"
 
 #: ui/preferences.glade:1578
 msgid ""
@@ -762,27 +739,25 @@ msgstr ""
 
 #: ui/preferences.glade:1815
 msgid "Expert"
-msgstr ""
+msgstr "Szakértő"
 
 #: ui/preferences.glade:2073
 msgid ""
 "<small>Bugs should be reported to <span foreground=\"blue\">gnubiff-"
 "bugs@lists.sourceforge.net</span></small>"
 msgstr ""
-"<small>Los errores pueden ser comunicados a <span foreground=\"blue"
-"\">gnubiff-bugs@lists.sourceforge.net</span></small>"
 
 #: ui/preferences.glade:2108
 msgid "Developers"
-msgstr "Desarrolladores"
+msgstr "Fejlesztők"
 
 #: ui/preferences.glade:2237
 msgid "Maintainers"
-msgstr "Mantenimiento"
+msgstr "Karbantartók"
 
 #: ui/preferences.glade:2794
 msgid "Translators"
-msgstr "Traductores"
+msgstr "Fordítók"
 
 #: ui/preferences.glade:2820
 msgid ""
@@ -792,277 +767,227 @@ msgid ""
 "  - submitting actual code\n"
 "Here is a list of these people:</small>"
 msgstr ""
-"<small>Muchas personas han contribuido con gnubiff\n"
-"  - comunicando problemas\n"
-"  - sugiriendo varias mejoras\n"
-"  - enviando c�digo\n"
-"Aqu� hay una lista de ellos:</small>"
+"<small>Sok további ember vett részt a gnubiff készítésében a következő "
+"módon:\n"
+"  - problámák bejelentésével\n"
+"  - különféle fejlesztési tanácsokkal\n"
+"  - a kód terjesztésével\n"
+"Itt egy lista ezekből az emberekből:</small>"
 
 #: ui/preferences.glade:2887
 msgid "Contributors"
-msgstr "Colaboradores"
+msgstr "Közreműködtek"
 
 #: ui/preferences.glade:2919
 msgid "Credits"
-msgstr "Cr�ditos"
+msgstr "Keszítők"
 
 #: ui/preferences.glade:3050
 msgid "Set to default value"
-msgstr ""
+msgstr "Változtatás az alapértelmezettre"
 
 #: ui/preferences.glade:3071
 msgid "Toggle option"
-msgstr ""
+msgstr "Az opció megváltoztatása"
 
 #: ui/preferences.glade:3092
 msgid "Edit option"
-msgstr ""
+msgstr "Opció szerkesztése"
 
 #: ui/properties.glade:7
 msgid "Mailbox properties"
-msgstr "Propiedades del buz�n"
+msgstr "Levélfiók paraméterek"
 
 #: ui/properties.glade:52
 msgid "_Name:"
-msgstr "_Nombre:"
+msgstr "_Név:"
 
 #: ui/properties.glade:77
 msgid "A_ddress:"
-msgstr "_Servidor:"
+msgstr "C_ím:"
 
 #: ui/properties.glade:102
 msgid "Name of the mailbox"
-msgstr "Nombre del buz�n"
+msgstr "A levélfiók neve"
 
 #: ui/properties.glade:124
 msgid "_Type:"
-msgstr "_Tipo:"
+msgstr "_Típus"
 
 #: ui/properties.glade:174 ui/authentication.glade:52
 msgid "_Username:"
-msgstr "_Nombre de usuario:"
+msgstr "_Felhasználónév:"
 
 #: ui/properties.glade:199
 msgid "Your username on the mail server"
-msgstr "Su nombre de usuario en el servidor"
+msgstr "A felhasználóneved a levélkiszolgálóhoz"
 
 #: ui/properties.glade:221 ui/authentication.glade:77
 msgid "_Password:"
-msgstr "_Contrase�a:"
+msgstr "_Jelszó"
 
 #: ui/properties.glade:246
 msgid "Your password on the mail server"
-msgstr "Su contrase�a en el servidor"
+msgstr "A jelszavad a levélkiszolgálóhoz"
 
 #: ui/properties.glade:274
-#, fuzzy
 msgid "file or folder or hostname"
-msgstr "archivo o carpeta o [ssl:]nombre de servidor[:puerto][:carpeta]"
+msgstr "Fájl, mappa vagy hostnév"
 
 #: ui/properties.glade:367
 msgid "Connection:"
-msgstr "Conexi�n:"
+msgstr "Kapcsolódás:"
 
 #: ui/properties.glade:391
 msgid "Connection port to connect to server"
-msgstr "Puerto para conectar con el servidor"
+msgstr "A port, amivel a szerverhez kapcsolódjon"
 
 #: ui/properties.glade:414
 msgid "Standard connection port"
-msgstr "Puerto de conexi�n est�ndar"
+msgstr "Szabványos csatlakozási port"
 
 #: ui/properties.glade:416
 msgid "stan_dard"
-msgstr "e_st�ndar"
+msgstr "szabv_ányos"
 
 #: ui/properties.glade:437
 msgid "Other connection port"
-msgstr "Otro puerto de conexi�n"
+msgstr "Más csatlakozási port"
 
 #: ui/properties.glade:439
 msgid "_other"
-msgstr "_otro"
+msgstr "m_ás"
 
 #: ui/properties.glade:540
 msgid "Aut_hentication:"
-msgstr "_Autenticaci�n:"
+msgstr "Hit_elesítés"
 
 #: ui/properties.glade:594
 msgid "Certificate filename"
-msgstr "Archivo del certificado"
+msgstr "Tanusítvány fájlnév"
 
 #: ui/properties.glade:618
 msgid "Bro_wse..."
-msgstr "_Explorar..."
+msgstr "Tall_ózás"
 
 #: ui/properties.glade:637
 msgid "Cer_tificate:"
-msgstr "_Certificado:"
+msgstr "_Tanusítvány"
 
 #: ui/properties.glade:692
 msgid "minutes"
-msgstr "minutos"
+msgstr "perc"
 
 #: ui/properties.glade:716
 msgid "seconds"
-msgstr "segundos"
+msgstr "másodperc"
 
 #: ui/properties.glade:739 ui/properties.glade:765
 msgid ""
 "The amount of time to wait between mail checks or between retries when "
 "connection is lost"
-msgstr ""
-"La cantidad de tiempo que se espera entre las comprobaciones de correo o "
-"entre los reintentos cuando se ha perdido la conexi�n"
+msgstr "Az az időköz, amennyit a levelek ellenőrzése között vár a program"
 
 #: ui/properties.glade:791
 msgid "Dela_y:"
-msgstr "Re_tardo:"
+msgstr "Időköz_"
 
 #: ui/properties.glade:846
 msgid "_Mailbox:"
-msgstr "_Buz�n:"
+msgstr "_Levélfiók:"
 
 #: ui/properties.glade:871
 msgid "Mailbox folder"
-msgstr "Carpeta de buzones"
+msgstr "Levélfiók mappa"
 
 #: ui/properties.glade:893
 msgid "Other mailbox folder"
-msgstr "Otro buz�n de entrada"
+msgstr "Más levélfiók mappa"
 
 #: ui/properties.glade:895
 msgid "othe_r"
-msgstr "_otro"
+msgstr "más_"
 
 #: ui/properties.glade:916
 msgid "Standard mailbox folder"
-msgstr "Buz�n est�ndar"
+msgstr "Szabványos levélfiók mappa"
 
 #: ui/properties.glade:918
 msgid "stand_ard"
-msgstr "est�_ndar"
+msgstr "szab_ványos"
 
 #: ui/properties.glade:951
 msgid "<b>_Details</b>"
-msgstr "<b>_Detalles</b>"
+msgstr "<b>_Részletek</b>"
 
 #: ui/authentication.glade:7
 msgid "Authentication"
-msgstr "Autenticaci�n"
+msgstr "Hitelesítés"
 
 #: ui/authentication.glade:102
 msgid "Your username on the server"
-msgstr "Su nombre de usuario en el servidor"
+msgstr "A felhasználóneved a szerverhez"
 
 #: ui/authentication.glade:124
 msgid "Your password on the server"
-msgstr "Su contrase�a en el servidor"
+msgstr "A jelszavad a szerverhez"
 
 #: ui/certificate.glade:7
 msgid "Cannot certify server"
-msgstr "No se puede certificar el servidor"
+msgstr "Nem lehet a szervert igazolni"
 
 #: ui/certificate.glade:130
 msgid "Common Name"
-msgstr "Nombre"
+msgstr "Köznév"
 
 #: ui/certificate.glade:154
 msgid "Organization"
-msgstr "Organizaci�n"
+msgstr "Szervezet"
 
 #: ui/certificate.glade:178
 msgid "Organization Unit"
-msgstr "Secci�n"
+msgstr "Szervezeti egység"
 
 #: ui/certificate.glade:275
 msgid "<b>Issued To</b>"
-msgstr "<b>Dirigido a</b>"
+msgstr "<b>Kibocsátó</b>"
 
 #: ui/certificate.glade:394
 msgid "<b>Address</b>"
-msgstr "<b>Servidor</b>"
+msgstr "<b>Cím</b>"
 
 #: ui/certificate.glade:418
 msgid "Country"
-msgstr "Pa�s"
+msgstr "Ország"
 
 #: ui/certificate.glade:442
 msgid "Locality"
-msgstr "Localidad"
+msgstr "Helység"
 
 #: ui/certificate.glade:540
 msgid "State or Province"
-msgstr "Estado o provincia"
+msgstr "Állam vagy tartomány"
 
 #: ui/certificate.glade:570
 msgid "Certificate details"
-msgstr "Detalles del certificado"
+msgstr "Tanusítvány részletek"
 
 #: ui/certificate.glade:668
 msgid "Accept"
-msgstr "Aceptar"
+msgstr "Elfogad"
 
 #: ui/popup.glade:61
 msgid "mail content"
-msgstr "contenido del mensaje"
+msgstr "levél tartalom"
 
 #: ui/popup.glade:116
 msgid "<small><b>From</b></small>"
-msgstr "<small><b>Desde</b></small>"
+msgstr "<small><b>Feladó</b></small>"
 
 #: ui/popup.glade:140
 msgid "<small><b>Subject</b></small>"
-msgstr "<small><b>Asunto</b></small>"
+msgstr "<small><b>Tárgy</b></small>"
 
 #: ui/popup.glade:164
 msgid "<small><b>Date</b></small>"
-msgstr "<small><b>Fecha</b></small>"
-
-#~ msgid "Cannot find new mail directory (%s)"
-#~ msgstr "No se puede encontrar el directorio del correo nuevo (%s)"
-
-#, fuzzy
-#~ msgid ""
-#~ "<small> This program is part of the GNU project,\n"
-#~ " released under the aegis of GNU.</small>"
-#~ msgstr ""
-#~ "Este programa es parte del proyecto GNU, desarrollado bajo el auspicio de "
-#~ "GNU."
-
-#, fuzzy
-#~ msgid "<span size=\"xx-large\"><b>Gnubiff %v %c</b></span>"
-#~ msgstr " <span size=\"x-large\"><b>gnubiff</b></span>"
-
-#~ msgid "<small>(C) 2000-2004 Nicolas Rougier</small>"
-#~ msgstr "<small>(C) 2000-2004 Nicolas Rougier</small>"
-
-#, fuzzy
-#~ msgid ""
-#~ "<small> Released under the aegis of GNU\n"
-#~ " Copyright (c) 2000-2005 Nicolas Rougier</small>"
-#~ msgstr ""
-#~ "<span font_desc=\"24\"><b>Gnubiff 2.1.0</b></span>\n"
-#~ " <small>Difundido bajo el auspicio de GNU\n"
-#~ " Copyright (c) 2000-2004 Nicolas Rougier</small> "
-
-#~ msgid "[This mail has no \"text/plain\" part]"
-#~ msgstr "[Este correo no tiene parte \"text/plain\"]"
-
-#~ msgid "* error *"
-#~ msgstr "* error *"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#, fuzzy
-#~ msgid "Whether the window shall appear in pagers"
-#~ msgstr "Restringir el n�mero de encabezados mostrados o no"
-
-#, fuzzy
-#~ msgid "Whether the window shall be displayed on all desktops"
-#~ msgstr "Restringir el n�mero de encabezados mostrados o no"
-
-#, fuzzy
-#~ msgid "<span font_desc=\"24\"><b>Gnubiff 2.1.1</b></span>"
-#~ msgstr " <span size=\"x-large\"><b>gnubiff</b></span>"
+msgstr "<small><b>Dátum</b></small>"
