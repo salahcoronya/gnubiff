@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.56 $
-// Revision date : $Date: 2005/12/04 19:10:37 $
+// Revision      : $Revision: 1.57 $
+// Revision date : $Date: 2005/12/04 19:40:45 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -141,14 +141,17 @@ Biff::Biff (guint ui_mode, std::string filename)
 
 	// Applet
 	switch (ui_mode) {
-	case GTK_MODE:
+	case MODE_GTK:
 		applet_ = new AppletGtk (this);
 		break;
 #ifdef USE_GNOME
-	case GNOME_MODE:
+	case MODE_GNOME:
 		applet_ = new AppletGnome (this);
 		break;
 #endif
+	case MODE_NOGUI:
+		applet_ = new Applet (this);
+		break;
 	default:
 		applet_ = new AppletGtk (this);
 		break;
@@ -543,7 +546,7 @@ Biff::option_changed (Option *option)
 
 	// UI_MODE
 	if (option->name() == "ui_mode") {
-		value ("gtk_mode", ((Option_UInt *)option)->value() == GTK_MODE);
+		value ("gtk_mode", ((Option_UInt *)option)->value() == MODE_GTK);
 		return;
 	}
 }

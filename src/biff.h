@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/11/27 20:17:17 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2005/12/04 19:10:37 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -79,7 +79,7 @@ public:
 	// ========================================================================
 	//  base
 	// ========================================================================
-	Biff (guint ui_mode = GTK_MODE, std::string filename = "");
+	Biff (guint ui_mode = MODE_GTK, std::string filename = "");
 	~Biff (void);
 
 	// ========================================================================
