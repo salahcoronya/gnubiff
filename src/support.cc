@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.21 $
-// Revision date : $Date: 2005/06/10 20:34:57 $
+// Revision      : $Revision: 1.22 $
+// Revision date : $Date: 2005/12/04 19:40:45 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -29,6 +29,7 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
+#include <algorithm>
 #include <sys/utsname.h>
 #include <glib.h>
 #include <gtk/gtk.h>
