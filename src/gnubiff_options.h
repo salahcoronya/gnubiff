@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/04/07 14:46:53 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/12/11 16:45:27 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -73,6 +73,11 @@ const guint	MAILBOX_NEW			=	3;
 const guint	MAILBOX_CHECK		=	4;
 const guint	MAILBOX_STOP		=	5;
 const guint	MAILBOX_UNKNOWN		=	6;
+
+const guint SIGNAL_NONE			=   0;
+const guint SIGNAL_MARK_AS_READ	=   1;
+const guint SIGNAL_START		=	2;
+const guint SIGNAL_STOP			=	3;
 
 const guint OPTGRP_GENERAL		=	1;
 const guint OPTGRP_APPLET		=	2;

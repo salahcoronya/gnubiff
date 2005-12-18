@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2005/08/07 14:28:23 $
+// Revision      : $Revision: 1.33 $
+// Revision date : $Date: 2005/12/11 16:45:27 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -269,6 +269,23 @@ Gnubiff_Options::add_options_general (void)
 		"Directory in which to look for certificates when building the "
 		"certificate chain.",
 								   "/etc/ssl/certs/"));
+	// SIGNAL_SIGUSR1
+	const static guint i7[] = {SIGNAL_NONE, SIGNAL_MARK_AS_READ, SIGNAL_START,
+							   SIGNAL_STOP, 0};
+	const static gchar *s7[] = {"none", "mark_as_read", "start", "stop", NULL};
+	add_option (new Option_UInt ("signal_sigusr1", OPTGRP_GENERAL,
+		"Action to be executed if the signal SIGUSR1 is caught by gnubiff. "
+		"Possible actions are ignoring the signal (\"none\"), marking all "
+		"messages as read (\"mark_as_read\"), starting monitoring (\"start\") "
+		"or stopping monitoring (\"stop\").",
+								 SIGNAL_MARK_AS_READ,
+								 OPTFLG_ID_INT_STRICT, i7,s7));
+	// SIGNAL_SIGUSR2
+	add_option (new Option_UInt ("signal_sigusr2", OPTGRP_GENERAL,
+		"Action to be executed if the signal SIGUSR2 is caught by gnubiff. "
+		"For a description of the actions the option SIGNAL_SIGUSR1.",
+								 SIGNAL_NONE,
+								 OPTFLG_ID_INT_STRICT, i7,s7));
 }
 
 /// Add options that are for information purposes only
