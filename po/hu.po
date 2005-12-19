@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-12-11 20:04+0100\n"
+"POT-Creation-Date: 2005-12-19 22:11+0100\n"
 "PO-Revision-Date: 2005-12-03 23:07+0100\n"
 "Last-Translator: Adam Wallner <wallner.adam@hktv.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -357,7 +357,7 @@ msgstr "Érték"
 msgid "_Start"
 msgstr "_Indítás"
 
-#: src/ui-preferences.cc:596 ui/preferences.glade:2998
+#: src/ui-preferences.cc:596 ui/preferences.glade:3046
 msgid "_Stop"
 msgstr "_Leállítás"
 
@@ -422,7 +422,7 @@ msgstr "Téma"
 msgid "Date"
 msgstr "Dátum"
 
-#: src/support.cc:321
+#: src/support.cc:322
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
 "to \"gnubiff-bugs@lists.sourceforge.net\".\n"
@@ -755,11 +755,11 @@ msgstr "Fejlesztők"
 msgid "Maintainers"
 msgstr "Karbantartók"
 
-#: ui/preferences.glade:2794
+#: ui/preferences.glade:2842
 msgid "Translators"
 msgstr "Fordítók"
 
-#: ui/preferences.glade:2820
+#: ui/preferences.glade:2868
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
 "  - reporting problems\n"
@@ -774,23 +774,23 @@ msgstr ""
 "  - a kód terjesztésével\n"
 "Itt egy lista ezekből az emberekből:</small>"
 
-#: ui/preferences.glade:2887
+#: ui/preferences.glade:2935
 msgid "Contributors"
 msgstr "Közreműködtek"
 
-#: ui/preferences.glade:2919
+#: ui/preferences.glade:2967
 msgid "Credits"
 msgstr "Keszítők"
 
-#: ui/preferences.glade:3050
+#: ui/preferences.glade:3098
 msgid "Set to default value"
 msgstr "Változtatás az alapértelmezettre"
 
-#: ui/preferences.glade:3071
+#: ui/preferences.glade:3119
 msgid "Toggle option"
 msgstr "Az opció megváltoztatása"
 
-#: ui/preferences.glade:3092
+#: ui/preferences.glade:3140
 msgid "Edit option"
 msgstr "Opció szerkesztése"
 

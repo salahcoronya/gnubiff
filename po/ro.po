@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gbiff 0.3.0\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-12-11 20:04+0100\n"
+"POT-Creation-Date: 2005-12-19 22:11+0100\n"
 "PO-Revision-Date: 2003-09-14 12:53+0300\n"
 "Last-Translator: Eugen Hoanca <eugenh@urban-grafx.ro>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -363,7 +363,7 @@ msgstr "Volum:"
 msgid "_Start"
 msgstr ""
 
-#: src/ui-preferences.cc:596 ui/preferences.glade:2998
+#: src/ui-preferences.cc:596 ui/preferences.glade:3046
 msgid "_Stop"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr "Subiect"
 msgid "Date"
 msgstr "Data"
 
-#: src/support.cc:321
+#: src/support.cc:322
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
 "to \"gnubiff-bugs@lists.sourceforge.net\".\n"
@@ -801,11 +801,11 @@ msgstr ""
 msgid "Maintainers"
 msgstr ""
 
-#: ui/preferences.glade:2794
+#: ui/preferences.glade:2842
 msgid "Translators"
 msgstr ""
 
-#: ui/preferences.glade:2820
+#: ui/preferences.glade:2868
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
 "  - reporting problems\n"
@@ -814,23 +814,23 @@ msgid ""
 "Here is a list of these people:</small>"
 msgstr ""
 
-#: ui/preferences.glade:2887
+#: ui/preferences.glade:2935
 msgid "Contributors"
 msgstr ""
 
-#: ui/preferences.glade:2919
+#: ui/preferences.glade:2967
 msgid "Credits"
 msgstr "Credite"
 
-#: ui/preferences.glade:3050
+#: ui/preferences.glade:3098
 msgid "Set to default value"
 msgstr ""
 
-#: ui/preferences.glade:3071
+#: ui/preferences.glade:3119
 msgid "Toggle option"
 msgstr ""
 
-#: ui/preferences.glade:3092
+#: ui/preferences.glade:3140
 msgid "Edit option"
 msgstr ""
 

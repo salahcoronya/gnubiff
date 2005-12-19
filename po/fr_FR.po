@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-12-11 20:04+0100\n"
+"POT-Creation-Date: 2005-12-19 22:11+0100\n"
 "PO-Revision-Date: 2005-04-04 13:23+0200\n"
 "Last-Translator: Rougier <rougier@loria.fr>\n"
 "Language-Team: Français <fr@li.org>\n"
@@ -373,7 +373,7 @@ msgstr "Valeur"
 msgid "_Start"
 msgstr "_Démarrer"
 
-#: src/ui-preferences.cc:596 ui/preferences.glade:2998
+#: src/ui-preferences.cc:596 ui/preferences.glade:3046
 msgid "_Stop"
 msgstr "_Stopper"
 
@@ -443,7 +443,7 @@ msgstr "Sujet"
 msgid "Date"
 msgstr "Date"
 
-#: src/support.cc:321
+#: src/support.cc:322
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
 "to \"gnubiff-bugs@lists.sourceforge.net\".\n"
@@ -792,11 +792,11 @@ msgstr "Développeurs"
 msgid "Maintainers"
 msgstr "Mainteneurs"
 
-#: ui/preferences.glade:2794
+#: ui/preferences.glade:2842
 msgid "Translators"
 msgstr "Traducteurs"
 
-#: ui/preferences.glade:2820
+#: ui/preferences.glade:2868
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
 "  - reporting problems\n"
@@ -810,23 +810,23 @@ msgstr ""
 "  - soumettant du code\n"
 "Voici une liste de ces personnes:</small>"
 
-#: ui/preferences.glade:2887
+#: ui/preferences.glade:2935
 msgid "Contributors"
 msgstr "Contributeurs"
 
-#: ui/preferences.glade:2919
+#: ui/preferences.glade:2967
 msgid "Credits"
 msgstr "Remerciements"
 
-#: ui/preferences.glade:3050
+#: ui/preferences.glade:3098
 msgid "Set to default value"
 msgstr "Mettre la valeur par défaut"
 
-#: ui/preferences.glade:3071
+#: ui/preferences.glade:3119
 msgid "Toggle option"
 msgstr "Basculer l'option"
 
-#: ui/preferences.glade:3092
+#: ui/preferences.glade:3140
 msgid "Edit option"
 msgstr "Editer l'option"
 

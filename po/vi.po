@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.3\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-12-11 20:04+0100\n"
+"POT-Creation-Date: 2005-12-19 22:11+0100\n"
 "PO-Revision-Date: 2005-04-11 17:17+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -366,7 +366,7 @@ msgstr "Giá trị"
 msgid "_Start"
 msgstr "_Bắt đầu"
 
-#: src/ui-preferences.cc:596 ui/preferences.glade:2998
+#: src/ui-preferences.cc:596 ui/preferences.glade:3046
 msgid "_Stop"
 msgstr "_Ngừng"
 
@@ -433,7 +433,7 @@ msgstr "Chủ đề"
 msgid "Date"
 msgstr "Ngày"
 
-#: src/support.cc:321
+#: src/support.cc:322
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
 "to \"gnubiff-bugs@lists.sourceforge.net\".\n"
@@ -783,11 +783,11 @@ msgstr "Lập trình viên"
 msgid "Maintainers"
 msgstr "Bảo quản viên"
 
-#: ui/preferences.glade:2794
+#: ui/preferences.glade:2842
 msgid "Translators"
 msgstr "Người dịch"
 
-#: ui/preferences.glade:2820
+#: ui/preferences.glade:2868
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
 "  - reporting problems\n"
@@ -801,23 +801,23 @@ msgstr ""
 "  - tạo mã nguồn thật\n"
 "Đây là danh sách người này:</small>"
 
-#: ui/preferences.glade:2887
+#: ui/preferences.glade:2935
 msgid "Contributors"
 msgstr "Người đóng góp"
 
-#: ui/preferences.glade:2919
+#: ui/preferences.glade:2967
 msgid "Credits"
 msgstr "Lời cám ơn"
 
-#: ui/preferences.glade:3050
+#: ui/preferences.glade:3098
 msgid "Set to default value"
 msgstr "Trở về gia trị mặc định"
 
-#: ui/preferences.glade:3071
+#: ui/preferences.glade:3119
 msgid "Toggle option"
 msgstr "Bập bênh tùy chọn"
 
-#: ui/preferences.glade:3092
+#: ui/preferences.glade:3140
 msgid "Edit option"
 msgstr "Hiệu chỉnh tùy chọn"
 

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.2\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2005-12-11 20:04+0100\n"
+"POT-Creation-Date: 2005-12-19 22:11+0100\n"
 "PO-Revision-Date: 2005-04-03 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -406,7 +406,7 @@ msgid "_Start"
 msgstr "Gutangira"
 
 # basctl/source\basicide\basidesh.src:RID_BASICIDE_OBJECTBAR.SID_BASICSTOP.text
-#: src/ui-preferences.cc:596 ui/preferences.glade:2998
+#: src/ui-preferences.cc:596 ui/preferences.glade:3046
 #, fuzzy
 msgid "_Stop"
 msgstr "Guhagarara"
@@ -488,7 +488,7 @@ msgstr "Ikivugwaho"
 msgid "Date"
 msgstr "Itariki"
 
-#: src/support.cc:321
+#: src/support.cc:322
 #, fuzzy
 msgid ""
 "You just found an unknown internal error. Please send a detailed bug report "
@@ -888,11 +888,11 @@ msgstr ""
 msgid "Maintainers"
 msgstr ""
 
-#: ui/preferences.glade:2794
+#: ui/preferences.glade:2842
 msgid "Translators"
 msgstr ""
 
-#: ui/preferences.glade:2820
+#: ui/preferences.glade:2868
 #, fuzzy
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
@@ -902,25 +902,25 @@ msgid ""
 "Here is a list of these people:</small>"
 msgstr "<Gitoya Abantu Kuri ni a Urutonde Bya Abantu Gitoya"
 
-#: ui/preferences.glade:2887
+#: ui/preferences.glade:2935
 msgid "Contributors"
 msgstr "Abaterankunga"
 
-#: ui/preferences.glade:2919
+#: ui/preferences.glade:2967
 msgid "Credits"
 msgstr ""
 
-#: ui/preferences.glade:3050
+#: ui/preferences.glade:3098
 #, fuzzy
 msgid "Set to default value"
 msgstr "Kuri Mburabuzi Agaciro"
 
-#: ui/preferences.glade:3071
+#: ui/preferences.glade:3119
 #, fuzzy
 msgid "Toggle option"
 msgstr "Ihitamo"
 
-#: ui/preferences.glade:3092
+#: ui/preferences.glade:3140
 #, fuzzy
 msgid "Edit option"
 msgstr "Ihitamo"
