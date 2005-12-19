@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.49 $
-// Revision date : $Date: 2005/11/06 23:24:50 $
+// Revision      : $Revision: 1.50 $
+// Revision date : $Date: 2005/11/13 22:09:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -878,7 +878,8 @@ Preferences::expert_on_selection (GtkTreeSelection *selection)
 		}
 	}
 	gtk_text_buffer_insert (tb, &iter, "\n\nProperties: ", -1);
-	tmp = option->flags_string().c_str();
+	std::string tmpstr = option->flags_string();
+	tmp = tmpstr.c_str();
 	gtk_text_buffer_insert (tb, &iter, tmp, -1);
 }
 
