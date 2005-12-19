@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/12/11 16:45:27 $
+// File          : $RCSfile: signals.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/12/18 23:58:03 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -44,7 +44,7 @@ class Signals {
 
 public:
 	static gboolean init_signals (class Biff *biff);
-	static void signal_handler (int signal);
+	static void signal_handler (int signum);
 
 private:
 	static class Biff				*biff_;
