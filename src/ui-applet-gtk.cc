@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/11/06 20:15:28 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/11/13 22:09:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -150,22 +150,14 @@ AppletGtk::update (gboolean init)
 	return newmail;
 }
 
-void
+void 
 AppletGtk::show (std::string name)
 {
-// 	int unread = 0;
-// 	for (unsigned int i=0; i<biff_->get_number_of_mailboxes(); i++)
-// 		unread += biff_->mailbox(i)->unreads();
-
-// 	if ((unread > 0) && (!biff_->value_bool ("use_newmail_image")))
-// 		return;
-// 	else if (!biff_->value_bool ("use_nomail_image"))
-// 		return;
-
 	GtkWindow *dialog=GTK_WINDOW(get("dialog"));
 	gtk_widget_show (get("dialog"));
 	if (biff_->value_bool ("applet_use_geometry"))
-		gtk_window_parse_geometry (dialog, biff_->value_gchar ("applet_geometry"));
+		gtk_window_parse_geometry (dialog,
+								   biff_->value_gchar ("applet_geometry"));
 	if (biff_->value_bool ("applet_be_sticky"))
 		gtk_window_stick (dialog);
 	else

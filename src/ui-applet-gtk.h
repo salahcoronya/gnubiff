@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/11/06 19:58:57 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/11/06 20:15:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -32,7 +32,7 @@
 #ifndef __APPLET_GTK_H__
 #define __APPLET_GTK_H__
 
-#include "ui-applet.h"
+#include "ui-applet-gui.h"
 
 
 class AppletGtk : public AppletGUI {
@@ -40,20 +40,20 @@ class AppletGtk : public AppletGUI {
  public:
 	// ========================================================================
 	//  base
-	// ========================================================================	
+	// ========================================================================
 	AppletGtk (class Biff *biff);
 	~AppletGtk (void);
 
 	// ========================================================================
 	//  main
-	// ========================================================================	
+	// ========================================================================
 	gboolean update (gboolean init = false);
 	void show (std::string name = "dialog");
 	void tooltip_update (void);
 
 	// ========================================================================
 	//  callbacks
-	// ========================================================================	
+	// ========================================================================
 	gboolean on_button_press (GdkEventButton *event);
 	void on_menu_quit (void);
 };

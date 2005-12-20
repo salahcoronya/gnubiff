@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.52 $
-// Revision date : $Date: 2005/12/19 22:25:45 $
+// Revision      : $Revision: 1.53 $
+// Revision date : $Date: 2005/12/20 12:05:25 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -33,7 +33,7 @@
 
 #include "ui-preferences.h"
 #include "ui-properties.h"
-#include "ui-applet.h"
+#include "ui-applet-gui.h"
 #include "gtk_image_animation.h"
 #include "biff.h"
 #include "mailbox.h"

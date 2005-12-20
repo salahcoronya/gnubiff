@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2005 Nicolas Rougier
+// Copyright (c) 2000-2005 Nicolas Rougier, 2004-2005 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -18,10 +18,10 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.21 $
+// File          : $RCSfile: ui-applet.cc,v $
+// Revision      : $Revision: 1.36 $
 // Revision date : $Date: 2005/12/11 16:24:42 $
-// Author(s)     : Nicolas Rougier
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.
@@ -29,45 +29,56 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 // ========================================================================
 
-#ifndef __APPLET_H__
-#define __APPLET_H__
+#ifndef __APPLET_GUI_H__
+#define __APPLET_GUI_H__
 
-#include <glib.h>
-#include "support.h"
+#include "gui.h"
+#include "ui-applet.h"
 
 /**
- *  Generic non-GUI code common for all types of applets.
+ *  Generic GUI code common for all types of applets.
  */ 
-class Applet : public Support
-{
+class AppletGUI : public Applet, public GUI {
 protected:
-	class Biff *		biff_;
-	GMutex *			process_mutex_;
-	GMutex *			update_mutex_;
+	/// Pointer to the gnubiff popup
+	class Popup						*popup_;
+	/// Pointer to the preferences dialog
+	class Preferences				*preferences_;
+	/** Pointer to the authentication dialog (needed for getting the user id
+	 *  and password)
+	 */
+	class Authentication			*ui_auth_;
+	/// Shall the popup be forced on the next update?
+	gboolean						force_popup_;
 public:
 	// ========================================================================
 	//  base
 	// ========================================================================
-	Applet (class Biff *biff);
-	virtual ~Applet (void);
+	AppletGUI (class Biff *biff, std::string filename, gpointer callbackdata);
+	virtual ~AppletGUI (void);
 	virtual void start (gboolean showpref = false);
 
 	// ========================================================================
 	//  main
 	// ========================================================================
-	virtual gboolean update (gboolean init = false);
-	void mark_messages_as_read (void);
-	void execute_command (std::string option_command,
-						  std::string option_use_command = "");
-	std::string get_mailbox_status_text (void);
+	virtual gboolean update (gboolean init = false,
+							 std::string widget_image = "",
+							 std::string widget_text = "",
+							 std::string widget_container = "",
+							 guint m_width = G_MAXUINT,
+							 guint m_height = G_MAXUINT);
 	virtual std::string get_number_of_unread_messages (void);
 
-	/// @see AppletGUI::mailbox_to_be_replaced ()
-	virtual void mailbox_to_be_replaced (class Mailbox *from,
-										 class Mailbox *to) {};
-	/// @see AppletGUI::get_password_for_mailbox ()
-	virtual void get_password_for_mailbox (class Mailbox *mb) {};
+	void mailbox_to_be_replaced (class Mailbox *from, class Mailbox *to);
+	virtual void get_password_for_mailbox (class Mailbox *mb);
 	virtual gboolean can_monitor_mailboxes (void);
+
+	void show_dialog_preferences (void);
+	void hide_dialog_preferences (void);
+	gboolean visible_dialog_preferences (void);
+	void show_dialog_about (void);
+	void hide_dialog_about (void);
+	gboolean visible_dialog_popup (void);
 };
 
 #endif
