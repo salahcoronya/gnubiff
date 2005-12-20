@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.cc,v $
-// Revision      : $Revision: 1.44.2.1 $
-// Revision date : $Date: 2005/12/19 22:11:32 $
+// Revision      : $Revision: 1.44.2.2 $
+// Revision date : $Date: 2005/12/19 22:27:43 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -824,12 +824,14 @@ Preferences::expert_on_selection (GtkTreeSelection *selection)
 	gtk_text_buffer_get_start_iter (tb, &iter);
 	gtk_text_buffer_insert (tb, &iter, "Option ", -1);
 	tmp = option->name().c_str();
-	gtk_text_buffer_insert_with_tags_by_name (tb, &iter, tmp, -1, "bold", 0);
+	gtk_text_buffer_insert_with_tags_by_name (tb, &iter, tmp, -1, "bold",
+											  NULL);
 	gtk_text_buffer_insert (tb, &iter, ": ", -1);
 	gtk_text_buffer_insert (tb, &iter, option->help().c_str(), -1);
 	gtk_text_buffer_insert (tb, &iter, "\n\nGroup ", -1);
 	tmp = opts->group_name(option->group()).c_str();
-	gtk_text_buffer_insert_with_tags_by_name (tb, &iter, tmp, -1, "bold", 0);
+	gtk_text_buffer_insert_with_tags_by_name (tb, &iter, tmp, -1, "bold",
+											  NULL);
 	gtk_text_buffer_insert (tb, &iter, ": ", -1);
 	tmp = opts->group_help(option->group()).c_str();
 	gtk_text_buffer_insert (tb, &iter, tmp, -1);
@@ -845,7 +847,7 @@ Preferences::expert_on_selection (GtkTreeSelection *selection)
 				gtk_text_buffer_insert (tb, &iter, ", ", -1);
 			tmp = "any positive integer";
 			gtk_text_buffer_insert_with_tags_by_name (tb, &iter, tmp, -1,
-													  "italic", 0);
+													  "italic", NULL);
 		}
 	}
 	gtk_text_buffer_insert (tb, &iter, "\n\nProperties: ", -1);
@@ -864,7 +866,7 @@ Preferences::expert_update_option_list (void)
 	gint id = -1;
 	Options *option_opts = NULL;
 	GtkTreeIter iter;
-	gboolean valid=gtk_tree_model_get_iter_first (GTK_TREE_MODEL(expert_liststore),&iter);
+	gboolean valid = gtk_tree_model_get_iter_first (GTK_TREE_MODEL(expert_liststore),&iter);
 	while (valid) {
 		// Get next option
 		gtk_tree_model_get (GTK_TREE_MODEL(expert_liststore), &iter,
