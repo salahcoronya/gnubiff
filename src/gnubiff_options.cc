@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2005/12/18 23:58:03 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2005/12/19 22:25:45 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -311,8 +311,9 @@ Gnubiff_Options::add_options_information (void)
 								 |OPTFLG_FIXED | OPTFLG_NOSAVE | OPTFLG_NOSHOW,
 								 protocol_int, protocol_gchar));
 	// UI_MODE
-	const static guint i2[] = {MODE_GTK, MODE_GNOME, MODE_NOGUI, 0};
-	const static gchar *s2[] = {"gtk", "gnome", "nogui", NULL};
+	const static guint i2[] = {MODE_GTK, MODE_GNOME, MODE_NOGUI,
+							   MODE_SYSTEMTRAY, 0};
+	const static gchar *s2[] = {"gtk", "gnome", "nogui", "systemtray", NULL};
 	add_option (new Option_UInt ("ui_mode", OPTGRP_INFORMATION,
 		"User interface mode in which gnubiff is running.",
 								 MODE_GTK, OPTFLG_CHANGE | OPTFLG_ID_INT_STRICT

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/12/11 16:45:27 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2005/12/18 23:58:03 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -48,6 +48,7 @@ const guint	AUTOMATIC_CHECK		=	1;
 const guint	MODE_GTK			=	0;
 const guint	MODE_GNOME			=	1;
 const guint MODE_NOGUI			=   2;
+const guint MODE_SYSTEMTRAY		=   3;
 
 const guint	PROTOCOL_NONE		=	0;
 const guint	PROTOCOL_FILE		=	1;

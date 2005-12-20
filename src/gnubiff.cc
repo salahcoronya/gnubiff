@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2005/12/11 16:45:27 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2005/12/11 17:07:08 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -82,6 +82,7 @@ int main (int argc, char **argv) {
 	int status;
 	char *config_file = 0;
 	int no_configure = false, print_version = false, no_gui = false;
+	int systemtray = false;
 #if defined DEBUG && defined USE_GNOME
 	int debug_applet=false;
 
@@ -100,6 +101,8 @@ int main (int argc, char **argv) {
 		 N_("Skip the configuration process"), NULL},
 		{"nogui",		'\0', POPT_ARG_NONE,   &no_gui,		   0,
 		 N_("Start gnubiff without GUI"), NULL},
+		{"systemtray",	'\0', POPT_ARG_NONE,   &systemtray,	   0,
+		 N_("Put gnubiff's icon into the system tray"), NULL},
 		{"version",     'v' , POPT_ARG_NONE,   &print_version, 0,
 		 N_("Print version information and exit"), NULL},
 		POPT_TABLEEND
@@ -134,10 +137,12 @@ int main (int argc, char **argv) {
 		ui_mode = MODE_NOGUI;
 		no_configure = true;
 	}
+	if (systemtray)
+		ui_mode = MODE_SYSTEMTRAY;
 
 #if defined DEBUG && defined USE_GNOME
 	if (debug_applet)
-		return mainGNOME (argc,argv);
+		return mainGNOME (argc, argv);
 #endif
 	
 	// Initialization of Glib and (if needed) GTK

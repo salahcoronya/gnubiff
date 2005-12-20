@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2005/12/11 16:24:42 $
+// File          : $RCSfile: ui-applet-gui.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/12/20 21:31:46 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -79,6 +79,7 @@ public:
 	void show_dialog_about (void);
 	void hide_dialog_about (void);
 	gboolean visible_dialog_popup (void);
+	void tooltip_update (GtkWidget *widget);
 };
 
 #endif

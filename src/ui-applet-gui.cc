@@ -18,9 +18,9 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2005/12/11 16:24:42 $
+// File          : $RCSfile: ui-applet-gui.cc,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/12/20 21:31:46 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -382,4 +382,21 @@ void
 AppletGUI::get_password_for_mailbox (Mailbox *mb)
 {
 	ui_auth_->select (mb);
+}
+
+/**
+ *  Attach a tooltip to an applet's widget. This tooltip contains information
+ *  about the status of the applet's mailboxes.
+ *
+ *  @param  widget  Applet's widget that shall get the tooltip.
+ */
+void 
+AppletGUI::tooltip_update (GtkWidget *widget)
+{
+	// Get text for tooltip
+	std::string text = get_mailbox_status_text ();
+
+	// Put text in tooltip
+	GtkTooltipsData *data = gtk_tooltips_data_get (widget);
+	gtk_tooltips_set_tip (data->tooltips, widget, text.c_str(), "");
 }

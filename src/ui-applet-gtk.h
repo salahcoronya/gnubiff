@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/11/06 20:15:28 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/12/20 21:31:46 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -32,6 +32,7 @@
 #ifndef __APPLET_GTK_H__
 #define __APPLET_GTK_H__
 
+#include "eggtrayicon.h"
 #include "ui-applet-gui.h"
 
 
@@ -42,6 +43,7 @@ class AppletGtk : public AppletGUI {
 	//  base
 	// ========================================================================
 	AppletGtk (class Biff *biff);
+	AppletGtk (class Biff *biff, class Applet *applet);
 	~AppletGtk (void);
 
 	// ========================================================================
@@ -56,6 +58,24 @@ class AppletGtk : public AppletGUI {
 	// ========================================================================
 	gboolean on_button_press (GdkEventButton *event);
 	void on_menu_quit (void);
+};
+
+class AppletSystray : public AppletGtk {
+ private:
+	/// Icon in the system tray
+	EggTrayIcon *trayicon_;
+
+ public:
+	// ========================================================================
+	//  base
+	// ========================================================================
+	AppletSystray (class Biff *biff);
+	~AppletSystray (void);
+
+	// ========================================================================
+	//  main
+	// ========================================================================
+	void show (std::string name = "dialog");
 };
 
 #endif

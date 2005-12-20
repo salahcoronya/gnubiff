@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2005/11/06 19:58:57 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2005/11/06 20:15:28 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -251,12 +251,10 @@ AppletGnome::hide (std::string name)
 	gtk_widget_hide (applet_);
 }
 
-void
+void 
 AppletGnome::tooltip_update (void)
 {
-	std::string text = get_mailbox_status_text ();
-	GtkTooltipsData *data = gtk_tooltips_data_get (applet_);
-	gtk_tooltips_set_tip (data->tooltips, applet_, text.c_str(), "");
+	AppletGUI::tooltip_update (applet_);
 }
 
 gboolean
