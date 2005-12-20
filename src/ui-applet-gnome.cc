@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.19 $
-// Revision date : $Date: 2005/11/06 20:15:28 $
+// Revision      : $Revision: 1.20 $
+// Revision date : $Date: 2005/12/20 22:56:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -178,6 +178,7 @@ AppletGnome::dock (GtkWidget *applet)
 	gtk_container_set_border_width (GTK_CONTAINER (applet), 0);
 	GtkTooltips *applet_tips = gtk_tooltips_new ();
 	gtk_tooltips_set_tip (applet_tips, applet, "", "");
+	tooltip_widget_ = applet;
 
 	g_signal_connect (G_OBJECT (applet), "enter_notify_event",  GTK_SIGNAL_FUNC (APPLET_GNOME_on_enter), this);
 	g_signal_connect (G_OBJECT (applet), "change_orient",       GTK_SIGNAL_FUNC (APPLET_GNOME_on_change_orient), this);
@@ -249,12 +250,6 @@ void
 AppletGnome::hide (std::string name)
 {
 	gtk_widget_hide (applet_);
-}
-
-void 
-AppletGnome::tooltip_update (void)
-{
-	AppletGUI::tooltip_update (applet_);
 }
 
 gboolean

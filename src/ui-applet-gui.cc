@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/12/20 21:31:46 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/12/20 22:56:57 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -47,6 +47,8 @@
 AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
           : Applet (biff), GUI (filename)
 {
+	tooltip_widget_ = NULL;
+
 	GUI::create (callbackdata);
 
 	// Create image animation
@@ -391,12 +393,15 @@ AppletGUI::get_password_for_mailbox (Mailbox *mb)
  *  @param  widget  Applet's widget that shall get the tooltip.
  */
 void 
-AppletGUI::tooltip_update (GtkWidget *widget)
+AppletGUI::tooltip_update (void)
 {
+	if (!tooltip_widget_)
+		return;
+
 	// Get text for tooltip
 	std::string text = get_mailbox_status_text ();
 
 	// Put text in tooltip
-	GtkTooltipsData *data = gtk_tooltips_data_get (widget);
-	gtk_tooltips_set_tip (data->tooltips, widget, text.c_str(), "");
+	GtkTooltipsData *data = gtk_tooltips_data_get (tooltip_widget_);
+	gtk_tooltips_set_tip (data->tooltips, tooltip_widget_, text.c_str(), "");
 }

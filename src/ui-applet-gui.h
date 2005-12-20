@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/12/20 21:31:46 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/12/20 22:56:57 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -48,6 +48,8 @@ protected:
 	 *  and password)
 	 */
 	class Authentication			*ui_auth_;
+	/// Widget that is used for displaying the applet's tooltip
+	GtkWidget						*tooltip_widget_;
 	/// Shall the popup be forced on the next update?
 	gboolean						force_popup_;
 public:
@@ -79,7 +81,7 @@ public:
 	void show_dialog_about (void);
 	void hide_dialog_about (void);
 	gboolean visible_dialog_popup (void);
-	void tooltip_update (GtkWidget *widget);
+	void tooltip_update (void);
 };
 
 #endif
