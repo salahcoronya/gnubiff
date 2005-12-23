@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/12/20 22:56:57 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/12/20 23:48:32 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -59,6 +59,12 @@ public:
 	AppletGUI (class Biff *biff, std::string filename, gpointer callbackdata);
 	virtual ~AppletGUI (void);
 	virtual void start (gboolean showpref = false);
+
+	// ========================================================================
+	//  tools
+	// ========================================================================
+	gboolean get_image_size (std::string widget_image, guint &width,
+							 guint &height);
 
 	// ========================================================================
 	//  main

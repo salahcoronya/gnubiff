@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/12/20 23:48:32 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2005/12/23 00:49:53 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -304,6 +304,14 @@ AppletSystray::show (std::string name)
 void 
 AppletSystray::resize (gint width, gint height)
 {
+	// Get image's current size
+	guint ic_width = 0, ic_height = 0;
+	get_image_size ("image", ic_width, ic_height);
+
+	// Do we need to have the image rescaled?
+	if ((ic_width != width) || (ic_height != height)) {
+		// TODO
+	}
 }
 
 // ============================================================================
