@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2005/12/23 11:00:11 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2005/12/23 13:00:58 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -309,10 +309,11 @@ AppletSystray::resize (guint width, guint height)
 	get_image_size ("image", ic_width, ic_height);
 
 	// Do we need to have the image rescaled?
-	if ((ic_width != width) || (ic_height != height)) {
+	if (((ic_width != width) || (ic_height > height))
+		&& ((ic_width > width) || (ic_height != height))) {
 		widget_max_width_ = width;
 		widget_max_height_ = height;
-//		update (); 
+		update (); 
 	}
 }
 
