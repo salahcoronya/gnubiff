@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/12/20 23:48:32 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/12/23 11:00:12 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -65,6 +65,8 @@ public:
 	// ========================================================================
 	gboolean get_image_size (std::string widget_image, guint &width,
 							 guint &height);
+	gboolean resize_image (std::string widget_image, guint max_width=G_MAXUINT,
+						   guint max_height=G_MAXUINT);
 
 	// ========================================================================
 	//  main
