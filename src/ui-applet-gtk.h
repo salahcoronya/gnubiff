@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.h,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/12/20 23:48:32 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/12/23 00:49:53 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -75,7 +75,7 @@ class AppletSystray : public AppletGtk {
 	//  main
 	// ========================================================================
 	void show (std::string name = "dialog");
-	void resize (gint width, gint height);
+	void resize (guint width, guint height);
 
 	// ========================================================================
 	//  callbacks
