@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2005/12/20 22:56:57 $
+// Revision      : $Revision: 1.37 $
+// Revision date : $Date: 2005/12/25 23:37:51 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -488,7 +488,7 @@ Gnubiff_Options::add_options_mailbox (void)
 		"access and modified time if this option is set to true.\n"
 		"Note: Setting this option to true may result in some new mails not "
 		"being noticed because of race conditions.\n"
-		"This option is used for the file protocols only.",
+		"This option is used for the file protocol only.",
 								 false));
 	// FILE_FAM_ENABLE
 	add_option (new Option_Bool ("file_fam_enable", OPTGRP_MAILBOX,
@@ -496,7 +496,7 @@ Gnubiff_Options::add_options_mailbox (void)
 		"like GAMIN)? If this option is set to false, polling will be used "
 		"instead. The time between two checks is determined by the "
 		"\"delay\" option of this mailbox.\n"
-		"This option is used for the file protocols only.",
+		"This option is used for the local protocols only.",
 								 true));
 }
 
