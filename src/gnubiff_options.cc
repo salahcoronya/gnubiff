@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.35 $
-// Revision date : $Date: 2005/12/19 22:25:45 $
+// Revision      : $Revision: 1.36 $
+// Revision date : $Date: 2005/12/20 22:56:57 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -374,7 +374,7 @@ Gnubiff_Options::add_options_mailbox (void)
 								   "name_entry"));
 	// DELAY
 	add_option (new Option_UInt ("delay", OPTGRP_MAILBOX,
-		"Time interval between mail checks for network mailboxes when "
+		"Time interval between mail checks for mailboxes that use "
 		"polling (in seconds).",
 								 180, OPTFLG_CHANGE));
 	// DELAY_MINUTES
@@ -488,8 +488,16 @@ Gnubiff_Options::add_options_mailbox (void)
 		"access and modified time if this option is set to true.\n"
 		"Note: Setting this option to true may result in some new mails not "
 		"being noticed because of race conditions.\n"
-		"This option is used for the file protocol only.",
+		"This option is used for the file protocols only.",
 								 false));
+	// FILE_FAM_ENABLE
+	add_option (new Option_Bool ("file_fam_enable", OPTGRP_MAILBOX,
+		"Shall the mailbox be monitored by the FAM demon (or a substitution "
+		"like GAMIN)? If this option is set to false, polling will be used "
+		"instead. The time between two checks is determined by the "
+		"\"delay\" option of this mailbox.\n"
+		"This option is used for the file protocols only.",
+								 true));
 }
 
 /// Add options for the appearance of the popup
