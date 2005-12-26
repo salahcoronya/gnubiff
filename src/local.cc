@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2005/07/07 20:12:21 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2005/12/25 23:37:51 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -165,6 +165,26 @@ Local::fam_close (void)
 		FAMClose (&fam_connection_);
 		fam_is_open_ = false;
 	}
+	g_mutex_unlock (fam_mutex_);
+}
+
+
+/**
+ * Get all pending FAM events.
+ *
+ * Note: Depending on how this function
+ * was called this call may result in some new messages not being
+ * noticed because of race conditions.
+ */
+
+void 
+Local::fam_get_all_pending_events (void)
+{
+	g_mutex_lock (fam_mutex_);
+	if (fam_is_open_)
+		while (FAMPending (&fam_connection_))
+			if (FAMNextEvent (&fam_connection_, &fam_event_) < 0)
+					break;
 	g_mutex_unlock (fam_mutex_);
 }
 
