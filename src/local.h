@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/06/30 21:01:44 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/12/26 10:50:42 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -94,7 +94,10 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================
-	void start (void);								// start method
+	void start (void);
+	void start_fam_monitoring (void);
+	void fam_close (void);
+	void fam_get_all_pending_events (void);
 	void fam_monitoring (void) throw (local_err);
 	void stop (void);								// stop method
 	virtual std::string file_to_monitor (void);
