@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.59 $
-// Revision date : $Date: 2005/12/18 23:58:03 $
+// Revision      : $Revision: 1.60 $
+// Revision date : $Date: 2005/12/20 22:56:57 $
 // Author(s)     : Nicolas Rougier
 // Short         : 
 //
@@ -42,18 +42,19 @@
 #  include "ui-applet-gnome.h"
 #endif
 
+#include "apop.h"
 #include "biff.h"
-#include "ui-applet-gtk.h"
-#include "mailbox.h"
 #include "file.h"
+#include "imap4.h"
+#include "mailbox.h"
 #include "maildir.h"
 #include "mh.h"
 #include "mh_basic.h"
 #include "mh_sylpheed.h"
-#include "imap4.h"
 #include "pop3.h"
-#include "apop.h"
 #include "signals.h"
+#include "ui-applet-gtk.h"
+#include "ui-applet-systray.h"
 
 // ============================================================================
 //  "C" binding
