@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2005 Nicolas Rougier
+// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_basic.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/04/06 22:49:21 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2005/04/13 12:01:03 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Base class for all local protocols similar to mh
 //

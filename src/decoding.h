@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2005 Nicolas Rougier
+// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2005/04/04 22:08:28 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2005/04/25 23:20:25 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //

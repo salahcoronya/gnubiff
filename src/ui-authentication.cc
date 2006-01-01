@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-authentication.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

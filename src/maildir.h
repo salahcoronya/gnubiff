@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: maildir.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/04/13 12:48:58 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

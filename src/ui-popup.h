@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/10/03 15:17:51 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2005/11/06 23:24:50 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

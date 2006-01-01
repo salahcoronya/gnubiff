@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.h,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2005/04/12 14:40:52 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

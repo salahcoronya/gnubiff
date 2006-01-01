@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2005/01/08 18:34:10 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2005/01/13 23:35:26 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

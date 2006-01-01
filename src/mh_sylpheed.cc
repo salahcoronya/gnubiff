@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2005 Nicolas Rougier
+// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mh_sylpheed.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/04/13 12:01:03 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/04/13 16:10:08 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Mh protocol as used by Sylpheed
 //

@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/12/20 21:31:46 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2005/12/20 23:48:32 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

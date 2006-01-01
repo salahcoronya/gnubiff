@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-certificate.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2004/12/15 08:31:16 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

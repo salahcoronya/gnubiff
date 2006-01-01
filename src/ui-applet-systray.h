@@ -18,10 +18,10 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile: ui-applet-gtk.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/12/23 13:00:58 $
-// Author(s)     : Nicolas Rougier
+// File          : $RCSfile: ui-applet-systray.h,v $
+// Revision      : $Revision: 1.1 $
+// Revision date : $Date: 2005/12/29 00:34:43 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

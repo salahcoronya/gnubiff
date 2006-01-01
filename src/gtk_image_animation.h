@@ -18,10 +18,10 @@
 // 02111-1307, USA.
 // ========================================================================
 //
-// File          : $RCSfile$
-// Revision      : $Revision$
-// Revision date : $Date$
-// Author(s)     : Nicolas Rougier
+// File          : $RCSfile: gtk_image_animation.h,v $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2004/12/03 17:13:39 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

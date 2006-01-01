@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2005/06/23 20:12:05 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.

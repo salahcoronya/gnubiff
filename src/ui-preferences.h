@@ -19,9 +19,9 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.h,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2005/02/06 21:01:16 $
-// Author(s)     : Nicolas Rougier
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2005/10/03 15:17:51 $
+// Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
 // This file is part of gnubiff.
