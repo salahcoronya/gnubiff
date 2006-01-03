@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2005/07/17 14:28:28 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -123,6 +123,28 @@ Options::add_option (Options &options)
 	}
 
 	return ok;
+}
+
+/**
+ *  Remove all options that are flagged by {\em flags} from the set of
+ *  options.
+ *  
+ *  @param  flags  Flags for determining the options to be removed.
+ *  @return        Always true.
+ */
+gboolean 
+Options::remove_options (guint flags)
+{
+	iterator opt = options_.begin ();
+
+	while (opt != options_.end ()) {
+		Option *option = opt->second;
+		if (option && ((option->flags () & flags) == flags))
+			options_.erase (opt++);
+		else
+			opt++;
+	}
+	return true;
 }
 
 /**

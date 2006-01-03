@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/12/19 22:11:05 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -87,6 +87,8 @@ Option::flags_string (std::string sep)
 		result += "option is a list" + sep;
 	if (flags_ & OPTFLG_NOSHOW)
 		result += "option is not to be shown" + sep;
+	if (flags_ & OPTFLG_DEPRECATED)
+		result += "option is deprecated" + sep;
 	return result.substr (0, result.size()-sep.size());
 }
 

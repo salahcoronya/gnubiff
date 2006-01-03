@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2005/07/17 14:09:16 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -58,6 +58,7 @@ public:
 	gboolean add_group (Option_Group *group);
 	gboolean add_option (Option *option);
 	gboolean add_option (Options &options);
+	gboolean remove_options (guint flags);
 	Option *find_option (const std::string &name,OptionType type=OPTTYPE_NONE);
 
 	gboolean reset (const std::string &name, gboolean respect_change = true);

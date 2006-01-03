@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.83 $
-// Revision date : $Date: 2005/12/04 19:10:37 $
+// Revision      : $Revision: 1.84 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -59,25 +59,25 @@ Mailbox::Mailbox (Biff *biff)
 	stopped_ = false;
 
 	// Add options
-	add_options (OPTGRP_MAILBOX);
+	add_options (OPTGRP_MAILBOX, !biff_->value_bool ("config_file_loaded"));
 
 	// Set session specific options
 	value ("uin", uin_count_++);
 
 	timetag_ = 0;
-	mutex_ = g_mutex_new();
-	monitor_mutex_ = g_mutex_new();
+	mutex_ = g_mutex_new ();
+	monitor_mutex_ = g_mutex_new ();
 }
 
 Mailbox::Mailbox (const Mailbox &other)
 {
-	biff_			  = other.biff_;
+	biff_ = other.biff_;
 	add_option ((Mailbox &)other);
 
 	status (MAILBOX_UNKNOWN);
 	timetag_= 0;
-	mutex_ = g_mutex_new();
-	monitor_mutex_ = g_mutex_new();
+	mutex_ = g_mutex_new ();
+	monitor_mutex_ = g_mutex_new ();
 }
 
 Mailbox &

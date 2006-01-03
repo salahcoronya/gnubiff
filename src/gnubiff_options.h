@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/12/20 22:56:57 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -90,14 +90,16 @@ const guint OPTGRP_SECURITY		=	32;
 class Gnubiff_Options : public Options {
 public:
 protected:
-	void add_options (guint groups);
-	void add_options_applet (void);
-	void add_options_general (void);
-	void add_options_information (void);
-	void add_options_mailbox (void);
-	void add_options_popup (void);
-	void add_options_security (void);
+	void add_options (guint groups, gboolean deprecated = false);
+
 private:
+	void add_options_applet (gboolean deprecated);
+	void add_options_general (gboolean deprecated);
+	void add_options_information (gboolean deprecated);
+	void add_options_mailbox (gboolean deprecated);
+	void add_options_popup (gboolean deprecated);
+	void add_options_security (gboolean deprecated);
+
 	const static guint protocol_int[];
 	const static gchar *protocol_gchar[];
 };
