@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.cc,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2006/01/03 22:53:58 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -129,7 +129,9 @@ Options::add_option (Options &options)
  *  Remove all options that are flagged by {\em flags} from the set of
  *  options.
  *  
- *  @param  flags  Flags for determining the options to be removed.
+ *  @param  flags  Flags for determining the options to be removed. It is
+ *                 sufficient for an option to be removed if it has one of the
+ *                 flags in {\em flags}.
  *  @return        Always true.
  */
 gboolean 
