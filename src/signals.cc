@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.2 $
-// Revision date : $Date: 2005/12/19 23:19:04 $
+// Revision      : $Revision: 1.3 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -52,6 +52,8 @@ Signals::init_signals (class Biff *biff)
 	if (signal (SIGUSR1, Signals::signal_handler) == SIG_ERR)
 		return false;
 	if (signal (SIGUSR2, Signals::signal_handler) == SIG_ERR)
+		return false;
+	if (signal (SIGBUS, Signals::signal_handler) == SIG_ERR)
 		return false;
 	if (signal (SIGFPE, Signals::signal_handler) == SIG_ERR)
 		return false;
@@ -86,12 +88,18 @@ Signals::signal_handler (int signum)
 	case SIGUSR2:
 		cmd = biff_->value_uint ("signal_sigusr2");
 		break;
-	case SIGFPE:
-	case SIGILL:
-	case SIGSEGV:
-		Support::unknown_internal_error_ (NULL, 0, NULL, signum);
+	case SIGBUS:
+		Support::unknown_internal_error_ (NULL, 0, NULL, "SIGBUS");
 		exit (EXIT_FAILURE);
-		break;
+	case SIGFPE:
+		Support::unknown_internal_error_ (NULL, 0, NULL, "SIGFPE");
+		exit (EXIT_FAILURE);
+	case SIGILL:
+		Support::unknown_internal_error_ (NULL, 0, NULL, "SIGILL");
+		exit (EXIT_FAILURE);
+	case SIGSEGV:
+		Support::unknown_internal_error_ (NULL, 0, NULL, "SIGSEGV");
+		exit (EXIT_FAILURE);
 	default:
 		return;
 	}

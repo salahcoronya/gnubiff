@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2005/12/19 23:19:04 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -306,7 +306,7 @@ Support::path_get_dirname (const std::string &path)
  */
 void 
 Support::unknown_internal_error_ (const gchar *file, guint line,
-								  const gchar *func, gint signal)
+								  const gchar *func, const gchar *signal)
 {
 	std::stringstream ss;
 	utsname uts;

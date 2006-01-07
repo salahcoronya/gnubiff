@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2005/12/19 23:19:04 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -76,7 +76,8 @@ public:
 
 	// Debugging
 	static void unknown_internal_error_ (const gchar *file, guint line,
-										 const gchar *func, gint signal);
+										 const gchar *func,
+										 const gchar *signal);
 };
 
 /**
@@ -139,6 +140,6 @@ Support::vector_to_numbersequence (Iter start, Iter end, const std::string sep,
  *  Print debug information. This function should be called in a situation
  *  that should never happen to provide more information in a bug report.
  */
-#define unknown_internal_error() (Support::unknown_internal_error_ (__FILE__, __LINE__, __func__, 0))
+#define unknown_internal_error() (Support::unknown_internal_error_ (__FILE__, __LINE__, __func__, ""))
 
 #endif
