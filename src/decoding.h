@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.h,v $
-// Revision      : $Revision: 1.17 $
-// Revision date : $Date: 2006/01/01 16:44:52 $
+// Revision      : $Revision: 1.18 $
+// Revision date : $Date: 2006/01/06 21:29:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -88,11 +88,9 @@ protected:
 	gchar *charset_to_utf8 (std::string text, std::string charset);
 
 public:
-	// Password
-	static std::string encrypt_password (const std::string &password,
-										 const std::string &passtable);
-	static std::string decrypt_password (const std::string &password,
-										 const std::string &passtable);
+	// Decryption/Encryption
+	static std::string decrypt_password_legacy (const std::string &passphrase,
+												const std::string &password);
 	static std::string decrypt_aes (const std::string &passphrase,
 									const std::string &data);
 	static std::string encrypt_aes (const std::string &passphrase,
