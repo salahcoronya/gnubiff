@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2005/12/20 22:56:57 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -185,17 +185,6 @@ int main (int argc, char **argv) {
 }
 
 #ifdef USE_GNOME
-static gboolean gnubiff_applet_factory (PanelApplet *applet, const gchar *iid,
-										gpointer data)
-{
-	if (!strcmp (iid, "OAFIID:GNOME_gnubiffApplet")) {
-		Biff *biff = new Biff (MODE_GNOME);
-		AppletGnome *biffapplet = (AppletGnome *)biff->applet();
-		biffapplet->dock ((GtkWidget *) applet);
-		biffapplet->start (false);
-	}
-	return true;
-}
 
 int mainGNOME (int argc, char **argv) {
 #if defined(PREFIX) && defined(SYSCONFDIR) && defined(DATADIR) && defined(LIBDIR)
@@ -207,7 +196,8 @@ int mainGNOME (int argc, char **argv) {
 #endif
 
 	panel_applet_factory_main ("OAFIID:GNOME_gnubiffApplet_Factory",
-							   PANEL_TYPE_APPLET, gnubiff_applet_factory, 0);
+							   PANEL_TYPE_APPLET,
+							   AppletGnome::gnubiff_applet_factory, 0);
 
 	return 0;
 }

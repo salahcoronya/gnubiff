@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2005/12/20 23:48:32 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -64,6 +64,8 @@ public:
 	//  callbacks
 	// ========================================================================
 	gboolean on_button_press (GdkEventButton *event);
+	static gboolean gnubiff_applet_factory (PanelApplet *applet,
+											const gchar *iid, gpointer data);
 };
 
 #endif
