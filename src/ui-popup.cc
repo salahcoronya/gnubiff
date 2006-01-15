@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2005/12/04 19:10:37 $
+// Revision      : $Revision: 1.37 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -519,9 +519,12 @@ Popup::on_select (GtkTreeSelection *selection)
 		g_free (markup);
 
 		// Body
-		text = charset_to_utf8 (selected_header_.body(), selected_header_.charset());
+		text = charset_to_utf8 (selected_header_.body(),
+								selected_header_.charset(),
+								biff_->value_uint ("popup_convert_retries"));
 		if (text) {
-			gtk_text_buffer_insert_with_tags_by_name (buffer, &iter, text, -1, "normal", NULL);
+			gtk_text_buffer_insert_with_tags_by_name (buffer, &iter, text, -1,
+													  "normal", NULL);
 			g_free (text);
 		}
 	}
