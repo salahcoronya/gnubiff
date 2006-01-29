@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/12/23 13:00:58 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -445,7 +445,7 @@ AppletGUI::mailbox_to_be_replaced (class Mailbox *from, class Mailbox *to)
 gboolean 
 AppletGUI::can_monitor_mailboxes (void)
 {
-	return !(visible_dialog_popup ());
+	return !(visible_dialog_preferences ());
 }
 
 /**
