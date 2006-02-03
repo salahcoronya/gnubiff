@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.129 $
-// Revision date : $Date: 2005/11/13 21:42:48 $
+// Revision      : $Revision: 1.130 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -129,11 +129,8 @@ Imap4::start (void)
 #if DEBUG
 		g_warning ("[%d] Imap exception: %s", uin(), err.what());
 #endif
-		if (err.is_mailboxerror()) {
-			status (MAILBOX_ERROR);
-			unread_.clear ();
-			seen_.clear ();
-		}
+		if (err.is_mailboxerror())
+			set_status_mailbox_error ();
 		socket_->close ();
 
 		idled_ = false;

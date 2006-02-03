@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2005/11/13 21:42:48 $
+// Revision      : $Revision: 1.33 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -115,9 +115,7 @@ Pop::start (void) throw (pop_err)
 #if DEBUG
 		g_warning ("[%d] Pop exception: %s", uin(), err.what());
 #endif
-		status (MAILBOX_ERROR);
-		unread_.clear ();
-		seen_.clear ();
+		set_status_mailbox_error ();
 		socket_->close ();
 	}
 

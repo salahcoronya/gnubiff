@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.85 $
-// Revision date : $Date: 2006/01/03 22:53:58 $
+// Revision      : $Revision: 1.86 $
+// Revision date : $Date: 2006/01/07 22:35:22 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -1012,6 +1012,23 @@ Mailbox::start_checking (void)
 	// Fetch mails and update status
 	fetch ();
 	update_mailbox_status ();
+}
+
+/**
+ *  Set the mailbox status into error state. Also resets the read status of
+ *  all messages if the corresponding mailbox option is set to true.
+ */
+void 
+Mailbox::set_status_mailbox_error (void)
+{
+	// Set mailbox status
+	status (MAILBOX_ERROR);
+
+	// Reset read status of messages if wanted by the user
+	if (value_bool ("error_reset_msgs")) {
+		unread_.clear ();
+		seen_.clear ();
+	}
 }
 
 /**

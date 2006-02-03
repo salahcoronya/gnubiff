@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2006/01/08 09:48:24 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -105,9 +105,7 @@ Local::start (void)
 #if DEBUG
 			g_warning ("[%d] Local mailbox exception: %s", uin(), err.what());
 #endif
-			status (MAILBOX_ERROR);
-			unread_.clear ();
-			seen_.clear ();
+			set_status_mailbox_error ();
 		}
 	}
 

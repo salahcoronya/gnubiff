@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.55 $
-// Revision date : $Date: 2005/12/04 19:10:37 $
+// Revision      : $Revision: 1.56 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -148,6 +148,7 @@ public:
 	gboolean new_mail (std::string &);
 	void update_mailbox_status (void);
 	void start_checking (void);
+	void set_status_mailbox_error (void);
 	void mail_displayed (void);
 	void parse (std::vector<std::string> &mail,
 				std::string uid = std::string(""),

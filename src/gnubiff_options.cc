@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.42 $
-// Revision date : $Date: 2006/01/08 09:48:24 $
+// Revision      : $Revision: 1.43 $
+// Revision date : $Date: 2006/01/15 21:40:42 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -533,6 +533,12 @@ Gnubiff_Options::add_options_mailbox (gboolean deprecated)
 		"\"delay\" option of this mailbox.\n"
 		"This option is used for the local protocols only.",
 								 true));
+	// ERROR_RESET_MSGS
+	add_option (new Option_Bool ("error_reset_msgs", OPTGRP_MAILBOX,
+		"Shall the read status of all messages be reset to unread if there is "
+		"a failure in retrieving the mailbox's messages? This results in all "
+		"messages be presented as new once messages can be obtained again.",
+								 false));
 	if (!deprecated)
 		return;
 }
