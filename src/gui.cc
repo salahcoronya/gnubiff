@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.cc,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2005/10/03 15:17:51 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -215,7 +215,10 @@ GUI::create (gpointer callbackdata)
  *  Insert version and date information into certain widgets. For widgets
  *  called "gnubiff" (if existing) the following substitutions are made:
  *  "%v" is substituted by the version number, "%c" is substituted by "CVS" if
- *  it's a cvs version of gnubiff and "" otherwise..
+ *  it's a cvs version of gnubiff and "" otherwise.
+ *
+ *  The version information for the about dialog is also set if this dialog
+ *  is present.
  */
 void 
 GUI::create_insert_version (void)
@@ -237,7 +240,15 @@ GUI::create_insert_version (void)
 		if (!text)
 			continue;
 		std::string newtext = substitute (text, chars, toinsert);
-		gtk_label_set_label (label, newtext.c_str());
+		gtk_label_set_label (label, newtext.c_str ());
+	}
+
+	// About dialog
+	GtkAboutDialog *about;
+	about = GTK_ABOUT_DIALOG (glade_xml_get_widget (xml_, "gnubiffabout"));
+	if (about) {
+		std::string newtext = substitute ("%v %c", chars, toinsert);
+		gtk_about_dialog_set_version (about, newtext.c_str ());
 	}
 }
 

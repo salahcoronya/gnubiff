@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.29 $
-// Revision date : $Date: 2005/12/29 00:34:43 $
+// Revision      : $Revision: 1.30 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -107,14 +107,6 @@ extern "C" {
 	{
 		if (data)
 			((AppletGtk *) data)->on_menu_quit ();
-		else
-			unknown_internal_error ();
-	}
-
-	void APPLET_GTK_on_hide_about (GtkWidget *widget, gpointer data)
-	{
-		if (data)
-			((AppletGtk *) data)->hide_dialog_about ();
 		else
 			unknown_internal_error ();
 	}

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2006/01/29 19:32:20 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -394,7 +394,7 @@ AppletGUI::show_dialog_about (void)
 	preferences_->hide();
 
 	// Show the dialog
-	GUI::show ("about");
+	GUI::show ("gnubiffabout");
 }
 
 /**
@@ -403,7 +403,7 @@ AppletGUI::show_dialog_about (void)
 void 
 AppletGUI::hide_dialog_about (void)
 {
-	GUI::hide ("about");
+	GUI::hide ("gnubiffabout");
 }
 
 /**
