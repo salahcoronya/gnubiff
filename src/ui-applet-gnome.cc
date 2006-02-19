@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2006/01/13 19:47:33 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -129,6 +129,16 @@ extern "C" {
 			unknown_internal_error ();
 	}
 
+	void APPLET_GNOME_on_menu_info (BonoboUIComponent *uic,
+									gpointer data,
+									const gchar *verbname)
+	{
+		if (data)
+			((AppletGnome *) data)->show_dialog_about ();
+		else
+			unknown_internal_error ();
+	}
+
 	gboolean APPLET_GNOME_reconnect (gpointer data)
 	{
 		if (data) {
@@ -164,6 +174,7 @@ AppletGnome::dock (GtkWidget *applet)
 		BONOBO_UI_VERB ("Props",   APPLET_GNOME_on_menu_properties),
 		BONOBO_UI_VERB ("MailApp", APPLET_GNOME_on_menu_command),
 		BONOBO_UI_VERB ("MailRead", APPLET_GNOME_on_menu_mail_read),
+		BONOBO_UI_VERB ("Info", APPLET_GNOME_on_menu_info),
 		BONOBO_UI_VERB_END
 	};
  
