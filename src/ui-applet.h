@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.22 $
-// Revision date : $Date: 2005/12/20 21:31:46 $
+// Revision      : $Revision: 1.23 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -68,6 +68,7 @@ public:
 	/// @see AppletGUI::get_password_for_mailbox ()
 	virtual void get_password_for_mailbox (class Mailbox *mb) {};
 	virtual gboolean can_monitor_mailboxes (void);
+	virtual void enable_popup (gboolean enable);
 };
 
 #endif

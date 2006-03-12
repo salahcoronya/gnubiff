@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2005/12/23 13:00:58 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -94,8 +94,11 @@ public:
 	gboolean visible_dialog_preferences (void);
 	void show_dialog_about (void);
 	void hide_dialog_about (void);
+	void show_dialog_popup (void);
+	void hide_dialog_popup (void);
 	gboolean visible_dialog_popup (void);
 	void tooltip_update (void);
+	void enable_popup (gboolean enable);
 };
 
 #endif

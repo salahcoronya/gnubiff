@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.37 $
-// Revision date : $Date: 2005/12/20 21:31:46 $
+// Revision      : $Revision: 1.38 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -252,4 +252,17 @@ gboolean
 Applet::can_monitor_mailboxes (void)
 {
 	return true;
+}
+
+/**
+ *  Enable or disable the popup dialog.
+ *
+ *  @param  enable Boolean that indicates whether to enable (if true) or
+ *                 disable (if false) the popup.
+ */
+void 
+Applet::enable_popup (gboolean enable)
+{
+	// Change the value
+	biff_->value ("use_popup", enable);
 }

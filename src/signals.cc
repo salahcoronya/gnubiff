@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2006/01/07 22:43:34 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2006/03/11 23:23:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -119,10 +119,13 @@ Signals::signal_handler (int signum)
 		biff_->stop_monitoring ();
 		break;
 	case SIGNAL_POPUP_ENABLE:
+		biff_->applet()->enable_popup (true);
 		break;
 	case SIGNAL_POPUP_DISABLE:
+		biff_->applet()->enable_popup (false);
 		break;
 	case SIGNAL_POPUP_TOGGLE:
+		biff_->applet()->enable_popup (!biff_->value_bool ("use_popup"));
 		break;
 	}
 }
