@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2006/01/01 16:44:52 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2006/01/13 19:47:33 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -35,15 +35,15 @@
 #include <popt.h>
 
 #ifdef USE_GNOME
-#  include <gnome.h>
-#  include <panel-applet.h>
+#	include <gnome.h>
+#	include <panel-applet.h>
+#	include "ui-applet-gnome.h"
 #endif
 
 #include "biff.h"
 #include "nls.h"
 #include "ui-preferences.h"
 #include "ui-applet.h"
-#include "ui-applet-gnome.h"
 #include "ui-applet-gtk.h"
 
 int main (int argc, char **argv);
