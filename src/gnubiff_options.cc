@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.45 $
-// Revision date : $Date: 2006/03/11 23:23:52 $
+// Revision      : $Revision: 1.46 $
+// Revision date : $Date: 2006/04/06 21:16:08 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -536,6 +536,8 @@ Gnubiff_Options::add_options_mailbox (gboolean deprecated)
 		"like GAMIN)? If this option is set to false, polling will be used "
 		"instead. The time between two checks is determined by the "
 		"\"delay\" option of this mailbox.\n"
+		"Note: If no support for FAM is compiled into the gnubiff binary "
+        "this option is ignored and polling is always used.\n"
 		"This option is used for the local protocols only.",
 								 true));
 	// ERROR_RESET_MSGS
