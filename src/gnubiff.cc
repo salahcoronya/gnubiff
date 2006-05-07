@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.24 $
-// Revision date : $Date: 2006/01/13 19:47:33 $
+// Revision      : $Revision: 1.25 $
+// Revision date : $Date: 2006/04/06 21:16:08 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -167,6 +167,9 @@ int main (int argc, char **argv) {
 		biff = new Biff (ui_mode, config_file);
 	else
 		biff = new Biff (ui_mode);
+
+	// Decide whether the preferences dialog shall be shown now
+	no_configure = no_configure || !biff->value_bool ("startup_preferences");
 
 	// Start applet
 	biff->applet()->start (!no_configure);

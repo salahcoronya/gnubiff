@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.46 $
-// Revision date : $Date: 2006/04/06 21:16:08 $
+// Revision      : $Revision: 1.47 $
+// Revision date : $Date: 2006/04/22 12:56:14 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -304,6 +304,11 @@ Gnubiff_Options::add_options_general (gboolean deprecated)
 		"SIGNAL_SIGUSR1.",
 								 SIGNAL_NONE,
 								 OPTFLG_ID_INT_STRICT, i7,s7));
+	// STARTUP_PREFERENCES
+	add_option (new Option_Bool ("startup_preferences", OPTGRP_GENERAL,
+		"Shall the preferences dialog be shown when starting gnubiff? "
+		"This option is ignored in gnome mode.",
+								 true));
 	if (!deprecated)
 		return;
 }
