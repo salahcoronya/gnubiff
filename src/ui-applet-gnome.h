@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2006/01/13 19:47:33 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -59,7 +59,8 @@ public:
 	gboolean update (gboolean init = false);
 	void show (std::string name = "dialog");
 	void hide (std::string name = "dialog");
-
+	gboolean calculate_size (GtkAllocation *allocation);
+			
 	// ========================================================================
 	//  callbacks
 	// ========================================================================
