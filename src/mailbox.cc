@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.87 $
-// Revision date : $Date: 2006/02/03 22:41:20 $
+// Revision      : $Revision: 1.88 $
+// Revision date : $Date: 2006/07/23 18:53:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -1220,7 +1220,6 @@ Mailbox::filter_add (std::vector<std::string> &regex_strs)
 gboolean 
 Mailbox::filter_create (void)
 {
-  g_message ("#####");
 	gboolean ok = true;
 	g_mutex_lock (mutex_);
 
