@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.8 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.9 $
+// Revision date : $Date: 2006/01/03 22:53:58 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -79,6 +79,9 @@ public:
 						 const std::set<std::string> &values,
 						 gboolean empty = true,gboolean respect_change = true);
 	gboolean get_values (const std::string &name, std::set<std::string> &var,
+						 gboolean empty = true,gboolean respect_update = true);
+	gboolean get_values (const std::string &name,
+						 std::vector<std::string> &var,
 						 gboolean empty = true,gboolean respect_update = true);
 	const std::string value_to_string (const std::string &name, guint val);
 	std::string to_string (const std::string &name,

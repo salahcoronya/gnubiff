@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.56 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.57 $
+// Revision date : $Date: 2006/02/03 22:41:20 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -35,9 +35,10 @@
 #ifdef HAVE_CONFIG_H
 #   include <config.h>
 #endif
-#include <glib.h>
 #include <functional>
+#include <glib.h>
 #include <map>
+#include <regex.h>
 #include <set>
 #include <string>
 #include "biff.h"
@@ -164,6 +165,23 @@ public:
 	void get_message_headers (std::vector<Header *> &headers,
 							  gboolean use_max_num = false, guint max_num = 0,
 							  gboolean empty = false);
+
+	// ========================================================================
+	//  filtering
+	// ========================================================================
+
+private:
+	/// Compiled regular expressions for filtering messages by header lines
+	std::vector<regex_t *> filter_regex_;
+	/// Options for each regular expression
+	std::vector<std::string> filter_opts_;
+
+	gboolean filter_add (std::vector<std::string> &regex_strs);
+	void filter_free (void);
+	gboolean filter_match_line (std::string line, gboolean &status);
+
+public:
+	gboolean filter_create (void);
 
 	// ========================================================================
 	//  access

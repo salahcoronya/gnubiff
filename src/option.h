@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: option.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2006/01/03 22:53:58 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : One option for gnubiff
 //
@@ -235,6 +235,7 @@ public:
 
 	void set_values (const std::set<std::string> &values, gboolean empty=true);
 	void get_values (std::set<std::string> &values, gboolean empty = true);
+	void get_values (std::vector<std::string> &values, gboolean empty = true);
 	void get_vector (std::vector<guint> &vector, gchar sep = ' ',
 					 gboolean empty = true);
 

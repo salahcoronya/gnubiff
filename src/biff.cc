@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.63 $
-// Revision date : $Date: 2006/01/03 22:53:58 $
+// Revision      : $Revision: 1.64 $
+// Revision date : $Date: 2006/01/07 22:35:22 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -546,6 +546,14 @@ Biff::option_changed (Option *option)
 	// UI_MODE
 	if (option->name() == "ui_mode") {
 		value ("gtk_mode", ((Option_UInt *)option)->value() == MODE_GTK);
+		return;
+	}
+
+	// FILTER_GLOBAL_FIRST, FILTER_GLOBAL_LAST
+	if ((option->name() == "filter_global_first")
+		|| (option->name() == "filter_global_last")) {
+		for (unsigned int i = 0; i < mailbox_.size (); i++)
+			mailbox_[i]->filter_create ();
 		return;
 	}
 }
