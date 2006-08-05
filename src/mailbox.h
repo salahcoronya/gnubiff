@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.57 $
-// Revision date : $Date: 2006/02/03 22:41:20 $
+// Revision      : $Revision: 1.58 $
+// Revision date : $Date: 2006/07/23 18:53:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -154,7 +154,7 @@ public:
 	void parse (std::vector<std::string> &mail,
 				std::string uid = std::string(""),
 				class PartInfo *pi = NULL, class Header *hh = NULL,
-				guint pos = 0);
+				guint pos = 0, gboolean status = true);
 	guint static standard_port (guint protocol, guint auth,
 								gboolean strict = true);
 
