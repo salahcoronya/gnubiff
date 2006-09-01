@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2006/04/22 13:57:29 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -53,12 +53,14 @@ const gboolean use_fam = 0;
 class Local : public Mailbox {
 
 protected:
+#ifdef HAVE_FAM_H
 	// ========================================================================
 	//  monitoring stuff (using FAM, File Alteration Monitor)
 	// ========================================================================
 	FAMConnection   fam_connection_;
 	FAMRequest      fam_request_;
 	FAMEvent        fam_event_;
+#endif
 	/**
 	 *  This boolean indicates whether a FAM connection is being open or not.
 	 *  It must only be read or changed when the fam_mutex_ is locked by the
