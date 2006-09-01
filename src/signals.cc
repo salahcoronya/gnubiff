@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2006/03/11 23:23:52 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2006/03/12 21:10:29 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -61,6 +61,8 @@ Signals::init_signals (class Biff *biff)
 		return false;
 	if (signal (SIGSEGV, Signals::signal_handler) == SIG_ERR)
 		return false;
+	if (signal (SIGPIPE, Signals::signal_handler) == SIG_ERR)
+		return false;
 
 	return true;
 }
@@ -100,6 +102,11 @@ Signals::signal_handler (int signum)
 	case SIGSEGV:
 		Support::unknown_internal_error_ (NULL, 0, NULL, "SIGSEGV");
 		exit (EXIT_FAILURE);
+	case SIGPIPE:
+#ifdef DEBUG
+		g_message ("Ignored SIGPIPE signal");
+#endif
+		return;
 	default:
 		return;
 	}
