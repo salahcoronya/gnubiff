@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.90 $
-// Revision date : $Date: 2006/07/30 19:20:39 $
+// Revision      : $Revision: 1.91 $
+// Revision date : $Date: 2006/08/05 09:13:09 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -30,6 +30,7 @@
 // ========================================================================
 
 #include <algorithm>
+#include <sys/types.h>
 #include <regex.h>
 #include "support.h"
 #include "mailbox.h"
