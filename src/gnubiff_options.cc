@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.49 $
-// Revision date : $Date: 2006/07/23 18:53:48 $
+// Revision      : $Revision: 1.50 $
+// Revision date : $Date: 2006/07/23 18:56:30 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -298,7 +298,7 @@ Gnubiff_Options::add_options_general (gboolean deprecated)
 		"FOLDER\\ INTERNAL\\ DATA",
 								   OPTFLG_CHANGE | OPTFLG_STRINGLIST));
 	// FILTER_GLOBAL_LAST
-	add_option (new Option_String ("filter_global_first", OPTGRP_GENERAL,
+	add_option (new Option_String ("filter_global_last", OPTGRP_GENERAL,
 		"Space separated list of regular expressions (as defined in "
 		"POSIX 1003.2) used for filtering the header lines of obtained "
         "messages in each mailbox. The regular expressions are processed in "
