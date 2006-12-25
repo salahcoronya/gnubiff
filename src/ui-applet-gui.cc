@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2006/02/12 17:52:09 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2006/03/12 21:10:29 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -71,6 +71,10 @@ AppletGUI::AppletGUI (Biff *biff, std::string filename, gpointer callbackdata)
 
 	// Create authentication dialog
 	ui_auth_ = new Authentication ();
+
+	// Connect signal for close button in about dialog (needed for gtk >=2.10)
+	g_signal_connect (get ("gnubiffabout"), "response",
+					  G_CALLBACK (gtk_widget_hide), get ("gnubiffabout"));
 }
 
 /// Destructor
