@@ -1,0 +1,31 @@
+
+Version 2.2.x:
+--------------
+
+To do:
+
+- Uniformize functions comments (I really liked your way of commenting
+  functions Robert so I will try to do that for remaining sources)
+- Cleanup Mailbox::parse()
+- Cleanup Options::update_gui()
+- Fix bugs ;-)
+
+Version 2.x.0:
+--------------
+
+* Summary instead of immediate notification (see RFE on sourceforge)
+* Make error handling when reading/parsing mail more consistent. At the moment
+  sometimes no warning is printed, always a warning is printed or a warning is
+  printed in debug mode. Perhabs (new option?) print the error message in the
+  tooltip? (this could be done by giving the message as parameters to the
+  exceptions)
+* Shall some options removed from the GUI, added to the GUI (e.g. imap idling)
+* Tooltips: Write where pango-markup can be used, explain standard port number
+* Only one FAM call for all local mailboxes. Still parse mails in multiple
+  threads
+* Substitute gtk_window_present() in ui-popup.cc by something that isn't
+  system dependent and does not steal the keyboard focus
+* HTML mails?
+* Bug in Mailbox::mark_messages_as_read
+* Cleanup of src/gnubiff.cc
+* See RFEs on sourceforge

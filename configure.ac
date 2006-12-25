@@ -1,5 +1,5 @@
 # gnubiff -- a mail notification program
-# Copyright (C) 2000-2004 Nicolas Rougier
+# Copyright (C) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Library General Public
@@ -17,8 +17,6 @@
 #
 # Process this file with autoconf to produce a configure script.
 
-
-
 ######################################################################
 #                           Initialization                           #
 ######################################################################
@@ -34,14 +32,34 @@
 # - The third number is the patch number and it usually will only
 #    refer to releases fixing bugs
 #
-# Current version is 1.4.0
+# Current version is 2.2.5
 
-AC_PREREQ(2.53)
-AC_INIT(gnubiff, 1.4.0, rougier@loria.fr)
-AM_INIT_AUTOMAKE
+AC_PREREQ(2.59)
+AC_INIT([gnubiff],[2.2.5],[gnubiff-bugs@lists.sourceforge.net])
+AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_HEADERS([config/config.h])
 AC_CONFIG_SRCDIR([src/gnubiff.cc])
-AC_CONFIG_HEADERS(config.h)
+AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
+
+######################################################################
+#                           Configure Options                        #
+######################################################################
+dnl syntaxt: AC_ARG_WITH (package, help-string, [action-if-given], [action-if-not-given])
+dnl If the user gave configure the option `--with-package' or
+dnl `--without-package', run shell commands action-if-given. If neither
+dnl option was given, run shell commands action-if-not-given. The name
+dnl package indicates another software package that this program should
+dnl work with. It should consist only of alphanumeric characters and
+dnl dashes.
+AC_ARG_ENABLE(fam,
+              [  --disable-fam           disable the use of FAM (autodetect)],
+              OPT_USEFAM="$enableval", OPT_USEFAM="yes")
+AC_ARG_ENABLE(gnome,
+              [  --disable-gnome         disable the use of gnome (default: enable)],
+              OPT_USEGNOME="$enableval", OPT_USEGNOME="yes")
+
+
 
 ######################################################################
 #                         Checks for programs                        #
@@ -52,16 +70,56 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AC_PROG_LIBTOOL
 
 ######################################################################
 #                         Checks for libraries                       #
 ######################################################################
-AC_HAVE_LIBRARY(popt)
-AC_HAVE_LIBRARY(ssl)
-AC_HAVE_LIBRARY(crypto, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions),
-                [AC_HAVE_LIBRARY(k5crypto, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions))])
-GTK_REQUIRED="gtk+-2.0 >= 2.4"
+dnl LIBPOPT (for parsing options)
+AC_CHECK_LIB([popt],[main], ,
+	AC_MSG_ERROR([
+	Cannot find popt library
+	Please consider installing it before installing gnubiff
+	])
+)
+
+dnl From pkg.m4:
+dnl # Note that if there is a possibility the first call to
+dnl # PKG_CHECK_MODULES might not happen, you should be sure to
+dnl # include an explicit call to PKG_PROG_PKG_CONFIG in your
+dnl # configure.ac
+PKG_PROG_PKG_CONFIG
+
+dnl LIBFAM, LIBGAMIN (for monitoring files)
+if test "x$OPT_USEFAM" = "xyes"; then
+	AC_CHECK_LIB([fam], [main],
+                 [FAM_LIBS="-lfam"
+	              AC_DEFINE([HAVE_LIBFAM], [1], [libfam]) ])
+	if test -z "$FAM_LIBS" ; then
+		PKG_CHECK_MODULES(FAM, gamin >= 0.1.0)
+	fi
+	if test -z "$FAM_LIBS" ; then
+		AC_MSG_ERROR([Cannot find FAM library])
+	fi
+fi
+AC_SUBST(FAM_CFLAGS)
+AC_SUBST(FAM_LIBS)
+
+dnl LIBSSL (for network security)
+AC_CHECK_LIB([ssl],[main])
+
+dnl LIBCRYPTO, LIBSSL (for MD5 hash algorithm)
+AC_CHECK_LIB(crypto, MD5_Init, [
+	AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions)
+	LIBS="$LIBS -lcrypto"], [
+	AC_CHECK_LIB(ssl, MD5_init, AC_DEFINE(HAVE_CRYPTO, 1, Define to 1 if you have crypto base functions))])
+
+dnl LIBSSL (for AES encryption/decryption)
+AC_CHECK_LIB(ssl, AES_encrypt, AC_DEFINE_UNQUOTED(HAVE_AES, 1, 
+			 Define to 1 if AES encryption is available), [
+	AC_CHECK_LIB(crypto, AES_encrypt, AC_DEFINE_UNQUOTED(HAVE_AES, 1))])
+
+dnl GLIB, GTK, ...
+GTK_REQUIRED="gtk+-2.0 >= 2.6"
 GDK_PIXBUF_REQUIRED="gdk-pixbuf-2.0 >= 2.4"
 GMODULE_REQUIRED="gmodule-2.0 >= 2.4"
 LIBGLADE_REQUIRED="libglade-2.0 >= 2.3"
@@ -83,8 +141,11 @@ AC_SUBST(GNUBIFF_DEP_LIBS)
 ######################################################################
 AC_HEADER_STDC
 AC_HEADER_DIRENT
-AC_CHECK_HEADERS([arpa/inet.h fcntl.h libintl.h netdb.h netinet/in.h stdlib.h string.h sys/socket.h unistd.h utime.h])
-
+AC_CHECK_HEADERS([arpa/inet.h fcntl.h libintl.h netdb.h netinet/in.h stdlib.h string.h sys/socket.h unistd.h utime.h regex.h])
+if test "x$OPT_USEFAM" = "xyes"; then
+	AC_CHECK_HEADERS([fam.h], [],
+		[AC_MSG_ERROR([Cannot find fam (File Alteration Monitor) library header file fam.h])])
+fi
 
 
 ######################################################################
@@ -101,49 +162,41 @@ AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_MALLOC
 AC_FUNC_STAT
 AC_FUNC_UTIME_NULL
-AC_CHECK_FUNCS([gethostbyname memset socket strchr strerror strrchr strstr utime])
+AC_CHECK_FUNCS([gethostbyname memset socket strchr strerror strrchr strstr utime bind_textdomain_codeset])
 
 
 
 ######################################################################
-#                       Internationalisation                         #
+#                       Internationalization                         #
 ######################################################################
 GETTEXT_PACKAGE=gnubiff
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
-                   [The prefix for our gettext translation domains.])
-ALL_LINGUAS="fr_FR fr_CA de nl ro es sv it"
+	               [The prefix for our gettext translation domains.])
 AC_PROG_INTLTOOL
-AM_GLIB_GNU_GETTEXT
+#AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
+
 
 
 ######################################################################
 #                           GNOME support                            #
 ######################################################################
-dnl syntaxt: AC_ARG_WITH (package, help-string, [action-if-given], [action-if-not-given])
-dnl If the user gave configure the option `--with-package' or
-dnl `--without-package', run shell commands action-if-given. If neither
-dnl option was given, run shell commands action-if-not-given. The name
-dnl package indicates another software package that this program should
-dnl work with. It should consist only of alphanumeric characters and
-dnl dashes.
-AC_ARG_ENABLE(gnome,
-[  --disable-gnome         disable use of gnome],
-	gnome=$enableval, gnome=yes)
-
-if test "$gnome" = yes; then
+if test "$OPT_USEGNOME" = "yes"; then
   PKG_CHECK_MODULES(GNOME_PANEL_DEP,libpanelapplet-2.0, [
 	AC_SUBST(GNOME_PANEL_DEP_CFLAGS)
 	AC_SUBST(GNOME_PANEL_DEP_LIBS)
 	AH_TEMPLATE([USE_GNOME])
 	AC_DEFINE(USE_GNOME)
 	AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
-	if test x"$GCONFTOOL" = xno; then
+	if test "x$GCONFTOOL" = "xno"; then
 	   AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
 	fi
-  ], gnome=no)
+  ], OPT_USEGNOME="no")
 fi
-AM_CONDITIONAL(USE_GNOME, test $gnome = yes, Define to 1 if you want to have GNOME support)
+AM_CONDITIONAL(USE_GNOME, test $OPT_USEGNOME = yes, Define to 1 if you want to have GNOME support)
+
+
 
 ######################################################################
 #                        Save password option                        #
@@ -159,7 +212,7 @@ if test "$password" = yes; then
     [  --with-password-string  String to use to encrypt password (HIGHLY RECOMMENDED)],
         pstring=$withval, pstring="")
 	AH_TEMPLATE([PASSWORD_STRING])
-    if eval "test x$pstring = x"; then
+    if test "x$pstring" = "x"; then
 		AC_DEFINE_UNQUOTED(PASSWORD_STRING, "FEDCBA9876543210")
     else
 		AC_DEFINE_UNQUOTED(PASSWORD_STRING, "$withval")
@@ -172,11 +225,25 @@ AM_CONDITIONAL(PASSWORD_STRING, test "$password" = yes)
 
 
 ######################################################################
+#                           expert tab default                       #
+######################################################################
+AC_ARG_ENABLE(expert,
+[  --disable-expert        disable showing expert tab as default, [default=yes]],
+	AC_DEFINE(EXPERT_SHOW_NO_TAB, 1, [Define to 1 to disable showing expert tab as default.])
+	expert="$enableval", expert="yes")
+
+
+
+######################################################################
 #                           debug support                            #
 ######################################################################
 AC_ARG_ENABLE(debug,
-[  --enable-debug          turn on debugging [default=no]],
-	AC_DEFINE(DEBUG, 1, [Define to 1 to enable debugging code.]),)
+		[  --enable-debug          turn on debugging [default=no]],
+AC_DEFINE(DEBUG, 1, [Define to 1 to enable debugging code.]),)
+
+AC_CHECK_FILE("CVS",
+			  [AC_DEFINE(IS_CVS_VERSION, 1, [Is a CVS version being used?])],
+			  [AC_DEFINE(IS_CVS_VERSION, 0, [Is a CVS version being used?])])
 
 
 
@@ -187,38 +254,56 @@ AC_CONFIG_FILES([
 Makefile
 src/Makefile
 po/Makefile.in
-pixmaps/Makefile
-sounds/Makefile
+ui/Makefile
+art/Makefile
+sound/Makefile
 doc/Makefile
 man1/Makefile
+config/gnubiff.spec
 ])
 AC_OUTPUT
+dnl file permissions in config subdirectory
+chmod +x config/mkinstalldirs config/ltmain.sh config/depcomp config/missing config/config.guess config/config.sub config/install-sh config/mdate-sh
 
 
 echo "--------------------------------------------------------------------------------"
+
 if test "$password" = yes; then
-	echo " Password saving: yes"
-	echo " Password string: $pstring"
+	echo " Password saving : yes"
+	echo " Password string : $pstring"
 	if test "x$pstring" = "x"; then
-		echo "  WARNING: You've not defined a string to encrypt password (--with-password-string)"
-		echo "           Default string will be used but it is less secure than using your own."
+		echo "  WARNING: You've not defined a string to encrypt passwords (this can be done"
+		echo "           (with the option --with-password-string). The default string will"
+		echo "           be used but it is less secure than using your own."
 	fi
 fi
 
 if test "$password" = no; then
-echo " Password saving: no"
-echo "  If you want gnubiff to save password within configuration"
-echo "  file, use ./configure --with-password [--with-password-string=\"any string you like...]\""
-echo "  But be careful, it is highly unsecure, you've been warned !"
+echo " Password saving : no"
+echo "  If you want gnubiff to save password within configuration file, use"
+echo "  ./configure --with-password [--with-password-string=\"any string you like...]\"."
+echo "  But be careful, it is highly unsecure, you've been warned!"
 fi
 
-echo " Gnome support: $gnome"
-if test "$gnome" = "yes"; then
+echo " FAM support     : $OPT_USEFAM"
+
+echo " Gnome support   : $OPT_USEGNOME"
+if test "$OPT_USEGNOME" = "yes"; then
   if test "$prefix" != "`pkg-config libpanelapplet-2.0 --variable=prefix`"; then
-    echo "  WARNING: prefix should be "`pkg-config libpanelapplet-2.0 --variable=prefix`
-    echo "           but it is currently set to $prefix"
+    echo "  NOTE: The installation directory for gnubiff is currently set to"
+    echo "        \"$prefix\","
+    echo "        the default installation directory for gnome panel applications is"
+    echo "        \""`pkg-config libpanelapplet-2.0 --variable=prefix`"\"."
+    echo "        It may be necessary to add the path"
+    echo "        \"$prefix/lib/bonobo/servers/\""
+    echo "        to the file \"/etc/bonobo-activation/bonobo-activation-config.xml\""
+    echo "        (root privileges needed) or to execute"
+    echo "        \"activation-client --add-path=$prefix/lib/bonobo/servers/\""
+    echo "        (no root privileges needed) before gnubiff can be added to the panel."
   fi
 fi
+
+echo " Expert tab      : $expert"
 
 echo ""
 echo " Just type 'make' and then 'make install' to install gnubiff"

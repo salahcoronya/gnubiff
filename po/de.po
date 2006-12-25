@@ -1,77 +1,319 @@
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnubiff package.
-# Roland Stigge <stigge@antcom.de>, 2003.
 # German translation of gnubiff
+# Roland Stigge <stigge@antcom.de>, 2003.
+# Robert Sowada <sowadart@gmx.de>, 2004, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnubiff 1.0.9\n"
-"POT-Creation-Date: 2004-06-18 21:40+0200\n"
-"PO-Revision-Date: 2004-05-22 00:30+0200\n"
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
+"POT-Creation-Date: 2006-12-10 19:47+0100\n"
+"PO-Revision-Date: 2006-11-10 12:03+0100\n"
 "Last-Translator: Robert Sowada <sowadart@gmx.de>\n"
-"Language-Team: German <de@li.org>\n"
+"Language-Team: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
-#: src/gnubiff.cc:52
-msgid "configuration file to use"
-msgstr "Konfigurationsdatei"
+#: src/decoding.cc:91
+#, c-format
+msgid "[The encoding \"%s\" of this mail can't be decoded]"
+msgstr "[Die Kodierung »%s« dieser Nachricht kann nicht dekodiert werden]"
 
-#: src/gnubiff.cc:52 src/Setup.glade.h:121
+#: src/decoding.cc:134 src/decoding.cc:141 src/decoding.cc:146
+msgid "[Cannot decode this header line]"
+msgstr "[Kann diese Kopfzeile nicht dekodieren]"
+
+#: src/decoding.cc:705
+#, c-format
+msgid "[Cannot convert character sets (from \"%s\" to \"utf-8\")]"
+msgstr "[Kann Zeichenkodierung nicht konvertieren (von »%s« nach »utf-8«)]"
+
+#: src/gnubiff.cc:92
+msgid "Start gnome applet from command line"
+msgstr "Gnome Applet von der Kommandozeile aus starten"
+
+#: src/gnubiff.cc:99
+msgid "Configuration file to use"
+msgstr "Zu verwendende Konfigurationsdatei"
+
+#: src/gnubiff.cc:99
 msgid "file"
 msgstr "Datei"
 
-#: src/gnubiff.cc:53
-msgid "skip the configure process"
+#: src/gnubiff.cc:101
+msgid "Skip the configuration process"
 msgstr "Konfiguration überspringen"
 
-#: src/gnubiff.cc:181
+#: src/gnubiff.cc:103
+msgid "Start gnubiff without GUI"
+msgstr "Gnubiff ohne grafische Benutzeroberfläche (GUI) starten"
+
+#: src/gnubiff.cc:105
+msgid "Put gnubiff's icon into the system tray"
+msgstr "Gnubiffs Piktogramm im Benachrichtigungsfeld ablegen"
+
+#: src/gnubiff.cc:107
+msgid "Print version information and exit"
+msgstr "Versionsinformation ausgeben und beenden"
+
+#: src/gnubiff.cc:113
+msgid "General command line options:"
+msgstr "Allgemeine Kommandozeilenoptionen:"
+
+#: src/gnubiff.cc:116
+msgid "Options for debugging:"
+msgstr "Debugging-Optionen:"
+
+#: src/biff.cc:125
+#, c-format
+msgid "Configuration file (%s) not found!"
+msgstr "Konnte Konfigurationsdatei »%s« nicht finden!"
+
+#: src/biff.cc:598
+#, c-format
+msgid "Loaded config file from newer gnubiff version \"%s\"."
+msgstr "Konfigurationsdatei aus neuerer Gnubiff-Version »%s« geladen."
+
+#: src/biff.cc:606
+#, c-format
+msgid "Loaded config file from old gnubiff version \"%s\"."
+msgstr "Konfigurationsdatei aus alter Gnubiff-Version »%s« geladen."
+
+#: src/biff.cc:608
+msgid "Trying to convert all options."
+msgstr "Versuche alle Optionen zu konvertieren."
+
+#: src/biff.cc:652
+msgid "Successfully converted all options."
+msgstr "Erfolgreich alle Optionen konvertiert."
+
+#: src/biff.cc:655
+#, c-format
 msgid ""
-"\n"
-"This version of gnubiff has been compiled with GNOME support\n"
+"Successfully converted some options. The following options must be updated "
+"manually: %s."
 msgstr ""
-"\n"
-"Diese Version von gnubiff wurde mit GNOME-Unterstützung übersetzt.\n"
+"Erfolgreich einige Optionen konvertiert. Die folgenden Optionen müssen "
+"manuell aktualisiert werden: %s."
 
-#: src/gnubiff.cc:182 src/gnubiff.cc:191
-msgid "If you want to use the GTK version, type gnubiff --gtk\n"
-msgstr ""
-"Wenn Sie die GTK-Version verwenden wollen, geben Sie »gnubiff --gtk« ein.\n"
+#: src/biff.cc:798
+#, c-format
+msgid "Cannot open your configuration file (%s)"
+msgstr "Kann die Konfigurationsdatei »%s« nicht öffnen!"
 
-#: src/gnubiff.cc:183
-msgid " then use -c file to specify an alternate configuration file\n"
-msgstr ""
-" Mit »-c <Datei>« können Sie dann eine alternative Konfigurationsdatei "
-"angeben,\n"
+#: src/biff.cc:814
+msgid "Cannot create XML parser for config file"
+msgstr "Kann keinen XML-Parser für die Konfigurationsdatei erzeugen!"
 
-#: src/gnubiff.cc:184
-msgid "      and -n to skip configuration process\n"
-msgstr " mit »-n« den Konfigurationsprozess überspringen.\n"
+#: src/biff.cc:831
+#, c-format
+msgid "Found no mailbox definition in your configuration file (%s)"
+msgstr "Keine Briefkastendefinition in der Konfigurationsdatei »%s« gefunden!"
 
-#: src/gnubiff.cc:185
-msgid "If you want to use the GNOME version, use gnome panel\n"
-msgstr ""
-"Wenn Sie die GNOME-Version verwenden wollen, benutzen Sie das GNOME-Panel.\n"
+#: src/biff.cc:878
+msgid "Illegal parameter format in config file"
+msgstr "Illegales Parameterformat in der Konfigurationsdatei!"
 
-#: src/gnubiff.cc:186
-msgid "Have a nice day\n"
-msgstr "Auf Wiedersehen!\n"
+#: src/biff.cc:907
+#, c-format
+msgid "No protocol specified for mailbox %d"
+msgstr "Kein Protokoll für Briefkasten %d angegeben"
 
-#: src/gnubiff.cc:190
+#: src/mailbox.cc:145
+#, c-format
+msgid "[%d] Unable to create thread: %s"
+msgstr "[%d] Kann Thread nicht erzeugen: %s"
+
+#: src/mailbox.cc:317
+#, c-format
+msgid "mailbox %d"
+msgstr "Briefkasten %d"
+
+#: src/mailbox.cc:642
+msgid "<no date>"
+msgstr "<Kein Datum>"
+
+#: src/mailbox.cc:643
+msgid "<no sender>"
+msgstr "<Kein Absender>"
+
+#: src/mailbox.cc:644
+msgid "<no subject>"
+msgstr "<Kein Betreff>"
+
+#: src/mailbox.cc:693
+msgid "[Cannot parse content type header line]"
+msgstr "[Kann die Kopfzeile für den Inhaltstyp nicht parsen]"
+
+#: src/mailbox.cc:714
+msgid "[Cannot parse content transfer encoding header line]"
+msgstr "[Kann die Kopfzeile für die Kodierung nicht parsen]"
+
+#: src/mailbox.cc:755
+msgid "[Malformed multipart message]"
+msgstr "[Missgebildete Multipart-Nachricht]"
+
+#: src/mailbox.cc:763
+msgid "[Can't find first part's beginning in the multipart message]"
+msgstr "[Kann den ersten Teil der Multipart-Nachricht nicht finden]"
+
+#: src/mailbox.cc:809
+#, c-format
+msgid "[This message has an unsupported content type: \"%s/%s\"]"
+msgstr "[Diese Nachricht besitzt keinen unterstützten Inhaltstyp: »%s/%s«]"
+
+#: src/mailbox.cc:1208
+#, c-format
 msgid ""
-"\n"
-"This version of gnubiff has been compiled with GNOME support"
+"Error when compiling a regular expression.\n"
+"Regular expression: %s\n"
+"Error message: %s"
 msgstr ""
-"\n"
-"Diese Version von gnubiff wurde mit GNOME-Unterstützung übersetzt"
+"Fehler beim Übersetzen eines regulären Ausdrucks.\n"
+"Regulärer Ausdruck: %s\n"
+"Fehlermeldung: %s"
 
-#: src/gnubiff.cc:192
-msgid "Now I will hang forever...\n"
-msgstr "Dieser Prozess hängt jetzt dauerhaft...\n"
+#: src/header.cc:149
+#, c-format
+msgid "Can't sort mails by \"%s\""
+msgstr "Kann Nachrichten nicht nach »%s« sortieren"
 
-#: src/GUI.cc:101
+#: src/socket.cc:125 src/socket.cc:154 src/socket.cc:182 src/socket.cc:190
+#: src/socket.cc:198 src/socket.cc:210 src/socket.cc:240 src/socket.cc:249
+#, c-format
+msgid "[%d] Unable to connect to %s on port %d"
+msgstr "[%d] Kann mit »%s« auf Port %d keine Verbindung aufbauen"
+
+#: src/socket.cc:225
+#, c-format
+msgid "[%d] Failed to load certificate (%s) for %s"
+msgstr "[%d] Konnte das Zertifikat »%s« für »%s« nicht laden"
+
+#: src/socket.cc:262
+#, c-format
+msgid "[%d] Cannot identify remote host (%s on port %d)"
+msgstr "[%d] Kann entfernten Host »%s« auf Port %d nicht identifizieren"
+
+#: src/socket.cc:347
+#, c-format
+msgid "[%d] Unable to write to %s on port %d"
+msgstr "[%d] Kann nicht an »%s« auf Port %d schreiben"
+
+#: src/socket.cc:409
+#, c-format
+msgid "[%d] Unable to read from %s on port %d"
+msgstr "[%d] Kann nicht von »%s« auf Port %d lesen"
+
+#: src/socket.cc:431
+#, c-format
+msgid "Could not set read timeout on socket: %s"
+msgstr "Kann nicht das Timeout zum Lesen auf dem Socket setzen: %s"
+
+#: src/file.cc:99
+#, c-format
+msgid "Cannot open %s."
+msgstr "Kann »%s« nicht öffnen."
+
+#: src/imap4.cc:459
+msgid "[This message has no part with a supported content type]"
+msgstr "[Diese Nachricht besitzt keinen Teil mit unterstütztem Inhaltstyp]"
+
+#: src/imap4.cc:822
+#, c-format
+msgid "[%d] Unable to select folder %s on host %s"
+msgstr "[%d] Kann Ordner »%s« auf dem Server »%s« nicht auswählen"
+
+#: src/imap4.cc:910
+#, c-format
+msgid "[%d] Unable to get acknowledgment from %s on port %d"
+msgstr "[%d] Bekomme keine Bestätigung von »%s« auf Port %d"
+
+#: src/imap4.cc:969
+#, c-format
+msgid "[%d] Server doesn't send untagged \"%s\" response or acknowledgment"
+msgstr "[%d] Der Server sendet keine unmarkierte »%s«-Antwort oder Bestätigung"
+
+#: src/imap4.cc:1022
+#, c-format
+msgid "[%d] Server doesn't send untagged \"%s\" response"
+msgstr "[%d] Der Server sendet keine unmarkierte »%s«-Antwort"
+
+#: src/imap4.cc:1578
+#, c-format
+msgid "[%d] Server closes connection immediately:%s"
+msgstr "[%d] Der Server beendet die Verbindung unverzüglich:%s"
+
+#: src/imap4.cc:1583
+#, c-format
+msgid "[%d] Internal server failure or unknown error:%s"
+msgstr "[%d] Interner Fehler des Servers oder unbekannter Fehler:%s"
+
+#: src/imap4.cc:1588
+#, c-format
+msgid "[%d] Warning from server:%s"
+msgstr "[%d] Warnung des Servers:%s"
+
+#: src/maildir.cc:83
+#, c-format
+msgid "Cannot open new mail directory (%s)"
+msgstr "Kann neues Mail-Verzeichnis nicht öffnen (»%s«)."
+
+#: src/pop.cc:152
+#, c-format
+msgid "[%d] Empty password"
+msgstr "[%d] Leeres Passwort"
+
+#: src/pop.cc:511
+#, c-format
+msgid "[%d] Error message from POP3 server:%s"
+msgstr "[%d] Fehlermeldung des POP3-Servers:%s"
+
+#: src/pop.cc:518
+#, c-format
+msgid "[%d] Did not get a positive response from POP3 server"
+msgstr "[%d] Keine positive Antwort vom POP3 server bekommen"
+
+#: src/apop.cc:103
+#, c-format
+msgid ""
+"[%d] Your pop server does not seem to accept apop protocol (no timestamp "
+"provided)"
+msgstr ""
+"[%d] Der POP-Server scheint das APOP-Protokoll nicht zu akzeptieren (kein "
+"Zeitstempel bereitgestellt)"
+
+#: src/apop.cc:124
+#, c-format
+msgid ""
+"[%d] Problem with crypto that should have been detected at configure time"
+msgstr ""
+"[%d] Problem mit der Verschlüsselung, das zur Konfigurationszeitentdeckt "
+"worden sein sollte"
+
+#: src/options.cc:561
+#, c-format
+msgid "Unknown option \"%s\""
+msgstr "Unbekannte Option »%s«"
+
+#: src/options.cc:568
+#, c-format
+msgid "Cannot set option \"%s\" to \"%s\""
+msgstr "Kann Option »%s« nicht auf »%s« setzen"
+
+#: src/options.cc:722 src/gui.cc:274
+#, c-format
+msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
+msgstr ""
+"Kann das angegebene Widget (»%s«) nicht innerhalb der XML-Struktur (»%s«) "
+"finden"
+
+#: src/gnubiff_options.cc:138
+msgid "no mail"
+msgstr "Keine Post"
+
+#: src/gui.cc:196
 #, c-format
 msgid ""
 "Cannot build the interface.\n"
@@ -88,895 +330,760 @@ msgstr ""
 "\n"
 "Bitte versichern Sie sich, dass das Paket korrekt installiert wurde."
 
-#: src/GUI.cc:160
-#, c-format
-msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
-msgstr ""
-"Kann das angegebene Widget (»%s«) nicht innerhalb der XML-Struktur (»%s«) "
-"finden"
-
-#: src/GUI.cc:214
+#: src/gui.cc:382
 msgid "GUI_connect requires working gmodule"
 msgstr "GUI_connect benötigt funktionierendes gmodule"
 
-#: src/GUI.cc:221
+#: src/gui.cc:389
 #, c-format
 msgid "Could not find signal handler '%s'."
 msgstr "Konnte Signalhandler »%s« nicht finden."
 
-#: src/Biff.cc:180
-#, fuzzy, c-format
-msgid "Configuration file (%s) not found !"
-msgstr "Konfigurationsdatei"
+#: src/ui-applet.cc:217
+msgid " unknown"
+msgstr " unbekannt"
 
-#: src/Biff.cc:347
-#, fuzzy, c-format
-msgid "Cannot open your configuration file (%s)"
-msgstr "Konfigurationsdatei"
+#: src/ui-applet.cc:222
+msgid " error"
+msgstr " Fehler"
 
-#: src/Biff.cc:366
-msgid "Found no mailbox definition in your .gnubiffrc"
-msgstr ""
-
-#: src/Applet.cc:177
-msgid "error !"
-msgstr " Fehler!"
-
-#: src/Applet.cc:182
+#: src/ui-applet.cc:231
 msgid " checking..."
 msgstr " wird geprüft..."
 
-#: src/AppletGNOME.cc:345
-msgid ""
-"Released under the GNU general public license.\n"
-"Mail notification program."
-msgstr ""
-"Freigegeben unter der GNU General Public License.\n"
-"Benachrichtigungsprogramm für elektronische Post."
-
-#. Now we add branches to the tree
-#: src/Setup.cc:162 src/Setup.glade.h:61
+#: src/ui-preferences.cc:269 src/ui-popup.cc:163
 msgid "Mailbox"
 msgstr "Briefkasten"
 
-#: src/Setup.cc:162
-msgid "Mailbox configuration"
-msgstr "Briefkasten-Konfiguration"
+#: src/ui-preferences.cc:283 src/ui-preferences.cc:365
+msgid "Type"
+msgstr "Format"
 
-#: src/Setup.cc:164 src/Setup.glade.h:77
-msgid "Options"
-msgstr "Optionen"
+#: src/ui-preferences.cc:302
+msgid "Status"
+msgstr "Status"
 
-#: src/Setup.cc:165 src/Setup.glade.h:57
-msgid "Layout"
-msgstr "Darstellung"
+#: src/ui-preferences.cc:317
+msgid "Security"
+msgstr "Sicherheit"
 
-#: src/Setup.cc:166 src/Setup.glade.h:53
-msgid "Geometry"
-msgstr "Geometrie"
+#: src/ui-preferences.cc:329 src/ui-preferences.cc:688
+msgid "No mailbox selected"
+msgstr "Kein Briefkasten ausgewählt"
 
-#: src/Setup.cc:167 src/Setup.glade.h:42
-msgid "Credits"
-msgstr "Danksagungen"
+#: src/ui-preferences.cc:357
+msgid "Option"
+msgstr "Option"
 
-#: src/Setup.cc:289 src/Setup.cc:666 src/Setup.glade.h:28
-msgid "<span color=\"darkgreen\"><b>Running</b></span>"
-msgstr "<span color=\"darkgreen\"><b>Läuft</b></span>"
+#: src/ui-preferences.cc:375
+msgid "Value"
+msgstr "Wert"
 
-#: src/Setup.cc:293 src/Setup.cc:661
-msgid "<span color=\"red\"><b>Stopped</b></span>"
-msgstr "<span color=\"red\"><b>Gestoppt</b></span>"
+#: src/ui-preferences.cc:611
+msgid "_Start"
+msgstr "_Start"
 
-#: src/Mailbox.cc:50
-msgid "Account "
-msgstr ""
+#: src/ui-preferences.cc:617 ui/preferences.glade:3459
+msgid "_Stop"
+msgstr "_Stopp"
 
-#: src/Mailbox.cc:143
+#: src/ui-preferences.cc:628 src/ui-preferences.cc:635
+msgid "Browse for a new mail image"
+msgstr "Datei für ein neues Nachrichtenbild wählen"
+
+#: src/ui-authentication.cc:88
 #, c-format
-msgid "Unable to create thread: %s\n"
+msgid "Please enter your username and password for mailbox '%s'"
 msgstr ""
+"Bitte den Benutzernamen und das Passwort für den Briefkasten »%s« eingeben"
 
-#: src/Mailbox.cc:250
-msgid "<no sender found>"
-msgstr ""
-
-#: src/Mailbox.cc:260
-msgid "<no subject found>"
-msgstr ""
-
-#: src/Mailbox.cc:270
-msgid "<no date found>"
-msgstr ""
-
-#: src/Mailbox.cc:352 src/Mailbox.cc:374 src/Mailbox.cc:389 src/Mailbox.cc:414
-#: src/Mailbox.cc:420 src/Mailbox.cc:429
+#: src/ui-certificate.cc:75
 #, c-format
-msgid "Unable to connect to %s on port %d"
-msgstr ""
+msgid "Unable to verify the identity of %s as a trusted site.\n"
+msgstr "Kann »%s« nicht als vertrauenswürdig verifizieren.\n"
 
-#: src/Mailbox.cc:476 src/Mailbox.cc:484
+#: src/ui-certificate.cc:76
 #, c-format
-msgid "Unable to write to %s on port %d"
+msgid ""
+"Either site's certificate is incomplete or you're connected to a site "
+"pretending to be %s, possibly to obtain your password"
 msgstr ""
+"Entweder ist das Zertifikat unvollständig, oder die Gegenseite gibt vor, »%"
+"s« zu sein, vermutlich um Ihr Passwort zu bekommen"
 
-#: src/Mailbox.cc:510 src/Mailbox.cc:521
-#, c-format
-msgid "Unable to read from %s on port %d"
+#: src/ui-properties.cc:125 src/ui-properties.cc:152
+msgid "Autodetect"
+msgstr "Automatische Erkennung"
+
+#: src/ui-properties.cc:126
+msgid "File or Folder"
+msgstr "Datei oder Ordner"
+
+#: src/ui-properties.cc:154
+msgid "User/Pass"
+msgstr "Benutzer & Passwort"
+
+#: src/ui-properties.cc:156
+msgid "Encrypted User/Pass (apop)"
+msgstr "Benutzer & Passwort verschlüsselt (apop)"
+
+#: src/ui-properties.cc:160
+msgid "SSL with certificate"
+msgstr "SSL mit Zertifikat"
+
+#: src/ui-properties.cc:319
+msgid "Browse for a file or folder"
+msgstr "Wähle eine Datei oder einen Ordner"
+
+#: src/ui-properties.cc:325 ui/properties.glade:616
+msgid "Browse for a certificate file"
+msgstr "Wähle eine Datei mit Zertifikat"
+
+#: src/ui-popup.cc:175
+msgid "From"
+msgstr "Absender"
+
+#: src/ui-popup.cc:181
+msgid "Subject"
+msgstr "Betreff"
+
+#: src/ui-popup.cc:187
+msgid "Date"
+msgstr "Datum"
+
+#: src/support.cc:323
+msgid ""
+"You just found an unknown internal error. Please send a detailed bug report "
+"to \"gnubiff-bugs@lists.sourceforge.net\".\n"
+"\n"
+"Additional information:\n"
 msgstr ""
+"Sie haben gerade einen unbekannten internen Fehler gefunden. Bitte senden "
+"Sie einen detaillierten Fehlerbericht an »gnubiff-bugs@lists.sourceforge."
+"net«.\n"
+"\n"
+"Zusätzliche Informationen:\n"
 
-#: src/Maildir.cc:70 src/Maildir.cc:122
-#, c-format
-msgid "Cannot find new mail directory (%s)"
-msgstr "Kann neues Mail-Verzeichnis nicht finden (»%s«)."
+#: src/GNOME_gnubiffApplet.xml.h:1
+msgid "Info"
+msgstr "_Info"
 
-#: src/Maildir.cc:77 src/Maildir.cc:129
-#, c-format
-msgid "Cannot open new mail directory (%s)"
-msgstr "Kann neues Mail-Verzeichnis nicht öffnen (»%s«)."
+#: src/GNOME_gnubiffApplet.xml.h:2 ui/applet-gtk.glade:131
+msgid "Mark mailboxes read"
+msgstr "Nachrichten als gelesen _markieren"
 
-#: src/Maildir.cc:156
-#, c-format
-msgid "Cannot open %s."
-msgstr "Kann »%s« nicht öffnen."
-
-#: src/Imap4.cc:104
-#, c-format
-msgid "Unable to get acknowledgment from %s on port %d"
-msgstr ""
-
-#: src/Apop.cc:100
-#, c-format
-msgid "%02x"
-msgstr "%02x"
-
-#: src/AppletGTK.glade.h:1
-msgid "00/00"
-msgstr "00/00"
-
-#: src/AppletGTK.glade.h:2
-msgid "<small>(C) 2000-2004 Nicolas Rougier</small>"
-msgstr ""
-
-#: src/AppletGTK.glade.h:3
-#, fuzzy
-msgid "<span size=\"xx-large\"><b>gnubiff</b></span>"
-msgstr " <span size=\"x-large\"><b>Mailbox</b></span>"
-
-#: src/AppletGTK.glade.h:4
-msgid "A Mail notification program"
-msgstr ""
-
-#: src/AppletGTK.glade.h:5
-#, fuzzy
-msgid "About"
-msgstr "Über..."
-
-#: src/AppletGTK.glade.h:6
-#, fuzzy
-msgid "About gnubiff"
-msgstr "gnubiff"
-
-#: src/AppletGTK.glade.h:7 src/GNOME_gnubiffApplet.xml.h:2
-msgid "Mark mails as read"
-msgstr "Nachrichten als gelesen markieren"
-
-#: src/AppletGTK.glade.h:8
-msgid "Ok"
-msgstr ""
-
-#: src/AppletGTK.glade.h:9 src/GNOME_gnubiffApplet.xml.h:3
+#: src/GNOME_gnubiffApplet.xml.h:3
 msgid "Preferences..."
 msgstr "Einstellungen..."
 
-#: src/AppletGTK.glade.h:10 src/GNOME_gnubiffApplet.xml.h:4
-msgid "Start mail application"
-msgstr "Email-Programm starten"
+#: src/GNOME_gnubiffApplet.xml.h:4
+msgid "Run command"
+msgstr "_Befehl ausführen"
 
-#: src/AppletGTK.glade.h:11
+#: src/GNOME_gnubiffApplet.server.in.h:1
+msgid "Mail notification program"
+msgstr "Überwachung von Email-Briefkästen"
+
+#: src/GNOME_gnubiffApplet.server.in.h:2 ui/applet-gtk.glade:8
 msgid "gnubiff"
-msgstr "gnubiff"
+msgstr "Gnubiff"
 
-#: src/AppletGTK.glade.h:12
+#: ui/applet-gtk.glade:7
 msgid "tooltip"
-msgstr ""
+msgstr "Kurzhilfe"
 
-#: src/AppletGNOME.glade.h:1
-msgid "00"
-msgstr "00"
+#: ui/applet-gtk.glade:110
+msgid "Start command"
+msgstr "_Befehl ausführen"
 
-#: src/AppletGNOME.glade.h:2
-msgid "Applet"
-msgstr "Applet"
+#: ui/applet-gtk.glade:152
+msgid "About"
+msgstr "_Über"
 
-#: src/Setup.glade.h:1
-msgid " ... "
-msgstr " ... "
+#: ui/applet-gtk.glade:179
+msgid "_Quit"
+msgstr "_Beenden"
 
-#: src/Setup.glade.h:2
-msgid " <span size=\"x-large\"><b>Mailbox</b></span>"
-msgstr " <span size=\"x-large\"><b>Mailbox</b></span>"
+#: ui/applet-gtk.glade:203
+msgid "Gnubiff is a mail notification program."
+msgstr "Gnubiff ist ein Programm zur Briefkastenüberwachung."
 
-#: src/Setup.glade.h:4
-#, no-c-format
-msgid "%d"
-msgstr ""
-
-#: src/Setup.glade.h:5
-msgid "*"
-msgstr "*"
-
-#: src/Setup.glade.h:6
-msgid "<b>X</b>"
-msgstr "<b>x</b>"
-
-#: src/Setup.glade.h:7
-msgid "<b>Y</b>"
-msgstr "<b>y</b>"
-
-#: src/Setup.glade.h:8
-#, fuzzy
-msgid "<small><b>Applet (GTK only)</b></small>"
-msgstr "<small><b>Applet</b></small>"
-
-#: src/Setup.glade.h:9
-msgid "<small><b>Applet</b></small>"
-msgstr "<small><b>Applet</b></small>"
-
-#: src/Setup.glade.h:10
-msgid "<small><b>Popup</b></small>"
-msgstr "<small><b>Popup</b></small>"
-
-#: src/Setup.glade.h:11
-msgid "<small><b>Sound file</b></small>"
-msgstr "<small><b>Klangdatei</b></small>"
-
-#: src/Setup.glade.h:12
-msgid "<small><b>Volume</b></small>"
-msgstr "<small><b>Lautstärke</b></small>"
-
-#: src/Setup.glade.h:13
-msgid "<small>Address / filename</small>"
-msgstr "<small>Adresse / Dateiname</small>"
-
-#: src/Setup.glade.h:14
-msgid "<small>Folder</small>"
-msgstr "<small>Ordner</small>"
-
-#: src/Setup.glade.h:15
-msgid "<small>Local</small>"
-msgstr "<small>Lokal</small>"
-
-#: src/Setup.glade.h:16
-msgid "<small>Mail application</small>"
-msgstr "<small>E-Mail-Programm</small>"
-
-#: src/Setup.glade.h:17
+#: ui/applet-gtk.glade:204
 msgid ""
-"<small>Maximum number\n"
-"of mails to be collected</small>"
-msgstr ""
-"<small>Maximale Anzahl\n"
-"einzusammelnder Nachrichten</small>"
-
-#: src/Setup.glade.h:19
-msgid "<small>Maximum number of displayed header(s) in popup: </small>"
-msgstr ""
-"<small>Maximale Anzahl angezeigter Kopfzeilen im Popup-Fenster: </small>"
-
-#: src/Setup.glade.h:20
-msgid "<small>Network</small>"
-msgstr "<small>Netzwerk</small>"
-
-#: src/Setup.glade.h:21
-msgid "<small>Password</small>"
-msgstr "<small>Passwort</small>"
-
-#: src/Setup.glade.h:22
-msgid "<small>Poll time (s)</small>"
-msgstr "<small><b>Abfrageintervall (s)</b></small>"
-
-#: src/Setup.glade.h:23
-msgid "<small>Pop time(s)</small>"
-msgstr "<small>Anzeigedauer (s)</small>"
-
-#: src/Setup.glade.h:24
-msgid "<small>Port</small>"
-msgstr "<small>Port</small>"
-
-#: src/Setup.glade.h:25
-msgid "<small>Server certificate</small>"
-msgstr "<small>Server-Zertifikat</small>"
-
-#: src/Setup.glade.h:26
-msgid "<small>User</small>"
-msgstr "<small>Benutzer</small>"
-
-#: src/Setup.glade.h:27
-msgid "<small>character(s)</small>"
-msgstr "<small>Zeichen</small>"
-
-#: src/Setup.glade.h:29
-#, fuzzy
-msgid ""
-"<span size=\"small\">Released under the GNU general public license\n"
-"(c) 2000-2004<b> Nicolas Rougier</b></span>\n"
-"<span size=\"x-small\" color=\"blue\">Special thanks to Robert Sowada and "
-"Roland Stigge for their help</span>\n"
-"<span size=\"x-small\">Most icons come from the GNOME project</span>"
-msgstr ""
-"<span size=\"small\">Freigegeben unter der GNU General Public License\n"
-"(c) 2000-2004<b> Nicolas Rougier</b></span>\n"
-"<span size=\"x-small\">Die meisten Piktogramme sind dem GNOME-Projekt "
-"entnommen</span>"
-
-#: src/Setup.glade.h:33
-msgid ""
-"APOP protocol: your mailbox is held on an APOP server on a remote host. "
-"Contact your system admnistrator for setup details."
-msgstr ""
-"APOP-Protokoll: Der Briefkasten befindet sich auf einem APOP-Server auf "
-"einem entfernten Rechner. Kontaktieren Sie den Administrator für Details."
-
-#: src/Setup.glade.h:34
-msgid "Address of your mailbox"
-msgstr "Adresse Ihres Briefkastens"
-
-#: src/Setup.glade.h:35
-#, fuzzy
-msgid "Applet "
-msgstr "Applet"
-
-#: src/Setup.glade.h:36
-msgid "Biff window with window manager decorations or not"
-msgstr "Biff-Fenster mit Fenstermanager-Dekorationen oder nicht"
-
-#: src/Setup.glade.h:37
-msgid "Browse for a certificate file"
-msgstr "Datei mit Zertifikat wählen"
-
-#: src/Setup.glade.h:38
-msgid "Browse for file"
-msgstr "Datei wählen"
-
-#: src/Setup.glade.h:39
-msgid "Certificate filename. Leave blank if you don't want to use one."
-msgstr ""
-"Dateiname des Zertifikates. Das Feld frei lassen, wenn keines benutzt werden "
-"soll."
-
-#: src/Setup.glade.h:40
-msgid "Check for new mail every polltime seconds"
-msgstr "Nach der angegebenen Zeit (in Sekunden) auf neue Nachrichten prüfen"
-
-#: src/Setup.glade.h:41
-msgid "Create a new mailbox"
-msgstr "Neuen Briefkasten erzeugen"
-
-#: src/Setup.glade.h:43
-msgid "Decorated"
-msgstr "Dekoriert"
-
-#: src/Setup.glade.h:44
-msgid "Delete current mailbox"
-msgstr "Aktuellen Briefkasten löschen"
-
-#: src/Setup.glade.h:45
-#, fuzzy
-msgid "Display date in headers"
-msgstr "Datum anzeigen"
-
-#: src/Setup.glade.h:46
-msgid "Display popup window for poptime seconds"
-msgstr "Popup-Fenster für angegebene Zeit (in Sekunden) anzeigen"
-
-#: src/Setup.glade.h:47
-msgid "Do not show any text when new mail"
-msgstr ""
-
-#: src/Setup.glade.h:48
-msgid "Do not show any text when no mail"
-msgstr ""
-
-#: src/Setup.glade.h:49
-msgid "Do not use image"
-msgstr ""
-
-#: src/Setup.glade.h:50
-msgid "Do not use text"
-msgstr ""
-
-#: src/Setup.glade.h:51
-msgid ""
-"File protocol: for example, your mailbox is held in a file like \"/var/log/"
-"login_name\""
-msgstr ""
-"Dateiprotokoll: Der Briefkasten befindet sich in einer Datei, z.B. namens \"/"
-"var/log/login_name\""
-
-#: src/Setup.glade.h:52
-msgid "Fonts "
-msgstr "Schriftarten "
-
-#: src/Setup.glade.h:54
-msgid ""
-"IMAP4 protocol: your mailbox is held on an IMAP4 server on a remote host. "
-"Contact your system administrator for setup details."
-msgstr ""
-"IMAP4-Protokoll: Der Briefkasten befindet sich auf einem IMAP4-Server auf "
-"einem entfernten Rechner. Kontaktieren Sie den Administrator für Details "
-"beim Einrichten."
-
-#: src/Setup.glade.h:55
-msgid "Image or animation to use when new mail has arrived"
-msgstr "Bild oder Animation, wenn neue Nachrichten eingetroffen sind"
-
-#: src/Setup.glade.h:56
-msgid "Image or animation to use when no new mail available"
-msgstr "Bild oder Animation, wenn keine neuen Nachrichten vorhanden sind"
-
-#: src/Setup.glade.h:58
-msgid "Let window manager place window"
-msgstr "Fensterplatzierung durch Fenstermanager"
-
-#: src/Setup.glade.h:59
-msgid "MH protocol: your mailbox is held in a mh directory."
-msgstr "MH-Protokoll: Der Briefkasten befindet sich in einem MH-Verzeichnis."
-
-#: src/Setup.glade.h:60
-msgid "Mail application to launch via popup menu."
-msgstr "Via Popup-Menu zu startendes Email-Programm."
-
-#: src/Setup.glade.h:62
-msgid "Maildir protocol: your mailbox is held in a directory."
-msgstr ""
-"Mailverzeichnisprotokoll: Der Briefkasten befindet sich in einem Verzeichnis."
-
-#: src/Setup.glade.h:63
-msgid "Maximum number of collected mail"
-msgstr "Maximale Anzahl einzusammelnder Nachrichten"
-
-#: src/Setup.glade.h:64
-msgid ""
-"Maximum number of displayed headers (you know, if you have a screen with a "
-"finite display area...)"
-msgstr ""
-"Maximale Anzahl angezeigter Kopfzeilen (für diejenigen, deren Bildschirm nur "
-"eine endliche Anzeigefläche besitzt...)"
-
-#: src/Setup.glade.h:65
-msgid "Maximum sender size"
-msgstr ""
-
-#: src/Setup.glade.h:66
-msgid "Maximum size of subject field in popup window"
-msgstr "Maximale Länge des »Betreff«-Feldes im Popup-Fenster"
-
-#: src/Setup.glade.h:67
-msgid "Maximum size of the sender field in popup window"
-msgstr "Maximale Länge des »Absender«-Feldes im Popup-Fenster"
-
-#: src/Setup.glade.h:68
-msgid "Maximum subject size"
-msgstr ""
-
-#: src/Setup.glade.h:69
-msgid "Miscellaneous "
-msgstr "Verschiedenes "
-
-#: src/Setup.glade.h:70
-msgid "Name:"
-msgstr "Name:"
-
-#: src/Setup.glade.h:71
-msgid "New mail"
-msgstr "Neue Nachrichten"
-
-#: src/Setup.glade.h:72
-msgid "Next mailbox"
-msgstr "Nächster Briefkasten"
-
-#: src/Setup.glade.h:73
-msgid "No geometry"
-msgstr "Keine Geometrie"
-
-#: src/Setup.glade.h:74
-msgid "No mail"
-msgstr "Keine Nachrichten"
-
-#: src/Setup.glade.h:75
-msgid "No sound"
-msgstr "Kein Ton"
-
-#: src/Setup.glade.h:76
-msgid "No sound when new mail has arrived"
-msgstr "Kein Klang bei ankommenden Nachrichten"
-
-#: src/Setup.glade.h:78
-msgid ""
-"POP3 protocol: your mailbox is held on a POP3 server on a remote host. "
-"Contact your system admnistrator for setup details."
-msgstr ""
-"POP3-Protokoll: Der Briefkasten befindet sich auf dem POP3-Server eines "
-"entfernten Rechners. Kontaktieren Sie den Administrator für Details."
-
-#: src/Setup.glade.h:79
-msgid "Parameters "
-msgstr "Parameter"
-
-#: src/Setup.glade.h:80
-msgid "Pick a color for applet font"
-msgstr "Wähle die Schriftfarbe für das Applet"
-
-#: src/Setup.glade.h:81
-msgid "Pick a color for popup background"
-msgstr "Wähle die Hintergrundfarbe des Popup-Fensters"
-
-#: src/Setup.glade.h:82
-msgid "Pick a color for popup font"
-msgstr "Wähle die Schriftfarbe für das Popup-Fenster"
-
-#: src/Setup.glade.h:83
-msgid "Pick a font for applet"
-msgstr "Wähle die Schriftart des Applets"
-
-#: src/Setup.glade.h:84
-msgid "Pick a font for popup"
-msgstr "Wähle die Schriftart des Popup-Fensters"
-
-#: src/Setup.glade.h:85
-msgid "Placement "
-msgstr "Platzierung "
-
-#: src/Setup.glade.h:86
-msgid "Play selected sound"
-msgstr "Selbstgewählten Klang abspielen"
-
-#: src/Setup.glade.h:87
-#, fuzzy
-msgid "Popup "
-msgstr "Popup"
-
-#: src/Setup.glade.h:88
-msgid "Popup window with window manager decorations or not"
-msgstr "Popup-Fenster mit Fenstermanager-Dekorationen oder nicht"
-
-#: src/Setup.glade.h:89
-msgid ""
-"Positive numbers refer to left border, negative numbers refer to right border"
-msgstr ""
-"Positive Zahlen beziehen sich auf den linken Rand, negative auf den rechten"
-
-#: src/Setup.glade.h:90
-msgid ""
-"Positive numbers refer to top border, negative numbers refer to bottom border"
-msgstr ""
-"Positive Zahlen beziehen sich auf den oberen Rand, negative auf den unteren"
-
-#: src/Setup.glade.h:91
-msgid "Preferences"
-msgstr "Einstellungen"
-
-#: src/Setup.glade.h:92
-msgid "Previous mailbox"
-msgstr "Vorheriger Briefkasten"
-
-#: src/Setup.glade.h:93
-msgid "Protocol "
-msgstr "Protokoll "
-
-#: src/Setup.glade.h:94
-msgid "Sanity "
-msgstr "Vernunft "
-
-#: src/Setup.glade.h:95
-msgid "Show date in headers or not"
-msgstr "Datum in Kopfzeilen anzeigen oder nicht"
-
-#: src/Setup.glade.h:96
-msgid "Show popup window when new mail has arrived"
-msgstr "Bei neuen Nachrichten Popupfenster anzeigen"
-
-#: src/Setup.glade.h:97
-msgid "Size "
-msgstr "Größe "
-
-#: src/Setup.glade.h:98
-msgid "Sound"
-msgstr "Klang"
-
-#: src/Setup.glade.h:99
-#, fuzzy
-msgid "Sound command"
-msgstr "Klänge "
-
-#: src/Setup.glade.h:100
-msgid "Sound to play when new mail has arrived"
-msgstr "Abzuspielender Klang bei ankommenden Nachrichten"
-
-#: src/Setup.glade.h:101
-msgid "Sound when new mail has arrived"
-msgstr "Klang bei ankommenden Nachrichten"
-
-#: src/Setup.glade.h:102
-msgid "Sounds "
-msgstr "Klänge "
-
-#: src/Setup.glade.h:103
-msgid "System beep"
-msgstr "Systempiep"
-
-#: src/Setup.glade.h:104
-msgid "System beep when new mail has arrived"
-msgstr "Systempiep bei ankommenden Nachrichten"
-
-#: src/Setup.glade.h:106
-#, no-c-format
-msgid "Text to be displayed when new mail, %d is the number of mail."
-msgstr ""
-
-#: src/Setup.glade.h:108
-#, no-c-format
-msgid "Text to be displayed when no mail, %d is the number of mail."
-msgstr ""
-
-#: src/Setup.glade.h:110
-#, no-c-format
-msgid ""
-"This is the command used to play sound, %s is the name of the file, %v is "
-"the volume (between 0.0 and 1.0)"
-msgstr ""
-"Dies ist der Befehl zum Abspielen der Klänge, %s bezeichnet den Dateinamen, %"
-"v die Lautstärke (zwischen 0.0 und 1.0)"
-
-#: src/Setup.glade.h:111
-msgid "Timing "
-msgstr "Zeitsteuerung "
-
-#: src/Setup.glade.h:112
-msgid "Title of the mailbox to be displayed."
-msgstr "Titel des Briefkastens, der angezeigt wird."
-
-#: src/Setup.glade.h:113
-msgid "Use Secure Socket Layer"
-msgstr "SSL (Secure Socket Layer) benutzen"
-
-#: src/Setup.glade.h:114
-#, fuzzy
-msgid "Use no image implies no applet window for GTK version"
-msgstr ""
-"Verstecken des Bildes bedeutet ausschließlich Verwendung von Text im Gnome-"
-"Panel bzw. kein Fenster im GTK-Modus"
-
-#: src/Setup.glade.h:115
-#, fuzzy
-msgid "Use popup"
-msgstr "Popup anzeigen"
-
-#: src/Setup.glade.h:116
-msgid "User mail account name "
-msgstr "Name des Mail-Benutzerkontos "
-
-#: src/Setup.glade.h:117
-msgid "User mail account password"
-msgstr "Passwort des Mail-Benutzerkontos"
-
-#: src/Setup.glade.h:118
-msgid "apop"
-msgstr "APOP"
-
-#: src/Setup.glade.h:119
-msgid "balsa"
-msgstr "balsa"
-
-#: src/Setup.glade.h:120
-msgid "emacs"
-msgstr "emacs"
-
-#: src/Setup.glade.h:122
-#, fuzzy
-msgid ""
-"gnubiff has originally been written by Nicolas Rougier.\n"
-"Many people have further contributed to gnubiff by\n"
-"  * reporting problems\n"
-"  * suggesting various improvements\n"
-"  * submitting actual code.\n"
+"Gnubiff is part of the GNU project.\n"
+"It is released under the aegis of GNU.\n"
 "\n"
-"Here is a list of these people in no particular order:\n"
-"  - Robert Sowada\n"
-"  - Roland Stigge\n"
-"  - Calum Mackay\n"
-"  - Paul Kuliniewicz\n"
-"  - Grzegorz Gotawski\n"
-"  - Adam Benjamin\n"
-"  - Theodore Tegos\n"
-"  - Achim Settelmeier\n"
-"  - Barry Skidmore\n"
-"  - Jason Lowdermilk\n"
-"  - Marc-jano Knopp\n"
-"  - Suzan Wassman\n"
-"  - Philippe Berger\n"
-"  - Earl A. Killian\n"
-"  - Christian Probst\n"
-"  - Hans-Ulrich Schaefer\n"
-"  - Josh Parsons\n"
-"  - Michael Moellney\n"
-"  - Dennis Bjorklund\n"
-"  - Craig  Agricola\n"
-"  - Bernhard Valenti\n"
-"  - Josh Berdine\n"
-"  - Michel Leunen\n"
-"  - Greg Fenton\n"
-"  - Cai Yu\n"
-"  - Chris Snell\n"
-"  - Reid Rivenburgh\n"
-"  - Neil Muller\n"
-"  - Sascha Ludecke\n"
-"  - Richard Torkar\n"
-"  - Pete Phillips\n"
-"  - Blaise Tarr\n"
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
 "\n"
-"And of course, there are also translators:\n"
-"  - Roland Stigge, Robert Sowada (de)\n"
-"  - Nicolas Lichtmaier (es)\n"
-"  - Elros Cyriatan (nl)\n"
-"  - Michel Robitaille (fr)\n"
-"  - Eugen Hoanca (ro)\n"
-"  - David Smeringe (sv)\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details.\n"
 "\n"
-"\n"
-"If you like this software, you can send me a post-card to:\n"
-"    Nicolas Rougier\n"
-"    Campus Scientifique, B.P. 239\n"
-"    F-54506 Vandoeuvre-Les-Nancy Cedex\n"
-"    FRANCE"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 51 "
+"Franklin St, Fifth Floor, Boston, MA 02110, USA.\n"
 msgstr ""
-"gnubiff wurde ursprünglich von Nicolas Rougier geschrieben.\n"
-"Zu gnubiff haben viele Personen etwas beigesteuert, indem sie:\n"
-"    * Fehler gemeldet haben\n"
-"    * Verbesserungsvorschläge eingereicht haben\n"
-"    * Code eingesendet haben.\n"
+"Gnubiff ist Teil des GNU-Projekts.\n"
+"Es ist veröffentlicht unter der Obhut von GNU.\n"
 "\n"
-"Hier folgt eine Liste dieser Leute in loser Reihenfolge:\n"
-"  - Robert Sowada\n"
-"  - Grzegorz Gotawski\n"
-"  - Adam Benjamin\n"
-"  - Theodore Tagos\n"
-"  - Achim Settelmeier\n"
-"  - Roland Stigge\n"
-"  - Barry Skidmore\n"
-"  - Jason Lowdermilk\n"
-"  - Marc-jano Knopp\n"
-"  - Suzan Wassman\n"
-"  - Philippe Berger\n"
-"  - Earl A. Killian\n"
-"  - Christian Probst\n"
-"  - Hans-Ulrich Schaefer\n"
-"  - Josh Parsons\n"
-"  - Michael Moellney\n"
-"  - Dennis Bjorklund\n"
-"  - Craig  Agricola\n"
-"  - Bernhard Valenti\n"
-"  - Josh Berdine\n"
-"  - Michel Leunen\n"
-"  - Greg Fenton\n"
-"  - Cai Yu\n"
-"  - Chris Snell\n"
-"  - Reid Rivenburgh\n"
-"  - Neil Muller\n"
-"  - Sascha Ludecke\n"
-"  - Richard Torkar\n"
-"  - Pete Phillips\n"
-"  - Blaise Tarr\n"
+"Dieses Programm ist freie Software. Sie können es unter den Bedingungen der "
+"GNU General Public License, wie von der Free Software Foundation "
+"veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 "
+"der Lizenz oder (nach Ihrer Option) jeder späteren Version.\n"
 "\n"
-"Natürlich gibt es auch Übersetzer:\n"
-"  - Roland Stigge, Robert Sowada (de)\n"
-"  - Nicols Lichtmaier (es)\n"
-"  - Elros Cyriatan (nl)\n"
-"  - Michel Robitaille (fr)\n"
-"  - Eugen Hoanca (ro)\n"
-"  - David Smeringe (sv)\n"
+"Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen "
+"von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die "
+"implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN "
+"BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.\n"
 "\n"
-"\n"
-"Wenn Ihnen dieses Programm gefällt, können Sie mir eine Postkarte schicken:\n"
-"    Nicolas Rougier\n"
-"    Campus Scientifique, B.P. 239\n"
-"    F-54506 Vandoeuvre-Lès-Nancy Cedex\n"
-"    FRANKREICH"
+"Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem "
+"Programm erhalten haben. Falls nicht, schreiben Sie an die Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110, USA.\n"
 
-#: src/Setup.glade.h:176
-msgid "imap4"
-msgstr "IMAP4"
+#: ui/preferences.glade:7
+msgid "gnubiff preferences"
+msgstr "Einstellungen für Gnubiff"
 
-#: src/Setup.glade.h:177
-msgid "kmail"
-msgstr "kmail"
+#: ui/preferences.glade:132
+msgid "When _double-clicked:"
+msgstr "Bei Doppel_klick:"
 
-#: src/Setup.glade.h:178
-msgid "mail.wav"
-msgstr "mail.wav"
+#: ui/preferences.glade:154
+msgid "<b>General</b>"
+msgstr "<b>Allgemeines</b>"
 
-#: src/Setup.glade.h:179
-msgid "maildir"
-msgstr "Maildir"
+#: ui/preferences.glade:194
+msgid "<b>Mailboxes</b>"
+msgstr "<b>Briefkästen</b>"
 
-#: src/Setup.glade.h:180
-msgid "mh"
-msgstr "MH"
+#: ui/preferences.glade:236
+msgid "<b>Commands</b>"
+msgstr "<b>Befehle</b>"
 
-#: src/Setup.glade.h:181
-msgid "mozilla -mail"
-msgstr "mozilla -mail"
+#: ui/preferences.glade:330
+msgid "When _new mail:"
+msgstr "Bei _neuen Nachrichten:"
 
-#: src/Setup.glade.h:182
-msgid "netscape -mail"
-msgstr "netscape -mail"
+#: ui/preferences.glade:352
+msgid "The command to run when new mail arrives"
+msgstr "Auszuführender Befehl bei Ankunft neuer Nachrichten"
 
-#: src/Setup.glade.h:184
-#, no-c-format
-msgid "play %s -v %v"
-msgstr "play %s -v %v"
+#: ui/preferences.glade:374
+msgid "The command to run when the icon is double-clicked"
+msgstr "Auszuführender Befehl bei Doppelklick auf das Piktogramm"
 
-#: src/Setup.glade.h:185
-msgid "pop3"
-msgstr "POP3"
+#: ui/preferences.glade:432
+msgid "_Restrict collected mail to"
+msgstr "An_zahl einzusammelnder Nachrichten beschränken auf"
 
-#: src/Setup.glade.h:186
-msgid "xemacs "
-msgstr "xemacs"
+#: ui/preferences.glade:470
+msgid "mail(s)"
+msgstr "Nachrichten"
 
-#: src/Popup.glade.h:1
+#: ui/preferences.glade:512
+msgid "Mailboxes"
+msgstr "_Briefkästen"
+
+#: ui/preferences.glade:557 ui/preferences.glade:622
+msgid "Image filename"
+msgstr "Dateiname des ausgewählten Bildes"
+
+#: ui/preferences.glade:579 ui/preferences.glade:644
+msgid "Browse for an image file"
+msgstr "Wähle Bilddatei"
+
+#: ui/preferences.glade:581 ui/properties.glade:295
+msgid "_Browse..."
+msgstr "Aus_wählen..."
+
+#: ui/preferences.glade:600 ui/preferences.glade:665
+msgid ""
+"Text to display (%d and %D is the number of new messages, %d is zero "
+"padded). Pango markup may be used."
+msgstr ""
+"Anzuzeigender Text bei neuen Nachrichten (»%d« und »%D« bezeichnet die "
+"Anzahl der neuen Nachrichten; »%d« wird mit Nullen aufgefüllt). Pango kann "
+"zur Formatierung benutzt werden."
+
+#: ui/preferences.glade:646
+msgid "B_rowse..."
+msgstr "Aus_wählen..."
+
+#: ui/preferences.glade:687
+msgid "Applet geometry"
+msgstr "Platzierungseinstellungen für das Applet"
+
+#: ui/preferences.glade:709 ui/preferences.glade:1317
+msgid "Whether to use geometry"
+msgstr "Soll die Fensterplatzierung verwendet werden?"
+
+#: ui/preferences.glade:711 ui/preferences.glade:1319
+msgid "Use _geometry:"
+msgstr "_Fensterplatzierung verwenden:"
+
+#: ui/preferences.glade:733 ui/preferences.glade:781
+msgid "Whether to display a text"
+msgstr "Soll ein Text angezeigt werden?"
+
+#: ui/preferences.glade:735
+msgid "Show _text:"
+msgstr "_Text anzeigen:"
+
+#: ui/preferences.glade:757
+msgid "Whether to show an image"
+msgstr "Soll ein Bild angezeigt werden?"
+
+#: ui/preferences.glade:759
+msgid "Show _image:"
+msgstr "B_ild anzeigen:"
+
+#: ui/preferences.glade:783
+msgid "Show t_ext:"
+msgstr "_Text anzeigen:"
+
+#: ui/preferences.glade:805
+msgid "Whether to display an image"
+msgstr "Soll ein Bild angezeigt werden?"
+
+#: ui/preferences.glade:807
+msgid "Show i_mage:"
+msgstr "B_ild anzeigen:"
+
+#: ui/preferences.glade:829 ui/preferences.glade:1365
+msgid "<b>Layout</b>"
+msgstr "<b>Darstellung</b>"
+
+#: ui/preferences.glade:869
+msgid "<b>When new mail</b>"
+msgstr "<b>Bei neuen Nachrichten</b>"
+
+#: ui/preferences.glade:911
+msgid "<b>When no mail</b>"
+msgstr "<b>Bei keinen neuen Nachrichten</b>"
+
+#: ui/preferences.glade:941 ui/preferences.glade:1288
+msgid "_Font:"
+msgstr "_Zeichensatz:"
+
+#: ui/preferences.glade:970 ui/preferences.glade:1434
+msgid "The font to use to display information"
+msgstr "Zeichensatz um Informationen darzustellen"
+
+#: ui/preferences.glade:990 ui/preferences.glade:1455
+msgid "Whether to use window manager decoration"
+msgstr ""
+"Soll das Popup-Fenster mit Fenstermanager-Dekorationen versehen werden?"
+
+#: ui/preferences.glade:992 ui/preferences.glade:1457
+msgid "Use _decoration"
+msgstr "F_ensterdekoration verwenden"
+
+#: ui/preferences.glade:1050
+msgid "Applet or Biff"
+msgstr "Applet _oder Biff"
+
+#: ui/preferences.glade:1095
+msgid "second(s)"
+msgstr "Sekunden"
+
+#: ui/preferences.glade:1122
+msgid "Time to display popup window"
+msgstr "Zeit, die das Popup-Fenster dargestellt wird"
+
+#: ui/preferences.glade:1145
+msgid "Popup geometry"
+msgstr "Platzierungseinstellungen für das Popup-Fenster"
+
+#: ui/preferences.glade:1167
+msgid "Whether to use format for header"
+msgstr "Soll die Formatierung für die Nachrichten verwendet werden?"
+
+#: ui/preferences.glade:1169
+msgid "_Format:"
+msgstr "For_mat der Ausgabe:"
+
+#: ui/preferences.glade:1191
+msgid "[sender max size]:[subject max size]:[date max size]"
+msgstr ""
+"[Max. Länge des Absenders]:[Max. Länge des Betreffs]:[Max. Länge des Datums]"
+
+#: ui/preferences.glade:1213
+msgid "Whether to restrict number of displayed headers"
+msgstr "Soll die Anzahl der anzuzeigenden Nachrichten beschränkt werden?"
+
+#: ui/preferences.glade:1215
+msgid "_Restrict number to"
+msgstr "Anzahl einschr_änken auf"
+
+#: ui/preferences.glade:1237
+msgid "Maximum number of headers to display"
+msgstr "Maximale Anzahl anzuzeigender Nachrichten"
+
+#: ui/preferences.glade:1260
+msgid "header(s)"
+msgstr "Nachrichten"
+
+#: ui/preferences.glade:1341
+msgid "Whether to display the popup window"
+msgstr "Soll ein Popup-Fenster angezeigt werden?"
+
+#: ui/preferences.glade:1343
+msgid "_Display for"
+msgstr "A_nzeigen für"
+
+#: ui/preferences.glade:1405
+msgid "<b>Headers</b>"
+msgstr "<b>Nachrichten-Header</b>"
+
+#: ui/preferences.glade:1534 ui/popup.glade:7
 msgid "Popup"
-msgstr "Popup"
+msgstr "_Popup"
 
-#: src/Popup.glade.h:2
-msgid "mail content"
+#: ui/preferences.glade:1591
+msgid "<b>Expert editing mode</b>"
+msgstr "<b>Experteneditiermodus</b>"
+
+#: ui/preferences.glade:1619
+msgid "Whether options can be edited in expert mode"
+msgstr "Sollen Optionen im Expertenmodus editiert werden können?"
+
+#: ui/preferences.glade:1621
+msgid "_Edit options in expert mode"
+msgstr "Optionen im _Expertenmodus editieren"
+
+#: ui/preferences.glade:1643
+msgid ""
+"Whether to show the expert tab. Note: Disabling this option can only be "
+"reversed by editing the config file manually!"
 msgstr ""
+"Soll der Expertenreiter angezeigt werden? Beachte: Das Deaktivieren dieser "
+"Option kann nur durch manuelles Editieren der Konfigurationsdatei rückgängig "
+"gemacht werden!"
 
-#: src/GNOME_gnubiffApplet.xml.h:1
-msgid "About..."
-msgstr "Über..."
+#: ui/preferences.glade:1645
+msgid "_Show expert tab"
+msgstr "Expertenreiter an_zeigen"
 
-#, fuzzy
-#~ msgid "0"
-#~ msgstr "00"
+#: ui/preferences.glade:1667
+msgid ""
+"The editing dialog for all options that gnubiff uses internally can be "
+"enabled here. So it is possible to change the value of options for which no "
+"gui widgets are provided. A short description for each option is provided.\n"
+"<b>Warning:</b> Changing these options may cause gnubiff to act not properly "
+"or result in security problems."
+msgstr ""
+"Der Editierdialog für alle Optionen, die von Gnubiff intern verwendet "
+"werden, kann hier aktiviert werden. So ist es möglich, Optionen zu ändern, "
+"für die auf der Benutzeroberfläche keine Editiermöglichkeiten zur Verfügung "
+"stehen. Eine kurze (englischsprachige) Beschreibung für jede Option wird "
+"angegeben.\n"
+"<b>Warnung:</b> Das Ändern dieser Optionen kann dazu führen, dass sich "
+"Gnubiff nicht vernünftig verhält, oder dass sich Sicherheitsprobleme ergeben."
 
-#~ msgid "debug output"
-#~ msgstr "Testausgaben"
+#: ui/preferences.glade:1766
+msgid "List all options."
+msgstr "Liste alle Optionen."
 
-#~ msgid "no mail"
-#~ msgstr ""
-#~ "Keine\n"
-#~ "Post"
+#: ui/preferences.glade:1784
+msgid "String to be searched for."
+msgstr "String, nach dem gesucht werden soll."
 
-#~ msgid "mail: "
-#~ msgstr "Post: "
+#: ui/preferences.glade:1806
+msgid ""
+"Search for those (displayed) options that contain the string in the text "
+"entry."
+msgstr ""
+"Nach denjenigen (der angezeigten) Optionen suchen, die den String im "
+"Texteingabefeld enthalten."
 
-#~ msgid "mail: ++"
-#~ msgstr "Post: ++"
+#: ui/preferences.glade:1840
+msgid ""
+"List of options, their type and current values. To edit an option "
+"doubleclick on its value."
+msgstr ""
+"Liste aller Optionen, ihrer Typen und gegenwärtigen Werte. Um eine Option zu "
+"bearbeiten, einen Doppelklick auf ihren Wert ausführen."
 
-#~ msgid "Mail"
-#~ msgstr "Mail"
+#: ui/preferences.glade:1915
+msgid "Expert"
+msgstr "E_xperte"
 
-#~ msgid "Title"
-#~ msgstr "Titel"
+#: ui/preferences.glade:2003
+msgid ""
+"<small> Gnubiff is part of the GNU project.\n"
+" It is released under the aegis of GNU.</small>"
+msgstr ""
+"<small> Gnubiff ist Teil des GNU-Projekts.\n"
+" Es ist veröffentlicht unter der Obhut von GNU.</small>"
 
-#~ msgid "Command"
-#~ msgstr "Befehl"
+#: ui/preferences.glade:2205
+msgid ""
+"<small>Developers can be contacted via <span foreground=\"blue\">gnubiff-"
+"devel@lists.sourceforge.net</span>.</small>\n"
+"<small>Bugs should be reported to <span foreground=\"blue\">gnubiff-"
+"bugs@lists.sourceforge.net</span>.</small>"
+msgstr ""
+"<small>Die Entwickler können unter <span foreground=\"blue\">gnubiff-"
+"devel@lists.sourceforge.net</span> kontaktiert werden.</small>\n"
+"<small>Fehler sollten an <span foreground=\"blue\">gnubiff-bugs@lists."
+"sourceforge.net</span> gemeldet werden.</small>"
 
-#~ msgid "Hide"
-#~ msgstr "Verstecken"
+#: ui/preferences.glade:2245
+msgid "Developers"
+msgstr "_Entwickler"
 
-#~ msgid "Images / Animations "
-#~ msgstr "Bilder / Animationen "
+#: ui/preferences.glade:2394
+msgid "Maintainers"
+msgstr "_Maintainer"
 
-#~ msgid "Restrict <b>subject</b> size to"
-#~ msgstr "Maximale <b>Betreff</b>-Länge:"
+#: ui/preferences.glade:2429
+msgid ""
+"<small>Here is a list of those people, which translated gnubiff into "
+"different languages (translators of previous versions are marked with an "
+"asterisk):</small>"
+msgstr ""
+"<small>Hier ist eine Aufzählung derjenigen Leute, die Gnubiff in "
+"verschiedene Sprachen übersetzt haben (Übersetzer älterer Versionen sind mit "
+"einem Stern markiert):</small>"
 
-#~ msgid "Restrict <b>sender</b> size to"
-#~ msgstr "Maximale <b>Absender</b>-Länge:"
+#: ui/preferences.glade:3239
+msgid "Translators"
+msgstr "Überse_tzer"
 
-#~ msgid "Look "
-#~ msgstr "Aussehen "
+#: ui/preferences.glade:3269
+msgid ""
+"<small>Many people have further contributed to gnubiff by\n"
+"  - reporting problems\n"
+"  - suggesting various improvements\n"
+"  - submitting actual code\n"
+"Here is a list of these people:</small>"
+msgstr ""
+"<small>Zu Gnubiff haben viele Personen etwas beigesteuert, indem sie\n"
+"    • Fehler gemeldet haben\n"
+"    • Verbesserungsvorschläge eingereicht haben\n"
+"    • Code eingesendet haben.\n"
+"Hier ist eine Liste dieser Personen:</small>"
 
-#~ msgid "<small><b>Biff</b></small>"
-#~ msgstr "<small><b>Biff</b></small>"
+#: ui/preferences.glade:3340
+msgid "Contributors"
+msgstr "Mit_wirkende"
+
+#: ui/preferences.glade:3376
+msgid "Credits"
+msgstr "_Danksagungen"
+
+#: ui/preferences.glade:3515
+msgid "Set to default value"
+msgstr "Auf Standardwert zurücksetzen"
+
+#: ui/preferences.glade:3536
+msgid "Toggle option"
+msgstr "Option verändern"
+
+#: ui/preferences.glade:3557
+msgid "Edit option"
+msgstr "Option bearbeiten"
+
+#: ui/properties.glade:7
+msgid "Mailbox properties"
+msgstr "Eigenschaften des Briefkastens"
+
+#: ui/properties.glade:52
+msgid "_Name:"
+msgstr "_Name:"
+
+#: ui/properties.glade:77
+msgid "A_ddress:"
+msgstr "A_dresse:"
+
+#: ui/properties.glade:102
+msgid "Name of the mailbox"
+msgstr "Name des Briefkastens"
+
+#: ui/properties.glade:124
+msgid "_Type:"
+msgstr "T_yp:"
+
+#: ui/properties.glade:174 ui/authentication.glade:52
+msgid "_Username:"
+msgstr "_Benutzername:"
+
+#: ui/properties.glade:199
+msgid "Your username on the mail server"
+msgstr "Benutzername auf dem Server"
+
+#: ui/properties.glade:221 ui/authentication.glade:77
+msgid "_Password:"
+msgstr "_Passwort:"
+
+#: ui/properties.glade:246
+msgid "Your password on the mail server"
+msgstr "Passwort auf dem Server"
+
+#: ui/properties.glade:274
+msgid "file or folder or hostname"
+msgstr "Datei, Ordner oder Rechnername"
+
+#: ui/properties.glade:367
+msgid "Connection:"
+msgstr "Verbindung:"
+
+#: ui/properties.glade:391
+msgid "Connection port to connect to server"
+msgstr "Port, auf dem der Server kontaktiert werden soll"
+
+#: ui/properties.glade:414
+msgid "Standard connection port"
+msgstr "Es soll der Standard-Port verwendet werden"
+
+#: ui/properties.glade:416
+msgid "stan_dard"
+msgstr "standardm_äßig"
+
+#: ui/properties.glade:437
+msgid "Other connection port"
+msgstr "Es soll ein anderer Port verwendet werden"
+
+#: ui/properties.glade:439
+msgid "_other"
+msgstr "benu_tzerdefiniert"
+
+#: ui/properties.glade:540
+msgid "Aut_hentication:"
+msgstr "Aut_hentifizierung:"
+
+#: ui/properties.glade:594
+msgid "Certificate filename"
+msgstr "Datei, die das Zertifikat enthält"
+
+#: ui/properties.glade:618
+msgid "Bro_wse..."
+msgstr "Auswählen..."
+
+#: ui/properties.glade:637
+msgid "Cer_tificate:"
+msgstr "_Zertifikat:"
+
+#: ui/properties.glade:692
+msgid "minutes"
+msgstr "Minuten"
+
+#: ui/properties.glade:716
+msgid "seconds"
+msgstr "Sekunden"
+
+#: ui/properties.glade:739 ui/properties.glade:765
+msgid ""
+"The amount of time to wait between mail checks or between retries when "
+"connection is lost"
+msgstr ""
+"Das Zeitintervall zwischen Überprüfungen auf neue Nachrichten bzw. zwischen "
+"Verbindungsversuchen, falls die Verbindung abbricht"
+
+#: ui/properties.glade:791
+msgid "Dela_y:"
+msgstr "Verz_ögerung:"
+
+#: ui/properties.glade:846
+msgid "_Mailbox:"
+msgstr "_Briefkasten:"
+
+#: ui/properties.glade:871
+msgid "Mailbox folder"
+msgstr "Ordner auf dem Server"
+
+#: ui/properties.glade:893
+msgid "Other mailbox folder"
+msgstr "Es soll ein anderer Ordner verwendet werden"
+
+#: ui/properties.glade:895
+msgid "othe_r"
+msgstr "benut_zerdefiniert"
+
+#: ui/properties.glade:916
+msgid "Standard mailbox folder"
+msgstr "Es soll der standardmäßige Eingangsordner verwendet werden"
+
+#: ui/properties.glade:918
+msgid "stand_ard"
+msgstr "standardmä_ßig"
+
+#: ui/properties.glade:951
+msgid "<b>_Details</b>"
+msgstr "<b>_Details</b>"
+
+#: ui/authentication.glade:7
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+#: ui/authentication.glade:102
+msgid "Your username on the server"
+msgstr "Benutzername auf dem Server"
+
+#: ui/authentication.glade:124
+msgid "Your password on the server"
+msgstr "Passwort auf dem Server"
+
+#: ui/certificate.glade:7
+msgid "Cannot certify server"
+msgstr "Kann Server nicht zertifizieren"
+
+#: ui/certificate.glade:130
+msgid "Common Name"
+msgstr "Name"
+
+#: ui/certificate.glade:154
+msgid "Organization"
+msgstr "Organisation"
+
+#: ui/certificate.glade:178
+msgid "Organization Unit"
+msgstr "Abteilung"
+
+#: ui/certificate.glade:275
+msgid "<b>Issued To</b>"
+msgstr "<b>Ausgestellt auf</b>"
+
+#: ui/certificate.glade:394
+msgid "<b>Address</b>"
+msgstr "<b>Adresse</b>"
+
+#: ui/certificate.glade:418
+msgid "Country"
+msgstr "Land"
+
+#: ui/certificate.glade:442
+msgid "Locality"
+msgstr "Ort"
+
+#: ui/certificate.glade:540
+msgid "State or Province"
+msgstr "Bundesland oder Provinz"
+
+#: ui/certificate.glade:570
+msgid "Certificate details"
+msgstr "Details des Zertifikats"
+
+#: ui/certificate.glade:668
+msgid "Accept"
+msgstr "Akzeptieren"
+
+#: ui/popup.glade:61
+msgid "mail content"
+msgstr "Nachrichtentext"
+
+#: ui/popup.glade:116
+msgid "<small><b>From</b></small>"
+msgstr "<small><b>Absender</b></small>"
+
+#: ui/popup.glade:140
+msgid "<small><b>Subject</b></small>"
+msgstr "<small><b>Betreff</b></small>"
+
+#: ui/popup.glade:164
+msgid "<small><b>Date</b></small>"
+msgstr "<small><b>Datum</b></small>"

@@ -1,33 +1,95 @@
 gnubiff THANKS file
 
-gnubiff has originally been written by Nicolas Rougier.
-Many people have further contributed to gnubiff by reporting problems, 
-suggesting various improvements, or submitting actual code. Here is
-a list of these people. Help me keep it complete and exempt of errors.
 
-* Calum Mackay                  <calum.mackay@cdmnet.org>
-* Robert Sowada                         <sowadart@gmx.de>
-* Roland Stigge                        <stigge@antcom.de>
-* Paul Kuliniewicz                  <kuliniew@purdue.edu>
-* Grzegorz Gotawski               <grzegol@pld-linux.org>
-* Adam Benjamin                   <aebenjam@opentext.com>
-* Theodore Tegos                   <tegos@cs.ualberta.ca>
-* Achim Settelmeier            <rpm-gnubiff@m1.sirlab.de>
-* Barry Skidmore           <skidmore@mail.worldvenue.org>
-* Christian Probst                 <probst@cs.unis-sb.de>
-* Josh Parsons                    <jp30@st-andrews.ac.uk>
-* Michael Moellney     <moellney@simtec.mb.uni-siegen.de>
-* Dennis Bjorklund                      <db@zigo.dhs.org>
-* Craig B. Agricola            <craig@chocolate.chip.net>
-* Bernhard Valenti             <bernhard.valenti@gmx.net>
-* Josh Berdine                    <berdine@dcs.qmw.ac.uk>
-* Michel Leunen                             <leu@rtbf.be>
-* Greg Fenton                       <gregfenton@home.com>
-* Cai Yu                         <yu.cai@rdc.ericsson.se>
-* Chris Snell                       <chris@bikeworld.com>
-* Reid Rivenburgh                         <reid@lanl.gov>
-* Neil Muller                        <neil@dip.sun.ac.za>
-* Sascha Lüdecke                       <sascha@meta-x.de>
-* Richard Torkar                    <ds98rito@thn.htu.se>
-* Pete Phillips                         <pete@smtl.co.uk>
-* Blaise Tarr                       <conitorus@yahoo.com>
+Authors:
+--------
+gnubiff has originally been written by Nicolas Rougier
+
+
+Developers:
+-----------
+Nicolas Rougier
+Robert Sowada
+
+
+Maintainers:
+------------
+Tim Bishop
+Roland Stigge
+
+
+Translators:
+------------
+Wallner Adam (hu)
+Victor Alonso (es)
+Elros Cyriatan (nl)
+Stefano Fabri (it)
+Gunther Furtado (pt_BR)
+Nicols Lichtmaler (es)
+Michel Robitaille (fr)
+Nicolas Rougier (fr)
+Clytie Siddall (vi)
+David Smeringe (sv)
+Robert Sowada (de)
+Roland Stigge (de)
+Josef Vybiral (cs)
+
+
+Various contributors:
+---------------------
+Wallner Adam
+Craig Agricola
+Adam Benjamin
+Josh Berdine
+Philippe Berger
+Wade Berrier
+Dennis Bjorklund
+Jan Blunck
+Alexis S. L. Carvalho
+Eric Cooper
+John Ellson
+Nicolas Evrard
+Greg Fenton
+Byron Foster
+Grzegorz Gotawski
+Samuel Hym
+Satou Kazuhito
+Chris Kemp
+Earl Killian
+Marc-Jano Knopp
+Paul Kuliniewicz
+Jean-Yves Lefort
+Michel Leunen
+Jason Lowdermilk
+Sascha Ludecke
+Calum Mackay
+Julio Mendoza
+Michael Moellney
+Sophie Morel
+David Mosberger
+Neil Muller
+Josh Parsons
+Pete Phillips
+Christian Probst
+Jakub Raczkowski
+Reid Rivenburgh
+Hans-Ulrich Schaefer
+Andy Schofield
+Achim Settelmeier
+Phil Shapiro
+Clytie Siddall
+Antoine Sirinelli
+Erik Sittman
+Barry Skidmore
+Chris Snell
+Blaise Tarr
+Theodore Tegos
+Iulian Tocu
+Richard Torkar
+Bernhard Valenti
+Dries Verachtert
+Hubert Verstraete
+Maik Wachsmuth
+Suzan Wassman
+Cai Yu
+

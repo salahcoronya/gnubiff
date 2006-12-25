@@ -1,11 +1,718 @@
 gnubiff -- History of visible changes.
 
-Copyright (C) 2000-2004, Nicolas Rougier <Nicolas.Rougier@loria.fr>
+Copyright (C) 2000-2006 Nicolas Rougier <Nicolas.Rougier@loria.fr> and
+              2004-2006 Robert Sowada <sowadart@gmx.de>.
 See the end for copying conditions.
-Please send gnubiff bug reports to Nicolas.Rougier@loria.fr.
+Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
+
+Version 2.2.5
+ * Robert Sowada
+   - Changed version to 2.2.5
+   - Fixed incompatibility in the about dialog (API change from gtk 2.8 to
+        gtk 2.10?; this bug was reported by Sebastian Breier as #1621270)
+
+Version 2.2.4		2006-12-10 19:47
+ * Robert Sowada
+   - Changed version to 2.2.4
+   - Bugfix: Option "filter_global_last" was not available
+   - Updated intltool (to version 0.35.0) and gettext (to version 0.15) files
+   - Feature: Portuguese translation (thanks to Gunther Furtado)
+   - Updated German translation
+   - Added Gunther Furtago to contributors
+	
+Version 2.2.3		2006-10-15 18:46
+ * Robert Sowada
+   - Changed version to 2.2.3
+   - Bugfix: Encrypting passwords that are longer than 16 characters (debian
+        bug #378233; thanks to Julio Mendoza for reporting this bug)
+   - Bugfix: Encrypting passwords that have a length of 16, 32, 48 etc.
+   - Bugfix: Code fixes to avoid gcc warnings
+   - Bugfix: Ignore SIGPIPE signal for using SSL properly
+   - Bugfix: Compiling without "fam.h" (thanks to Tom K. for reporting this
+        bug)
+   - Bugfix: Short password compatibility (debian bug #385625 by Antoine
+        Sirinelli)
+   - Added Julio Mendoza and Antoine Sirinelli to contributors
+   - Bugfix: Including "sys/types.h" when including "regex.h" (needed for
+        FreeBSD 4; thanks to Tim Bishop for reporting)
+
+Version 2.2.2           2006-08-06 18:47
+ * Robert Sowada
+   - Changed version to 2.2.2
+   - Bugfix: Obtaining the panel's size (GNOME)
+   - Updated Hungarian translation (thanks to Wallner Adam)
+   - Updated Vietnamese translation (thanks to Clytie Siddall)
+   - Feature: Three new options for filtering messages via regular expressions
+        (feature request #1493670 by sunyata and others)
+   - Cleanup: Substituted static mutex for popup by regular mutex
+   - Cleanup: Added test for header file "regex.h" in "configure.ac"
+   - Bugfix: Status of multipart messages (thanks to Chris Kemp for reporting
+        and fixing this bug; bug was reported as #1514879 before by mtorroja)
+   - Added Chris Kemp to contributors
+   - Updated German Translation
+
+Version 2.2.1		2006-05-14 20:08
+ * Robert Sowada
+   - Changed version to 2.2.1
+   - Bugfix: Version check of gtk in configure.ac (thanks to Andy Schofield for
+        reporting this bug)
+   - Added Andy Schofield to contributors
+   - Bugfix: False GPL version in "doc/gnubiff.texi"
+   - Added GPL (version 2) as ASCII text file to the gnubiff directory
+   - Cleanup: All FAM functions in "src/local.cc" now have the prefix "fam_"
+   - Cleanup: It should be possible now to compile the code without FAM support
+   - Feature: Configuring gnubiff without support for FAM (feature request
+        #1461632 by Kyle McDonald and others)
+   - Updated Vietnamese translation (thanks to Clytie Siddall)
+   - Feature: New option "startup_preferences"
+	
+Version 2.2.0           2006-04-09 17:44
+ * Robert Sowada
+   - Changed version to 2.2.0 (from version 2.1.5)
+   - Removed not needed include files from "src/gnubiff.cc"
+   - Added files from libegg for later systray support
+   - Updated TODO
+   - Cleanup of applet code
+   - Bugfix: gnome version of gnubiff can now be installed to any directory
+   - Added Jakub Raczkowski to contributors
+   - Workaround: Added a parameter to the create function to work around the
+        problem of setting an incorrect callback data pointer for the gtk
+        applet
+   - Bugfix: Text in gtk applet now always fits into the fixed container
+   - Bugfix: Gnome applet now identical to gtk applet.
+   - Feature: It's now possible to print the number of new messages without
+        zero padding (via "%D")
+   - Added Maik Wachsmuth and Satou Kazuhito to contributors
+   - Bugfix: Checking for NULL-pointer (in Biff::replace())
+   - Bugfix: Threadsafeness of some mailbox access functions
+   - Bugfix: Message when loading config file from newer gnubiff version
+   - Updated Italian translation (thanks to Stefano Fabri; for version 2.1.x)
+   - Bugfix: Removed no longer needed files from po/POTFILES.in
+   - Feature: Gnubiff can now be started without GUI (option '--nogui')
+   - Feature: Gnubiff can now be started without X (this was feature request
+        #1059347 by Iulian Tocu)
+   - Feature: Hungarian translation (thanks to Wallner Adam; for version 2.1.x)
+   - Added Wallner Adam to translators and contributors
+   - Bugfix: Added an include to src/support.cc (for FreeBSD 4)
+   - Feature: Control gnubiff via USR1 and USR2 signal (feature request
+        #1287946; thanks to a patch by Wallner Adam)
+   - Bugfix: Creating properties line in expert dialog
+   - Bugfix: Creating allowed values line in expert dialog
+   - Feature: Catch some additional signals and give an error message
+   - Bugfix: Changed 0 to NULL to get rid of compiler warning
+   - Updated intltool (to version 0.34.1) and gettext (to version 0.14.4) files
+   - Feature: Applet can now be put into system tray (option "--systemtray")
+   - Feature: gnubiff-devel address in credits dialog
+   - Bugfix: Detection of FAM/GAMIN in configure (thanks to Jan Blunck for
+        providing a patch)
+   - Added Jan Blunck to contributors
+   - Updated German translation
+   - Feature: Possibility to switch off FAM monitoring in favor of polling
+        (option "mailbox/local_fam_enable")
+   - Bugfix: Added FAM mutex lock when getting all pending FAM events
+   - Bugfix: Check FAM connection when getting all pending FAM events
+   - Changed the last copyright year in all sourcefiles to 2006
+   - Feature: Options in the config file can now become deprecated
+   - Feature: Functions for encrypting and decrypting via AES
+   - Security: Don't display the password in the expert dialog as plain text
+   - Security/Feature: Password is now stored AES encrypted in the config file
+   - Security/Feature: Converting passwords when loading old config files
+   - Cleanup: Removed old password handling code
+   - Security note: The passphrase must be stored in the binary, so anyone
+        that has access to this binary can get it and thus decrypt the
+        passwords in gnubiff configuration files
+   - Feature: Decoding of base64 encoded message bodies
+   - Bugfix: Do not start monitoring when the "apply" button in the properties
+        dialog is clicked
+   - Feature: Option for enabling resetting the mailbox in case of a connection
+        failure (the new default value changes the default behavior of gnubiff)
+   - Cleanup: Use GtkAboutDialog for displaying the about dialog
+   - Feature: About dialog can be called from gnome applet menu
+   - Cleanup: Translators tab in the preferences dialog
+   - Bugfix: Obtaining option values from GUI
+   - Feature: Enabling/disabling the popup can be controlled via signals (see
+        debian bug #354383 by Eric Cooper)
+   - Added Eric Cooper to contributors
+   - Bugfix: Detection of fam.h header file at configuration time
+   - Bugfix: Include gnome files only when compiling for gnome (thanks to
+        Tim Bishop for reporting this bug)
+   - Bugfix: Only add "passphrase" option when using password (thanks to
+        Tim Bishop for reporting this bug)
+   - Copied po/fr.po to po/fr_FR.po and po/fr_CA.po
+ * Roland Stigge
+   - Added reference to info pages in man page (Debian bug #335193)
+ * Nicolas Rougier
+   - Update of French translation
+
+Version 2.1.9           2006-01-08 10:54
+ * Robert Sowada
+   - Changed version to 2.1.9
+   - Backport (from gnubiff 2.2.0 CVS) of properties line in expert dialog fix
+   - Backport (from gnubiff 2.2.0 CVS) of a.v. line in expert dialog fix
+   - Backport (from gnubiff 2.2.0 CVS) of compiler warning bugfix
+   - Bugfix: Detection of FAM/GAMIN in configure (thanks to Jan Blunck for
+        providing a patch)
+   - Added Jan Blunck to contributors
+   - Backport (from gnubiff 2.2.0 CVS) of FAM bugfixes and possibility to
+        disable FAM
+	
+Version 2.1.8		2005-12-19 22:01
+ * Robert Sowada
+   - Changed version to 2.1.8
+   - Backport (from gnubiff 2.2.0 CVS) of smaller fixes
+   - Backport (from gnubiff 2.2.0 CVS) of newer version in config file fix
+   - Updated Italian translation (thanks to Stefano Fabri)
+   - Feature: Hungarian translation (thanks to Wallner Adam)
+   - Added Wallner Adam to translators and contributors
+   - Updated TODO
+   - Bugfix: Added an include to src/support.cc (for FreeBSD 4)
+
+Version 2.1.7		2005-10-31  0:43
+ * Robert Sowada
+   - Changed version to 2.1.7
+   - Bugfix: Mistake when backporting from 2.2.0 to 2.1.6. Thanks to Maik
+        Wachsmuth and Satou Kazuhito for reporting this bug.
+   - Added Maik Wachsmuth and Satou Kazuhito to contributors
+ * Roland Stigge
+   - Added reference to info page in man page (Debian bug #335193)
+    
+Version 2.1.6		2005-10-09 15:51
+ * Robert Sowada
+   - Changed version to 2.1.6
+   - Backport (from gnubiff 2.2.0 CVS) of changes for installing gnubiff into
+        an arbitrary location
+
+Version 2.1.5		2005-08-21 18:11
+ * Robert Sowada
+   - Changed version to 2.1.5
+   - Bugfix: Checking if a FAM connection is established
+   - Bugfix: Threadsafeness of FAM code
+   - Bugfix: Retrying monitoring via FAM
+   - Copyright message in Credits dialog updated
+   - Bugfix: Finally fixed the FAM problem (bug #1221040; thanks to Hubert
+        Verstraete for providing a patch)
+   - Updated TODO
+   - Added Hubert Verstraete to contributors
+   - Bugfix: Obtaining keyboard focus automatically (thanks to Wade Berrier
+        for reminding us of this bug and for providing a patch)
+   - Added Wade Berrier to contributors
+   - Feature: Option "pop3_max_uid_length" for dealing with buggy servers
+   - Bugfix: Define HAVE_BIND_TEXTDOMAIN_CODESET in configure file (debian bug
+        #305002; thanks to Elie Morisse for reporting this bug; thanks to
+        Martin Samuelsson for giving information how to reproduce the bug;
+        thanks to Roland Stigge for finding the exact cause of the bug)
+   - Added config.rpath to config subdir
+   - Bugfix: "config/gnubiff.spec.in" must be specified in "Makefile.am"
+   - Updated NEWS
+
+Version 2.1.4		2005-06-27 22:45
+ * Robert Sowada
+   - Changed version to 2.1.4
+   - Version is now inserted automatically in gnubiff.spec, gnubiff.texi
+   - Added "config/mdate-sh" (needed for generating "doc/version.texi")
+   - Added "doc/version.texi" (can be updated via "--enable-maintainer-mode")
+   - Checked files for incorrect string size type without problems (so all
+     files are checked now; see below for files checked for version 2.1.3):
+        "src/gnubiff_options.*", "src/gui.*", "src/local.*", "src/options.*",
+        "src/socket.*", "src/ui-applet.*", "src/ui-applet-gtk.*",
+        "src/ui-authentication.*", "src/ui-certificate.*", "src/ui-popup.*"
+        and "src/ui-preferences.*"
+   - Cleanup: New class Support (for existing functions in "src/support.cc")
+   - Cleanup: Moved parsing of number sequences to "src/support.cc"
+   - Bugfix: Don't monitor directory for mh protocol (saves resources)
+   - Cleanup of autodetection code for local mailboxes
+   - Cleanup of Imap4::command_fetchuid()
+   - Cleanup of mh and maildir protocols
+   - Feature: Support for mh protocol as used by Sylpheed
+   - Bugfix in "src/ui-properties.h" (when no SSL is available)
+   - Added include file for FreeBSD
+   - Updated Vietnamese translation (thanks to Clytie Siddall)
+   - Very basic support for the Kinyarwanda language (thanks to Steven Michael
+        Murphy)
+   - Bugfix: Not reading the whole message (mh protocols)
+   - Cleanup: FAM error handling via exceptions
+   - Bugfix: Race condition when starting monitoring via FAM
+   - Bugfix: Testing returned pointer in Decoding::decode_body()
+   - Bugfix: Testing for end of file
+   - Bugfix: Reading not enough header lines (maildir; thanks to Nicolas
+        Evrard for reporting this bug; this fixes debian bug #303965)
+   - Bugfix/Cleanup: Rewrite of parsing header lines that may be RFC 2047
+        encoded for more RFC 2047 compliance. This also fixes the whitespace
+        between two encoded words bugs (thanks to Samuel Hym for reporting
+        this bug)
+   - Added Samuel Hym to contributors
+   - Czech translation added (thanks to Josef Vybiral)
+   - Added Josef Vybiral to contributors
+   - Bugfix: Added include file for compiling with gcc-c++-4.0.0-11 (thanks to
+        John Ellson for reporting this bug)
+   - Bugfix: Password strings containing spaces in configure (thanks to John
+        Ellson for reporting this bug)
+   - Bugfix: Bug in error message (was fixed in 2.0.3, got lost in 2.1.0;
+        thanks to John Ellson for reporting this bug)
+   - Bugfix: Operator precedence in debug message (thanks to John Ellson for
+        reporting this bug)
+   - Added John Ellson to contributors
+   - Change: Default value of option "mailbox/other_port" is now 0
+   - Feature: Display standard port being used in the properties dialog
+   - Bugfix: Showing/Hiding of certificate text entry
+
+Version 2.1.3		2005-04-03 23:57
+ * Robert Sowada
+   - Changed version to 2.1.3
+   - Updated po files, German translation
+   - Bugfix: Detecting FAMCreated
+   - Bugfix: Maildir protocol provides uid
+   - Cleanup: Using glib functions for directory access (maildir)
+   - Bugfix: Obtaining version of gnubiff config file
+   - Bugfix: Don't parse already read messages (maildir)
+   - Bugfix: Respect "use_max_mail" option (maildir)
+   - Bugfix: Reading message body (file)
+   - Bugfix: Don't read whole body (maildir)
+   - Bugfix: Check pointers in callbacks (in "src/gui.cc")
+   - Bugfix: 64bit problem (debian bug #301853); note: The same problem is
+        still present multiple times in the code; added this to TODO file;
+        thanks to David Mosberger for reporting and fixing this bug
+   - Added David Mosberger to contributors
+   - Bugfix: Corrected string size types in "src/decoding.*", "src/mailbox.*"
+        "src/apop.*", "src/imap4.*", "src/maildir.*", "src/biff.*",
+        "src/gtk_image_animation.*", "src/option.*", "src/mh.*",
+        "src/header.*" and "src/support.*" (64bit systems)
+   - Checked files for incorrect string size type without problems:
+        "src/pop.*", "src/maildir.*", "src/file.*", "src/gnubiff.*",
+        "src/pop3.*", "src/ui-properties.*" and "src/ui-applet-gnome.*"
+   - Bugfix: Crash in image selecting dialogs (thanks to David Mosberger for
+        reporting this bug)
+   - Feature: More information in unknown_internal_error() provided
+   - Documentation of Mailbox::parse()
+   - Bugfix: Throw exception if login line cannot be created (apop)
+   - Bugfix: "Quit" menu item (gtk applet)
+   - Bugfix: Respect "use_max_mail" option (mh)
+   - Bugfix: Test pointers in callback functions ("src/gtk_image_animation.cc")
+   - Updated Vietnamese translation (thanks to Clytie Siddall)
+   - Bugfix: Substituted protocol dependent test in "src/local.h" (fam)
+   - Bugfix: Detecting FAMDeleted (this should finally fix debian bug
+        297774)
+   - Bugfix/Feature: New option "file_restore_atime". Note: This results in a
+        changed default behavior!
+   - Updates in "ui/preferences.glade" to make translating easier
+   - Bugfix: Monitoring the correct directory by FAM (maildir; thanks to
+        Alexis S. L. Carvalho for reporting this and previous maildir bugs)
+   - Bugfix: Reading messages (mh)
+   - Added Alexis S. L. Carvalho to contributors
+   - Bugfix: AM_GLIB_GNU_GETTEXT prevents creating localization (thanks to
+        Nicolas Evrard for reporting this bug)
+   - Bugfix: Makefile.am in "ui" subdirectory
+
+Version 2.1.2		2005-03-26 17:28
+ * Robert Sowada
+   - Changed version to 2.1.2, updated spec file
+   - Various small changes
+   - Updated po files, German translation
+   - Cleanup: Complete documentation of functions in "src/options.cc"
+   - Bugfix: Allow storing of strings that contain spaces in string list
+        options
+   - Bugfix: Email address for bugs updated in "ChangeLog", "configure.ac",
+        "NEWS"
+   - Bugfix: Respect folding in mail header
+   - Bugfix: Better handling of certain header lines
+   - Bugfixes/Cleanup: Parsing of content type header field
+   - Bugfix: Handling of quoted strings (IMAP4)
+   - Feature: Support other encodings than "7bit" for all protocols
+   - Feature: Error message if content type is not supported
+   - Bugfix: Typo in mini help(thanks to Clytie Siddall for reporting this bug)
+   - Bugfix: Bugs regarding the word "mail" (thanks to Clytie Siddall for
+        reporting this bug)
+   - Added Clytie Siddall to contributors
+   - Feature: Support for "multipart/mixed" and "multipart/alternative" mails
+   - Feature: Version saved to config file
+   - Feature: Autoupdate of options that have new default values
+   - Feature: Vietnamese translation (thanks to Clytie Siddall)
+   - Added Clytie Siddall to translators
+   - Added David Smeringe to translators (was forgotten before)
+   - Update: Included Dutch translation for 2.0.2 into CVS (was from 1.4.0
+        before)
+   - Bugfix: Building certificate chain automatically (this fixes debian
+        bug #226914)
+   - Bugfix: Don't load config file twice in gnome mode
+   - Cleanup: Get "prevdos_line_length" option only once per connect not once
+        per line
+   - Bugfix: Displaying error messages instead of mail body
+   - Bugfix: Illegal parameters to callback function while parsing config file
+   - Bugfix: Testing return value when creating XML parser
+   - Bugfix: Testing popup() for being NULL pointer in "src/applet.cc"
+        (thanks to Phil Shapiro for reporting this bug)
+   - Added Phil Shapiro and Nicolas Evrard to contributors
+   - Bugfix: Setting defaults for date, subject and from
+   - Bugfix: Don't parse mails that aren't stored anyway
+   - Added Victor Alonso to translators
+   - Cleanup of Socket::close()
+   - Bugfix/Update: Updated various files from the gettext package
+        to version 0.14.1
+   - Updated intltool utilities to version 0.33
+   - Removed "config/stamp-h1" (is autogenerated)
+   - Bugfix: Updating popup window
+   - Bugfix: Executing new mail command (when popup is not to be updated)
+   - Bugfix: Checking parameters to callback functions
+   - Update: Expert option dialog popup menus now created via glade
+   - Bugfix: Memory leak when creating popup menu
+   - Bugfix: Added include file for FreeBSD (thanks to Tim Bishop for reporting
+        this bug)
+   - Bugfix: Check for crypto lib in autoconf.ac (thanks to Tim Bishop for
+        reporting this bug)
+   - Feature: Support for "multipart/signed" mails (without checking signature)
+ * Roland Stigge
+   - Bugfix: Encoding of "po/fr.po"
+
+Version 2.1.1		2005-02-27 11:13
+ * Nicolas Rougier
+   - bugfix: gui, biff geometry field was sensitive when in gnome mode
+   - bugfix: password automatic finding, misplaced mutex lock
+   - bugfix: password automatic finding, port was no taken into account
+   - bugfix: use delay instead of 1 second between FAM retries.
+   - bugfix: change preferences ui
+   - update: French translation
+   - update: gnubiff.texi
+   - bugfix: Remove use of the pseudo-capability greeting message in IMAP4
+ * Robert Sowada
+   - Changed version to 2.1.1, updated spec file
+   - Small changes
+   - Marked strings for internationalization (type & authentication menu)
+   - Updated po files, German translation
+   - Bugfix: Parsing local mails could trigger additional FAM events
+     resulting in parsing mails another time (->infinite loop, 100% CPU load)
+   - Translating copyright message in credits dialog simplified (po files are
+     now independent of cuurent version)
+   - Added decoding.cc to POTFILES.in
+   - Bugfix: Setting mailbox status to old after new mail is displayed (thanks
+     to Byron Foster for providing a patch)
+   - Bugfix: Quick test for new mail while idling is not enogh (IMAP4; thanks
+        to Byron Foster for providing a patch)
+   - Added Byron Foster to Contributors
+   - Bugfix: Don't crash if server's response is not valid (IMAP4; thanks to
+        Calum Mackay for reporting this bug)
+   - Feature: Applet and Popup now can be set to be sticky and be kept above
+        all other windows
+   - Bugfixes: Better error handling and bad connection handling (IMAP4;
+        thanks to Byron Foster for providing a patch)
+   - Bugfix: Corrected tests for responses to IDLE, SEARCH NOT SEEN and
+        FETCH header commands (IMAP4)
+   - Cleanup of SEARCH NOT SEEN, CAPABILITY, FETCH header, LOGIN, SELECT, FETCH
+        bodystructurei, LOGOUT, IDLE and FETCH BODY commands (IMAP4)
+   - Bugfix: Segfaulting in SSL when writing to a closed socket
+   - Cleanup of code for obtaining the password for distant mailboxes
+   - Cleanup of code for checking for new mails (IMAP4)
+   - Bugfix: Signal SIGCHLD interrupts socket reads and writes (thanks to Byron
+        Foster for providing patches)
+   - Bugfix: Some error handling was only done when debugging was activated
+   - Bugfix: CAPABILITY command (IMAP4)
+   - Cleanup of code for getting server's acknowledgment (IMAP4)
+   - Bugfix: LOGINDISABLED capability respected (IMAP4)
+   - Bugfix: Inserting a correct Content-type into the header (IMAP4)
+   - Bugfix: Server's response to the "FETCH (BODYSTRUCTURE)" command may be
+        multiline (IMAP4)
+   - Bugfix: Accept mail lines beginning with "* BYE" (IMAP4)
+   - Bugfix: Send the LOGOUT command if we have to terminate a connection
+        untimely (IMAP4)
+   - Bugfix/Cleanup: Simplified error handling when sending to the server
+        (IMAP4)
+   - Bugfix/Cleanup: Simplified error handling when reading server responses
+        (IMAP4)
+   - Bugfix/Cleanup: Simplified waiting for specified untagged server
+        responses (IMAP4)
+   - Don't stop idling when the server sends information and warning messages
+        (IMAP4)
+   - Source code for class Imap4, Pop, Apop and Pop3 is fully documented now
+   - Bugfix: Printing debug messages for sent lines (IMAP4 & POP3)
+   - Feature: Allow the user to forbid idling (no GUI support ATM; IMAP4)
+   - Added exception handling to POP3
+   - Bugfix/Cleanup: Error handling when reading and sending (POP3)
+   - Cleanup: Got rid of protocol specific code in class Socket
+   - Bugfix: Corrected tests regarding socket status
+   - Bugfix: Allow mail lines to begin with "-ERR" (POP3)
+   - Bugfix: Don't treat "* BYE" messages by server as mailbox error when not
+        checking for mail (IMAP4)
+   - Bugfix/Cleanup of QUIT, STAT, UIDL and TOP commands (POP3)
+   - Bugfix: Mail lines beginning with '.' (POP3, was fixed in 2.0.x)
+   - fetch_mails() instead of fetch_status() and fetch_header (POP3 & IMAP4).
+        So we now have only one connection per update. This helps users whose
+        servers enforce a limit on connections per time interval.
+   - Bugfix: Error handling when getting timestamp (APOP)
+   - substituted std::vector by std::set for saved uids (POP3), hidden mailids,
+        seen mailids and new seen mailids
+   - mailids are strings now, no longer integers. Note: This makes the saved
+        values for seen mails in the config file invalid
+   - mailids are now created by taking uids from server if possible (currently
+        only POP3, IMAP4 will follow)
+   - Unread headers are now saved in a map (using the mailid as key)
+   - Save response codes for positive server responses (IMAP4)
+   - Check for the UIDVALIDITY response code for the SELECT command (IMAP4)
+   - Check for the CAPABILITY response code when starting connection. If found
+        there is no need to send the CAPABILITY command (IMAP4)
+   - Support for unique ids when using IMAP4. Deciding whether a mail is new
+        by looking at the unique id instead of the message sequence number.
+        Note: This may lead to inaccurate results if the server does not
+	support UIDVALIDITY (see RFC 3501 2.3.1.1) but is of course not worse
+	than message sequence numbers;-)
+   - Removed contains_new(): No longer needed
+   - Cleanup of error message when setting socket timeouts
+   - Feature: Mails are now fetched from the server and parsed only once per
+        session. Subsequent updates take the saved header instead of fetching
+	and parsing the mail again (IMAP4 & POP3)
+   - Feature: Do not fetch and parse mails that are not to be displayed anyway
+        (IMAP4 & POP3)
+   - Cleanup: Handling untagged responses, sending commands with msn
+        argument (IMAP4)
+   - Bugfix: Respect the number of mail headers to be shown in the popup
+        (thanks to Calum Mackay for reporting this bug)
+   - Feature: Get all unique identifiers at once.  If no new mail is present on
+        the server we now have to send only 5 or 6 IMAP commands to the server
+	(IMAP4)
+   - Change: biff->max_mail_ is now the number of message sequence numbers
+        that are obtained from the server (IMAP4)
+   - Bugfix: Respect biff_->use_max_mail_ (IMAP4)
+   - Feature: Get all unique ids via one POP command if this is possible (i.e.
+        if the total number of unread messages on the server is not greater
+        than max_mail_). So only 5 (POP3) or 4 (APOP) POP commands needed for
+        a update when no new messages are available (POP3)
+   - Bugfix: Respect use_max_mail_ (POP3)
+   - Start of checking for new mail now protocol independent in class Mailbox
+   - Bugfix: Number of mails to be displayed distributed correctly among the
+        mailboxes
+   - Bugfix: Displaying popup data correctly
+   - Some additional include files added for FreeBSD (thanks to Tim Bishop)
+   - Macro TEMP_FAILURE_RETURN provided for systems that don't have it
+   - Bugfix: Once mail is displayed set mailbox status to MAILBOX_OLD
+   - Bugfix: Note only those mails for displaying that will be displayed
+        (local mailboxes)
+   - Feature: Gnubiff applet and/or popup may appear in pagers or not
+   - Bugfix: Remove mail ids from hidden_ that are no longer in seen_
+   - Simplified code for loading config file
+   - Error messages for errors when loading config file
+   - Bugfix: Segmentation faults when selecting mails in popup while updating
+   - New files for class Header, cleanup of this class
+   - Added Tim Bishop to maintainers, updated some dates to 2005
+   - Bugfix: Only don't send CAPABILITY command if all capabilities are
+        present in the response code (IMAP4)
+   - Bugfix: Updating applet/popup when idling (IMAP4), thanks to Byron Foster
+	for reporting this bug
+   - Bugfix: Marking mails as read
+   - Feature: Options are now stored in a common container
+   - Feature: Expert dialog for editing all options
+   - Feature: Searching for options in expert dialog
+   - Feature: Security settings available as options, no longer fixed
+        constants
+   - Feature: Sorting of headers can be configured by the user
+   - Feature: Context menus for expert dialog
+   - Don't save "port" and "folder" to config file (are set automatically by
+        other options)
+   - Bugfix: Respect "use_max_mail" for file protocol
+   - Feature: Option "pref_allow_resize" for resizing preferences window
+   - Bugfix: Respect "min_body_lines" for file protocol
+   - Bugfixes: Displaying of mail body in popup
+   - Bugfix: Prevent DoS attacks in socket closing function
+   - Bugfix: Updating GUI when changing option via expert dialog
+   - Feature: Default value for showing expert tab can be changed via option
+        to configure
+   - Feature: Warning message is shown before expert editing mode can be
+        activated
+   - Feature: Print whether expert tab will be shown at the end of configure
+   - Updated gnubiff.texi file
+   - Include an additional file to support FreeBSD 4 (thanks to Tim Bishop)
+   - Bugfix: Handling of "expert_edit_options" option
+   - Bugfix: Respect OPTFLG_CHANGE when getting option's value from gui
+
+Version 2.1.0		2004-12-22 11:20
+ * Nicolas Rougier
+   - New & simpler interface
+   - Support of the IDLE state for imap4 (no more polling)
+   - Support of the FAM (File Alteration Monitor)
+     (no more polling for file/folder protocols)
+   - Better detection of mailbox format
+   - Bugfix: IMAP4 idle state test to avoid checking twice
+   - Bugfix: Popup was shown on exiting preferences
+   - Put back credits
+   - Updated French translations
+   - Fix a bug with IMAP4 idle feature (not recognizing the BYE command)
+   - Added a TODO file to keep track of features/bugs to be implemented/fixed
+   - Bugfix: Testing of "\"text\" \"plain\"" in imap4 parsing was wrong
+             (some servers answer using upper cases letter)
+   - Modified credits apperance in the preferences panel (and remove the
+     about menu from gnome applet popup menu)
+   - Bugfix: socket was closed twice when lock was lost in IDLE state
+   - Bugfix: modify the configure script to have errors if popt or fam
+             libraries not present
+   - Sorted the contributors list
+   - Feature: When adding a mailbox and if one is selected, the new mailbox is
+	      copied from the selected one
+   - Feature: If password is empty, gnubiff try to find by looking at
+              other mailboxes and matching (address/username)
+   - Updated THANKS file
+   - Bugfix: display last received mail for each mailbox (up to	popup_size)
+   - Bugfix: Take popup_use_size_ into account
+   - Bugfix: Use of the decoded charset for imap4
+   - Bugfix: Added a lock for the ui-authentification/ui-certificate access 
+   - Bugfix: Fix a problem with certificate (not taking the HAVE_LIBSSL flag into account)
+   - Bugfix: Bad line fixed in apop.
+   - Bugfix: lock for ui-authentification access was not used in imap4
+   - Bugfix: Newly created mailboxes were not created properly
+* Robert Sowada (adapted by Nicolas Rougier from v2.0.3 to v2.1.0)
+   - Gnome version can determine itself if in standalone mode or panel mode
+   - Removed "--gtk" option, added "--applet" option in debug mode instead
+   - Added "--version" option to all versions of gnubiff
+   - "--help" option handled by "poptPrintHelp" in all versions of gnubiff
+   - Removed messages that are no longer necessary
+   - Bugfix: Using <return> in password entry
+   - Bugfix: return value of main
+   - Output of "--help" restructured
+   - Update of man page (command line options, version, date)
+   - Bugfix: Failure of select command (IMAP)
+   - Bugfix: Failure of opening connection (IMAP)
+   - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+     (if SSL is used, this was fixed for non-SSL connections in 2.0.2)
+   - Bugfix: Handling network writing/reading errors
+   - Bugfix/Feature: Support for international Mailbox names for IMAP
+   - Security Bugfix: DoS attacks by sending a unterminated response to the
+     SELECT, SEARCH, FETCH (IMAP) and TOP (POP3) commands anticipated
+   - Bugfix: User set value for maximum number of mail to be collected is now
+     respected (IMAP)
+   - Bugfix: Fetching mails is no longer stopped if certain strings are in
+     mail or mail header (IMAP)
+   - Bugfix: First lines of email content are now displayed (IMAP)
+   - Bugfix: Displaying mails that do not end with a newline (IMAP)
+   - Feature: Only get first "text/plain" part of mail, not the whole mail;
+     don't get the whole part if it is very long (IMAP)
+   - Feature: Message if there is no "text/plain" part (IMAP)
+   - Bugfix: Creating different tags for different commands (IMAP)
+ * Robert Sowada
+   - Updated german translation
+   - Various small changes in GUI
+   - Updated "text" "plain" fix of Nicolas to make it safe for future
+     extensions
+   - Get encoding and character set of "text" "plain" part (IMAP4)
+   - Updated intltool utilities to version 0.32.1
+   - Ported local and distant mailbox detection code from 2.0.3 to 2.1.0
+   - Decoding of quotedprintable encoded mails (IMAP4)
+   - Error message for mails in unknown enoding (IMAP4)
+   - Bugfix: base64 decoding now rejects invalid encoded strings
+   - New source files for decoding and converting
+   - Separated q-encoding and quoted printable encoding
+   - Number of lines (of mail body) to be read is now a constant
+   - Bugfix: Setting file permissions of scripts in configure script
+     (fixes bug #1083485)
+   - Marked strings for translation (GNOME menu entries)
+   - Bugfix: DoS attacks in IDLE command (IMAP4)
+   - Bugfix: Hanging of local mailboxes
+   - Ported saving to configuration file code from 2.0.2 to 2.1.0
+   - Ported mh protocol fixes from 2.0.2 to 2.1.0
+   - Ported maildir protocol fixes from 2.0.2 to 2.1.0
+   - Ported substituting of "%d" from 2.0.2 to 2.1.0
+   - Bugfix: Selecting "File or Folder" or "Autodetect" in properties dialog
+   - Bugfix: Segfaults when all mails are read while popup is present
+   - Bugfixes in local mailbox detection; local mailboxes are identified
+     immediately
+   - Feature: Use of relative paths allowed (when not using autodetection)
+
+Version 2.0.3		2004-11-30 08:49
+  * Roland Stigge:
+    - Updated man page (section 1, "GTK+")
+  * Robert Sowada:
+    - Changed version to 2.0.3
+    - Various small changes and bugfixes
+    - Updated german translation, updated po files
+    - Gnome version can determine itself if in standalone mode or panel mode
+    - Removed "--gtk" option, added "--applet" option in debug mode instead
+    - Added "--version" option to all versions of gnubiff
+    - "--help" option handled by "poptPrintHelp" in all versions of gnubiff
+    - Removed messages that are no longer necessary
+    - Bugfix: return value of main
+    - Output of "--help" restructured
+    - Code for saving the configuration file cleaned up
+    - Bugfix: Autodetection of IMAP
+    - Bugfix: Failure of select command (IMAP)
+    - Bugfix: Failure of opening connection (IMAP)
+    - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+      (if SSL is used, this was fixed for non-SSL connections in 2.0.2)
+    - Bugfix: Handling network writing/reading errors
+    - Bugfix/Feature: Support for international Mailbox names for IMAP
+    - Security Bugfix: DoS attacks by sending a unterminated response to the
+      SELECT, SEARCH, FETCH (IMAP) and TOP (POP3) commands anticipated
+    - Bugfix: User set value for maximum number of mail to be collected is now
+      respected (IMAP)
+    - Bugfix: Fetching mails is no longer stopped if certain strings are in
+      mail or mail header (IMAP)
+    - Bugfix: First lines of email content are now displayed (IMAP)
+    - Bugfix: Displaying mails that do not end with a newline (IMAP)
+    - Feature: Only get first "text/plain" part of mail, not the whole mail;
+      don't get the whole part if it is very long (IMAP)
+    - Feature: Message if there is no "text/plain" part (IMAP)
+    - Bugfix: Setting always status to MAILBOX_ERROR if an error occurs
+      (POP3 & IMAP)
+    - Bugfixes in displaying first lines of mails
+    - Bugfix: Creating different tags for different commands (IMAP)
+    - Update of man page (command line options, version, date)
+    - Bugfix: Handling of text lines beginning with a dot (IMAP & POP3)
+    - Bugfix: Deleting of mailboxes when detecting mailbox format
+    - Bugfix: Updating when connection for mailbox detection fails
+    - Bugfix: Using <return> in password entry
+  * Nicolas Rougier:
+    - Updated french translations
+	
+Version 2.0.2		2004-10-20 01:24
+ * Some cosmetic fixes
+ * Bug fix in IMAP4 protocol
+ * Bug fix in APOP+SSL protocol handling
+ * Bug fix in seen mail handling being reset after error
+ * Bug fix in image choosing for preferences panel
+ * Bug fix when panel is vertically oriented
+ * Bug fix in applet or biff font to be always bold
+ * Bug fix when asking for password or certificate
+ * Bug fix in apop.cc (debug message)
+ * Mail count added in gtk applet window title
+ * Nicolas Rougier
+   - Some fixes for FreeBSD
+   - Imap4 bug when copying from another mailbox (folder_ was set to "INBOX")
+ * Roland Stigge:
+   - updated po/{nl,de}.po
+   - finally fixed g++-3.4 compile error (Debian bug #271288)
+ * Robert Sowada:
+   - Various small changes
+   - Bugfix: User can no longer make config file invalid by using XML 
+     sensitive characters in strings
+   - Bugfixes in setting file permissions
+   - File permissions are only set when creating a new config file. So the user
+     is able to change to less restrictive permissions if he/she wants to do
+     this
+   - Bugfix in detection of animation information (via filename)
+   - Bugfixes in detection of local mailbox format
+   - Bugfix in mh protocol
+   - Bugfixes in handling of sound filename
+   - Bugfixes in string handling
+   - Bugfix in "new mail" and "no mail" tooltips
+   - Security Bugfix: DoS attacks by sending unterminated lines anticipated
+	
+Version 2.0.1		2004-09-03 12:10
+ * Small buf fix that prevented GTK+ version to be compiled
+	
+Version 2.0.0		2004-09-03 05:17
+ * gnubiff now officially part of the GNU project
+ * Complete redesign of interface inspired by MailNotification
+   by Jean-Yves Lefort.
+ * Automatic detection of mailbox format
+ * New option to tell gnubiff to never send passwords in clear
+ * Better handling of SSL certificate
+ * Various small bugfixes
+ * Security fix in possible buffer overflow (pop3.c)
+ * Security fix in pop3 (infinite uidl list would block gnubiff and
+   ultimately crashes it)
+ * Bugfix in geometry handling (was not saved properly)
+ * Bugfix in pop3 protocol to really get only most recent headers
+ * Bugfix in apop protocol which was really broken
+ * Bugfix in imap4 to handle server panic
+ * Bugfix in utf8 translation
+ * Added hidden files in gtk_file_chooser's
 
 
-Version 1.4.0
+Version 1.4.0		2004-06-23 03:49
  * gnubiff now requires glib/gdk/gtk/libglade 2.4
  * Use of file chooser instead of file selector	
  * PNG simple animation support
@@ -34,14 +741,14 @@ Version 1.4.0
  * --enable-debug option added to configure
 
 	
-Version 1.2.0
+Version 1.2.0		2004-05-03 00:42
  * Real multi-mailbox support
  * Mouse button clicks are now different
  * Bug fix in displaying headers
  * GTK version got now a popup menu
  * New possibility of marking "mail as seen"
 
-Version 1.0.10
+Version 1.0.10		2004-04-08 01:40
  * gnubiff becomes multithreaded (so it won't hang while checking for mail)
  * Bug fix in playing soundfile with space in name
  * Spam tagged email are not displayed (X-Spam-Flag: YES)
@@ -49,7 +756,7 @@ Version 1.0.10
  * Added a "max collected header" option.
  * Various translation fixes
 	
-Version 1.0.9
+Version 1.0.9		2004-02-16 05:05
  * Multi mailbox with GNOME
  * Small typo fixes
  * Rewrite of decode64 function
@@ -230,7 +937,8 @@ Version 0.1
 -------------------------------------------------------
 Copying information:
 
-Copyright (C) 2000-2004, Nicolas Rougier <Nicolas.Rougier@loria.fr>
+Copyright (C) 2000-2006 Nicolas Rougier <Nicolas.Rougier@loria.fr> and
+              2004-2006 Robert Sowada <sowadart@gmx.de>.
 
    Permission is granted to anyone to make or distribute verbatim copies
    of this document as received, in any medium, provided that the
