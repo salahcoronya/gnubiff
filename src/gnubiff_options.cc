@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.50 $
-// Revision date : $Date: 2006/07/23 18:56:30 $
+// Revision      : $Revision: 1.51 $
+// Revision date : $Date: 2006/10/15 19:02:52 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -710,6 +710,12 @@ Gnubiff_Options::add_options_popup (gboolean deprecated)
 		"retries when trying to convert such strings to get a validly "
 		"encoded string.",
 								 5));
+	add_option (new Option_Bool ("popup_convert_strip_non_ascii", OPTGRP_POPUP,
+		"If conversion of a message's body fails when using the character "
+		"set specified in the message's header, gnubiff can remove all "
+		"non-ASCII characters and display the rest of the message. This "
+		"can be disabled by setting this option to false.\n",
+								 true));
 	// POPUP_SORT_BY
 	add_option (new Option_String ("popup_sort_by", OPTGRP_POPUP,
 		"A space separated list of header properties by which the headers "
