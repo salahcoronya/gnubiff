@@ -1,5 +1,5 @@
 # gnubiff -- a mail notification program
-# Copyright (C) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+# Copyright (C) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Library General Public
@@ -32,10 +32,10 @@
 # - The third number is the patch number and it usually will only
 #    refer to releases fixing bugs
 #
-# Current version is 2.2.5
+# Current version is 2.2.6
 
 AC_PREREQ(2.59)
-AC_INIT([gnubiff],[2.2.5],[gnubiff-bugs@lists.sourceforge.net])
+AC_INIT([gnubiff],[2.2.6],[gnubiff-bugs@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_HEADERS([config/config.h])
 AC_CONFIG_SRCDIR([src/gnubiff.cc])
