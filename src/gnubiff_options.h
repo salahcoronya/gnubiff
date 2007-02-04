@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2006/03/11 23:23:52 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2007/02/04 15:36:27 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -90,15 +90,20 @@ const guint OPTGRP_MAILBOX		=	8;
 const guint OPTGRP_INFORMATION	=	16;
 const guint OPTGRP_SECURITY		=	32;
 
-const guint LABEL_POS_LEFT_OUT  =   1;
-const guint LABEL_POS_LEFT_IN   =   2;
-const guint LABEL_POS_CENTER    =   3;
-const guint LABEL_POS_RIGHT_IN  =   4;
-const guint LABEL_POS_RIGHT_OUT =   5;
-const guint LABEL_POS_TOP_OUT   =   1;
-const guint LABEL_POS_TOP_IN    =   2;
-const guint LABEL_POS_BOT_IN    =   4;
-const guint LABEL_POS_BOT_OUT   =   5;
+const guint LABEL_POS_LEFT_OUT    = 1;
+const guint LABEL_POS_LEFT_IN     = 2;
+const guint LABEL_POS_CENTER      = 3;
+const guint LABEL_POS_RIGHT_IN    = 4;
+const guint LABEL_POS_RIGHT_OUT   = 5;
+const guint LABEL_POS_TOP_OUT     = 1;
+const guint LABEL_POS_TOP_IN      = 2;
+const guint LABEL_POS_BOT_IN      = 4;
+const guint LABEL_POS_BOT_OUT     = 5;
+const guint LABEL_POS_MANUALLY    = 1;
+const guint LABEL_POS_LEFT_TOP    = 2;
+const guint LABEL_POS_LEFT_BOT    = 3;
+const guint LABEL_POS_RIGHT_TOP   = 4;
+const guint LABEL_POS_RIGHT_BOT   = 5;
 
 class Gnubiff_Options : public Options {
 public:

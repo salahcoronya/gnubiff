@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2006/02/19 19:14:12 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2006/05/27 21:01:45 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -144,6 +144,9 @@ extern "C" {
 	}
 }
 
+// ========================================================================
+//  base
+// ========================================================================
 
 AppletGnome::AppletGnome (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.glade", this)
 {
@@ -153,6 +156,37 @@ AppletGnome::~AppletGnome (void)
 {
 }
 
+// ========================================================================
+//  tools
+// ========================================================================
+/**
+ *  Return the panel's orientation.
+ *
+ *  @param  orient Panel's orientation
+ *  @return        Boolean indicating success
+ */
+gboolean 
+AppletGnome::get_orientation (GtkOrientation &orient)
+{
+	switch (panel_applet_get_orient (PANEL_APPLET(applet_))) {
+	case PANEL_APPLET_ORIENT_DOWN:
+	case PANEL_APPLET_ORIENT_UP:
+		orient = GTK_ORIENTATION_HORIZONTAL;
+		break;
+	case PANEL_APPLET_ORIENT_LEFT:
+	case PANEL_APPLET_ORIENT_RIGHT:
+		orient = GTK_ORIENTATION_VERTICAL;
+		break;
+	default:
+		// Should never happen
+		return false;
+	}
+	return true;
+}
+
+// ========================================================================
+//  main
+// ========================================================================
 /**
  *  Set properties of the gnubiff gnome panel applet.
  *

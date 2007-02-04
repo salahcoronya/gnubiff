@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/12/29 00:34:43 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -72,6 +72,23 @@ AppletSystray::AppletSystray (Biff *biff) : AppletGtk (biff, this)
 /// Destructor.
 AppletSystray::~AppletSystray (void)
 {
+}
+
+// ============================================================================
+//  tools
+// ============================================================================
+/**
+ *  Return the panel's orientation.
+ *
+ *  @param  orient Panel's orientation
+ *  @return        Boolean indicating success
+ */
+gboolean 
+AppletSystray::get_orientation (GtkOrientation &orient)
+{
+	orient = egg_tray_icon_get_orientation (trayicon_);
+
+	return true;
 }
 
 // ============================================================================

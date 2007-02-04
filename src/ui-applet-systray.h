@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.h,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/12/29 00:34:43 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -49,6 +49,11 @@ class AppletSystray : public AppletGtk {
 	// ========================================================================
 	AppletSystray (class Biff *biff);
 	~AppletSystray (void);
+
+	// ========================================================================
+	//  tools
+	// ========================================================================
+	gboolean get_orientation (GtkOrientation &orient);
 
 	// ========================================================================
 	//  main
