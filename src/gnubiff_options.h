@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2006/01/03 22:53:58 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2006/03/11 23:23:52 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -89,6 +89,16 @@ const guint OPTGRP_POPUP		=	4;
 const guint OPTGRP_MAILBOX		=	8;
 const guint OPTGRP_INFORMATION	=	16;
 const guint OPTGRP_SECURITY		=	32;
+
+const guint LABEL_POS_LEFT_OUT  =   1;
+const guint LABEL_POS_LEFT_IN   =   2;
+const guint LABEL_POS_CENTER    =   3;
+const guint LABEL_POS_RIGHT_IN  =   4;
+const guint LABEL_POS_RIGHT_OUT =   5;
+const guint LABEL_POS_TOP_OUT   =   1;
+const guint LABEL_POS_TOP_IN    =   2;
+const guint LABEL_POS_BOT_IN    =   4;
+const guint LABEL_POS_BOT_OUT   =   5;
 
 class Gnubiff_Options : public Options {
 public:
