@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.64 $
-// Revision date : $Date: 2006/01/07 22:35:22 $
+// Revision      : $Revision: 1.65 $
+// Revision date : $Date: 2006/07/23 18:53:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -790,13 +790,20 @@ Biff::load (void)
 
 	mailbox_.clear();
 
+	// Is the configuration file a directory?
+	const gchar *config_file = value_gchar ("config_file");
+	if (g_file_test (config_file, G_FILE_TEST_IS_DIR)) {
+		g_warning ("Configuration file \"%s\" is a directory", config_file);
+		return false;
+	}
+
+	// Open configuration file
 	std::ifstream file;
 	std::string line;
-	file.open (value_gchar ("config_file"));
-	if (!file.is_open()) {
+	file.open (config_file);
+	if (!file.is_open ()) {
 		mailbox_.push_back (new Mailbox (this));
-		g_warning (_("Cannot open your configuration file (%s)"),
-				   value_gchar ("config_file"));
+		g_warning (_("Cannot open your configuration file (%s)"), config_file);
 		return false;
 	}
 

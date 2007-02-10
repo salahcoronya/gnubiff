@@ -10,6 +10,7 @@ Version 2.2.6
    - Changed version to 2.2.6
    - Updated Swedish translation (thanks to Daniel Nylander)
    - Added Daniel Nylander to contributors
+   - Backport of infinite loop bugfix (from gnubiff 2.3.0 CVS)
 
 Version 2.2.5		2007-01-28 16:08
  * Robert Sowada
