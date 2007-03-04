@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.40 $
-// Revision date : $Date: 2007/01/28 20:01:13 $
+// Revision      : $Revision: 1.41 $
+// Revision date : $Date: 2007/03/04 16:25:41 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -365,12 +365,13 @@ Popup::show (std::string name)
 	// Present the popup window. Keyboard focus should not be obtained
 	// automatically when presenting the window but may then gained manually
 	gtk_window_deiconify (dialog);
-	gtk_window_set_accept_focus (dialog, true);
+	gtk_window_set_accept_focus (dialog,
+								 biff_->value_bool ("popup_accept_focus"));
 	gtk_window_set_focus_on_map (dialog, false);
 	gtk_widget_show (GTK_WIDGET (dialog));
 //	gtk_window_present (dialog);
 
-
+	
 	if (biff_->value_bool ("popup_use_geometry"))
 		gtk_window_parse_geometry (dialog,
 								   biff_->value_gchar ("popup_geometry"));

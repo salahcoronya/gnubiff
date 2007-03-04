@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.53 $
-// Revision date : $Date: 2007/02/04 15:36:27 $
+// Revision      : $Revision: 1.54 $
+// Revision date : $Date: 2007/02/04 19:02:44 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -666,6 +666,13 @@ Gnubiff_Options::add_options_popup (gboolean deprecated)
 		"Shall the gnubiff popup window have window manager decoration?",
 								 false, OPTFLG_NONE, OPTGUI_TOGGLE,
 								 "popup_decoration_check"));
+	// POPUP_ACCEPT_FOCUS
+	add_option (new Option_Bool ("popup_accept_focus", OPTGRP_POPUP,
+		"Shall the gnubiff popup window accept the keyboard focus? Usually "
+		"the focus will not be set to the popup when it is displayed. "
+		"But it may be obtained afterwards manually if this option is set "
+        "to true.",
+								 false));
 	// POPUP_BE_STICKY
 	add_option (new Option_Bool ("popup_be_sticky", OPTGRP_POPUP,
 		"Shall the gnubiff popup window be sticky (i.e. appear on all "
