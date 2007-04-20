@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.h,v $
-// Revision      : $Revision: 1.23 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.24 $
+// Revision date : $Date: 2006/03/12 21:10:29 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -68,7 +68,7 @@ public:
 	/// @see AppletGUI::get_password_for_mailbox ()
 	virtual void get_password_for_mailbox (class Mailbox *mb) {};
 	virtual gboolean can_monitor_mailboxes (void);
-	virtual void enable_popup (gboolean enable);
+	virtual class AppletGUI *appletgui_ptr (void);
 };
 
 #endif

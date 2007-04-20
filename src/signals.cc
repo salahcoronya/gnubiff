@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2006/03/12 21:10:29 $
+// Revision      : $Revision: 1.7 $
+// Revision date : $Date: 2006/09/01 23:03:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -33,6 +33,7 @@
 #include "biff.h"
 #include "signals.h"
 #include "ui-applet.h"
+#include "ui-applet-gui.h"
 
 /// Pointer to biff
 class Biff *Signals::biff_ = NULL;
@@ -111,6 +112,9 @@ Signals::signal_handler (int signum)
 		return;
 	}
 
+	// Get an AppletGUI pointer of the applet (or NULL is there in none)
+	AppletGUI *appletgui = biff_->applet()->appletgui_ptr();
+
 	// What command has to be executed?
 	switch (cmd) {
 	case SIGNAL_NONE:
@@ -126,13 +130,16 @@ Signals::signal_handler (int signum)
 		biff_->stop_monitoring ();
 		break;
 	case SIGNAL_POPUP_ENABLE:
-		biff_->applet()->enable_popup (true);
+		if (appletgui)
+			appletgui->enable_popup (true);
 		break;
 	case SIGNAL_POPUP_DISABLE:
-		biff_->applet()->enable_popup (false);
+		if (appletgui)
+			appletgui->enable_popup (false);
 		break;
 	case SIGNAL_POPUP_TOGGLE:
-		biff_->applet()->enable_popup (!biff_->value_bool ("use_popup"));
+		if (appletgui)
+			appletgui->enable_popup (!biff_->value_bool ("use_popup"));
 		break;
 	}
 }

@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.38 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.39 $
+// Revision date : $Date: 2006/03/12 21:10:29 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -255,14 +255,13 @@ Applet::can_monitor_mailboxes (void)
 }
 
 /**
- *  Enable or disable the popup dialog.
+ *  Return an AppletGUI pointer of the applet or NULL if the applet is no
+ *  AppletGUI applet.
  *
- *  @param  enable Boolean that indicates whether to enable (if true) or
- *                 disable (if false) the popup.
+ *  @return see description above
  */
-void 
-Applet::enable_popup (gboolean enable)
+class AppletGUI * 
+Applet::appletgui_ptr (void)
 {
-	// Change the value
-	biff_->value ("use_popup", enable);
+	return NULL;
 }
