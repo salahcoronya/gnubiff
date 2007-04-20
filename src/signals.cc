@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2006/09/01 23:03:58 $
+// Revision      : $Revision: 1.7.2.1 $
+// Revision date : $Date: 2007/04/20 17:04:16 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -141,5 +141,20 @@ Signals::signal_handler (int signum)
 		if (appletgui)
 			appletgui->enable_popup (!biff_->value_bool ("use_popup"));
 		break;
+	case SIGNAL_POPUP_SHOW:
+		if (appletgui)
+			appletgui->show_dialog_popup ();
+		break;
+	case SIGNAL_POPUP_HIDE:
+		if (appletgui)
+			appletgui->hide_dialog_popup ();
+		break;
+	case SIGNAL_POPUP_TOGGLEVISIBLE:
+		if (appletgui) {
+			if (appletgui->visible_dialog_popup ())
+				appletgui->hide_dialog_popup ();
+			else
+				appletgui->show_dialog_popup ();
+		}
 	}
 }
