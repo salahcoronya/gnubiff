@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.39 $
-// Revision date : $Date: 2006/07/30 19:15:54 $
+// Revision      : $Revision: 1.39.2.1 $
+// Revision date : $Date: 2007/04/20 18:21:41 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -521,25 +521,31 @@ Popup::on_select (GtkTreeSelection *selection)
 		gtk_text_buffer_set_text (buffer, "", -1);
 		gtk_text_buffer_get_iter_at_offset (buffer, &iter, 0);
 
-		gchar *markup;
+		gchar *markup = NULL;
 
 		// Sender
 		markup = g_markup_printf_escaped ("<small>%s</small>",
 										  selected_header_.sender().c_str());
-		gtk_label_set_markup (GTK_LABEL(get("from")), markup);
-		g_free (markup);
+		if (markup) {
+			gtk_label_set_markup (GTK_LABEL(get("from")), markup);
+			g_free (markup);
+		}
 
 		// Subject
 		markup = g_markup_printf_escaped ("<small>%s</small>",
 										  selected_header_.subject().c_str());
-		gtk_label_set_markup (GTK_LABEL(get("subject")), markup);
-		g_free (markup);
+		if (markup) {
+			gtk_label_set_markup (GTK_LABEL(get("subject")), markup);
+			g_free (markup);
+		}
 
 		// Date
 		markup = g_markup_printf_escaped ("<small>%s</small>",
 										  selected_header_.date().c_str());
-		gtk_label_set_markup (GTK_LABEL(get("date")), markup);
-		g_free (markup);
+		if (markup) {
+			gtk_label_set_markup (GTK_LABEL(get("date")), markup);
+			g_free (markup);
+		}
 
 		// Body
 		text = charset_to_utf8 (selected_header_.body(),

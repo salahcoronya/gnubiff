@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2006/08/20 19:01:47 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2006/09/03 14:33:02 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -689,7 +689,7 @@ gchar *
 Decoding::charset_to_utf8 (std::string text, std::string charset,
 						   guint retries)
 {
-	gchar *utf8 = (gchar *) text.c_str();
+	gchar *utf8 = NULL;
 	if (!charset.empty())
 		utf8 = g_convert (text.c_str(), -1, "utf-8", charset.c_str(), 0,0,0);
 	else
