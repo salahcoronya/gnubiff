@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.h,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2005/10/03 15:17:51 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -72,10 +72,10 @@ public:
 	/* frequent callbacks */
 	virtual gboolean on_delete	(GtkWidget *widget, GdkEvent *event);
 	virtual gboolean on_destroy	(GtkWidget *widget, GdkEvent *event);
-	virtual void	 on_ok		(GtkWidget *widget) {};
-	virtual void 	 on_apply	(GtkWidget *widget) {};
-	virtual void	 on_close	(GtkWidget *widget) {};
-	virtual void	 on_cancel	(GtkWidget *widget) {};
+	virtual void	 on_ok		(GtkWidget *widget) {}
+	virtual void 	 on_apply	(GtkWidget *widget) {}
+	virtual void	 on_close	(GtkWidget *widget) {}
+	virtual void	 on_cancel	(GtkWidget *widget) {}
 };
 
 /* "C" bindings */

@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gtk_image_animation.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2004/12/03 17:13:39 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2006/01/01 16:44:52 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -77,12 +77,12 @@ protected:
 	/**
 	 * Access
 	 **/
-	void attach (GtkImage *image)		{_image = image;};
-	std::string filename (void)			{return _filename;};
-	guint original_width (void)			{return _original_width;};
-	guint original_height (void)		{return _original_height;};
-	guint scaled_width (void)			{return _scaled_width;};
-	guint scaled_height (void)			{return _scaled_height;};
+	void attach (GtkImage *image)		{_image = image;}
+	std::string filename (void)			{return _filename;}
+	guint original_width (void)			{return _original_width;}
+	guint original_height (void)		{return _original_height;}
+	guint scaled_width (void)			{return _scaled_width;}
+	guint scaled_height (void)			{return _scaled_height;}
 	
 
 	/**

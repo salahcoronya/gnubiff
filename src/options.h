@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.9 $
-// Revision date : $Date: 2006/01/03 22:53:58 $
+// Revision      : $Revision: 1.10 $
+// Revision date : $Date: 2006/07/23 18:53:48 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -130,7 +130,7 @@ protected:
 	 *
 	 *  @param option Pointer to the option that is changed.
 	 */
-	virtual void option_changed (Option *option) {};
+	virtual void option_changed (Option *option) {}
 	/**
 	 *  This function is called when an option is to be read that needs
 	 *  updating before. These options have to be marked by the OPTFLG_UPDATE
@@ -138,7 +138,7 @@ protected:
 	 *
 	 *  @param option Pointer to the option that is to be updated.
 	 */
-	virtual void option_update (Option *option) {};
+	virtual void option_update (Option *option) {}
 private:
 	/**
 	 *  Map of widgets and a set of boolean options. If all boolean
