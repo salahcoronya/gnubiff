@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.11 $
-// Revision date : $Date: 2006/01/13 19:47:33 $
+// Revision      : $Revision: 1.12 $
+// Revision date : $Date: 2006/05/27 21:01:45 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -54,7 +54,7 @@ public:
 	// ========================================================================
 	//  main
 	// ========================================================================
-	PanelApplet *panelapplet() {return (PANEL_APPLET (applet_));};
+	PanelApplet *panelapplet() {return (PANEL_APPLET (applet_));}
 	void dock (GtkWidget *applet);
 	gboolean update (gboolean init = false);
 	void show (std::string name = "dialog");
