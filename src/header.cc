@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2004 Nicolas Rougier
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: header.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2005/03/08 12:33:21 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2005/03/30 22:05:50 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : All information about a specific mail needed by gnubiff
 //
@@ -146,7 +146,7 @@ Header::sort_headers (std::vector<Header *> &ptr_headers,
 		}
 
 		// Otherwise: Ignore it and print error message
-		g_warning (_("Can't sort mails by \"%s\""), sortby.c_str());
+		g_warning (_("Can't sort messages by \"%s\""), sortby.c_str());
 	}
 
 	return mb_end;

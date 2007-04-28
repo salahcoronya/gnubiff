@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.h,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2006/07/30 19:15:55 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2007/04/20 18:19:11 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -82,6 +82,10 @@ protected:
 	guint update (void);
 	void show (std::string name = "dialog");
 	void hide (std::string name = "dialog");
+
+	/* message context menu */
+	gboolean show_message_context_menu (GdkEventButton *event);
+	void delete_selected_message (gboolean tbd);
 
 	/* callbacks */
 	gboolean on_delete (GtkWidget *widget, GdkEvent *event);
