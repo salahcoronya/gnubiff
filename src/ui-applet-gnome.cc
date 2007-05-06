@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2006/05/27 21:01:45 $
+// Revision      : $Revision: 1.27 $
+// Revision date : $Date: 2007/02/04 19:02:44 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
