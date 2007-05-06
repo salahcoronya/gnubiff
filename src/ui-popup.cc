@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.44 $
-// Revision date : $Date: 2007/04/20 20:53:05 $
+// Revision      : $Revision: 1.45 $
+// Revision date : $Date: 2007/04/28 14:09:22 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -431,8 +431,9 @@ Popup::show (std::string name)
 	else
 		gtk_window_unstick (dialog);
 	gtk_window_set_keep_above (dialog, biff_->value_bool ("popup_keep_above"));
-	gtk_window_set_skip_pager_hint (dialog,
-									!biff_->value_bool ("popup_pager"));
+	gtk_window_set_skip_pager_hint (dialog,!biff_->value_bool ("popup_pager"));
+	gtk_window_set_skip_taskbar_hint (dialog,
+									  !biff_->value_bool ("popup_taskbar"));
 
 	g_mutex_lock (timer_mutex_);
 	if (poptag_ > 0) 
