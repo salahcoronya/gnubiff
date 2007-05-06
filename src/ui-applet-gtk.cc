@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.30 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.31 $
+// Revision date : $Date: 2006/02/12 17:52:09 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -196,6 +196,8 @@ AppletGtk::show (std::string name)
 		gtk_window_unstick (dialog);
 	gtk_window_set_keep_above(dialog, biff_->value_bool ("applet_keep_above"));
 	gtk_window_set_skip_pager_hint (dialog,!biff_->value_bool("applet_pager"));
+	gtk_window_set_skip_taskbar_hint (dialog,
+									  !biff_->value_bool ("applet_taskbar"));
 }
 
 gboolean 

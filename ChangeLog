@@ -14,6 +14,8 @@ Version 2.2.7
    - Bugfix: Pointer tests for being not NULL
    - Compatibility with gcc 4.3 (thanks to Martin Michlmayr for providing a
         patch; this was debian bug #420969)
+   - Backport of options for popup/applet appearance in taskbar (thanks to
+        Jonathan Hitchcock for providing a patch)
 
 Version 2.2.6		2007-04-09 18:37
  * Robert Sowada

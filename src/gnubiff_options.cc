@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.cc,v $
-// Revision      : $Revision: 1.51 $
-// Revision date : $Date: 2006/10/15 19:02:52 $
+// Revision      : $Revision: 1.51.2.1 $
+// Revision date : $Date: 2007/04/20 18:21:41 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -87,6 +87,10 @@ Gnubiff_Options::add_options_applet (gboolean deprecated)
 		"Shall the gnubiff applet window have window manager decoration?",
 								 false, OPTFLG_NONE, OPTGUI_TOGGLE,
 								 "applet_decoration_check"));
+	// APPLET_TASKBAR
+	add_option (new Option_Bool ("applet_taskbar", OPTGRP_POPUP,
+		"Shall the gnubiff applet window appear in the taskbar?",
+								 true));
 	// APPLET_BE_STICKY
 	add_option (new Option_Bool ("applet_be_sticky", OPTGRP_APPLET,
 		"Shall the gnubiff applet window be sticky (i.e. appear on all "
@@ -630,6 +634,10 @@ Gnubiff_Options::add_options_popup (gboolean deprecated)
 		"Shall the gnubiff popup window have window manager decoration?",
 								 false, OPTFLG_NONE, OPTGUI_TOGGLE,
 								 "popup_decoration_check"));
+	// POPUP_TASKBAR
+	add_option (new Option_Bool ("popup_taskbar", OPTGRP_POPUP,
+		"Shall the gnubiff popup window appear in the taskbar?",
+								 false));
 	// POPUP_BE_STICKY
 	add_option (new Option_Bool ("popup_be_sticky", OPTGRP_POPUP,
 		"Shall the gnubiff popup window be sticky (i.e. appear on all "
