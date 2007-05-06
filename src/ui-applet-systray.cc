@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.cc,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2007/02/04 19:02:44 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2007/05/06 16:27:35 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -59,6 +59,9 @@ AppletSystray::AppletSystray (Biff *biff) : AppletGtk (biff, this)
 	GtkTooltips *applet_tips = gtk_tooltips_new ();
 	gtk_tooltips_set_tip (applet_tips, GTK_WIDGET (trayicon_), "", "");
 	tooltip_widget_ = GTK_WIDGET (trayicon_);
+
+	// We don't want a visible frame in the system tray
+	gtk_frame_set_shadow_type (GTK_FRAME (get ("frame")), GTK_SHADOW_NONE);
 
 	// We want to reuse the widgets for AppletGtk. So we have to change the
 	// parent from the top level window to the system tray icon
