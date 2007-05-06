@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2006 Nicolas Rougier, 2004-2006 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,8 +19,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.cc,v $
-// Revision      : $Revision: 1.1 $
-// Revision date : $Date: 2005/12/29 00:34:43 $
+// Revision      : $Revision: 1.2 $
+// Revision date : $Date: 2006/01/01 16:44:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -59,6 +59,9 @@ AppletSystray::AppletSystray (Biff *biff) : AppletGtk (biff, this)
 	GtkTooltips *applet_tips = gtk_tooltips_new ();
 	gtk_tooltips_set_tip (applet_tips, GTK_WIDGET (trayicon_), "", "");
 	tooltip_widget_ = GTK_WIDGET (trayicon_);
+
+	// We don't want a visible frame in the system tray
+	gtk_frame_set_shadow_type (GTK_FRAME (get ("frame")), GTK_SHADOW_NONE);
 
 	// We want to reuse the widgets for AppletGtk. So we have to change the
 	// parent from the top level window to the system tray icon
