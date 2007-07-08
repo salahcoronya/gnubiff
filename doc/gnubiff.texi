@@ -268,6 +268,7 @@ Various contributors:@*
 @item Greg Fenton
 @item Byron Foster
 @item Grzegorz Gotawski
+@item Jonathan Hitchcock
 @item Samuel Hym
 @item Satou Kazuhito
 @item Chris Kemp
@@ -280,10 +281,12 @@ Various contributors:@*
 @item Sascha Ludecke
 @item Calum Mackay
 @item Julio Mendoza
+@item Martin Michlmayr
 @item Michael Moellney
 @item Sophie Morel
 @item David Mosberger
 @item Neil Muller
+@item Eugene Ossintsev
 @item Josh Parsons
 @item Pete Phillips
 @item Christian Probst
