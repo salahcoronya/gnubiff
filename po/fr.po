@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-04-09 18:38+0200\n"
+"POT-Creation-Date: 2007-07-15 21:09+0200\n"
 "PO-Revision-Date: 2006-03-27 11:59+0200\n"
 "Last-Translator: Rougier <rougier@loria.fr>\n"
 "Language-Team: Français <fr@li.org>\n"
@@ -314,7 +314,7 @@ msgstr ""
 "Impossible de trouver le widget spécifié (\"%s\") dans la structure xml (\"%s"
 "\")"
 
-#: src/gnubiff_options.cc:138
+#: src/gnubiff_options.cc:142
 msgid "no mail"
 msgstr "Aucun courrier"
 
@@ -355,7 +355,7 @@ msgstr "erreur"
 msgid " checking..."
 msgstr " consultation..."
 
-#: src/ui-preferences.cc:269 src/ui-popup.cc:163
+#: src/ui-preferences.cc:269 src/ui-popup.cc:185
 msgid "Mailbox"
 msgstr "Boîte aux lettres"
 
@@ -445,15 +445,15 @@ msgstr "Chercher une fichier ou un répertoire"
 msgid "Browse for a certificate file"
 msgstr "Chercher un certificat"
 
-#: src/ui-popup.cc:175
+#: src/ui-popup.cc:197
 msgid "From"
 msgstr "De"
 
-#: src/ui-popup.cc:181
+#: src/ui-popup.cc:203
 msgid "Subject"
 msgstr "Sujet"
 
-#: src/ui-popup.cc:187
+#: src/ui-popup.cc:209
 msgid "Date"
 msgstr "Date"
 

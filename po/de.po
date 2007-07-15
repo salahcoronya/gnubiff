@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-04-09 18:38+0200\n"
+"POT-Creation-Date: 2007-07-15 21:09+0200\n"
 "PO-Revision-Date: 2006-11-10 12:03+0100\n"
 "Last-Translator: Robert Sowada <sowadart@gmx.de>\n"
 "Language-Team: German\n"
@@ -309,7 +309,7 @@ msgstr ""
 "Kann das angegebene Widget (»%s«) nicht innerhalb der XML-Struktur (»%s«) "
 "finden"
 
-#: src/gnubiff_options.cc:138
+#: src/gnubiff_options.cc:142
 msgid "no mail"
 msgstr "Keine Post"
 
@@ -351,7 +351,7 @@ msgstr " Fehler"
 msgid " checking..."
 msgstr " wird geprüft..."
 
-#: src/ui-preferences.cc:269 src/ui-popup.cc:163
+#: src/ui-preferences.cc:269 src/ui-popup.cc:185
 msgid "Mailbox"
 msgstr "Briefkasten"
 
@@ -439,15 +439,15 @@ msgstr "Wähle eine Datei oder einen Ordner"
 msgid "Browse for a certificate file"
 msgstr "Wähle eine Datei mit Zertifikat"
 
-#: src/ui-popup.cc:175
+#: src/ui-popup.cc:197
 msgid "From"
 msgstr "Absender"
 
-#: src/ui-popup.cc:181
+#: src/ui-popup.cc:203
 msgid "Subject"
 msgstr "Betreff"
 
-#: src/ui-popup.cc:187
+#: src/ui-popup.cc:209
 msgid "Date"
 msgstr "Datum"
 

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.2\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-04-09 18:38+0200\n"
+"POT-Creation-Date: 2007-07-15 21:09+0200\n"
 "PO-Revision-Date: 2005-04-03 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -328,7 +328,7 @@ msgstr "Gushyiraho Ihitamo Kuri"
 msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
 msgstr "Gushaka i muri xml Imiterere"
 
-#: src/gnubiff_options.cc:138
+#: src/gnubiff_options.cc:142
 #, fuzzy
 msgid "no mail"
 msgstr "Oya Ubutumwa"
@@ -368,7 +368,7 @@ msgstr "Ikosa"
 msgid " checking..."
 msgstr ""
 
-#: src/ui-preferences.cc:269 src/ui-popup.cc:163
+#: src/ui-preferences.cc:269 src/ui-popup.cc:185
 msgid "Mailbox"
 msgstr ""
 
@@ -473,7 +473,7 @@ msgid "Browse for a certificate file"
 msgstr "kugirango a Impamyabushobozi IDOSIYE"
 
 # officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Wizard.Memo.Elements.From.text
-#: src/ui-popup.cc:175
+#: src/ui-popup.cc:197
 msgid "From"
 msgstr "Bivuye"
 
@@ -487,11 +487,11 @@ msgstr "Bivuye"
 # officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Wizard.Fax.Save.DocInfoSubject.text
 # #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
 # officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Wizard.Memo.Save.DocInfoSubject.text
-#: src/ui-popup.cc:181
+#: src/ui-popup.cc:203
 msgid "Subject"
 msgstr "Ikivugwaho"
 
-#: src/ui-popup.cc:187
+#: src/ui-popup.cc:209
 msgid "Date"
 msgstr "Itariki"
 

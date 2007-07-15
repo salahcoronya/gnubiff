@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-04-09 18:38+0200\n"
+"POT-Creation-Date: 2007-07-15 21:09+0200\n"
 "PO-Revision-Date: 2006-10-28 18:15-0200\n"
 "Last-Translator: Gunther Furtado <gunzera0@yahoo.com.br>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
@@ -326,7 +326,7 @@ msgstr ""
 "Não é possível encontrar o dispositivo especificado (\"%s\") \n"
 "dentro da estrutura xml (\"%s\")"
 
-#: src/gnubiff_options.cc:138
+#: src/gnubiff_options.cc:142
 msgid "no mail"
 msgstr "sem mensagens"
 
@@ -368,7 +368,7 @@ msgstr " erro"
 msgid " checking..."
 msgstr " checando..."
 
-#: src/ui-preferences.cc:269 src/ui-popup.cc:163
+#: src/ui-preferences.cc:269 src/ui-popup.cc:185
 msgid "Mailbox"
 msgstr "Caixa de correio"
 
@@ -457,15 +457,15 @@ msgstr "Procurar por um arquivo ou diretório"
 msgid "Browse for a certificate file"
 msgstr "Procurar por um arquivo de certificado"
 
-#: src/ui-popup.cc:175
+#: src/ui-popup.cc:197
 msgid "From"
 msgstr "De"
 
-#: src/ui-popup.cc:181
+#: src/ui-popup.cc:203
 msgid "Subject"
 msgstr "Assunto"
 
-#: src/ui-popup.cc:187
+#: src/ui-popup.cc:209
 msgid "Date"
 msgstr "Data"
 

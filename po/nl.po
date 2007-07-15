@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.0.2\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-04-09 18:38+0200\n"
+"POT-Creation-Date: 2007-07-15 21:09+0200\n"
 "PO-Revision-Date: 2004-10-19 20:18+0200\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -305,7 +305,7 @@ msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
 msgstr ""
 "Kon de aangegeven widget (\"%s\") niet vinden in xml structuur (\"%s\")"
 
-#: src/gnubiff_options.cc:138
+#: src/gnubiff_options.cc:142
 #, fuzzy
 msgid "no mail"
 msgstr "Geen post"
@@ -349,7 +349,7 @@ msgstr "fout"
 msgid " checking..."
 msgstr " bezig met controleren..."
 
-#: src/ui-preferences.cc:269 src/ui-popup.cc:163
+#: src/ui-preferences.cc:269 src/ui-popup.cc:185
 msgid "Mailbox"
 msgstr "Postvak"
 
@@ -443,15 +443,15 @@ msgstr "Bladeren voor een geluidsbestand"
 msgid "Browse for a certificate file"
 msgstr "Bladeren voor een certificaat"
 
-#: src/ui-popup.cc:175
+#: src/ui-popup.cc:197
 msgid "From"
 msgstr "Van"
 
-#: src/ui-popup.cc:181
+#: src/ui-popup.cc:203
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: src/ui-popup.cc:187
+#: src/ui-popup.cc:209
 msgid "Date"
 msgstr "Datum"
 
