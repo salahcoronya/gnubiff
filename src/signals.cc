@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.10 $
-// Revision date : $Date: 2007/09/08 14:57:35 $
+// Revision      : $Revision: 1.11 $
+// Revision date : $Date: 2007/12/23 12:22:31 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -156,7 +156,7 @@ Signals::signal_handler (int signum)
 		}
 		break;
 	case SIGNAL_STATUS_TO_STDOUT:
-		g_print (biff_->applet()->get_mailbox_status_text().c_str());
+		g_print ("%s", biff_->applet()->get_mailbox_status_text().c_str());
 		break;
 	}
 }
