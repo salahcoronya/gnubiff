@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.14 $
-// Revision date : $Date: 2007/04/20 18:19:10 $
+// Revision      : $Revision: 1.15 $
+// Revision date : $Date: 2007/09/08 18:06:18 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -83,6 +83,7 @@ const guint SIGNAL_POPUP_TOGGLE			=	6;
 const guint SIGNAL_POPUP_SHOW			=	7;
 const guint SIGNAL_POPUP_HIDE			=	8;
 const guint SIGNAL_POPUP_TOGGLEVISIBLE	=	9;
+const guint SIGNAL_STATUS_TO_STDOUT		=	10;
 
 const guint OPTGRP_GENERAL		=	1;
 const guint OPTGRP_APPLET		=	2;
