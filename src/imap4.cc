@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.132 $
-// Revision date : $Date: 2007/09/08 14:57:34 $
+// Revision      : $Revision: 1.133 $
+// Revision date : $Date: 2008/01/06 20:01:14 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -441,8 +441,8 @@ Imap4::command_capability (gboolean check_rc, gboolean ignore_logindisabled)
 	can_starttls_ = (line.find (" STARTTLS ") != std::string::npos);
 
 	// If we checked only the response code and didn't find all the
-	// capabilities we are looking for (currently only IDLE), we send the
-	// CAPABILITY command, maybe the server sends additional capabilities
+	// capabilities we are looking for, we send the CAPABILITY
+	// command, maybe the server sends additional capabilities
 	if ((   (!idleable_ && use_idle())
 			|| (!can_starttls_ && authentication() == AUTH_TLS))
 		&& check_rc && !command_sent)
