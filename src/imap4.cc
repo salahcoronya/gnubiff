@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.131 $
-// Revision date : $Date: 2006/02/03 22:41:20 $
+// Revision      : $Revision: 1.131.2.1 $
+// Revision date : $Date: 2007/09/08 14:57:56 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -393,6 +393,7 @@ void
 Imap4::command_capability (gboolean check_rc) throw (imap_err)
 {
 	std::string line;
+	gboolean    command_sent = false;
 
 	// Check for CAPABILITY response code
 	if (check_rc)
@@ -403,10 +404,12 @@ Imap4::command_capability (gboolean check_rc) throw (imap_err)
 	if (line.size() == 0) {
 		// Sending the command
 		sendline ("CAPABILITY");
+		command_sent = true;
 
 		// Wait for "* CAPABILITY" untagged response
 		waitfor_untaggedresponse (0, "CAPABILITY");
-		line = " " + last_untagged_response_cont_ + " ";
+		line = last_untagged_response_cont_;
+		line = " " + line.substr (0, line.size()-1) + " "; // trailing '\r'
 
 		// Getting the acknowledgment
 		waitfor_ack();
@@ -414,7 +417,6 @@ Imap4::command_capability (gboolean check_rc) throw (imap_err)
 
 	// Looking for supported capabilities
 	idleable_ = use_idle () && (line.find (" IDLE ") != std::string::npos);
-
 
 	if (line.find (" LOGINDISABLED ") != std::string::npos) {
 		command_logout();
@@ -424,7 +426,7 @@ Imap4::command_capability (gboolean check_rc) throw (imap_err)
 	// If we checked only the response code and didn't find all the
 	// capabilities we are looking for (currently only IDLE), we send the
 	// CAPABILITY command, maybe the server sends additional capabilities
-	if (((idleable_ == false) && use_idle()) && check_rc)
+	if (((idleable_ == false) && use_idle()) && check_rc && !command_sent)
 		command_capability (false);
 }
 
