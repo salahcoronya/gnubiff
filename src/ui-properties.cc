@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.25 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.26 $
+// Revision date : $Date: 2007/09/08 14:57:39 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -156,6 +156,8 @@ Properties::create (gpointer callbackdata)
 		{ "SSL",			GTK_STOCK_DIALOG_AUTHENTICATION, "SSL",
 		  0, 0, G_CALLBACK(PROPERTIES_on_auth_changed)},
 		{ "Certificate",	GTK_STOCK_DIALOG_AUTHENTICATION, _("SSL with certificate"),
+		  0, 0, G_CALLBACK(PROPERTIES_on_auth_changed)},
+		{ "TLS",			GTK_STOCK_DIALOG_AUTHENTICATION, "TLS",
 		  0, 0, G_CALLBACK(PROPERTIES_on_auth_changed)}
 	};
 	static const char *auth_ui_description =
@@ -166,6 +168,7 @@ Properties::create (gpointer callbackdata)
 		"    <menuitem action='Apop'/>"
 		"    <menuitem action='SSL'/>"
 		"    <menuitem action='Certificate'/>"
+		"    <menuitem action='TLS'/>"
 		"  </popup>"
 		"</ui>";
 	action_group = gtk_action_group_new ("actions");
@@ -300,6 +303,10 @@ Properties::on_auth_changed (GtkAction *action)
 	}
 	else if (auth == "Certificate") {
 		selected_auth_ = AUTH_CERTIFICATE;
+		certificate_view (true);
+	}
+	else if (auth == "TLS") {
+		selected_auth_ = AUTH_TLS;
 		certificate_view (true);
 	}
 	else {
@@ -635,7 +642,7 @@ Properties::auth_view (gboolean visible)
 	}
 
 	gtk_option_menu_set_history (GTK_OPTION_MENU (auth_menu_), auth);
-	certificate_view (auth == AUTH_CERTIFICATE);
+	certificate_view (auth == AUTH_CERTIFICATE || auth == AUTH_TLS);
 	selected_auth_ = auth;
 }
 

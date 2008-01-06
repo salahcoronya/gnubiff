@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff_options.h,v $
-// Revision      : $Revision: 1.15 $
-// Revision date : $Date: 2007/09/08 18:06:18 $
+// Revision      : $Revision: 1.16 $
+// Revision date : $Date: 2007/12/23 12:22:31 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Options for gnubiff
 //
@@ -63,6 +63,7 @@ const guint	AUTH_USER_PASS		=	1;
 const guint	AUTH_APOP			=	2;
 const guint	AUTH_SSL			=	3;
 const guint	AUTH_CERTIFICATE	=	4;
+const guint	AUTH_TLS		=	5;
 const guint	AUTH_NONE			=	(guint)-1;
 
 const guint	MAILBOX_ERROR		=	0;

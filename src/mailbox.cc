@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.93 $
-// Revision date : $Date: 2007/04/28 14:09:22 $
+// Revision      : $Revision: 1.94 $
+// Revision date : $Date: 2007/09/08 14:57:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -231,6 +231,7 @@ Mailbox::standard_port (guint protocol, guint auth, gboolean strict)
 			return 993;
 		return ((protocol == PROTOCOL_POP3) ? 995 : 0);
 	case AUTH_USER_PASS:
+	case AUTH_TLS:
 		if (protocol == PROTOCOL_IMAP4)
 			return 143;
 		return ((protocol == PROTOCOL_POP3) ? 110 : 0);

@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.12 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.13 $
+// Revision date : $Date: 2007/09/08 18:06:19 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -91,6 +91,7 @@ public:
 				guint authentication = AUTH_SSL,
 				std::string certificate = "",
 				guint timeout = 5);
+	gint starttls (std::string certificate = "");
 	void close (void);
 	gint write (std::string line, gboolean print = true);
 	gint read  (std::string &line,
