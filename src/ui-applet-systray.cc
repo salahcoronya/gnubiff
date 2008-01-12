@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.cc,v $
-// Revision      : $Revision: 1.5 $
-// Revision date : $Date: 2007/05/06 17:37:47 $
+// Revision      : $Revision: 1.6 $
+// Revision date : $Date: 2007/09/08 14:57:35 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -116,14 +116,9 @@ AppletSystray::show (std::string name)
 void 
 AppletSystray::resize (guint width, guint height)
 {
-	// Get image's current size
-	guint ic_width = 0, ic_height = 0;
-	get_image_size ("image", ic_width, ic_height);
-
 	// Do we need to have the image rescaled?
-	if (((ic_width != width) || (ic_height > height))
-		&& ((ic_width > width) || (ic_height != height))) {
-		widget_max_width_ = width;
+	if ((width != widget_max_width_) || (height != widget_max_height_)) {
+ 		widget_max_width_ = width;
 		widget_max_height_ = height;
 		update (); 
 	}
