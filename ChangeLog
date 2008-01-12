@@ -12,6 +12,9 @@ Version 2.2.9
         from 2.3.0 CVS)
    - Bugfix: The capability command when using IMAP4 was sometimes sent twice
 	(backport from 2.3.0 CVS)
+   - Bugfix: Infinite loop when using system tray without image or without
+        system tray (this bug was reported by Marcelo and Iulian Tocu as
+        #1824666; backport from 2.3.0 CVS)
 	
 Version 2.2.8		2007-09-09 18:45
  * Robert Sowada
