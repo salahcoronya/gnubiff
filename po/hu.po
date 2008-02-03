@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2007-09-09 18:48+0200\n"
+"POT-Creation-Date: 2008-02-03 17:29+0100\n"
 "PO-Revision-Date: 2006-06-08 21:26+0200\n"
 "Last-Translator: Adam Wallner <wallner.adam@hktv.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -213,42 +213,42 @@ msgstr ""
 msgid "Cannot open %s."
 msgstr "Nem lehet megnyitni %s-t. "
 
-#: src/imap4.cc:457
+#: src/imap4.cc:459
 msgid "[This message has no part with a supported content type]"
 msgstr ""
 "[Ennek az üzenetnek nincs támogatott tartalomtípussal rendelkező része]"
 
-#: src/imap4.cc:820
+#: src/imap4.cc:822
 #, c-format
 msgid "[%d] Unable to select folder %s on host %s"
 msgstr "[%d] Nem sikerült kiválasztani a(z) %s mappát a(z) %s gépen"
 
-#: src/imap4.cc:908
+#: src/imap4.cc:910
 #, c-format
 msgid "[%d] Unable to get acknowledgment from %s on port %d"
 msgstr "[%d] Nem kapok visszaigazolást a %s-től a %d porton"
 
-#: src/imap4.cc:967
+#: src/imap4.cc:969
 #, c-format
 msgid "[%d] Server doesn't send untagged \"%s\" response or acknowledgment"
 msgstr ""
 
-#: src/imap4.cc:1020
+#: src/imap4.cc:1022
 #, c-format
 msgid "[%d] Server doesn't send untagged \"%s\" response"
 msgstr ""
 
-#: src/imap4.cc:1576
+#: src/imap4.cc:1578
 #, c-format
 msgid "[%d] Server closes connection immediately:%s"
 msgstr "[%d] A szerver azonnal lezárta a kapcsolatot: %s"
 
-#: src/imap4.cc:1581
+#: src/imap4.cc:1583
 #, c-format
 msgid "[%d] Internal server failure or unknown error:%s"
 msgstr "[%d] Belső szerver hibam, vagy ismeretlen hiba: %s"
 
-#: src/imap4.cc:1586
+#: src/imap4.cc:1588
 #, c-format
 msgid "[%d] Warning from server:%s"
 msgstr "[%d] Figyelmeztetés a szervertől: %s"
@@ -369,7 +369,7 @@ msgstr "Érték"
 msgid "_Start"
 msgstr "_Indítás"
 
-#: src/ui-preferences.cc:615 ui/preferences.glade:3516
+#: src/ui-preferences.cc:615 ui/preferences.glade:2144
 msgid "_Stop"
 msgstr "_Leállítás"
 
@@ -446,7 +446,7 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: src/GNOME_gnubiffApplet.xml.h:2 ui/applet-gtk.glade:131
+#: src/GNOME_gnubiffApplet.xml.h:2 ui/applet-gtk.glade:79
 msgid "Mark mailboxes read"
 msgstr "Megjelölés olvasottként"
 
@@ -462,31 +462,31 @@ msgstr "Parancs futtatása"
 msgid "Mail notification program"
 msgstr "Email jelző program"
 
-#: src/GNOME_gnubiffApplet.server.in.h:2 ui/applet-gtk.glade:8
+#: src/GNOME_gnubiffApplet.server.in.h:2 ui/applet-gtk.glade:7
 msgid "gnubiff"
 msgstr ""
 
-#: ui/applet-gtk.glade:7
+#: ui/applet-gtk.glade:6
 msgid "tooltip"
 msgstr "Eszköztipp"
 
-#: ui/applet-gtk.glade:110
+#: ui/applet-gtk.glade:64
 msgid "Start command"
 msgstr "Indító parancs"
 
-#: ui/applet-gtk.glade:152
+#: ui/applet-gtk.glade:94
 msgid "About"
 msgstr "A programról"
 
-#: ui/applet-gtk.glade:179
+#: ui/applet-gtk.glade:114
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: ui/applet-gtk.glade:203
+#: ui/applet-gtk.glade:131
 msgid "Gnubiff is a mail notification program."
 msgstr "A gnubiff egy levéljelző program."
 
-#: ui/applet-gtk.glade:204
+#: ui/applet-gtk.glade:133
 msgid ""
 "Gnubiff is part of the GNU project.\n"
 "It is released under the aegis of GNU.\n"
@@ -502,229 +502,208 @@ msgid ""
 "more details.\n"
 "\n"
 "You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see http://www.gnu.org/licenses/."
+"this program.  If not, see http://www.gnu.org/licenses/.\n"
+"\n"
+"For an exception to the GNU General Public License for distributing gnubiff "
+"linked to the OpenSSL library see the README file."
 msgstr ""
 
-#: ui/preferences.glade:7
+#: ui/preferences.glade:6
 msgid "gnubiff preferences"
 msgstr "gnubiff beállítások"
 
-#: ui/preferences.glade:132
-msgid "When _double-clicked:"
-msgstr "_Dupla kattintáskor:"
+#: ui/preferences.glade:49
+msgid "_Restrict collected mail to"
+msgstr "Az üzenetek számának korlátozása (db): "
 
-#: ui/preferences.glade:154
-msgid "<b>General</b>"
-msgstr "<b>Általános</b>"
+#: ui/preferences.glade:76
+msgid "mail(s)"
+msgstr "levél(ek)"
 
-#: ui/preferences.glade:194
+#: ui/preferences.glade:107
+msgid "The command to run when the icon is double-clicked"
+msgstr "A parancs, ami lefut, amikor duplán kattintassz az ikonra"
+
+#: ui/preferences.glade:122
+msgid "The command to run when new mail arrives"
+msgstr "A parancs, ami lefut j levél esetén"
+
+#: ui/preferences.glade:137
+msgid "When _new mail:"
+msgstr "Ha _új levél:"
+
+#: ui/preferences.glade:199
+msgid "<b>Commands</b>"
+msgstr "<b>Parancsok</b>"
+
+#: ui/preferences.glade:219
 msgid "<b>Mailboxes</b>"
 msgstr "<b>Levélfiókok</b>"
 
 #: ui/preferences.glade:236
-msgid "<b>Commands</b>"
-msgstr "<b>Parancsok</b>"
+msgid "<b>General</b>"
+msgstr "<b>Általános</b>"
 
-#: ui/preferences.glade:330
-msgid "When _new mail:"
-msgstr "Ha _új levél:"
+#: ui/preferences.glade:249
+msgid "When _double-clicked:"
+msgstr "_Dupla kattintáskor:"
 
-#: ui/preferences.glade:352
-msgid "The command to run when new mail arrives"
-msgstr "A parancs, ami lefut j levél esetén"
-
-#: ui/preferences.glade:374
-msgid "The command to run when the icon is double-clicked"
-msgstr "A parancs, ami lefut, amikor duplán kattintassz az ikonra"
-
-#: ui/preferences.glade:432
-msgid "_Restrict collected mail to"
-msgstr "Az üzenetek számának korlátozása (db): "
-
-#: ui/preferences.glade:470
-msgid "mail(s)"
-msgstr "levél(ek)"
-
-#: ui/preferences.glade:512
+#: ui/preferences.glade:322
 msgid "Mailboxes"
 msgstr "Levélfiókok"
 
-#: ui/preferences.glade:557 ui/preferences.glade:622
-msgid "Image filename"
-msgstr "Képfájl neve"
+#: ui/preferences.glade:367 ui/preferences.glade:751
+msgid "Whether to use window manager decoration"
+msgstr "Használjon-e ablakkezelő dekorációt"
 
-#: ui/preferences.glade:579 ui/preferences.glade:644
-msgid "Browse for an image file"
-msgstr "Képfájl tallózása"
+#: ui/preferences.glade:368 ui/preferences.glade:752
+msgid "Use _decoration"
+msgstr "Használjon dekorációt"
 
-#: ui/preferences.glade:581 ui/properties.glade:295
-msgid "_Browse..."
-msgstr "_Tallózás..."
+#: ui/preferences.glade:386 ui/preferences.glade:770
+msgid "The font to use to display information"
+msgstr "Az információk megjelenítéséhez használt betűtípus"
 
-#: ui/preferences.glade:600 ui/preferences.glade:665
+#: ui/preferences.glade:403 ui/preferences.glade:860
+msgid "_Font:"
+msgstr "_Betűtípus:"
+
+#: ui/preferences.glade:424
+msgid "<b>When no mail</b>"
+msgstr "<b>Ha nincs levél</b>"
+
+#: ui/preferences.glade:445
+msgid "<b>When new mail</b>"
+msgstr "<b>Új levél esetén</b>"
+
+#: ui/preferences.glade:462 ui/preferences.glade:807
+msgid "<b>Layout</b>"
+msgstr "<b>Elrendezés</b>"
+
+#: ui/preferences.glade:475
+msgid "Whether to display an image"
+msgstr "Megjelenítsen-e képet"
+
+#: ui/preferences.glade:476
+msgid "Show i_mage:"
+msgstr "Ké_p megjelenítése:"
+
+#: ui/preferences.glade:495 ui/preferences.glade:535
+msgid "Whether to display a text"
+msgstr "Megjelenítsen-e szöveget"
+
+#: ui/preferences.glade:496
+msgid "Show t_ext:"
+msgstr "Szöve_g megjelenítése:"
+
+#: ui/preferences.glade:515
+msgid "Whether to show an image"
+msgstr "Megjelenítsen-e képet"
+
+#: ui/preferences.glade:516
+msgid "Show _image:"
+msgstr "_Kép megjelenítése:"
+
+#: ui/preferences.glade:536
+msgid "Show _text:"
+msgstr "Szö_veg megjelenítése:"
+
+#: ui/preferences.glade:555 ui/preferences.glade:840
+msgid "Whether to use geometry"
+msgstr "Használjon-e geometriát"
+
+#: ui/preferences.glade:556 ui/preferences.glade:841
+msgid "Use _geometry:"
+msgstr "Használjon _Geometriát:"
+
+#: ui/preferences.glade:575
+msgid "Applet geometry"
+msgstr "Kisalkalmazás geometria"
+
+#: ui/preferences.glade:590 ui/preferences.glade:639
 msgid ""
 "Text to display (%d and %D is the number of new messages, %d is zero "
 "padded). Pango markup may be used."
 msgstr ""
 "Megjelenítendő szöveg (%d és %D a levelek száma, %d 0-kal kiegészített)"
 
-#: ui/preferences.glade:646
+#: ui/preferences.glade:605 ui/preferences.glade:654
+msgid "Browse for an image file"
+msgstr "Képfájl tallózása"
+
+#: ui/preferences.glade:606
 msgid "B_rowse..."
 msgstr "T_allózás..."
 
-#: ui/preferences.glade:687
-msgid "Applet geometry"
-msgstr "Kisalkalmazás geometria"
+#: ui/preferences.glade:624 ui/preferences.glade:673
+msgid "Image filename"
+msgstr "Képfájl neve"
 
-#: ui/preferences.glade:709 ui/preferences.glade:1317
-msgid "Whether to use geometry"
-msgstr "Használjon-e geometriát"
+#: ui/preferences.glade:655 ui/properties.glade:295
+msgid "_Browse..."
+msgstr "_Tallózás..."
 
-#: ui/preferences.glade:711 ui/preferences.glade:1319
-msgid "Use _geometry:"
-msgstr "Használjon _Geometriát:"
-
-#: ui/preferences.glade:733 ui/preferences.glade:781
-msgid "Whether to display a text"
-msgstr "Megjelenítsen-e szöveget"
-
-#: ui/preferences.glade:735
-msgid "Show _text:"
-msgstr "Szö_veg megjelenítése:"
-
-#: ui/preferences.glade:757
-msgid "Whether to show an image"
-msgstr "Megjelenítsen-e képet"
-
-#: ui/preferences.glade:759
-msgid "Show _image:"
-msgstr "_Kép megjelenítése:"
-
-#: ui/preferences.glade:783
-msgid "Show t_ext:"
-msgstr "Szöve_g megjelenítése:"
-
-#: ui/preferences.glade:805
-msgid "Whether to display an image"
-msgstr "Megjelenítsen-e képet"
-
-#: ui/preferences.glade:807
-msgid "Show i_mage:"
-msgstr "Ké_p megjelenítése:"
-
-#: ui/preferences.glade:829 ui/preferences.glade:1365
-msgid "<b>Layout</b>"
-msgstr "<b>Elrendezés</b>"
-
-#: ui/preferences.glade:869
-msgid "<b>When new mail</b>"
-msgstr "<b>Új levél esetén</b>"
-
-#: ui/preferences.glade:911
-msgid "<b>When no mail</b>"
-msgstr "<b>Ha nincs levél</b>"
-
-#: ui/preferences.glade:941 ui/preferences.glade:1288
-msgid "_Font:"
-msgstr "_Betűtípus:"
-
-#: ui/preferences.glade:970 ui/preferences.glade:1434
-msgid "The font to use to display information"
-msgstr "Az információk megjelenítéséhez használt betűtípus"
-
-#: ui/preferences.glade:990 ui/preferences.glade:1455
-msgid "Whether to use window manager decoration"
-msgstr "Használjon-e ablakkezelő dekorációt"
-
-#: ui/preferences.glade:992 ui/preferences.glade:1457
-msgid "Use _decoration"
-msgstr "Használjon dekorációt"
-
-#: ui/preferences.glade:1050
+#: ui/preferences.glade:694
 msgid "Applet or Biff"
 msgstr "Kisalkalmazás vagy Biff"
 
-#: ui/preferences.glade:1095
-msgid "second(s)"
-msgstr "másodperc"
-
-#: ui/preferences.glade:1122
-msgid "Time to display popup window"
-msgstr "A felugró ablak megjelenítési ideje:"
-
-#: ui/preferences.glade:1145
-msgid "Popup geometry"
-msgstr "Felugró ablak geometriája"
-
-#: ui/preferences.glade:1167
-msgid "Whether to use format for header"
-msgstr "Használjon-e formátumot a fejléchez"
-
-#: ui/preferences.glade:1169
-msgid "_Format:"
-msgstr "_Formátum:"
-
-#: ui/preferences.glade:1191
-msgid "[sender max size]:[subject max size]:[date max size]"
-msgstr "[Küldő max. hossza]:[Téma max. hossza]:[Dátum max. hossza]"
-
-#: ui/preferences.glade:1213
-msgid "Whether to restrict number of displayed headers"
-msgstr "Szabályozza-e a megjelenítendő fejlécek számát"
-
-#: ui/preferences.glade:1215
-msgid "_Restrict number to"
-msgstr "_Fejlécek számának korlátozása"
-
-#: ui/preferences.glade:1237
-msgid "Maximum number of headers to display"
-msgstr "A megjeleníthető fejlécek maximális száma"
-
-#: ui/preferences.glade:1260
-msgid "header(s)"
-msgstr "fejléc(ek):"
-
-#: ui/preferences.glade:1341
-msgid "Whether to display the popup window"
-msgstr "Megjelenítse-e a felugró ablakot"
-
-#: ui/preferences.glade:1343
-msgid "_Display for"
-msgstr "Megjelenítés ennyi időre:"
-
-#: ui/preferences.glade:1405
+#: ui/preferences.glade:791
 msgid "<b>Headers</b>"
 msgstr "<b>Fejlécek</b>"
 
-#: ui/preferences.glade:1534 ui/popup.glade:7
+#: ui/preferences.glade:820
+msgid "Whether to display the popup window"
+msgstr "Megjelenítse-e a felugró ablakot"
+
+#: ui/preferences.glade:821
+msgid "_Display for"
+msgstr "Megjelenítés ennyi időre:"
+
+#: ui/preferences.glade:877
+msgid "header(s)"
+msgstr "fejléc(ek):"
+
+#: ui/preferences.glade:892
+msgid "Maximum number of headers to display"
+msgstr "A megjeleníthető fejlécek maximális száma"
+
+#: ui/preferences.glade:909
+msgid "Whether to restrict number of displayed headers"
+msgstr "Szabályozza-e a megjelenítendő fejlécek számát"
+
+#: ui/preferences.glade:910
+msgid "_Restrict number to"
+msgstr "_Fejlécek számának korlátozása"
+
+#: ui/preferences.glade:929
+msgid "[sender max size]:[subject max size]:[date max size]"
+msgstr "[Küldő max. hossza]:[Téma max. hossza]:[Dátum max. hossza]"
+
+#: ui/preferences.glade:944
+msgid "Whether to use format for header"
+msgstr "Használjon-e formátumot a fejléchez"
+
+#: ui/preferences.glade:945
+msgid "_Format:"
+msgstr "_Formátum:"
+
+#: ui/preferences.glade:964
+msgid "Popup geometry"
+msgstr "Felugró ablak geometriája"
+
+#: ui/preferences.glade:979
+msgid "Time to display popup window"
+msgstr "A felugró ablak megjelenítési ideje:"
+
+#: ui/preferences.glade:996
+msgid "second(s)"
+msgstr "másodperc"
+
+#: ui/preferences.glade:1016 ui/popup.glade:7
 msgid "Popup"
 msgstr "Felugró ablakok"
 
-#: ui/preferences.glade:1591
-msgid "<b>Expert editing mode</b>"
-msgstr "<b>Szakértői szerkesztési mód</b> "
-
-#: ui/preferences.glade:1619
-msgid "Whether options can be edited in expert mode"
-msgstr "Az opciók szerkeszthetők-e szakértői módban"
-
-#: ui/preferences.glade:1621
-msgid "_Edit options in expert mode"
-msgstr "Az opciók sz_erkesztése szakértői módban"
-
-#: ui/preferences.glade:1643
-msgid ""
-"Whether to show the expert tab. Note: Disabling this option can only be "
-"reversed by editing the config file manually!"
-msgstr ""
-"Megjelenjen-e a szakértői fül. Figyelem: ennek az opciónak a módosítása csak "
-"a configfájl szerkesztésével vonható vissza!"
-
-#: ui/preferences.glade:1645
-msgid "_Show expert tab"
-msgstr "_Szakértői fül megjelenítése"
-
-#: ui/preferences.glade:1667
+#: ui/preferences.glade:1062
 msgid ""
 "The editing dialog for all options that gnubiff uses internally can be "
 "enabled here. So it is possible to change the value of options for which no "
@@ -737,15 +716,39 @@ msgstr ""
 "<b>Figyelem</b>Ezeknek a beállításoknak a szerkesztése nem megfelelő "
 "működést okozhat vagy biztonsági problémákat vethet fel."
 
-#: ui/preferences.glade:1766
+#: ui/preferences.glade:1080
+msgid ""
+"Whether to show the expert tab. Note: Disabling this option can only be "
+"reversed by editing the config file manually!"
+msgstr ""
+"Megjelenjen-e a szakértői fül. Figyelem: ennek az opciónak a módosítása csak "
+"a configfájl szerkesztésével vonható vissza!"
+
+#: ui/preferences.glade:1081
+msgid "_Show expert tab"
+msgstr "_Szakértői fül megjelenítése"
+
+#: ui/preferences.glade:1101
+msgid "Whether options can be edited in expert mode"
+msgstr "Az opciók szerkeszthetők-e szakértői módban"
+
+#: ui/preferences.glade:1102
+msgid "_Edit options in expert mode"
+msgstr "Az opciók sz_erkesztése szakértői módban"
+
+#: ui/preferences.glade:1121
+msgid "<b>Expert editing mode</b>"
+msgstr "<b>Szakértői szerkesztési mód</b> "
+
+#: ui/preferences.glade:1155
 msgid "List all options."
 msgstr "Az összas opció listázása."
 
-#: ui/preferences.glade:1784
+#: ui/preferences.glade:1171
 msgid "String to be searched for."
 msgstr "A keresendő szöveg."
 
-#: ui/preferences.glade:1806
+#: ui/preferences.glade:1183
 msgid ""
 "Search for those (displayed) options that contain the string in the text "
 "entry."
@@ -753,7 +756,7 @@ msgstr ""
 "Azoknak a (megjelenített) opcióknak a keresése, amik a szövegmezőt "
 "tartalmazzák."
 
-#: ui/preferences.glade:1840
+#: ui/preferences.glade:1212
 msgid ""
 "List of options, their type and current values. To edit an option "
 "doubleclick on its value."
@@ -761,11 +764,11 @@ msgstr ""
 "Az opciók listája, típusa és az aktuális értéke. Szerkesztéshez kattints "
 "duplán:"
 
-#: ui/preferences.glade:1915
+#: ui/preferences.glade:1257
 msgid "Expert"
 msgstr "Szakértő"
 
-#: ui/preferences.glade:2003
+#: ui/preferences.glade:1297
 msgid ""
 "<small> Gnubiff is part of the GNU project.\n"
 " It is released under the aegis of GNU.</small>"
@@ -773,7 +776,7 @@ msgstr ""
 "<small>A gnubiff a GNU project része.\n"
 " Licensz: GNU/GPL .</small>"
 
-#: ui/preferences.glade:2205
+#: ui/preferences.glade:1363
 msgid ""
 "<small>Developers can be contacted via <span foreground=\"blue\">gnubiff-"
 "devel@lists.sourceforge.net</span>.</small>\n"
@@ -785,15 +788,15 @@ msgstr ""
 "<small>A hibák a <span foreground=\"blue\">gnubiff-bugs@lists.sourceforge."
 "net</span> címen jelenthetők.</small>"
 
-#: ui/preferences.glade:2245
+#: ui/preferences.glade:1432
 msgid "Developers"
 msgstr "Fejlesztők"
 
-#: ui/preferences.glade:2394
+#: ui/preferences.glade:1511
 msgid "Maintainers"
 msgstr "Karbantartók"
 
-#: ui/preferences.glade:2429
+#: ui/preferences.glade:1530
 msgid ""
 "<small>Here is a list of those people, which translated gnubiff into "
 "different languages (translators of previous versions are marked with an "
@@ -802,11 +805,11 @@ msgstr ""
 "<small>Ez egy lista azokról az emberekről, akik lefordították a gnubiff-et "
 "különböző nyelvekre (csillag jelöli az előző verziók fordítóit):</small>"
 
-#: ui/preferences.glade:3296
+#: ui/preferences.glade:2016
 msgid "Translators"
 msgstr "Fordítók"
 
-#: ui/preferences.glade:3326
+#: ui/preferences.glade:2033
 msgid ""
 "<small>Many people have further contributed to gnubiff by\n"
 "  - reporting problems\n"
@@ -821,23 +824,23 @@ msgstr ""
 "  - a kód terjesztésével\n"
 "Itt egy lista ezekből az emberekből:</small>"
 
-#: ui/preferences.glade:3397
+#: ui/preferences.glade:2076
 msgid "Contributors"
 msgstr "Közreműködtek"
 
-#: ui/preferences.glade:3433
+#: ui/preferences.glade:2098
 msgid "Credits"
 msgstr "Keszítők"
 
-#: ui/preferences.glade:3572
+#: ui/preferences.glade:2187
 msgid "Set to default value"
 msgstr "Változtatás az alapértelmezettre"
 
-#: ui/preferences.glade:3593
+#: ui/preferences.glade:2202
 msgid "Toggle option"
 msgstr "Az opció megváltoztatása"
 
-#: ui/preferences.glade:3614
+#: ui/preferences.glade:2217
 msgid "Edit option"
 msgstr "Opció szerkesztése"
 
