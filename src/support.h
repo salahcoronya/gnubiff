@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2006/01/07 22:43:34 $
+// Revision      : $Revision: 1.16.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:30 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -126,6 +126,10 @@ Support::vector_to_numbersequence (Iter start, Iter end, const std::string sep,
 		// Range?
 		if (last > inf_bound)
 			result << range << last;
+
+		// Single last number in vector?
+		if ((pos == end) && (last < num))
+			result << sep << num;
 
 		// Save new number
 		inf_bound = last = num;
