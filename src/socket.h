@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2007/09/08 18:06:19 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2008/01/06 20:01:16 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -72,8 +72,6 @@ protected:
 # endif
 	gint				sd_;
 	gint				status_;
-
-	static GStaticMutex	hostname_mutex_;
 
 
 public:
