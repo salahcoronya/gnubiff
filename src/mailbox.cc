@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.92.2.1 $
-// Revision date : $Date: 2007/09/08 14:57:57 $
+// Revision      : $Revision: 1.92.2.2 $
+// Revision date : $Date: 2008/04/19 20:53:54 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -670,23 +670,23 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 		// (see RFC 2822 1.2.2 and RFC 5234 2.3)
 
 		// Sender
-		if ((g_ascii_strncasecmp(line.c_str(), "From:", 5) == 0)
-			&& (line.size() > 6)) {
-			h.sender (decode_headerline (line.substr (6)));
+		if ((g_ascii_strncasecmp (line.c_str(), "From:", 5) == 0)
+			&& (line.size() > 5)) {
+			h.sender (decode_headerline (line.substr (5)));
 			continue;
 		}
 
 		// Subject
-		if ((g_ascii_strncasecmp(line.c_str(), "Subject:", 8) == 0)
-			&& (line.size() > 9)) {
-			h.subject (decode_headerline (line.substr (9)));
+		if ((g_ascii_strncasecmp (line.c_str(), "Subject:", 8) == 0)
+			&& (line.size() > 8)) {
+			h.subject (decode_headerline (line.substr (8)));
 			continue;
 		}
 
 		// Date
-		if ((g_ascii_strncasecmp(line.c_str(), "Date:", 5) == 0)
-			&& (line.size() > 6)) {
-			h.date (decode_headerline (line.substr (6)));
+		if ((g_ascii_strncasecmp (line.c_str(), "Date:", 5) == 0)
+			&& (line.size() > 5)) {
+			h.date (decode_headerline (line.substr (5)));
 			continue;
 		}
 

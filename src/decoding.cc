@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.28.2.2 $
-// Revision date : $Date: 2007/09/08 14:57:56 $
+// Revision      : $Revision: 1.28.2.3 $
+// Revision date : $Date: 2008/04/19 19:50:31 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -113,15 +113,18 @@ Decoding::decode_headerline (const std::string &line)
 {
 	// A mail header line (sender, subject or date) cannot contain
 	// non-ASCII characters, so first we remove any non-ASCII characters
+	// and white space at the beginning
 	std::string copy, result;
-	std::string::size_type len = line.size();
-	for (std::string::size_type i = 0; i < len; i++)
+	std::string::size_type len = line.size(), i = 0;
+	while ((i < len) && ((line[i] == ' ') || (line[i] == '\t')))
+		i++;
+	for (; i < len; i++)
 		if (line[i] >= 0)
 			copy += line[i];
 	len = copy.size();
 
 	// Now we can begin decoding
-	std::string::size_type i = 0;
+	i = 0;
 	while (i < len) {
 		// An encoded word (see RFC 2047)?
 		std::string::size_type j = i;
