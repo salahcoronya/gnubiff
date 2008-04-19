@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.31 $
-// Revision date : $Date: 2007/09/08 14:57:33 $
+// Revision      : $Revision: 1.32 $
+// Revision date : $Date: 2008/04/19 19:50:41 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -791,7 +791,7 @@ Decoding::charset_to_utf8 (std::string text, std::string charset,
 		return g_strdup ((gchar *)text_ascii.c_str ());
 	}
 
-	// The text couldn't converted at all, so an error message is returned
+	// The text couldn't be converted at all, so an error message is returned
 	return err;
 }
 
