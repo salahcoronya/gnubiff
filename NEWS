@@ -5,6 +5,12 @@ Copyright (C) 2000-2008 Nicolas Rougier <Nicolas.Rougier@loria.fr>,
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 
+Version 2.2.10
+This is a minor bugfix release. Changes:
+ * Fixed a bug when using IMAP4
+ * Fixed some message header parsing bugs
+ * Updated Dutch translation (thanks to Erwin Poeze)
+
 Version 2.2.9
 This is a minor bugfix release. Changes:
  * Fixed some bugs when using IMAP4
