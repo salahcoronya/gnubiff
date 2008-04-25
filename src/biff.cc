@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.68 $
-// Revision date : $Date: 2007/04/28 14:09:22 $
+// Revision      : $Revision: 1.69 $
+// Revision date : $Date: 2007/09/08 14:57:33 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -519,7 +519,7 @@ Biff::option_changed (Option *option)
 	// POPUP_FORMAT
 	if (option->name() == "popup_format") {
 		std::vector<guint> vec;
-		((Option_String *)option)->get_vector (vec, ':');
+		(static_cast<Option_String *>(option))->get_vector (vec, ':');
 		if (vec.size() < 3)
 			return;
 		value ("popup_size_sender", std::min<guint> (vec[0], 255), false);
@@ -544,7 +544,7 @@ Biff::option_changed (Option *option)
 
 	// UI_MODE
 	if (option->name() == "ui_mode") {
-		value ("gtk_mode", ((Option_UInt *)option)->value() == MODE_GTK);
+		value ("gtk_mode", (static_cast<Option_UInt *>(option))->value() == MODE_GTK);
 		return;
 	}
 

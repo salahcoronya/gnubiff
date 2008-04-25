@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2008/04/19 23:37:31 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2008/04/25 22:39:56 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -414,7 +414,7 @@ Decoding::decode_base64 (const std::string &todec)
 		}
 		if (index_64[(int)todec[pos+3]]<0)
 			return std::string("");
-		result += (gchar)(((BASE64(pos+2) & 0x3) << 6) | BASE64(pos+3));
+		result += static_cast<gchar>((((BASE64(pos+2) & 0x3) << 6) | BASE64(pos+3)));
 		pos += 4;
 	}
 	return result;
@@ -509,7 +509,7 @@ Decoding::decode_quotedprintable (const std::string &todec)
 
 	while (pos < len)
 	{
-		switch (gchar c=todec.at(pos++))
+		switch (gchar c = todec.at(pos++))
 		{
 			case '=':
 				pos += 2;
@@ -793,7 +793,7 @@ Decoding::charset_to_utf8 (std::string text, std::string charset,
 		text_ascii += std::string ("\n")+std::string (err)+std::string ("\n");
 		text_ascii += std::string (_("[Stripped non-ASCII characters "
 									 "from message]"));
-		return g_strdup ((gchar *)text_ascii.c_str ());
+		return g_strdup (static_cast<const gchar *>(text_ascii.c_str ()));
 	}
 
 	// The text couldn't be converted at all, so an error message is returned

@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2007/04/28 14:09:22 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2007/09/08 18:06:19 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -33,7 +33,7 @@
 #include "mailbox.h"
 #include <set>
 
-#define POP(x)					((Pop *)(x))
+#define POP(x)					(static_cast<Pop *>(x))
 
 /**
  * Mailbox for the POP3 and APOP protocols. This serves only as a base for

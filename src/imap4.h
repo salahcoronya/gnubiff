@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.h,v $
-// Revision      : $Revision: 1.50 $
-// Revision date : $Date: 2007/09/08 18:06:19 $
+// Revision      : $Revision: 1.51 $
+// Revision date : $Date: 2008/01/06 20:01:15 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -33,7 +33,7 @@
 #include "mailbox.h"
 #include "socket.h"
 
-#define IMAP4(x)				((Imap4 *)(x))
+#define IMAP4(x)				(static_cast<Imap4 *>(x))
 
 /**
  * Mailbox for the IMAP4 protocol. 

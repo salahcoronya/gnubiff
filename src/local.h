@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: local.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2006/09/01 23:07:41 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2007/09/08 18:06:19 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -43,7 +43,7 @@ const gboolean use_fam = 1;
 const gboolean use_fam = 0;
 #endif
 
-#define LOCAL(x)					((Local *)(x))
+#define LOCAL(x)					(static_cast<Local *>(x))
 
 /**
  *  Base class for all local mailbox protocols.

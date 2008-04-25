@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-authentication.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.4 $
+// Revision date : $Date: 2007/09/08 18:06:19 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -32,7 +32,7 @@
 
 #include "gui.h"
 
-#define AUTHENTICATION(x)	((Authentication *)(x))
+#define AUTHENTICATION(x)	(static_cast<Authentication *>(x))
 
 
 class Authentication : public GUI {
