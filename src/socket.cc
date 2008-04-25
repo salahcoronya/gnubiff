@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.32 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.32.2.1 $
+// Revision date : $Date: 2007/09/08 14:57:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -177,7 +177,8 @@ Socket::open (std::string hostname,
 					g_static_mutex_unlock (&hostname_mutex_);
 					::close (sd_);
 					sd_ = SD_CLOSE;
-					g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+					g_warning (_("[%d] Unable to connect to %s on port %d"),
+							   uin_, hostname_.c_str(), port_);
 					return 0;
 				}
 			}
@@ -185,7 +186,8 @@ Socket::open (std::string hostname,
 				g_static_mutex_unlock (&hostname_mutex_);
 				::close (sd_);
 				sd_ = SD_CLOSE;
-				g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+				g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+						   hostname_.c_str(), port_);
 				return 0;
 			}
 		}
@@ -193,7 +195,8 @@ Socket::open (std::string hostname,
 			g_static_mutex_unlock (&hostname_mutex_);
 			::close (sd_);
 			sd_ = SD_CLOSE;
-			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+					   hostname_.c_str(), port_);
 			return 0;
 		}
 		// Set to blocking mode again...
@@ -395,16 +398,26 @@ Socket::read (std::string &line, gboolean print, gboolean check)
 		return status_;
 
 #ifdef DEBUG
-	if (print)
-		if (status_ == SOCKET_TIMEOUT)
-			g_message ("[%d] RECV TIMEOUT(%s:%d)", uin_, hostname_.c_str(), port_);
-		else if (status_ == SOCKET_STATUS_OK)
-			g_message ("[%d] RECV(%s:%d): %s", uin_, hostname_.c_str(), port_, line.c_str());
-		else
-			g_message ("[%d] RECV ERROR(%s:%d): %s", uin_, hostname_.c_str(), port_, strerror(status));
+	if (print) {
+		switch (status_) {
+		case SOCKET_TIMEOUT:
+			g_message ("[%d] RECV TIMEOUT(%s:%d)", uin_, hostname_.c_str(),
+					   port_);
+			break;
+		case SOCKET_STATUS_OK:
+			g_message ("[%d] RECV(%s:%d): %s", uin_, hostname_.c_str(), port_,
+					   line.c_str());
+			break;
+		default:
+			g_message ("[%d] RECV ERROR(%s:%d): %s", uin_, hostname_.c_str(),
+					   port_, strerror(status));
+			break;
+		}
+	}
 #endif
 	if (status_ == SOCKET_STATUS_ERROR) {
-		g_warning (_("[%d] Unable to read from %s on port %d"), uin_, hostname_.c_str(), port_);
+		g_warning (_("[%d] Unable to read from %s on port %d"), uin_,
+				   hostname_.c_str(), port_);
 		close();
 	}
 
