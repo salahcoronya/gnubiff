@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.h,v $
-// Revision      : $Revision: 1.28 $
-// Revision date : $Date: 2006/01/07 22:35:22 $
+// Revision      : $Revision: 1.28.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:30 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -44,7 +44,7 @@
 #include "header.h"
 
 
-#define BIFF(x)		((Biff *)(x))
+#define BIFF(x)		(static_cast<Biff *>(x))
 
 
 class Biff : public Gnubiff_Options {

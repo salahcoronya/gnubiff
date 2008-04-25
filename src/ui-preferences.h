@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-preferences.h,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.13.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:31 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -47,7 +47,7 @@ enum {
 enum { COL_EXP_ID, COL_EXP_NAME, COL_EXP_GROUPNAME, COL_EXP_TYPE,
 	   COL_EXP_VALUE, COL_EXP_NAME_ITALIC, COL_EXP_EDITABLE, COL_EXP_N};
 
-#define PREFERENCES(x)	((Preferences *)(x))
+#define PREFERENCES(x)	(static_cast<Preferences *>(x))
 
 
 class Preferences : public GUI {

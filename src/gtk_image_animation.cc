@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gtk_image_animation.cc,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2006/01/01 16:44:52 $
+// Revision      : $Revision: 1.6.2.1 $
+// Revision date : $Date: 2007/09/08 14:57:56 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -38,7 +38,7 @@ extern "C" {
 	gboolean GTK_IMAGE_ANIMATION_timeout (gpointer data)
 	{
 		if (data)
-			return ((GtkImageAnimation *) data)->timeout ();
+			return (static_cast<GtkImageAnimation *>(data))->timeout ();
 		unknown_internal_error ();
 		return false;
 	}
@@ -48,7 +48,7 @@ extern "C" {
 											gpointer data)
 	{
 		if (data)
-			return ((GtkImageAnimation *) data)->on_delete ();
+			return (static_cast<GtkImageAnimation *>(data))->on_delete ();
 		unknown_internal_error ();
 		return false;
 	}
@@ -58,7 +58,7 @@ extern "C" {
 											 gpointer data)
 	{
 		if (data)
-			return ((GtkImageAnimation *) data)->on_destroy ();
+			return (static_cast<GtkImageAnimation *>(data))->on_destroy ();
 		unknown_internal_error ();
 		return false;
 	}
@@ -67,7 +67,7 @@ extern "C" {
 									  gpointer data)
 	{
 		if (data)
-			((GtkImageAnimation *) data)->on_hide ();
+			(static_cast<GtkImageAnimation *>(data))->on_hide ();
 		else
 			unknown_internal_error ();
 	}
@@ -76,7 +76,7 @@ extern "C" {
 									  gpointer data)
 	{
 		if (data)
-			((GtkImageAnimation *) data)->on_show ();
+			(static_cast<GtkImageAnimation *>(data))->on_show ();
 		else
 			unknown_internal_error ();
 	}

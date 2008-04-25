@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-certificate.h,v $
-// Revision      : $Revision: 1.3 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.3.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:30 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -41,7 +41,7 @@
 
 #include "gui.h"
 
-#define CERTIFICATE(x)	((Certificate *)(x))
+#define CERTIFICATE(x)	(static_cast<Certificate *>(x))
 
 
 class Certificate : public GUI {

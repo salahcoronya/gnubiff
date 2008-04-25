@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.60 $
-// Revision date : $Date: 2006/09/03 18:44:30 $
+// Revision      : $Revision: 1.60.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:30 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -57,7 +57,7 @@ struct less_pair_first : public std::binary_function<std::pair<std::string,Heade
 	}
 };
 
-#define MAILBOX(x)					((Mailbox *)(x))
+#define MAILBOX(x)					(static_cast<Mailbox *>(x))
 
 /**
  * Generic mailbox intended as base for implementing mailboxes for a specific

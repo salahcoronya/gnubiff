@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.92.2.2 $
-// Revision date : $Date: 2008/04/19 20:53:54 $
+// Revision      : $Revision: 1.92.2.3 $
+// Revision date : $Date: 2008/04/19 23:37:57 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -252,8 +252,8 @@ Mailbox::option_changed (Option *option)
 
 	// DELAY
 	if (option->name() == "delay") {
-		value ("delay_minutes", ((Option_UInt *)option)->value()/60, false);
-		value ("delay_seconds", ((Option_UInt *)option)->value()%60, false);
+		value ("delay_minutes", (static_cast<Option_UInt *>(option))->value()/60, false);
+		value ("delay_seconds", (static_cast<Option_UInt *>(option))->value()%60, false);
 		return;
 	}
 
@@ -297,7 +297,7 @@ Mailbox::option_changed (Option *option)
 	// PASSWORD_AES
 	if (option->name() == "password_aes") {
 		std::string decpass = decrypt_aes (biff_->value_string ("passphrase"),
-										   ((Option_String *)option)->value());  
+										   (static_cast<Option_String *>(option))->value());  
 		value ("password", decpass);
 		return;
 	}
@@ -313,7 +313,7 @@ Mailbox::option_changed (Option *option)
 	if (option->name() == "uin") {
 		if (value_string("name").size() == 0) {
 			gchar *text = g_strdup_printf (_("mailbox %d"),
-										   ((Option_UInt *)option)->value());
+										   (static_cast<Option_UInt *>(option))->value());
 			value ("name", text);
 			g_free (text);
 		}
@@ -344,7 +344,7 @@ Mailbox::option_update (Option *option)
 	if (option->name() == "password_aes") {
 		std::string enc_aes = encrypt_aes (biff_->value_string ("passphrase"),
 										   value_string ("password"));
-		((Option_String *)option)->value (enc_aes);
+		(static_cast<Option_String *>(option))->value (enc_aes);
 		return;
 	}
 #endif

@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.39.2.3 $
-// Revision date : $Date: 2007/05/06 16:53:43 $
+// Revision      : $Revision: 1.39.2.4 $
+// Revision date : $Date: 2007/09/08 14:57:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -49,7 +49,7 @@ extern "C" {
 	gboolean POPUP_on_popdown (gpointer data)
 	{
 		if (data)
-			return ((Popup *) data)->on_popdown ();
+			return (static_cast<Popup *>(data))->on_popdown ();
 		else
 			unknown_internal_error ();
 		return false;
@@ -60,7 +60,7 @@ extern "C" {
 									gpointer data)
 	{
 		if (data)
-			return ((Popup *) data)->on_button_press (event);
+			return (static_cast<Popup *>(data))->on_button_press (event);
 		else
 			unknown_internal_error ();
 		return false;
@@ -71,7 +71,7 @@ extern "C" {
 									  gpointer data)
 	{
 		if (data)
-			return ((Popup *) data)->on_button_release (event);
+			return (static_cast<Popup *>(data))->on_button_release (event);
 		else
 			unknown_internal_error ();
 		return false;
@@ -82,7 +82,7 @@ extern "C" {
 						 gpointer data)
 	{
 		if (data)
-			((Popup *) data)->on_enter (event);
+			(static_cast<Popup *>(data))->on_enter (event);
 		else
 			unknown_internal_error ();
 	}
@@ -92,7 +92,7 @@ extern "C" {
 						 gpointer data)
 	{
 		if (data)
-			((Popup *) data)->on_leave (event);
+			(static_cast<Popup *>(data))->on_leave (event);
 		else
 			unknown_internal_error ();
 	}
@@ -101,7 +101,7 @@ extern "C" {
 						  gpointer data)
 	{
 		if (data)
-			((Popup *) data)->on_select (selection);
+			(static_cast<Popup *>(data))->on_select (selection);
 		else
 			unknown_internal_error ();
 	}

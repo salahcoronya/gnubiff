@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.h,v $
-// Revision      : $Revision: 1.6 $
-// Revision date : $Date: 2006/01/01 16:44:53 $
+// Revision      : $Revision: 1.6.2.1 $
+// Revision date : $Date: 2007/09/08 18:06:31 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -40,7 +40,7 @@ const gint	TYPE_LOCAL				=	PROTOCOL_FILE;
 const gint	TYPE_POP				=	PROTOCOL_POP3;
 const gint	TYPE_IMAP				=	PROTOCOL_IMAP4;
 
-#define PROPERTIES(x)	((Properties *)(x))
+#define PROPERTIES(x)	(static_cast<Properties *>(x))
 
 
 class Properties : public GUI {

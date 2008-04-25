@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: decoding.cc,v $
-// Revision      : $Revision: 1.28.2.4 $
-// Revision date : $Date: 2008/04/19 23:37:57 $
+// Revision      : $Revision: 1.28.2.5 $
+// Revision date : $Date: 2008/04/25 22:40:20 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Various functions for decoding, converting ...
 //
@@ -413,7 +413,7 @@ Decoding::decode_base64 (const std::string &todec)
 		}
 		if (index_64[(int)todec[pos+3]]<0)
 			return std::string("");
-		result += (gchar)(((BASE64(pos+2) & 0x3) << 6) | BASE64(pos+3));
+		result += static_cast<gchar>((((BASE64(pos+2) & 0x3) << 6) | BASE64(pos+3)));
 		pos += 4;
 	}
 	return result;
@@ -508,7 +508,7 @@ Decoding::decode_quotedprintable (const std::string &todec)
 
 	while (pos < len)
 	{
-		switch (gchar c=todec.at(pos++))
+		switch (gchar c = todec.at(pos++))
 		{
 			case '=':
 				pos += 2;

@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-systray.cc,v $
-// Revision      : $Revision: 1.2.2.2 $
-// Revision date : $Date: 2007/09/08 14:57:58 $
+// Revision      : $Revision: 1.2.2.3 $
+// Revision date : $Date: 2008/01/12 14:49:45 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -123,7 +123,7 @@ AppletSystray::signal_size_allocate (GtkWidget *widget,
 									 GtkAllocation *allocation, gpointer data)
 {
 	if (data)
-		((AppletSystray *) data)->resize (allocation->width,
+		(static_cast<AppletSystray *>(data))->resize (allocation->width,
 										  allocation->height);
 	else
 		unknown_internal_error ();
