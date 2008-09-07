@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: signals.cc,v $
-// Revision      : $Revision: 1.7.2.2 $
-// Revision date : $Date: 2007/04/20 18:21:41 $
+// Revision      : $Revision: 1.7.2.3 $
+// Revision date : $Date: 2007/09/08 14:57:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Handling of signals
 //
@@ -28,6 +28,7 @@
 // ========================================================================
 
 #include <signal.h>
+#include <stdlib.h>
 #include "biff.h"
 #include "signals.h"
 #include "ui-applet.h"
