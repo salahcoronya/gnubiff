@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.cc,v $
-// Revision      : $Revision: 1.13 $
-// Revision date : $Date: 2008/04/25 22:52:42 $
+// Revision      : $Revision: 1.14 $
+// Revision date : $Date: 2008/09/07 20:17:06 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -268,7 +268,7 @@ GUI::hide (std::string name)
 GtkWidget *
 GUI::get (std::string name)
 {
-	GtkWidget *widget = glade_xml_get_widget (xml_, (gchar *) name.c_str());
+	GtkWidget *widget = glade_xml_get_widget (xml_, static_cast<const gchar *>(name.c_str() ));
 	if (!widget)
 		g_warning (_("Cannot find the specified widget (\"%s\")"
 					 " within xml structure (\"%s\")"), name.c_str(),
