@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
+// Copyright (c) 2000-2009 Nicolas Rougier, 2004-2009 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.92.2.3 $
-// Revision date : $Date: 2008/04/19 23:37:57 $
+// Revision      : $Revision: 1.92.2.4 $
+// Revision date : $Date: 2008/04/25 22:53:01 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -838,8 +838,12 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 #ifdef DEBUG
 		g_message ("[%d] Parsed message with id \"%s\"", uin(),
 				   h.mailid().c_str ());
+#endif
 	}
 	else {
+		// Store filtered messages so that they are fetched next time
+		hidden_.insert (h.mailid());
+#ifdef DEBUG
 		g_message ("[%d] Parsed and discarded message with id \"%s\"", uin(),
 				   h.mailid().c_str ());
 #endif
@@ -1062,16 +1066,17 @@ Mailbox::new_mail(std::string &mailid)
 	// Mail shall not be displayed? -> no need to fetch and parse it
 	if (hidden_.find (mailid) != hidden_.end ()) {
 #ifdef DEBUG
-		g_message ("[%d] Ignore mail with id \"%s\"", uin(), mailid.c_str ());
+		g_message ("[%d] Ignore message with id \"%s\"", uin(),
+				   mailid.c_str ());
 #endif
 		return true;
 	}
 
-	// Mail unknown?
+	// Message unknown?
 	if (unread_.find (mailid) == unread_.end ())
 		return false;
 
-	// Insert known mail into new unread mail map
+	// Insert known message into new unread mail map
 	new_unread_[mailid] = unread_[mailid];
 	new_unread_[mailid].position (new_unread_.size());
 
