@@ -1309,8 +1309,8 @@
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="yalign">1</property>
-                                <property name="label">&lt;small&gt; © 2000-2008 Nicolas Rougier
- © 2004-2008 Robert Sowada&lt;/small&gt;</property>
+                                <property name="label">&lt;small&gt; © 2000-2009 Nicolas Rougier
+ © 2004-2009 Robert Sowada&lt;/small&gt;</property>
                                 <property name="use_markup">True</property>
                               </widget>
                               <packing>
@@ -2089,7 +2089,7 @@ Here is a list of these people:&lt;/small&gt;</property>
                                     <property name="left_margin">6</property>
                                     <property name="right_margin">6</property>
                                     <property name="cursor_visible">False</property>
-                                    <property name="text">Wallner Ádám, Craig Agricola, Adam Benjamin, Josh Berdine, Philippe Berger, Wade Berrier, Dennis Bjorklund, Jan Blunck, Sebastian Breier, Alexis S. L. Carvalho, Eric Cooper, Felipe Csaszar, John Ellson, Nicolas Évrard, Greg Fenton, Byron Foster, Grzegorz Gotawski, Jonathan Hitchcock, Samuel Hym, Satou Kazuhito, Chris Kemp, Earl Killian, André Klitzing, Marc-Jano Knopp, Paul Kuliniewicz, Jean-Yves Lefort, Michel Leunen, Jason Lowdermilk, Sascha Ludecke, Calum Mackay, Julio Mendoza, Martin Michlmayr, Michael Moellney, Sophie Morel, David Mosberger, Neil Muller, Eugene Ossintsev, Jan Outrata, Josh Parsons, Pete Phillips, Christian Probst, Jakub Raczkowski, Reid Rivenburgh, Hans-Ulrich Schaefer, Andy Schofield, Achim Settelmeier, Phil Shapiro, Clytie Siddall, Antoine Sirinelli, Erik Sittman, Barry Skidmore, Chris Snell, Blaise Tarr, Theodore Tegos, Iulian Tocu, Richard Torkar, Bernhard Valenti, Dries Verachtert, Hubert Verstraete, Maik Wachsmuth, Suzan Wassman, Cai Yu</property>
+                                    <property name="text">Wallner Ádám, Craig Agricola, Adam Benjamin, Josh Berdine, Philippe Berger, Wade Berrier, Dennis Bjorklund, Jan Blunck, Sebastian Breier, Alexis S. L. Carvalho, Eric Cooper, Felipe Csaszar, John Ellson, Nicolas Évrard, Greg Fenton, Byron Foster, Grzegorz Gotawski, Jonathan Hitchcock, Samuel Hym, Satou Kazuhito, Chris Kemp, Earl Killian, André Klitzing, Marc-Jano Knopp, Paul Kuliniewicz, Jean-Yves Lefort, Michel Leunen, Jason Lowdermilk, Sascha Ludecke, Calum Mackay, Julio Mendoza, Martin Michlmayr, Michael Moellney, Sophie Morel, David Mosberger, Neil Muller, Eugene Ossintsev, Jan Outrata, Josh Parsons, Pete Phillips, Christian Probst, Jakub Raczkowski, Reid Rivenburgh, Hans-Ulrich Schaefer, Andy Schofield, Achim Settelmeier, Phil Shapiro, Clytie Siddall, Antoine Sirinelli, Erik Sittman, Barry Skidmore, Chris Snell, Blaise Tarr, Theodore Tegos, Iulian Tocu, Richard Torkar, Bernhard Valenti, Frederik Vanderstraeten, Dries Verachtert, Hubert Verstraete, Maik Wachsmuth, Suzan Wassman, Cai Yu</property>
                                   </widget>
                                 </child>
                               </widget>
