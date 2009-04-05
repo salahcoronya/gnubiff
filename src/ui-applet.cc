@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.39.2.1 $
-// Revision date : $Date: 2007/04/20 17:04:16 $
+// Revision      : $Revision: 1.39.2.2 $
+// Revision date : $Date: 2007/09/08 14:57:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -142,7 +142,9 @@ Applet::execute_command (std::string option_command,
 	std::string command = biff_->value_string (option_command);
     if (!command.empty ()) {
 		command += " &";
-		system (command.c_str ());
+		int result = system (command.c_str ());
+		if (result == -1)
+			g_warning ("Cannot execute command \"%s\".", command.c_str());
 	}
 }
 
