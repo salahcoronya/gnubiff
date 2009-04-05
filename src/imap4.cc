@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
+// Copyright (c) 2000-2009 Nicolas Rougier, 2004-2009 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: imap4.cc,v $
-// Revision      : $Revision: 1.131.2.1 $
-// Revision date : $Date: 2007/09/08 14:57:56 $
+// Revision      : $Revision: 1.131.2.2 $
+// Revision date : $Date: 2008/01/06 20:12:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -916,7 +916,7 @@ Imap4::waitfor_ack (std::string msg, gint num) throw (imap_err)
 	if (line.find (tag() + "OK") != 0) {
 		// Print error message
 		if (msg != "")
-			g_warning (msg.c_str());
+			g_warning ("%s", msg.c_str());
 		// We still have a connection to the server so we can logout
 		command_logout();
 		throw imap_command_err();
