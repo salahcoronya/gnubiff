@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2009 Nicolas Rougier, 2004-2009 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.40 $
-// Revision date : $Date: 2007/04/20 17:03:55 $
+// Revision      : $Revision: 1.41 $
+// Revision date : $Date: 2007/09/08 14:57:35 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -142,7 +142,9 @@ Applet::execute_command (std::string option_command,
 	std::string command = biff_->value_string (option_command);
     if (!command.empty ()) {
 		command += " &";
-		system (command.c_str ());
+		int result = system (command.c_str ());
+		if (result == -1)
+			g_warning (_("Cannot execute command \"%s\"."), command.c_str());
 	}
 }
 
