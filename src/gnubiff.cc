@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2009 Nicolas Rougier, 2004-2009 Robert Sowada
+// Copyright (c) 2000-2010 Nicolas Rougier, 2004-2010 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.28 $
-// Revision date : $Date: 2008/09/07 20:17:06 $
+// Revision      : $Revision: 1.29 $
+// Revision date : $Date: 2009/01/10 18:05:08 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -78,7 +78,6 @@ int main (int argc, char **argv) {
 	GMainLoop	*gmainloop = NULL;
 	GError		*gerror = NULL;
 	guint		ui_mode = MODE_GTK;
-	int			status;
 	char		*config_file = 0;
 	int			no_configure = false, print_version = false, no_gui = false;
 	int			systemtray = false;
