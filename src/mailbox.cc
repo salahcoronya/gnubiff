@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2009 Nicolas Rougier, 2004-2009 Robert Sowada
+// Copyright (c) 2000-2010 Nicolas Rougier, 2004-2010 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.92.2.4 $
-// Revision date : $Date: 2008/04/25 22:53:01 $
+// Revision      : $Revision: 1.92.2.5 $
+// Revision date : $Date: 2009/03/01 17:15:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -79,7 +79,7 @@ Mailbox::Mailbox (const Mailbox &other)
 	add_option ((Mailbox &)other);
 
 	status (MAILBOX_UNKNOWN);
-	timetag_= 0;
+	timetag_ = 0;
 	mutex_ = g_mutex_new ();
 	monitor_mutex_ = g_mutex_new ();
 }
@@ -134,23 +134,27 @@ Mailbox::threaded_start (guint delay)
 #endif
 }
 
-gboolean
+gboolean 
 Mailbox::start_delayed_entry_point (gpointer data)
 {
 	GError *err = NULL;
-	g_thread_create ((GThreadFunc) start_entry_point, data, FALSE, &err);
+
+	static_cast<Mailbox *>(data)->timetag (0);
+
+	g_thread_create ((GThreadFunc) start_entry_point, data, false, &err);
 	if (err != NULL)  {
-		g_warning (_("[%d] Unable to create thread: %s"), MAILBOX(data)->uin(), err->message);
+		g_warning (_("[%d] Unable to create thread: %s"),
+				   static_cast<Mailbox *>(data)->uin(), err->message);
 		g_error_free (err);
 	}
-	MAILBOX(data)->timetag (0);
+
 	return false;
 }
 
 void
 Mailbox::start_entry_point (gpointer data)
 {
-	MAILBOX(data)->start();
+	static_cast<Mailbox *>(data)->start();
 }
 
 void
