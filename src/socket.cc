@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2008 Nicolas Rougier, 2004-2008 Robert Sowada
+// Copyright (c) 2000-2010 Nicolas Rougier, 2004-2010 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.32.2.1 $
-// Revision date : $Date: 2007/09/08 14:57:58 $
+// Revision      : $Revision: 1.32.2.2 $
+// Revision date : $Date: 2008/04/25 22:40:24 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -49,7 +49,6 @@
 // ========================================================================
 //  Static features
 // ========================================================================	
-GStaticMutex Socket::hostname_mutex_  = G_STATIC_MUTEX_INIT;
 #ifdef HAVE_LIBSSL
 Certificate *Socket::ui_cert_ = 0;
 GStaticMutex Socket::ui_cert_mutex_ = G_STATIC_MUTEX_INIT;
@@ -90,12 +89,104 @@ Socket::~Socket (void)
 		close();
 }	
 
-gint
-Socket::open (std::string hostname,
-			  gushort port,
-			  guint authentication,
-			  std::string certificate,
-			  guint timeout)
+/**
+ * Determine the IP addresses of the given host and port and establish
+ * a connection to one of them.
+ *
+ * @param timeout timeout
+ * @result        boolean indicating success
+ */
+gboolean 
+Socket::connect (guint timeout)
+{
+	struct addrinfo		hints, *result, *rptr;
+	int					i;
+	std::stringstream	service;
+
+	// Get address info
+	service << port_;
+	memset (&hints, 0, sizeof(struct addrinfo));
+	hints.ai_family = AF_UNSPEC;
+	hints.ai_socktype = SOCK_STREAM;
+	hints.ai_flags = 0;
+	hints.ai_protocol = 0;
+	i = getaddrinfo (hostname_.c_str(), service.str().c_str(), &hints,
+					 &result);
+	if (i != 0) {
+		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+				   hostname_.c_str(), port_);
+#ifdef debug
+		g_message ("[%d] Call to getaddrinfo fails: %s", uin_,
+				   gai_strerror(i));
+#endif
+		sd_ = SD_CLOSE;
+		return false;
+	}
+
+	// Try all returned addresses
+	for (rptr = result; rptr != NULL; rptr = rptr->ai_next) {
+		// Try to create socket
+		sd_ = socket (rptr->ai_family, rptr->ai_socktype, rptr->ai_protocol);
+		if (sd_ == SD_CLOSE)
+			continue;
+
+		// Set non-blocking socket if a timeout is required
+		if (timeout > 0) {
+			int arg = fcntl (sd_, F_GETFL, NULL);
+			arg |= O_NONBLOCK;
+			fcntl (sd_, F_SETFL, arg);
+		}
+
+		// Try to connect
+		i = ::connect (sd_, rptr->ai_addr, rptr->ai_addrlen);
+		if (i != -1)
+			break;
+
+		// Connect failed but this may be because of non-blocking socket
+		if (timeout > 0 && errno == EINPROGRESS) {
+			int valopt;
+			struct timeval tv;
+			tv.tv_sec = timeout;
+			tv.tv_usec = 0;
+			fd_set myset;
+			FD_ZERO (&myset);
+			FD_SET (sd_, &myset);
+			if (select (sd_ + 1, NULL, &myset, NULL, &tv) > 0) {
+				socklen_t lon = sizeof (int);
+				getsockopt (sd_, SOL_SOCKET, SO_ERROR, (void*)(&valopt), &lon);
+				if (!valopt) {
+					// Set to blocking mode again...
+					int arg = fcntl (sd_, F_GETFL, NULL);
+					arg &= (~O_NONBLOCK);
+					fcntl (sd_, F_SETFL, arg);
+					break;
+				}
+			}
+		}
+		// Cannot connect, so close socket
+		::close (sd_);
+	}
+
+	// Free temporary allocated memory
+	freeaddrinfo (result);
+
+	// No success with any address?
+	if (!rptr) {
+		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
+				   hostname_.c_str(), port_);
+#ifdef debug
+		g_message ("[%d] Cannot connect to any address", uin_);
+#endif
+		sd_ = SD_CLOSE;
+		return false;
+	}
+
+	return true;
+}
+
+gint 
+Socket::open (std::string hostname, gushort port, guint authentication,
+			  std::string certificate, guint timeout)
 {
 	hostname_ = hostname;
 	port_ = port;
@@ -106,114 +197,15 @@ Socket::open (std::string hostname,
 	// Get options' values to avoid periodic lookups
 	prevdos_line_length_=mailbox_->biff()->value_uint ("prevdos_line_length");
 
-	struct sockaddr_in sin;
-	struct hostent *host;
-	struct in_addr address;
-
-#ifdef DEBUG
-	g_message ("[%d] OPEN %s:%d", uin_, hostname_.c_str(), port_);
-#endif
-
 	// Default status before trying to connect
 	status_ = SOCKET_STATUS_ERROR;
 
-	// Create an endpoint for communication
-	if ((sd_ = socket (AF_INET, SOCK_STREAM, IPPROTO_IP)) == -1) {
-		sd_ = SD_CLOSE;
-		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
+	// Connect to host on given port
+#ifdef DEBUG
+	g_message ("[%d] OPEN %s:%d", uin_, hostname_.c_str(), port_);
+#endif
+	if (!connect (timeout))
 		return 0;
-	}
-
-	// Set non-blocking socket if timeout required
-	if (timeout > 0) {
-		int arg = fcntl (sd_, F_GETFL, NULL);
-		arg |= O_NONBLOCK;
-		fcntl (sd_, F_SETFL, arg);
-	}
-
-	// Setting socket info for connection
-	memset ((char *)&sin, 0, sizeof(sin));
-	sin.sin_family = AF_INET;
-	sin.sin_port = htons (port_);
-
-	// First, try to get the address by standard notation (e.g. 127.0.0.1)
-	if (inet_aton (hostname_.c_str(), &address) == 0) {
-
-		// If it does not work, get the address by name (e.g. localhost.localdomain)
-
-		// Believe it or not but gethostbyname is not thread safe...
-		g_static_mutex_lock (&hostname_mutex_);
-		host = gethostbyname (hostname_.c_str());
-		
-		if (host == 0) {
-			g_static_mutex_unlock (&hostname_mutex_);
-			::close (sd_);
-			sd_ = SD_CLOSE;
-			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_, hostname_.c_str(), port_);
-			return 0;
-		}
-
-		// This way of filling sin_addr field avoid 'incompatible types in assignment' problems
-		memcpy ((void *) &sin.sin_addr, *(host->h_addr_list), host->h_length);
-	}
-	else
-		sin.sin_addr = address;
-
-
-	int res = connect (sd_, (struct sockaddr *) &sin, sizeof (struct sockaddr_in));
-	if ((timeout) && (res < 0)) {
-		if (errno == EINPROGRESS) {
-			int valopt;
-			struct timeval tv;
-			tv.tv_sec = timeout;
-			tv.tv_usec = 0;
-			fd_set myset;
-			FD_ZERO (&myset);
-			FD_SET (sd_, &myset);
-			if (select (sd_+1, NULL, &myset, NULL, &tv) > 0) {
-				socklen_t lon = sizeof (int);
-				getsockopt (sd_, SOL_SOCKET, SO_ERROR, (void*)(&valopt), &lon);
-				if (valopt) {
-					g_static_mutex_unlock (&hostname_mutex_);
-					::close (sd_);
-					sd_ = SD_CLOSE;
-					g_warning (_("[%d] Unable to connect to %s on port %d"),
-							   uin_, hostname_.c_str(), port_);
-					return 0;
-				}
-			}
-			else {
-				g_static_mutex_unlock (&hostname_mutex_);
-				::close (sd_);
-				sd_ = SD_CLOSE;
-				g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
-						   hostname_.c_str(), port_);
-				return 0;
-			}
-		}
-		else {
-			g_static_mutex_unlock (&hostname_mutex_);
-			::close (sd_);
-			sd_ = SD_CLOSE;
-			g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
-					   hostname_.c_str(), port_);
-			return 0;
-		}
-		// Set to blocking mode again...
-		int arg = fcntl (sd_, F_GETFL, NULL);
-		arg &= (~O_NONBLOCK);
-		fcntl (sd_, F_SETFL, arg);
-	}
-	else if (res == -1) {
-		g_static_mutex_unlock (&hostname_mutex_);
-		::close (sd_);
-		sd_ = SD_CLOSE;
-		g_warning (_("[%d] Unable to connect to %s on port %d"), uin_,
-				   hostname_.c_str(), port_);
-		return 0;
-	}
-
-	g_static_mutex_unlock (&hostname_mutex_);
 
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
