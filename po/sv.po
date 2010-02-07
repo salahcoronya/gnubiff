@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.2.11\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-01-31 20:38+0100\n"
+"POT-Creation-Date: 2010-02-07 17:01+0100\n"
 "PO-Revision-Date: 2009-07-06 20:05+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -122,52 +122,52 @@ msgstr "Felaktigt parameterformat i konfigurationsfil"
 msgid "No protocol specified for mailbox %d"
 msgstr "Inget protokoll angivit för brevlåda %d"
 
-#: ../src/mailbox.cc:143
+#: ../src/mailbox.cc:146
 #, c-format
 msgid "[%d] Unable to create thread: %s"
 msgstr "[%d] Kan inte skapa tråd: %s"
 
-#: ../src/mailbox.cc:315
+#: ../src/mailbox.cc:319
 #, c-format
 msgid "mailbox %d"
 msgstr "Brevlåda %d"
 
 #. Insert default values
-#: ../src/mailbox.cc:640
+#: ../src/mailbox.cc:644
 msgid "<no date>"
 msgstr "<Inget datum>"
 
-#: ../src/mailbox.cc:641
+#: ../src/mailbox.cc:645
 msgid "<no sender>"
 msgstr "<ingen avsändare>"
 
-#: ../src/mailbox.cc:642
+#: ../src/mailbox.cc:646
 msgid "<no subject>"
 msgstr "<inget ämne>"
 
-#: ../src/mailbox.cc:696
+#: ../src/mailbox.cc:700
 msgid "[Cannot parse content type header line]"
 msgstr "[Kan inte tolka rubrikrad för innehållstyp]"
 
-#: ../src/mailbox.cc:718
+#: ../src/mailbox.cc:722
 msgid "[Cannot parse content transfer encoding header line]"
 msgstr "[Kan inte tolka rubrikrad för kodning för innehållsöverföring]"
 
-#: ../src/mailbox.cc:759
+#: ../src/mailbox.cc:763
 msgid "[Malformed multipart message]"
 msgstr "[Felformulerat multipart-meddelande]"
 
-#: ../src/mailbox.cc:767
+#: ../src/mailbox.cc:771
 msgid "[Can't find first part's beginning in the multipart message]"
 msgstr "[Kan inte hitta första delens början i multipart-meddelandet]"
 
-#: ../src/mailbox.cc:813
+#: ../src/mailbox.cc:817
 #, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
 msgstr ""
 "[Det här meddelandet innehåller en innehållstyp som inte stöds: \"%s/%s\"]"
 
-#: ../src/mailbox.cc:1215
+#: ../src/mailbox.cc:1219
 #, c-format
 msgid ""
 "Error when compiling a regular expression.\n"
@@ -184,34 +184,33 @@ msgstr ""
 msgid "Can't sort mails by \"%s\""
 msgstr "Kan inte sortera brev efter \"%s\""
 
-#: ../src/socket.cc:123 ../src/socket.cc:152 ../src/socket.cc:180
-#: ../src/socket.cc:189 ../src/socket.cc:198 ../src/socket.cc:211
-#: ../src/socket.cc:241 ../src/socket.cc:250
+#: ../src/socket.cc:116 ../src/socket.cc:175 ../src/socket.cc:233
+#: ../src/socket.cc:242
 #, c-format
 msgid "[%d] Unable to connect to %s on port %d"
 msgstr "[%d] Kan inte ansluta till %s på port %d"
 
-#: ../src/socket.cc:226
+#: ../src/socket.cc:218
 #, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
 msgstr "[%d] Misslyckades att läsa in certifikat (%s) for %s"
 
-#: ../src/socket.cc:263
+#: ../src/socket.cc:255
 #, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
 msgstr "[%d] Kan inte identifiera fjärrvärd (%s på port %d)"
 
-#: ../src/socket.cc:348
+#: ../src/socket.cc:340
 #, c-format
 msgid "[%d] Unable to write to %s on port %d"
 msgstr "[%d] Kan inte skriva till %s på port %d"
 
-#: ../src/socket.cc:419
+#: ../src/socket.cc:411
 #, c-format
 msgid "[%d] Unable to read from %s on port %d"
 msgstr "[%d] Kan inte läsa från %s på port %d"
 
-#: ../src/socket.cc:442
+#: ../src/socket.cc:434
 #, c-format
 msgid "Could not set read timeout on socket: %s"
 msgstr "Kunde inte ställa in tidsgräns för läsning på uttag: %s"

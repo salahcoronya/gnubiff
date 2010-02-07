@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.1.2\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-01-31 20:38+0100\n"
+"POT-Creation-Date: 2010-02-07 17:01+0100\n"
 "PO-Revision-Date: 2005-04-03 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -141,59 +141,59 @@ msgstr "Imiterere in IDOSIYE"
 msgid "No protocol specified for mailbox %d"
 msgstr "Porotokole kugirango"
 
-#: ../src/mailbox.cc:143
+#: ../src/mailbox.cc:146
 #, fuzzy, c-format
 msgid "[%d] Unable to create thread: %s"
 msgstr "[%d]Kuri Kurema Urudodo"
 
-#: ../src/mailbox.cc:315
+#: ../src/mailbox.cc:319
 #, c-format
 msgid "mailbox %d"
 msgstr ""
 
 #. Insert default values
-#: ../src/mailbox.cc:640
+#: ../src/mailbox.cc:644
 #, fuzzy
 msgid "<no date>"
 msgstr "<Oya Itariki"
 
-#: ../src/mailbox.cc:641
+#: ../src/mailbox.cc:645
 #, fuzzy
 msgid "<no sender>"
 msgstr "<Oya Uwohereza"
 
 # # generics string
-#: ../src/mailbox.cc:642
+#: ../src/mailbox.cc:646
 #, fuzzy
 msgid "<no subject>"
 msgstr "<nta mutwe)"
 
-#: ../src/mailbox.cc:696
+#: ../src/mailbox.cc:700
 #, fuzzy
 msgid "[Cannot parse content type header line]"
 msgstr "[Ibikubiyemo Ubwoko Umutwempangano Umurongo"
 
-#: ../src/mailbox.cc:718
+#: ../src/mailbox.cc:722
 #, fuzzy
 msgid "[Cannot parse content transfer encoding header line]"
 msgstr "[Ibikubiyemo Imisobekere: Umutwempangano Umurongo"
 
-#: ../src/mailbox.cc:759
+#: ../src/mailbox.cc:763
 #, fuzzy
 msgid "[Malformed multipart message]"
 msgstr "[Ubutumwa"
 
-#: ../src/mailbox.cc:767
+#: ../src/mailbox.cc:771
 #, fuzzy
 msgid "[Can't find first part's beginning in the multipart message]"
 msgstr "[Gushaka Itangira Itangiriro in i Ubutumwa"
 
-#: ../src/mailbox.cc:813
+#: ../src/mailbox.cc:817
 #, fuzzy, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
 msgstr "[Ubutumwa Ibikubiyemo Ubwoko"
 
-#: ../src/mailbox.cc:1215
+#: ../src/mailbox.cc:1219
 #, c-format
 msgid ""
 "Error when compiling a regular expression.\n"
@@ -207,34 +207,33 @@ msgstr ""
 msgid "Can't sort mails by \"%s\""
 msgstr "Ishungura ku"
 
-#: ../src/socket.cc:123 ../src/socket.cc:152 ../src/socket.cc:180
-#: ../src/socket.cc:189 ../src/socket.cc:198 ../src/socket.cc:211
-#: ../src/socket.cc:241 ../src/socket.cc:250
+#: ../src/socket.cc:116 ../src/socket.cc:175 ../src/socket.cc:233
+#: ../src/socket.cc:242
 #, fuzzy, c-format
 msgid "[%d] Unable to connect to %s on port %d"
 msgstr "[%d]Kuri Kwihuza Kuri ku Umuyoboro"
 
-#: ../src/socket.cc:226
+#: ../src/socket.cc:218
 #, fuzzy, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
 msgstr "[%d]Kuri Ibirimo Impamyabushobozi kugirango"
 
-#: ../src/socket.cc:263
+#: ../src/socket.cc:255
 #, fuzzy, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
 msgstr "[%d]Ubuturo ku Umuyoboro"
 
-#: ../src/socket.cc:348
+#: ../src/socket.cc:340
 #, fuzzy, c-format
 msgid "[%d] Unable to write to %s on port %d"
 msgstr "[%d]Kuri Kwandika Kuri ku Umuyoboro"
 
-#: ../src/socket.cc:419
+#: ../src/socket.cc:411
 #, fuzzy, c-format
 msgid "[%d] Unable to read from %s on port %d"
 msgstr "[%d]Kuri Gusoma Bivuye ku Umuyoboro"
 
-#: ../src/socket.cc:442
+#: ../src/socket.cc:434
 #, fuzzy, c-format
 msgid "Could not set read timeout on socket: %s"
 msgstr "OYA Gushyiraho Gusoma Igihe cyarenze: ku"

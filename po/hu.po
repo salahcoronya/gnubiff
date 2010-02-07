@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-01-31 20:38+0100\n"
+"POT-Creation-Date: 2010-02-07 17:01+0100\n"
 "PO-Revision-Date: 2006-06-08 21:26+0200\n"
 "Last-Translator: Adam Wallner <wallner.adam@hktv.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -122,51 +122,51 @@ msgstr "Nem megfelelő paraméter formátum a konfigfájlban."
 msgid "No protocol specified for mailbox %d"
 msgstr "Nincs protokoll megadva a %d. levélfiókhoz."
 
-#: ../src/mailbox.cc:143
+#: ../src/mailbox.cc:146
 #, c-format
 msgid "[%d] Unable to create thread: %s"
 msgstr "[%d] Nem sikerül szálat készíteni: %s"
 
-#: ../src/mailbox.cc:315
+#: ../src/mailbox.cc:319
 #, c-format
 msgid "mailbox %d"
 msgstr "%d. levélfiók"
 
 #. Insert default values
-#: ../src/mailbox.cc:640
+#: ../src/mailbox.cc:644
 msgid "<no date>"
 msgstr "<nincs dátum>"
 
-#: ../src/mailbox.cc:641
+#: ../src/mailbox.cc:645
 msgid "<no sender>"
 msgstr "<nincs küldő>"
 
-#: ../src/mailbox.cc:642
+#: ../src/mailbox.cc:646
 msgid "<no subject>"
 msgstr "<nincs tárgy>"
 
-#: ../src/mailbox.cc:696
+#: ../src/mailbox.cc:700
 msgid "[Cannot parse content type header line]"
 msgstr "[Nem sikerül a \"content type \" fejlécsor feldolgozása]"
 
-#: ../src/mailbox.cc:718
+#: ../src/mailbox.cc:722
 msgid "[Cannot parse content transfer encoding header line]"
 msgstr "[Nem sikerül a \"content transfer encoding\" fejlécsor feldolgozása]"
 
-#: ../src/mailbox.cc:759
+#: ../src/mailbox.cc:763
 msgid "[Malformed multipart message]"
 msgstr "[Hibás többrészes levél]"
 
-#: ../src/mailbox.cc:767
+#: ../src/mailbox.cc:771
 msgid "[Can't find first part's beginning in the multipart message]"
 msgstr "[A többrészes üzenet első részének az eleje nem található]"
 
-#: ../src/mailbox.cc:813
+#: ../src/mailbox.cc:817
 #, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
 msgstr "[Ennek az üzenet nem támogatott tartalomtípust tartalmaz: \"%s/%s\"]"
 
-#: ../src/mailbox.cc:1215
+#: ../src/mailbox.cc:1219
 #, c-format
 msgid ""
 "Error when compiling a regular expression.\n"
@@ -180,34 +180,33 @@ msgstr ""
 msgid "Can't sort mails by \"%s\""
 msgstr "Nem lehet csoportosítani a leveleket \"%s\" szerint."
 
-#: ../src/socket.cc:123 ../src/socket.cc:152 ../src/socket.cc:180
-#: ../src/socket.cc:189 ../src/socket.cc:198 ../src/socket.cc:211
-#: ../src/socket.cc:241 ../src/socket.cc:250
+#: ../src/socket.cc:116 ../src/socket.cc:175 ../src/socket.cc:233
+#: ../src/socket.cc:242
 #, c-format
 msgid "[%d] Unable to connect to %s on port %d"
 msgstr "[%d] Nem lehet kapcsolódni %s-hez %d porton."
 
-#: ../src/socket.cc:226
+#: ../src/socket.cc:218
 #, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
 msgstr "[%d] Nem lehet betölteni a tanusítványt (%s) %s-hez"
 
-#: ../src/socket.cc:263
+#: ../src/socket.cc:255
 #, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
 msgstr "[%d] Nem sikerül azonosítani a távoli gépet (%s %d porton)"
 
-#: ../src/socket.cc:348
+#: ../src/socket.cc:340
 #, c-format
 msgid "[%d] Unable to write to %s on port %d"
 msgstr "[%d] Nem lehet írni a %s-re a %d porton"
 
-#: ../src/socket.cc:419
+#: ../src/socket.cc:411
 #, c-format
 msgid "[%d] Unable to read from %s on port %d"
 msgstr "[%d] Nem lehet olvasni a %s-ről a %d porton"
 
-#: ../src/socket.cc:442
+#: ../src/socket.cc:434
 #, c-format
 msgid "Could not set read timeout on socket: %s"
 msgstr ""

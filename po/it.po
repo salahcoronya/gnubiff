@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-01-31 20:38+0100\n"
+"POT-Creation-Date: 2010-02-07 17:01+0100\n"
 "PO-Revision-Date: 2005-12-07 23:43+0100\n"
 "Last-Translator: Stefano Fabri <bluefuture@email.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -122,55 +122,55 @@ msgstr "Formato del parametro illegale nel file di configurazione"
 msgid "No protocol specified for mailbox %d"
 msgstr "Nessun protocollo è stato specificato per la casella di posta %d"
 
-#: ../src/mailbox.cc:143
+#: ../src/mailbox.cc:146
 #, c-format
 msgid "[%d] Unable to create thread: %s"
 msgstr "[%d] Impossibile creare il thread: %s"
 
-#: ../src/mailbox.cc:315
+#: ../src/mailbox.cc:319
 #, c-format
 msgid "mailbox %d"
 msgstr "casella di posta %d"
 
 #. Insert default values
-#: ../src/mailbox.cc:640
+#: ../src/mailbox.cc:644
 msgid "<no date>"
 msgstr "<nessuna data>"
 
-#: ../src/mailbox.cc:641
+#: ../src/mailbox.cc:645
 msgid "<no sender>"
 msgstr "<nessun mittente>"
 
-#: ../src/mailbox.cc:642
+#: ../src/mailbox.cc:646
 msgid "<no subject>"
 msgstr "<nessun oggetto>"
 
-#: ../src/mailbox.cc:696
+#: ../src/mailbox.cc:700
 msgid "[Cannot parse content type header line]"
 msgstr ""
 "[Analisi della linea d'intestazione del tipo di contenuto non riuscita]"
 
-#: ../src/mailbox.cc:718
+#: ../src/mailbox.cc:722
 msgid "[Cannot parse content transfer encoding header line]"
 msgstr ""
 "[Analisi della linea di intestazione della codifica di trasferimento dei "
 "contenuti non riuscita]"
 
-#: ../src/mailbox.cc:759
+#: ../src/mailbox.cc:763
 msgid "[Malformed multipart message]"
 msgstr "[Messaggio multi parte non conforme]"
 
-#: ../src/mailbox.cc:767
+#: ../src/mailbox.cc:771
 msgid "[Can't find first part's beginning in the multipart message]"
 msgstr ""
 "[L'inizio della prima parte nel messaggio multi parti non è stata trovata]"
 
-#: ../src/mailbox.cc:813
+#: ../src/mailbox.cc:817
 #, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
 msgstr "[Questo messaggio ha un tipo di contenuto non supportato: \"%s/%s\"]"
 
-#: ../src/mailbox.cc:1215
+#: ../src/mailbox.cc:1219
 #, c-format
 msgid ""
 "Error when compiling a regular expression.\n"
@@ -184,34 +184,33 @@ msgstr ""
 msgid "Can't sort mails by \"%s\""
 msgstr "Ordinamento messaggi di posta per \"%s\" non possibile"
 
-#: ../src/socket.cc:123 ../src/socket.cc:152 ../src/socket.cc:180
-#: ../src/socket.cc:189 ../src/socket.cc:198 ../src/socket.cc:211
-#: ../src/socket.cc:241 ../src/socket.cc:250
+#: ../src/socket.cc:116 ../src/socket.cc:175 ../src/socket.cc:233
+#: ../src/socket.cc:242
 #, c-format
 msgid "[%d] Unable to connect to %s on port %d"
 msgstr "[%d] Impossibile connettersi a %s alla porta %d"
 
-#: ../src/socket.cc:226
+#: ../src/socket.cc:218
 #, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
 msgstr "[%d] Impossibile caricare il certificato (%s) for %s"
 
-#: ../src/socket.cc:263
+#: ../src/socket.cc:255
 #, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
 msgstr "[%d] Non riesco ad identificare l'host remoto (%s sulla porta %d)"
 
-#: ../src/socket.cc:348
+#: ../src/socket.cc:340
 #, c-format
 msgid "[%d] Unable to write to %s on port %d"
 msgstr "[%d] Impossibile scrivere a %s sulla porta %d"
 
-#: ../src/socket.cc:419
+#: ../src/socket.cc:411
 #, c-format
 msgid "[%d] Unable to read from %s on port %d"
 msgstr "[%d] Impossibile leggere da %s dalla porta %d"
 
-#: ../src/socket.cc:442
+#: ../src/socket.cc:434
 #, c-format
 msgid "Could not set read timeout on socket: %s"
 msgstr "Impostazione del timeout sulla socket non riuscito: %s"
