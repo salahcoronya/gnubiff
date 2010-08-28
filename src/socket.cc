@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.36 $
-// Revision date : $Date: 2008/04/25 22:39:56 $
+// Revision      : $Revision: 1.37 $
+// Revision date : $Date: 2010/02/06 14:40:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -468,14 +468,25 @@ Socket::read (std::string &line, gboolean print, gboolean check)
 					   line.c_str());
 			break;
 		default:
-			g_message ("[%d] RECV ERROR(%s:%d): %s", uin_, hostname_.c_str(),
-					   port_, strerror(status));
+			if (cnt <= 0)
+				g_message ("[%d] RECV ERROR(%s:%d): line too long, "
+					   "security/prevdos_line_length should be increased",
+						   uin_, hostname_.c_str(), port_);
+			else
+				g_message ("[%d] RECV ERROR(%s:%d): %s", uin_,
+						hostname_.c_str(), port_,
+						strerror(status));
 			break;
 		}
 	}
 #endif
 	if (status_ == SOCKET_STATUS_ERROR) {
-		g_warning (_("[%d] Unable to read from %s on port %d"), uin_, hostname_.c_str(), port_);
+		if (cnt <= 0)
+			g_warning (_("[%d] line too long, security/prevdos_line_length "
+				     "should be increased"), uin_);
+		else
+			g_warning (_("[%d] Unable to read from %s on port %d"),
+					uin_, hostname_.c_str(), port_);
 		close();
 	}
 
