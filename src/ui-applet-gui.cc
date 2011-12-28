@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2011 Nicolas Rougier, 2004-2011 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.18 $
-// Revision date : $Date: 2007/09/08 14:57:35 $
+// Revision      : $Revision: 1.19 $
+// Revision date : $Date: 2008/04/25 22:52:47 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -583,7 +583,7 @@ AppletGUI::hide_dialog_preferences (void)
 gboolean 
 AppletGUI::visible_dialog_preferences (void)
 {
-	return (preferences_ && GTK_WIDGET_VISIBLE (preferences_->get ()));
+	return (preferences_ && gtk_widget_get_visible (preferences_->get ()));
 }
 
 /**
@@ -646,7 +646,7 @@ AppletGUI::hide_dialog_popup (void)
 gboolean 
 AppletGUI::visible_dialog_popup (void)
 {
-	return (popup_ && GTK_WIDGET_VISIBLE (popup_->get ("dialog")));
+	return (popup_ && gtk_widget_get_visible (popup_->get ("dialog")));
 }
 
 /**
