@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.47 $
-// Revision date : $Date: 2007/09/08 14:57:35 $
+// Revision      : $Revision: 1.48 $
+// Revision date : $Date: 2008/04/25 22:52:48 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -134,7 +134,7 @@ extern "C" {
 //  base
 // ========================================================================
 
-Popup::Popup (Biff *biff) : GUI (GNUBIFF_DATADIR"/popup.glade")
+Popup::Popup (Biff *biff) : GUI (GNUBIFF_DATADIR"/popup.ui")
 {
 	biff_ = biff;
 	poptag_ = 0;

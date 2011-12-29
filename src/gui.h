@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gui.h,v $
-// Revision      : $Revision: 1.7 $
-// Revision date : $Date: 2007/04/26 22:17:03 $
+// Revision      : $Revision: 1.8 $
+// Revision date : $Date: 2007/09/08 18:06:19 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -35,14 +35,14 @@
 #endif
 #include <string>
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include "support.h"
 
 
 class GUI : public Support {
 
 protected:
-	GladeXML *		xml_;		// interface description using XML/glade-2 file
+/// interface description using XML-GTKBuilder file
+	GtkBuilder      *gtkbuilder_;
 	std::string		filename_;	// name of the interface file
 
 public:
