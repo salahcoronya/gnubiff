@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.29 $
-// Revision date : $Date: 2011/12/29 10:56:47 $
+// Revision      : $Revision: 1.30 $
+// Revision date : $Date: 2011/12/29 12:37:39 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -588,7 +588,7 @@ Properties::auth_view (gboolean visible)
 #endif
 	}
 
-    gtk_combo_box_set_active (GTK_COMBO_BOX (auth_cbox_) ,selected_auth_);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (auth_cbox_), auth);
 	certificate_view (auth == AUTH_CERTIFICATE || auth == AUTH_TLS);
 	selected_auth_ = auth;
 }
