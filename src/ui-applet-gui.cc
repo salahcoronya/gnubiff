@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gui.cc,v $
-// Revision      : $Revision: 1.10.2.7 $
-// Revision date : $Date: 2008/04/25 22:53:07 $
+// Revision      : $Revision: 1.10.2.8 $
+// Revision date : $Date: 2011/12/28 18:47:33 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -523,8 +523,7 @@ AppletGUI::tooltip_update (void)
 	std::string text = get_mailbox_status_text ();
 
 	// Put text in tooltip
-	GtkTooltipsData *data = gtk_tooltips_data_get (tooltip_widget_);
-	gtk_tooltips_set_tip (data->tooltips, tooltip_widget_, text.c_str(), "");
+    gtk_widget_set_tooltip_text (tooltip_widget_, text.c_str());
 }
 
 

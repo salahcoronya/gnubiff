@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.26 $
-// Revision date : $Date: 2006/01/07 22:43:34 $
+// Revision      : $Revision: 1.26.2.1 $
+// Revision date : $Date: 2007/09/08 14:57:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -341,8 +341,9 @@ Support::unknown_internal_error_ (const gchar *file, guint line,
 	ss <<                     "." << glib_micro_version << " (dyn),  ";
 	ss <<                     GLIB_MAJOR_VERSION << "." << GLIB_MINOR_VERSION;
 	ss <<                     "." << GLIB_MICRO_VERSION << " (stat)\n";
-	ss << "gtk         : " << gtk_major_version << "." << gtk_minor_version;
-	ss <<                     "." << gtk_micro_version << " (dyn),  ";
+	ss << "gtk         : " << gtk_get_major_version () << ".";
+    ss <<                     gtk_get_minor_version () << ".";
+    ss <<                     gtk_get_micro_version () << " (dyn),  ";
 	ss <<                     GTK_MAJOR_VERSION << "." << GTK_MINOR_VERSION;
 	ss <<                     "." << GTK_MICRO_VERSION << " (stat)\n";
 

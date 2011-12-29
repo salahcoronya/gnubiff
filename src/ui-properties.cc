@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-properties.cc,v $
-// Revision      : $Revision: 1.25.2.3 $
-// Revision date : $Date: 2011/12/29 10:58:57 $
+// Revision      : $Revision: 1.25.2.4 $
+// Revision date : $Date: 2011/12/29 12:46:53 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -87,7 +87,7 @@ extern "C" {
 
 }
 
-Properties::Properties (Preferences *preferences) : GUI (GNUBIFF_DATADIR"/properties.glade")
+Properties::Properties (Preferences *preferences) : GUI (GNUBIFF_DATADIR"/properties.ui")
 {
 	preferences_ = preferences;
 	mailbox_ = 0;
@@ -101,8 +101,9 @@ Properties::~Properties (void)
 		hide ();
 		gtk_widget_destroy (widget);
 	}
-	if (GTK_IS_OBJECT (xml_))
-		g_object_unref (xml_);
+    if (gtkbuilder_)
+        g_object_unref (G_OBJECT(gtkbuilder_));
+    gtkbuilder_ = NULL;
 }
 
 gboolean
@@ -293,7 +294,7 @@ Properties::on_apply (GtkWidget *widget)
 	std::string oldaddress = mailbox_->address ();
 
 	// Retrieve all values of the options from the GUI elements
-	mailbox_->update_gui (OPTSGUI_GET, OPTGRP_MAILBOX, xml_, filename_);
+	mailbox_->update_gui (OPTSGUI_GET, OPTGRP_MAILBOX, gtkbuilder_, filename_);
 
 	mailbox_->authentication (selected_auth_);
 
@@ -404,7 +405,7 @@ Properties::update_view (void)
 
 	// Insert the values of the options into the GUI widgets and update
 	// widget status
-	mailbox_->update_gui (OPTSGUI_UPDATE, OPTGRP_MAILBOX, xml_, filename_);
+	mailbox_->update_gui (OPTSGUI_UPDATE, OPTGRP_MAILBOX, gtkbuilder_, filename_);
 
 	type_view ();
 }
