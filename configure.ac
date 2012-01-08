@@ -118,12 +118,22 @@ AC_CHECK_LIB(ssl, AES_encrypt, AC_DEFINE_UNQUOTED(HAVE_AES, 1,
 	AC_CHECK_LIB(crypto, AES_encrypt, AC_DEFINE_UNQUOTED(HAVE_AES, 1))])
 
 dnl GLIB, GTK, ...
+<<<<<<< configure.ac
 GTK_REQUIRED="gtk+-3.0 >= 3.0.0"
 GMODULE_REQUIRED="gmodule-export-2.0 >= 2.4"
+X11="xproto x11"
+=======
+GTK_REQUIRED="gtk+-3.0 >= 3.0.0"
+GMODULE_REQUIRED="gmodule-export-2.0 >= 2.4"
+>>>>>>> 1.39.2.14
 PKG_CHECK_MODULES(GNUBIFF_DEP, 
 [
 	$GTK_REQUIRED
 	$GMODULE_REQUIRED
+<<<<<<< configure.ac
+    $X11
+=======
+>>>>>>> 1.39.2.14
 ])
 AC_SUBST(GNUBIFF_DEP_CFLAGS)
 AC_SUBST(GNUBIFF_DEP_LIBS)
