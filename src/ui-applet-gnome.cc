@@ -87,6 +87,7 @@ extern "C" {
 		return false;
 	}
 
+
 	static void APPLET_GNOME_on_menu_properties (GtkAction *action,
                                                  AppletGnome *data)
 	{
@@ -98,31 +99,30 @@ extern "C" {
 
 	void APPLET_GNOME_on_menu_command (GtkAction *action,
                                        AppletGnome *data)
- 	{
- 		if (data)
-
+	{
+		if (data)
 			data->execute_command ("double_command", "use_double_command");
- 		else
- 			unknown_internal_error ();
- 	}
+		else
+			unknown_internal_error ();
+	}
 
 	void APPLET_GNOME_on_menu_mail_read (GtkAction *action,
                                          AppletGnome *data)
- 	{
- 		if (data)
+	{
+		if (data)
 			data->mark_messages_as_read ();
- 		else
- 			unknown_internal_error ();
- 	}
- 
+		else
+			unknown_internal_error ();
+	}
+
 	void APPLET_GNOME_on_menu_info (GtkAction *action,
                                     AppletGnome *data)
- 	{
- 		if (data)
+	{
+		if (data)
 			data->show_dialog_about ();
- 		else
- 			unknown_internal_error ();
- 	}
+		else
+			unknown_internal_error ();
+	}
 
 // 	gboolean APPLET_GNOME_reconnect (gpointer data)
 // 	{
@@ -137,6 +137,10 @@ extern "C" {
 // 		return false;
 // 	}
 }
+
+// ========================================================================
+//  base
+// ========================================================================
 
 AppletGnome::AppletGnome (Biff *biff) : AppletGUI (biff, GNUBIFF_DATADIR"/applet-gtk.ui", this)
 {
