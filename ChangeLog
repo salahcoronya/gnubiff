@@ -8,6 +8,9 @@ Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 Version 2.2.15
  * Robert Sowada
    - Changed version to 2.2.15
+   - Added missing ui-files
+   - Fixed format-string-bug
+   - Fixed false error message
 	
 Version 2.2.14		2012-01-29 18:39
  * Robert Sowada
