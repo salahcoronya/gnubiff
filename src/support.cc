@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: support.cc,v $
-// Revision      : $Revision: 1.27 $
-// Revision date : $Date: 2007/09/08 14:57:35 $
+// Revision      : $Revision: 1.28 $
+// Revision date : $Date: 2011/12/29 18:39:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : Support functions
 //
@@ -348,5 +348,5 @@ Support::unknown_internal_error_ (const gchar *file, guint line,
 	ss <<                     "." << GTK_MICRO_VERSION << " (stat)\n";
 
 	// Print error message
-	g_warning (ss.str().c_str());
+	g_warning ("%s", ss.str().c_str());
 }
