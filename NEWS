@@ -5,6 +5,11 @@ Copyright (C) 2000-2012 Nicolas Rougier <Nicolas.Rougier@loria.fr>,
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 
+Version 2.2.15
+This is a minor bugfix release. Changes:
+ * Added some missing files
+ * Fixed some smaller bugs
+
 Version 2.2.14
 This is a minor feature release. Changes:
  * Migrated to GTK3 and Gnome3
