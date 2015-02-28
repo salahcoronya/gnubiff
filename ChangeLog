@@ -1,11 +1,11 @@
 gnubiff -- History of visible changes.
 
 Copyright (C) 2000-2012 Nicolas Rougier <Nicolas.Rougier@loria.fr> and
-              2004-2012 Robert Sowada <sowadart@gmx.de>.
+              2004-2015 Robert Sowada <sowadart@gmx.de>.
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 
-Version 2.2.16
+Version 2.2.16		2015-02-28 22:20
  * Robert Sowada
    - Changed version to 2.2.16
    - Updated all translations
