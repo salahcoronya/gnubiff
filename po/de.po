@@ -473,19 +473,19 @@ msgstr ""
 "\n"
 "Zusätzliche Informationen:\n"
 
-#: ../src/GNOME_gnubiffApplet.xml.h:1
+#: ../src/ui-applet-gnome.cc:166
 msgid "Info"
 msgstr "_Info"
 
-#: ../src/GNOME_gnubiffApplet.xml.h:2 ../ui/applet-gtk.glade.h:14
+#: ../src/ui-applet-gnome.cc:165
 msgid "Mark mailboxes read"
 msgstr "Nachrichten als gelesen _markieren"
 
-#: ../src/GNOME_gnubiffApplet.xml.h:3
+#: ../src/ui-applet-gnome.cc:163
 msgid "Preferences..."
 msgstr "Einstellungen..."
 
-#: ../src/GNOME_gnubiffApplet.xml.h:4
+#: ../src/ui-applet-gnome.cc:164
 msgid "Run command"
 msgstr "_Befehl ausführen"
 

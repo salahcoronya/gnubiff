@@ -1,163 +1,164 @@
-# Pesan bahasa Indonesia untuk GNU biff.
-# Copyright (C) 2009 Free Software Foundation, Inc.
+# translation of gnubiff-2.0.2.po to Esperanto
+# Copyright (C) 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnubiff package.
-# Arif E. Nugroho <arif_endro@yahoo.com>, 2009.
+# Felipe Castro <fefcas@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnubiff 2.2.11\n"
 "Report-Msgid-Bugs-To: gnubiff-bugs@lists.sourceforge.net\n"
 "POT-Creation-Date: 2009-04-05 18:19+0200\n"
-"PO-Revision-Date: 2009-11-26 10:00+0700\n"
-"Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
-"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2013-02-06 14:15-0300\n"
+"Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
+"Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/decoding.cc:89
 #, c-format
 msgid "[The encoding \"%s\" of this mail can't be decoded]"
-msgstr "[Pengkodean \"%s\" dari surat ini tidak dapat diartikan]"
+msgstr "[La enkodigo \"%s\" de tiu ĉi retmesaĝo ne povas esti dekodita]"
 
 #: src/decoding.cc:135 src/decoding.cc:142 src/decoding.cc:147
 msgid "[Cannot decode this header line]"
-msgstr "[Tidak dapat mengartikan baris kepala ini]"
+msgstr "[Ne eblas dekodigi tiun ĉi kaplinion]"
 
 #: src/decoding.cc:744
 #, c-format
 msgid "[Cannot convert character sets (from \"%s\" to \"utf-8\")]"
-msgstr "[Tidak dapat mengubah karakter set (dari \"%s\" ke \"utf-8\")]"
+msgstr "[Ne eblas konverti signarojn (de \"%s\" al \"utf-8\")]"
 
 #: src/gnubiff.cc:91
 msgid "Start gnome applet from command line"
-msgstr "Mulai aplet gnome dari baris perintah"
+msgstr "Lanĉi gnome-aplikaĵeton el la komandlinio"
 
 #: src/gnubiff.cc:98
 msgid "Configuration file to use"
-msgstr "Berkas konfigurasi yang akan digunakan"
+msgstr "Agorda dosiero uzota"
 
 #: src/gnubiff.cc:98
 msgid "file"
-msgstr "berkas"
+msgstr "dosiero"
 
 #: src/gnubiff.cc:100
 msgid "Skip the configuration process"
-msgstr "Lewatkan proses konfigurasi"
+msgstr "Salti la agordan procezon"
 
 #: src/gnubiff.cc:102
 msgid "Start gnubiff without GUI"
-msgstr "Awali gnubiff tanpa GUI"
+msgstr "Lanĉi gnubiff sen GUI"
 
 #: src/gnubiff.cc:104
 msgid "Put gnubiff's icon into the system tray"
-msgstr "Tempatkan icon gnubiff kedalam keranjang sistem"
+msgstr "Meti la piktogramon de gnubiff en la taskopleto"
 
 #: src/gnubiff.cc:106
 msgid "Print version information and exit"
-msgstr "Tampilkan informasi versi dan keluar"
+msgstr "Montri version kaj eliri"
 
 #: src/gnubiff.cc:112
 msgid "General command line options:"
-msgstr "Pilihan umum baris perintah:"
+msgstr "Ĝeneralaj komandliniaj modifiloj:"
 
 #: src/gnubiff.cc:115
 msgid "Options for debugging:"
-msgstr "Pilihan untuk penelusuran:"
+msgstr "Modifiloj por rafinigo:"
 
 #: src/biff.cc:123
 #, c-format
 msgid "Configuration file (%s) not found!"
-msgstr "Berkas konfigurasi (%s) tidak ditemukan!"
+msgstr "Agorda dosiero (%s) ne estis trovata!"
 
 #: src/biff.cc:596
 #, c-format
 msgid "Loaded config file from newer gnubiff version \"%s\"."
-msgstr "Memuat berkas konfigurasi dari versi gnubiff yang lebih baru \"%s\"."
+msgstr "Ni ŝargis agordo-dosieron el pli nova versio de gnubiff \"%s\"."
 
 #: src/biff.cc:604
 #, c-format
 msgid "Loaded config file from old gnubiff version \"%s\"."
-msgstr "Memuat berkas konfigurasi dari versi gnubiff lama \"%s\"."
+msgstr "Ni ŝargis agordo-dosieron el malnova versio de gnubiff \"%s\"."
 
 #: src/biff.cc:606
 msgid "Trying to convert all options."
-msgstr "Mencoba mengubah seluruh pilihan."
+msgstr "Ni provas konverti ĉiujn modifilojn."
 
 #: src/biff.cc:650
 msgid "Successfully converted all options."
-msgstr "Sukses mengubah seluruh pilihan."
+msgstr "Sukceso en konverto de ĉiuj modifiloj."
 
 #: src/biff.cc:653
 #, c-format
 msgid "Successfully converted some options. The following options must be updated manually: %s."
-msgstr "Sukses mengubah beberapa pilihan. Pilihan berikut harus diperbarui secara manual: %s."
+msgstr "Sukceso en konverto de kelkaj modifiloj. La jenaj modifiloj devos esti ĝisdatigataj malaŭtomate: %s."
 
 #: src/biff.cc:804
 #, c-format
 msgid "Cannot open your configuration file (%s)"
-msgstr "Tidak dapat membuka berkas konfigurasi anda (%s)"
+msgstr "Ne eblas malfermi vian agordan dosieron (%s)"
 
 #: src/biff.cc:819
 msgid "Cannot create XML parser for config file"
-msgstr "Tidak dapat membuat parser XML untuk berkas konfigurasi"
+msgstr "Ne eblas krei analizilon de XML por agorda dosiero"
 
 #: src/biff.cc:836
 #, c-format
 msgid "Found no mailbox definition in your configuration file (%s)"
-msgstr "Tidak ditemukan definisi kotak surat dalam berkas konfigurasi anda (%s)"
+msgstr "Neniu poŝtskatola difino estis trovata en via agorda dosiero (%s)"
 
 #: src/biff.cc:883
 msgid "Illegal parameter format in config file"
-msgstr "Format parameter tidak legal dalam berkas konfigurasi"
+msgstr "Malvalida parametra formo en agorda dosiero"
 
 #: src/biff.cc:912
 #, c-format
 msgid "No protocol specified for mailbox %d"
-msgstr "Tidak dispesifikasikan protokol untuk kotak surat %d"
+msgstr "Neniu protokolo estis indikata por la poŝtskatolo %d"
 
 #: src/mailbox.cc:143
 #, c-format
 msgid "[%d] Unable to create thread: %s"
-msgstr "[%d] Tidak dapat membuat thread: %s"
+msgstr "[%d] Ne eblas krei fadenon: %s"
 
 #: src/mailbox.cc:315
 #, c-format
 msgid "mailbox %d"
-msgstr "kotak surat %d"
+msgstr "poŝtskatolo %d"
 
 #: src/mailbox.cc:640
 msgid "<no date>"
-msgstr "<tidak ada tanggal>"
+msgstr "<sen dato>"
 
 #: src/mailbox.cc:641
 msgid "<no sender>"
-msgstr "<tidak ada pengirim>"
+msgstr "<sen sendanto>"
 
 #: src/mailbox.cc:642
 msgid "<no subject>"
-msgstr "<tidak ada subjek>"
+msgstr "<sen temo>"
 
 #: src/mailbox.cc:696
 msgid "[Cannot parse content type header line]"
-msgstr "[Tidak dapat mengambil baris kepala tipe isi]"
+msgstr "[Ne eblas analizi la kaplinion pri enhavtipo]"
 
 #: src/mailbox.cc:718
 msgid "[Cannot parse content transfer encoding header line]"
-msgstr "[Tidak dapat mengambil baris kepala pengkodean pengiriman]"
+msgstr "[Ne eblas analizi la kaplinion pri enhava transsenda enkodigo]"
 
 #: src/mailbox.cc:759
 msgid "[Malformed multipart message]"
-msgstr "[Pesan banyak bagian salah format]"
+msgstr "[Misformita multparta mesaĝo]"
 
 #: src/mailbox.cc:767
 msgid "[Can't find first part's beginning in the multipart message]"
-msgstr "[TIdak dapat menemukan bagian pertama berawal dalam pesan banyak bagian]"
+msgstr "[Ne eblas trovi la unuan komencon de parto en multparta mesaĝo]"
 
 #: src/mailbox.cc:813
 #, c-format
 msgid "[This message has an unsupported content type: \"%s/%s\"]"
-msgstr "[Pesan ini memiliki tipe isi yang tidak didukung: \"%s/%s\"]"
+msgstr "[Tiu ĉi mesaĝo havas nesubtenatan enhavtipon: \"%s/%s\"]"
 
 #: src/mailbox.cc:1215
 #, c-format
@@ -166,138 +167,138 @@ msgid ""
 "Regular expression: %s\n"
 "Error message: %s"
 msgstr ""
-"Error ketika mengkompilasi sebuah ekspresi umum.\n"
-"Ekspresi umum: %s\n"
-"Pesan kesalahan: %s"
+"Eraro dum kompilado de regulesprimo.\n"
+"Regulesprimo: %s\n"
+"Erarmesaĝo: %s"
 
 #: src/header.cc:147
 #, c-format
 msgid "Can't sort mails by \"%s\""
-msgstr "Tidak dapat mengurutkan surat berdasarkan \"%s\""
+msgstr "Ne eblas vicigi retmesaĝoj laŭ \"%s\""
 
 #: src/socket.cc:123 src/socket.cc:152 src/socket.cc:180 src/socket.cc:189
 #: src/socket.cc:198 src/socket.cc:211 src/socket.cc:241 src/socket.cc:250
 #, c-format
 msgid "[%d] Unable to connect to %s on port %d"
-msgstr "[%d] Tidak dapat menghubungi ke %s di port %d"
+msgstr "[%d] Ne eblas konekti al %s ĉe pordo %d"
 
 #: src/socket.cc:226
 #, c-format
 msgid "[%d] Failed to load certificate (%s) for %s"
-msgstr "[%d] Gagal memuat sertifikat (%s) untuk %s"
+msgstr "[%d] Ni malsukcesis ŝargi atestilon (%s) por %s"
 
 #: src/socket.cc:263
 #, c-format
 msgid "[%d] Cannot identify remote host (%s on port %d)"
-msgstr "[%d] Tidak dapat mengidentifikasikan remote host (%s di port %d)"
+msgstr "[%d] Ne eblas identigi foran gastigejon (%s ĉe pordo %d)"
 
 #: src/socket.cc:348
 #, c-format
 msgid "[%d] Unable to write to %s on port %d"
-msgstr "[%d] Tidak dapat menulis ke %s di port %d"
+msgstr "[%d] Ne eblas skribi al %s ĉe pordo %d"
 
 #: src/socket.cc:419
 #, c-format
 msgid "[%d] Unable to read from %s on port %d"
-msgstr "[%d] Tidak dapat membaca dari %s di port %d"
+msgstr "[%d] Ne eblas legi el %s ĉe pordo %d"
 
 #: src/socket.cc:442
 #, c-format
 msgid "Could not set read timeout on socket: %s"
-msgstr "Tidak dapat menset batas waktu pembacaan di soket: %s"
+msgstr "Ne eblis difini legan templimon ĉe konektingo: %s"
 
 #: src/file.cc:97
 #, c-format
 msgid "Cannot open %s."
-msgstr "Tidak dapat membuka %s."
+msgstr "Ne eblas malfermi %s."
 
 #: src/imap4.cc:459
 msgid "[This message has no part with a supported content type]"
-msgstr "[Pesan ini tidak memiliki bagian dengan tipe isi yang didukung]"
+msgstr "[Tiu ĉi retmesaĝo havas neniun parton kun subtenata enhavtipo]"
 
 #: src/imap4.cc:822
 #, c-format
 msgid "[%d] Unable to select folder %s on host %s"
-msgstr "[%d] Tidak dapat memilih folder %s di host %s"
+msgstr "[%d] Ne eblas elekti la dosierujon %s ĉe gastigejo %s"
 
 #: src/imap4.cc:910
 #, c-format
 msgid "[%d] Unable to get acknowledgment from %s on port %d"
-msgstr "[%d] Tidak dapat memperoleh persetujuan dari %s di port %d"
+msgstr "[%d] Ne eblas havigi konfirmon el %s ĉe pordo %d"
 
 #: src/imap4.cc:969
 #, c-format
 msgid "[%d] Server doesn't send untagged \"%s\" response or acknowledgment"
-msgstr "[%d] Server tidak mengirimkan balasan \"%s\" tidak bertanda atau persetujuan"
+msgstr "[%d] La servilo ne sendas nemarkitan respondon \"%s\" nek konfirmon"
 
 #: src/imap4.cc:1022
 #, c-format
 msgid "[%d] Server doesn't send untagged \"%s\" response"
-msgstr "[%d] Server tidak mengirimkan balasan \"%s\" tidak bertanda"
+msgstr "[%d] La servilo ne sendas nemarkitan respondon \"%s\""
 
 #: src/imap4.cc:1578
 #, c-format
 msgid "[%d] Server closes connection immediately:%s"
-msgstr "[%d] Server menutup koneksi secara langsung:%s"
+msgstr "[%d] La servilo fermas konekton tuje:%s"
 
 #: src/imap4.cc:1583
 #, c-format
 msgid "[%d] Internal server failure or unknown error:%s"
-msgstr "[%d] Kegagalan internal server atau kesalahan tidak diketahui:%s"
+msgstr "[%d] Interna servila paneo aŭ nekonata eraro:%s"
 
 #: src/imap4.cc:1588
 #, c-format
 msgid "[%d] Warning from server:%s"
-msgstr "[%d] Peringatan dari server:%s"
+msgstr "[%d] Averto el servilo:%s"
 
 #: src/maildir.cc:81
 #, c-format
 msgid "Cannot open new mail directory (%s)"
-msgstr "Tidak dapat membuka direktori surat baru (%s)"
+msgstr "Ne eblas malfermi novan retpoŝtan dosierujon (%s)"
 
 #: src/pop.cc:150
 #, c-format
 msgid "[%d] Empty password"
-msgstr "[%d] Kata sandi kosong"
+msgstr "[%d] Malplena pasvorto"
 
 #: src/pop.cc:509
 #, c-format
 msgid "[%d] Error message from POP3 server:%s"
-msgstr "[%d] Pesan error dari server POP3:%s"
+msgstr "[%d] Erarmesaĝo el servilo POP3:%s"
 
 #: src/pop.cc:516
 #, c-format
 msgid "[%d] Did not get a positive response from POP3 server"
-msgstr "[%d] Tidak mendapatkan balasan positif dari server POP3"
+msgstr "[%d] Ni ne havas pozitivan respondon el servilo POP3"
 
 #: src/apop.cc:101
 #, c-format
 msgid "[%d] Your pop server does not seem to accept apop protocol (no timestamp provided)"
-msgstr "[%d] Pop server anda kelihatannya tidak menerima protokol apop (tidak ada tanda waktu yang disediakan)"
+msgstr "[%d] Via pop-servilo ŝajne ne akceptas protokolon apop (neniu tempindiko estis liverata)"
 
 #: src/apop.cc:122
 #, c-format
 msgid "[%d] Problem with crypto that should have been detected at configure time"
-msgstr "[%d] Masalah dengan crypto yang seharusnya terdeteksi pada waktu mengkonfigurasi"
+msgstr "[%d] Problemo kun crypto, kiu devus esti detektata en agord-momento"
 
 #: src/options.cc:559
 #, c-format
 msgid "Unknown option \"%s\""
-msgstr "Pilihan \"%s\" tidak diketahui"
+msgstr "Nekonata modifilo \"%s\""
 
 #: src/options.cc:566
 #, c-format
 msgid "Cannot set option \"%s\" to \"%s\""
-msgstr "Tidak dapat menset pilihan \"%s\" ke \"%s\""
+msgstr "Ne eblas difini la modifilon \"%s\" al \"%s\""
 
 #: src/options.cc:720 src/gui.cc:273
 #, c-format
 msgid "Cannot find the specified widget (\"%s\") within xml structure (\"%s\")"
-msgstr "Tidak dapat menemukan widget yang dispesifikasikan (\"%s\") dalam struktur xml (\"%s\")"
+msgstr "Ne eblas trovi la indikitan fenestraĵon (\"%s\") ene de la strukturo xml (\"%s\")"
 
 #: src/gnubiff_options.cc:140
 msgid "no mail"
-msgstr "tidak ada surat"
+msgstr "neniu retmesaĝo"
 
 #: src/gui.cc:195
 #, c-format
@@ -309,128 +310,128 @@ msgid ""
 "\n"
 "Please make sure package has been installed correctly."
 msgstr ""
-"Tidak dapat membuat antar muka.\n"
+"Ne eblas konstrui la interfacon.\n"
 "\n"
-"Nama: %s\n"
-"Jalur: %s\n"
+"Nomo: %s\n"
+"Vojo: %s\n"
 "\n"
-"Mohon pastikan paket telah terpasang dengan benar."
+"Bonvolu certigi ke la pako estas ĝuste instalita."
 
 #: src/gui.cc:381
 msgid "GUI_connect requires working gmodule"
-msgstr "GUI_connect membutuhkan gmodule bekerja dengan baik"
+msgstr "GUI_connect postulas funkciantan gmodule"
 
 #: src/gui.cc:388
 #, c-format
 msgid "Could not find signal handler '%s'."
-msgstr "Tidak dapat menemukan pengendali sinyal '%s'."
+msgstr "Ne eblis trovi la signal-traktilon '%s'."
 
 #: src/ui-applet.cc:217
 msgid " unknown"
-msgstr " tidak diketahui"
+msgstr " nekonata"
 
 #: src/ui-applet.cc:222
 msgid " error"
-msgstr " kesalahan"
+msgstr " eraro"
 
 #: src/ui-applet.cc:231
 msgid " checking..."
-msgstr " memeriksa..."
+msgstr " kontrolado..."
 
 #: src/ui-preferences.cc:267 src/ui-popup.cc:183
 msgid "Mailbox"
-msgstr "Kotak surat"
+msgstr "Poŝtskatolo"
 
 #: src/ui-preferences.cc:281 src/ui-preferences.cc:363
 msgid "Type"
-msgstr "Tipe"
+msgstr "Tipo"
 
 #: src/ui-preferences.cc:300
 msgid "Status"
-msgstr "Keadaan"
+msgstr "Stato"
 
 #: src/ui-preferences.cc:315
 msgid "Security"
-msgstr "Keamanan"
+msgstr "Sekureco"
 
 #: src/ui-preferences.cc:327 src/ui-preferences.cc:686
 msgid "No mailbox selected"
-msgstr "Tidak ada kotak surat yang dipilih"
+msgstr "Neniu poŝtskatolo elektita"
 
 #: src/ui-preferences.cc:355
 msgid "Option"
-msgstr "Pilihan"
+msgstr "Modifilo"
 
 #: src/ui-preferences.cc:373
 msgid "Value"
-msgstr "Nilai"
+msgstr "Valoro"
 
 #: src/ui-preferences.cc:609
 msgid "_Start"
-msgstr "_Mulai"
+msgstr "_Ek"
 
 #: src/ui-preferences.cc:615 ui/preferences.glade:2176
 msgid "_Stop"
-msgstr "_Henti"
+msgstr "_Halti"
 
 #: src/ui-preferences.cc:626 src/ui-preferences.cc:633
 msgid "Browse for a new mail image"
-msgstr "Telusuri untuk gambar surat baru"
+msgstr "Navigi por nova poŝta bildo"
 
 #: src/ui-authentication.cc:86
 #, c-format
 msgid "Please enter your username and password for mailbox '%s'"
-msgstr "Mohon masukan nama pengguna dan kata sandi anda untuk kotak surat '%s'"
+msgstr "Bonvolu enmeti vian uzantnomon kaj pasvorton por la poŝtskatolo '%s'"
 
 #: src/ui-certificate.cc:73
 #, c-format
 msgid "Unable to verify the identity of %s as a trusted site.\n"
-msgstr "Tidak dapat memverifikasi identitas dari %s sebagai situs yang dipercaya.\n"
+msgstr "Ne eblis kontroli la identon de %s kiel fidindan retejon.\n"
 
 #: src/ui-certificate.cc:74
 #, c-format
 msgid "Either site's certificate is incomplete or you're connected to a site pretending to be %s, possibly to obtain your password"
-msgstr "Baik sertifikat situs yang tidak lengkap atau anda terhubung ke sebuah situs yang menyamar sebagai %s, mungkin untuk memperoleh kata sandi anda"
+msgstr "Aŭ la reteja atestilo estas nekompleta aŭ vi estas konektita al retejo ŝajniganta esti %s, eble por havigi vian pasvorton"
 
 #: src/ui-properties.cc:123 src/ui-properties.cc:150
 msgid "Autodetect"
-msgstr "Otomatis terdeteksi"
+msgstr "Aŭtomate detekti"
 
 #: src/ui-properties.cc:124
 msgid "File or Folder"
-msgstr "Berkas atau Folder"
+msgstr "Dosiero aŭ Dosierujo"
 
 #: src/ui-properties.cc:152
 msgid "User/Pass"
-msgstr "Nama pengguna/Kata sandi"
+msgstr "Uzanto/Pas"
 
 #: src/ui-properties.cc:154
 msgid "Encrypted User/Pass (apop)"
-msgstr "Nama pengguna/Kata sandi terenkripsi (apop)"
+msgstr "Ĉifrita Uzanto/Pas (apop)"
 
 #: src/ui-properties.cc:158
 msgid "SSL with certificate"
-msgstr "SSL dengan sertifikat"
+msgstr "SSL kun atestilo"
 
 #: src/ui-properties.cc:317
 msgid "Browse for a file or folder"
-msgstr "Browse untuk sebuah berkas atau folder"
+msgstr "Navigi por dosiero aŭ dosierujo"
 
 #: src/ui-properties.cc:323 ui/properties.glade:616
 msgid "Browse for a certificate file"
-msgstr "Browse untuk sebuah berkas sertifikat"
+msgstr "Navigi por atestila dosiero"
 
 #: src/ui-popup.cc:195
 msgid "From"
-msgstr "Dari"
+msgstr "De"
 
 #: src/ui-popup.cc:201
 msgid "Subject"
-msgstr "Subjek"
+msgstr "Temo"
 
 #: src/ui-popup.cc:207
 msgid "Date"
-msgstr "Tanggal"
+msgstr "Dato"
 
 #: src/support.cc:321
 msgid ""
@@ -438,29 +439,29 @@ msgid ""
 "\n"
 "Additional information:\n"
 msgstr ""
-"Anda telah menemukan sebuah kesalah internal yang tidak diketahui. Mohon kirimkan laporan lengkap bug ke \"gnubiff-bugs@lists.sourceforge.net\".\n"
+"Vi ĵus trovis nekonatan internan eraron. Bonvolu sendi detalan raporton pri programeraron al \"gnubiff-bugs@lists.sourceforge.net\".\n"
 "\n"
-"Informasi lebih lanjut:\n"
+"Pli da informo:\n"
 
 #: src/GNOME_gnubiffApplet.xml.h:1
 msgid "Info"
-msgstr "Informasi"
+msgstr "Informo"
 
 #: src/GNOME_gnubiffApplet.xml.h:2 ui/applet-gtk.glade:79
 msgid "Mark mailboxes read"
-msgstr "Tandai kotak surat terbaca"
+msgstr "Mark poŝtskatolojn legitaj"
 
 #: src/GNOME_gnubiffApplet.xml.h:3
 msgid "Preferences..."
-msgstr "Kesukaan..."
+msgstr "Preferoj..."
 
 #: src/GNOME_gnubiffApplet.xml.h:4
 msgid "Run command"
-msgstr "Jalankan perintah"
+msgstr "Lanĉi komandon"
 
 #: src/GNOME_gnubiffApplet.server.in.h:1
 msgid "Mail notification program"
-msgstr "Aplikasi notifikasi surat"
+msgstr "Retpoŝt-atentiga programo"
 
 #: src/GNOME_gnubiffApplet.server.in.h:2 ui/applet-gtk.glade:7
 msgid "gnubiff"
@@ -468,23 +469,23 @@ msgstr "gnubiff"
 
 #: ui/applet-gtk.glade:6
 msgid "tooltip"
-msgstr "tooltip"
+msgstr "ŝpruchelpilo"
 
 #: ui/applet-gtk.glade:64
 msgid "Start command"
-msgstr "Jalankan perintah"
+msgstr "Ekig-komando"
 
 #: ui/applet-gtk.glade:94
 msgid "About"
-msgstr "Tentang"
+msgstr "Pri"
 
 #: ui/applet-gtk.glade:114
 msgid "_Quit"
-msgstr "_Keluar"
+msgstr "_Eliri"
 
 #: ui/applet-gtk.glade:131
 msgid "Gnubiff is a mail notification program."
-msgstr "Gnubiff adalah sebuah aplikasi untuk memberitahu datangnya surat."
+msgstr "Gnubiff estas retpoŝt-atentiga programo."
 
 #: ui/applet-gtk.glade:133
 msgid ""
@@ -499,288 +500,288 @@ msgid ""
 "\n"
 "For an exception to the GNU General Public License for distributing gnubiff linked to the OpenSSL library see the README file."
 msgstr ""
-"Gnubiff adalah bagian dari projek GNU.\n"
-"Aplikasi ini dikeluarkan dibawah aegis dari GNU.\n"
+"Gnubiff estas parto de la projekto GNU.\n"
+"Ĝi estas lanĉata sub la egido de GNU.\n"
 "\n"
-"Aplikasi ini adalah piranti lunak bebas; anda dapat meredistribusikannya dan/atau memodifikasinya dibawah persetujuan dari GNU General Public License seperti yang dipublikasikan oleh Free Software Foundation baik versi 3 dari Lisensi, atau (menurut pilihan anda) versi apapun selanjutnya.\n"
+"Tiu ĉi programo estas libera programaro: vi povas redisdoni ĝin kaj/aŭ modifi ĝin sub la kondiĉoj de la Ĝenerala Publika Permesilo GNU, kiel eldonite de la Free Software Foundation, aŭ versio 3 de la Permesilo, aŭ (laŭ via elekto) iu ajn posta versio.\n"
 "\n"
-"Aplikasi ini didistribusikan dengan harapan akan berguna, tetapi TANPA GARANSI APAPUN; bahkan tanpa adanya garansi untuk bisa DIPERDAGANGKAN atau KESESUAIAN UNTUK TUJUAN TERTENTU. Lihat GNU General Public License untuk keterangan lebih lengkap.\n"
+"Tiu ĉi programo estas distribuita esperante ke ĝi estu utila, sed SEN IU AJN GARANTIO; sen eĉ implicita garantio pri VENDEBLECO aŭ TAŬGECO POR IU SPECIFA APLIKO.  Konsultu la GNU-an Ĝeneralan Publikan Permesilon por pli da detaloj.\n"
 "\n"
-"Anda seharusnya telah menerima sebuah salinan dari GNU General Public License bersamaan dengan aplikasi ini. Jika tidak, lihat http://www.gnu.org/licenses/.\n"
+"Vi devus ricevi kopion de la GNU-a Ĝenerala Publika Permesilo kune kun tiu ĉi programo.  Se ne, konsultu http://www.gnu.org/licenses/.\n"
 "\n"
-"Untuk sebuah pengecualian ke GNU General Public License untuk pendistribusian gnubiff yang dihubungkan ke perpustakaan OpenSSL lihat berkas README."
+"Por escepto de la GNU-a Ĝenerala Publika Permesilo por disdono de gnubiff ligita al la biblioteko OpenSSL, konsultu la dosieron README."
 
 #: ui/preferences.glade:6
 msgid "gnubiff preferences"
-msgstr "kesukaan gnubiff"
+msgstr "preferoj de gnubiff"
 
 #: ui/preferences.glade:49
 msgid "_Restrict collected mail to"
-msgstr "_Batasi pengumpulan surat ke"
+msgstr "_Limigi kolektitan retpoŝton al"
 
 #: ui/preferences.glade:76
 msgid "mail(s)"
-msgstr "surat"
+msgstr "retpoŝto"
 
 #: ui/preferences.glade:107
 msgid "The command to run when the icon is double-clicked"
-msgstr "Perintah yang dijalankan ketika icon di klik dua kali"
+msgstr "La lanĉota komando kiam la piktogramo estas duoble-klakita"
 
 #: ui/preferences.glade:122
 msgid "The command to run when new mail arrives"
-msgstr "Perintah yang dijalankan ketika surat baru datang"
+msgstr "La lanĉota komando kiam nova retpoŝto alvenas"
 
 #: ui/preferences.glade:137
 msgid "When _new mail:"
-msgstr "Ketika surat _baru:"
+msgstr "Kiam _nova retpoŝto:"
 
 #: ui/preferences.glade:199
 msgid "<b>Commands</b>"
-msgstr "<b>Perintah</b>"
+msgstr "<b>Komandoj</b>"
 
 #: ui/preferences.glade:219
 msgid "<b>Mailboxes</b>"
-msgstr "<b>Kotak surat</b>"
+msgstr "<b>Poŝtskatoloj</b>"
 
 #: ui/preferences.glade:236
 msgid "<b>General</b>"
-msgstr "<b>Umum</b>"
+msgstr "<b>Ĝenerala</b>"
 
 #: ui/preferences.glade:249
 msgid "When _double-clicked:"
-msgstr "Ketika diklik _dua kali:"
+msgstr "Kiam _duoble-klakite:"
 
 #: ui/preferences.glade:322
 msgid "Mailboxes"
-msgstr "Kotak surat"
+msgstr "Poŝtskatoloj"
 
 #: ui/preferences.glade:367 ui/preferences.glade:751
 msgid "Whether to use window manager decoration"
-msgstr "Baik menggunakan manajer dekorasi jendela"
+msgstr "Ĉu uzi fenestro-administrilan dekoracion"
 
 #: ui/preferences.glade:368 ui/preferences.glade:752
 msgid "Use _decoration"
-msgstr "Gunakan _dekorasi"
+msgstr "Uzi _dekoracion"
 
 #: ui/preferences.glade:386 ui/preferences.glade:770
 msgid "The font to use to display information"
-msgstr "Bentuk huruf yang digunakan untuk menampilkan informasi"
+msgstr "La uzota litertipo por montri informon"
 
 #: ui/preferences.glade:403 ui/preferences.glade:860
 msgid "_Font:"
-msgstr "_Bentuk huruf:"
+msgstr "_Tiparo:"
 
 #: ui/preferences.glade:424
 msgid "<b>When no mail</b>"
-msgstr "<b>Ketika tidak ada surat</b>"
+msgstr "<b>Kiam neniu retpoŝto</b>"
 
 #: ui/preferences.glade:445
 msgid "<b>When new mail</b>"
-msgstr "<b>Ketika ada surat baru</b>"
+msgstr "<b>Kiam nova retpoŝto</b>"
 
 #: ui/preferences.glade:462 ui/preferences.glade:807
 msgid "<b>Layout</b>"
-msgstr "<b>Layout</b>"
+msgstr "<b>Aranĝo</b>"
 
 #: ui/preferences.glade:475
 msgid "Whether to display an image"
-msgstr "Apakah menampilkan sebuah gambar"
+msgstr "Ĉu montri bildon"
 
 #: ui/preferences.glade:476
 msgid "Show i_mage:"
-msgstr "Tampilkan ga_mbar:"
+msgstr "Montri _bildon:"
 
 #: ui/preferences.glade:495 ui/preferences.glade:535
 msgid "Whether to display a text"
-msgstr "Apakah menampilkan sebuah teks"
+msgstr "Ĉu montri tekston"
 
 #: ui/preferences.glade:496
 msgid "Show t_ext:"
-msgstr "Tampilkan t_eks:"
+msgstr "Montri t_ekston:"
 
 #: ui/preferences.glade:515
 msgid "Whether to show an image"
-msgstr "Apakah menampilkan sebuah gambar"
+msgstr "Ĉu montri bildon"
 
 #: ui/preferences.glade:516
 msgid "Show _image:"
-msgstr "Tampilkan _gambar:"
+msgstr "Montri b_ildon:"
 
 #: ui/preferences.glade:536
 msgid "Show _text:"
-msgstr "Tampilkan _teks:"
+msgstr "Montri _tekston:"
 
 #: ui/preferences.glade:555 ui/preferences.glade:840
 msgid "Whether to use geometry"
-msgstr "Untuk menggunakan geometri"
+msgstr "Ĉu uzi geometrion"
 
 #: ui/preferences.glade:556 ui/preferences.glade:841
 msgid "Use _geometry:"
-msgstr "Gunakan _geometri:"
+msgstr "Uzi _geometrion:"
 
 #: ui/preferences.glade:575
 msgid "Applet geometry"
-msgstr "Aplet geometri"
+msgstr "Aplikaĵeta geometrio"
 
 #: ui/preferences.glade:590 ui/preferences.glade:639
 msgid "Text to display (%d and %D is the number of new messages, %d is zero padded). Pango markup may be used."
-msgstr "Teks untuk menampilkan (%d dan %D adalah jumlah dari pesan baru, %d diisi dengan nol). Pango markup mungkin telah digunakan."
+msgstr "Teksto por montri (%d kaj %D estas la nombro da novaj mesaĝoj, %d estas nulo-plenigitaj). Pango-markaĵo povas esti uzata."
 
 #: ui/preferences.glade:605 ui/preferences.glade:654
 msgid "Browse for an image file"
-msgstr "Browse untuk sebuah berkas gambar"
+msgstr "Navigi por bildo-dosieron"
 
 #: ui/preferences.glade:606
 msgid "B_rowse..."
-msgstr "Telusu_ri..."
+msgstr "_Navigi..."
 
 #: ui/preferences.glade:624 ui/preferences.glade:673
 msgid "Image filename"
-msgstr "Nama berkas gambar"
+msgstr "Bilda dosiernomo"
 
 #: ui/preferences.glade:655 ui/properties.glade:295
 msgid "_Browse..."
-msgstr "_Telusuri..."
+msgstr "_Navigi..."
 
 #: ui/preferences.glade:694
 msgid "Applet or Biff"
-msgstr "Aplet untuk Biff"
+msgstr "Aplikaĵeto aŭ Biff"
 
 #: ui/preferences.glade:791
 msgid "<b>Headers</b>"
-msgstr "<b>Kepala</b>"
+msgstr "<b>Kaplinioj</b>"
 
 #: ui/preferences.glade:820
 msgid "Whether to display the popup window"
-msgstr "Apakah akan menampilkan jendela popup"
+msgstr "Kie montri la ŝprucfenestron"
 
 #: ui/preferences.glade:821
 msgid "_Display for"
-msgstr "_Tampilkan untuk"
+msgstr "_Montri por"
 
 #: ui/preferences.glade:877
 msgid "header(s)"
-msgstr "kepala"
+msgstr "kaplinio(j)"
 
 #: ui/preferences.glade:892
 msgid "Maximum number of headers to display"
-msgstr "Jumlah maksimal dari kepala untuk ditampilkan"
+msgstr "Maksimuma nombro da kaplinioj por montri"
 
 #: ui/preferences.glade:909
 msgid "Whether to restrict number of displayed headers"
-msgstr "Apakah membatasi jumlah dari kepala yang ditampilkan"
+msgstr "Ĉu limigi la nombron da montritaj kaplinioj"
 
 #: ui/preferences.glade:910
 msgid "_Restrict number to"
-msgstr "_Batasi jumlah ke"
+msgstr "_Limigi nombron al"
 
 #: ui/preferences.glade:929
 msgid "[sender max size]:[subject max size]:[date max size]"
-msgstr "[ukuran maksimal pengirim]:[ukuran maksimal subjek]:[ukuran maksimal tanggal]"
+msgstr "[send maks grando]:[temo maks grando]:[dato maks grando]"
 
 #: ui/preferences.glade:944
 msgid "Whether to use format for header"
-msgstr "Apakah menggunakan format untuk kepala"
+msgstr "Ĉu uzi formon por kaplinio"
 
 #: ui/preferences.glade:945
 msgid "_Format:"
-msgstr "_Format:"
+msgstr "_Formo:"
 
 #: ui/preferences.glade:964
 msgid "Popup geometry"
-msgstr "Popup geometri"
+msgstr "Ŝpruca geometrio"
 
 #: ui/preferences.glade:979
 msgid "Time to display popup window"
-msgstr "Waktu untuk menampilkan jendela popup"
+msgstr "Tempo por montri ŝprucfenestro"
 
 #: ui/preferences.glade:996
 msgid "second(s)"
-msgstr "detik"
+msgstr "sekundo(j)"
 
 #: ui/preferences.glade:1016 ui/popup.glade:7
 msgid "Popup"
-msgstr "Popup"
+msgstr "Ŝprucfenestro"
 
 #: ui/preferences.glade:1062
 msgid ""
 "The editing dialog for all options that gnubiff uses internally can be enabled here. So it is possible to change the value of options for which no gui widgets are provided. A short description for each option is provided.\n"
 "<b>Warning:</b> Changing these options may cause gnubiff to act not properly or result in security problems."
 msgstr ""
-"Dialog pengubahan untuk seluruh pilihan yang digunakan oleh gnubiff secara internal dapat diaktifkan disini. Jadi ini memungkinkan untuk mengubah nilai dari pilihan dimana tidak ada widget gui yang disediakan. Sebuah deskripsi singkat untuk setiap pilihan disediakan.\n"
-"<b>Peringatan:</b> Pengubahan pilihan ini mungkin menyebabkan gnubiff untuk beraksi tidak sesuai atau menghasilkan masalah keamanan."
+"La redakta dialogo por ĉiuj modifiloj kiujn gnubiff uzas interne povas esti ebligataj ĉi tie. Do eblas ŝanĝi la valoron de modifiloj por kiuj ne estas provizitaj gui-fenestraĵo. Mallonga priskribo por ĉiu modifilo estas provizita.\n"
+"<b>Averto:</b> ŝanĝo de tiuj ĉi modifiloj povas igi ke gnubiff agu malĝuste aŭ povas rezulti en sekurecaj problemoj."
 
 #: ui/preferences.glade:1080
 msgid "Whether to show the expert tab. Note: Disabling this option can only be reversed by editing the config file manually!"
-msgstr "Apakah menampilkan bagian ahli. Catatan: menonaktifkan pilihan ini hanya dapat dikembalikan dengan mengubah berkas konfigurasi secara manual!"
+msgstr "Ĉu montri la langeton por spertuloj. Rimarku: malebligo de tiu ĉi modifilo nur povos esti malfarata per redakto de la agordo-dosiero!"
 
 #: ui/preferences.glade:1081
 msgid "_Show expert tab"
-msgstr "_Tampilkan bagian untuk ahli"
+msgstr "_Montri spertulan langeton"
 
 #: ui/preferences.glade:1101
 msgid "Whether options can be edited in expert mode"
-msgstr "Apakah pilihan dapat diubah dalam mode ahli"
+msgstr "Ĉu modifiloj povas esti redaktataj en sperta reĝimo"
 
 #: ui/preferences.glade:1102
 msgid "_Edit options in expert mode"
-msgstr "Pilihan _Ubah dalam mode ahli"
+msgstr "R_edakti modifilojn en sperta reĝimo"
 
 #: ui/preferences.glade:1121
 msgid "<b>Expert editing mode</b>"
-msgstr "<b>Mode pengubahan ahli</b>"
+msgstr "<b>Sperta redakta reĝimo</b>"
 
 #: ui/preferences.glade:1155
 msgid "List all options."
-msgstr "Tampilkan seluruh pilihan."
+msgstr "Listigi ĉiujn modifilojn."
 
 #: ui/preferences.glade:1171
 msgid "String to be searched for."
-msgstr "Kata yang akan dicari."
+msgstr "Serĉota ĉeno."
 
 #: ui/preferences.glade:1183
 msgid "Search for those (displayed) options that contain the string in the text entry."
-msgstr "Cari untuk pilihan (yang ditampilkan) yang berisi kata dalam masukan kata."
+msgstr "Serĉi tiujn (montritajn) modifilojn, kiuj enhavas la ĉeno en la teksta enigo."
 
 #: ui/preferences.glade:1212
 msgid "List of options, their type and current values. To edit an option doubleclick on its value."
-msgstr "Daftar dari pilihan, tipenya dan nilai sekarang. Untuk mengubah sebuah pilihan klik dua kali di nilainya."
+msgstr "Listo de modifiloj, iliaj tipo kaj nunaj valoroj. Por redakti modifilon duklaku ĝian valoron."
 
 #: ui/preferences.glade:1257
 msgid "Expert"
-msgstr "Ahli"
+msgstr "Sperta"
 
 #: ui/preferences.glade:1297
 msgid ""
 "<small> Gnubiff is part of the GNU project.\n"
 " It is released under the aegis of GNU.</small>"
 msgstr ""
-"<small> Gnubiff adalah bagian dari projek GNU.\n"
-" Aplikasi ini dikeluarkan dibawah aegis dari GNU.</small>"
+"<small> Gnubiff estas parto de projekto GNU.\n"
+" Ĝi estas eldonada sub la egido de GNU.</small>"
 
 #: ui/preferences.glade:1363
 msgid ""
 "<small>Developers can be contacted via <span foreground=\"blue\">gnubiff-devel@lists.sourceforge.net</span>.</small>\n"
 "<small>Bugs should be reported to <span foreground=\"blue\">gnubiff-bugs@lists.sourceforge.net</span>.</small>"
 msgstr ""
-"<small>Pengembang dapat dihubungi melalui <span foreground=\"blue\">gnubiff-devel@lists.sourceforge.net</span>.</small>\n"
-"<small>Bugs seharusnya dilaporkan ke <span foreground=\"blue\">gnubif-bugs@lists.sourceforge.net</span>.</small>"
+"<small>Programistoj povas esti kontaktataj per <span foreground=\"blue\">gnubiff-devel@lists.sourceforge.net</span>.</small>\n"
+"<small>Program-misoj devos esti raportataj al <span foreground=\"blue\">gnubiff-bugs@lists.sourceforge.net</span>.</small>"
 
 #: ui/preferences.glade:1432
 msgid "Developers"
-msgstr "Pengembang"
+msgstr "Programistoj"
 
 #: ui/preferences.glade:1511
 msgid "Maintainers"
-msgstr "Penjaga"
+msgstr "Zorgantoj"
 
 #: ui/preferences.glade:1530
 msgid "<small>Here is a list of those people, which translated gnubiff into different languages (translators of previous versions are marked with an asterisk):</small>"
-msgstr "<small>Berikut adalah daftar dari orang orang tersebut, yang telah menerjemahkan gnubiff kedalam bahasa bahasa yang berbeda (penerjemah dari versi sebelumnya ditandai dengan sebuah bintang):</small>"
+msgstr "<small>Ĉi tie estas listo de tiuj, kiuj tradukis gnubiff al pluraj lingvoj (tradukintoj de antaŭaj versioj estas markitaj per asterisko):</small>"
 
 #: ui/preferences.glade:2048
 msgid "Translators"
-msgstr "Penerjemah"
+msgstr "Tradukantoj"
 
 #: ui/preferences.glade:2065
 msgid ""
@@ -790,224 +791,224 @@ msgid ""
 "  - submitting actual code\n"
 "Here is a list of these people:</small>"
 msgstr ""
-"<small>Banyak orang telah berkontribusi lebih lanjut ke gnubiff melalui\n"
-"  - melaporkan masalah\n"
-"  - menyarankan berbagai perbaikan\n"
-"  - mengirimkan kode sebenarnya\n"
-"Berikut adalah daftar dari orang orang ini:</small>"
+"<small>Multaj homoj plukontribuis al gnubiff per\n"
+"  - raporto de problemoj\n"
+"  - sugesto de pluraj plibonigoj\n"
+"  - propono de fakta kodumaĵo\n"
+"Jen listo de tiuj homoj:</small>"
 
 #: ui/preferences.glade:2108
 msgid "Contributors"
-msgstr "Pengkontribusi"
+msgstr "Kontribuantoj"
 
 #: ui/preferences.glade:2130
 msgid "Credits"
-msgstr "Kredit"
+msgstr "Dankoj"
 
 #: ui/preferences.glade:2219
 msgid "Set to default value"
-msgstr "Set nilai baku ke"
+msgstr "Difini al apriora valoro"
 
 #: ui/preferences.glade:2234
 msgid "Toggle option"
-msgstr "Ganti pilihan"
+msgstr "Alterni modifilon"
 
 #: ui/preferences.glade:2249
 msgid "Edit option"
-msgstr "Ubah pilihan"
+msgstr "Redakti modifilon"
 
 #: ui/properties.glade:7
 msgid "Mailbox properties"
-msgstr "Properti kotak surat"
+msgstr "Poŝtskatolaj ecoj"
 
 #: ui/properties.glade:52
 msgid "_Name:"
-msgstr "_Nama:"
+msgstr "_Nomo:"
 
 #: ui/properties.glade:77
 msgid "A_ddress:"
-msgstr "_Alamat:"
+msgstr "A_dreso:"
 
 #: ui/properties.glade:102
 msgid "Name of the mailbox"
-msgstr "Nama dari kotak surat"
+msgstr "Nomo de la poŝtskatolo"
 
 #: ui/properties.glade:124
 msgid "_Type:"
-msgstr "_Tipe:"
+msgstr "_Tipo:"
 
 #: ui/properties.glade:174 ui/authentication.glade:52
 msgid "_Username:"
-msgstr "_Nama pengguna:"
+msgstr "_Uzantonomo:"
 
 #: ui/properties.glade:199
 msgid "Your username on the mail server"
-msgstr "Nama pengguna anda di kotak surat"
+msgstr "Via uzantnomo en la poŝtservilo"
 
 #: ui/properties.glade:221 ui/authentication.glade:77
 msgid "_Password:"
-msgstr "_Kata sandi:"
+msgstr "_Pasvorto:"
 
 #: ui/properties.glade:246
 msgid "Your password on the mail server"
-msgstr "Kata sandi anda di server surat"
+msgstr "Vi pasvorto en la poŝtservilo"
 
 #: ui/properties.glade:274
 msgid "file or folder or hostname"
-msgstr "berkas atau folder atau nama host"
+msgstr "dosiero aŭ dosierujo aŭ gastigantnomo"
 
 #: ui/properties.glade:367
 msgid "Connection:"
-msgstr "Koneksi:"
+msgstr "Konekto:"
 
 #: ui/properties.glade:391
 msgid "Connection port to connect to server"
-msgstr "Port koneksi untuk menghubungi ke server"
+msgstr "Konekta porto por konekti al servilo"
 
 #: ui/properties.glade:414
 msgid "Standard connection port"
-msgstr "Port koneksi baku"
+msgstr "Norma konekta pordo"
 
 #: ui/properties.glade:416
 msgid "stan_dard"
-msgstr "ba_ku"
+msgstr "nor_ma"
 
 #: ui/properties.glade:437
 msgid "Other connection port"
-msgstr "Koneksi port lain"
+msgstr "Alia konekta pordo"
 
 #: ui/properties.glade:439
 msgid "_other"
-msgstr "lain"
+msgstr "_alia"
 
 #: ui/properties.glade:540
 msgid "Aut_hentication:"
-msgstr "Otentifikasi:"
+msgstr "Aŭte_ntikigo:"
 
 #: ui/properties.glade:594
 msgid "Certificate filename"
-msgstr "Nama berkas sertifikat"
+msgstr "Atestila dosiernomo"
 
 #: ui/properties.glade:618
 msgid "Bro_wse..."
-msgstr "Telusuri..."
+msgstr "Na_vigi..."
 
 #: ui/properties.glade:637
 msgid "Cer_tificate:"
-msgstr "Ser_tifikat:"
+msgstr "Ates_tilo:"
 
 #: ui/properties.glade:692
 msgid "minutes"
-msgstr "menit"
+msgstr "minutoj"
 
 #: ui/properties.glade:716
 msgid "seconds"
-msgstr "detik"
+msgstr "sekundoj"
 
 #: ui/properties.glade:739 ui/properties.glade:765
 msgid "The amount of time to wait between mail checks or between retries when connection is lost"
-msgstr "Waktu yang dibutuhkan untuk menunggu diantara pemeriksaan surat atau diantara percobaan ketika koneksi hilang"
+msgstr "Kiom da tempo atendi inter kontrolado de poŝto aŭ inter reprovoj kiam la konekto estos perdita"
 
 #: ui/properties.glade:791
 msgid "Dela_y:"
-msgstr "Tunda:"
+msgstr "Pro_krasto:"
 
 #: ui/properties.glade:846
 msgid "_Mailbox:"
-msgstr "Kotak surat:"
+msgstr "_Poŝtskatolo:"
 
 #: ui/properties.glade:871
 msgid "Mailbox folder"
-msgstr "Folder kotak surat"
+msgstr "Poŝtskatola dosierujo"
 
 #: ui/properties.glade:893
 msgid "Other mailbox folder"
-msgstr "Folder kotak surat lain"
+msgstr "Alia poŝtskatola dosierujo"
 
 #: ui/properties.glade:895
 msgid "othe_r"
-msgstr "lain"
+msgstr "al_ia"
 
 #: ui/properties.glade:916
 msgid "Standard mailbox folder"
-msgstr "Folder kotak surat baku"
+msgstr "Norma poŝtskatola dosierujo"
 
 #: ui/properties.glade:918
 msgid "stand_ard"
-msgstr "b_aku"
+msgstr "norm_a"
 
 #: ui/properties.glade:951
 msgid "<b>_Details</b>"
-msgstr "<b>_Detil</b>"
+msgstr "<b>_Detaloj</b>"
 
 #: ui/authentication.glade:7
 msgid "Authentication"
-msgstr "Otentifikasi"
+msgstr "Aŭtentikigo"
 
 #: ui/authentication.glade:102
 msgid "Your username on the server"
-msgstr "Nama pengguna ada di server"
+msgstr "Via uzantnomo en la servilo"
 
 #: ui/authentication.glade:124
 msgid "Your password on the server"
-msgstr "Kata sandi anda di server"
+msgstr "Via pasvorto en la servilo"
 
 #: ui/certificate.glade:7
 msgid "Cannot certify server"
-msgstr "Tidak dapat memastikan server"
+msgstr "Ne eblas atesti servilon"
 
 #: ui/certificate.glade:130
 msgid "Common Name"
-msgstr "Nama Umum"
+msgstr "Komuna nomo"
 
 #: ui/certificate.glade:154
 msgid "Organization"
-msgstr "Organisasi"
+msgstr "Organizaĵo"
 
 #: ui/certificate.glade:178
 msgid "Organization Unit"
-msgstr "Satuan Organisasi"
+msgstr "Organizaĵa unuo"
 
 #: ui/certificate.glade:275
 msgid "<b>Issued To</b>"
-msgstr "<b>Diberikan Ke<b>"
+msgstr "<b>Eldonita al</b>"
 
 #: ui/certificate.glade:394
 msgid "<b>Address</b>"
-msgstr "<b>Alamat</b>"
+msgstr "<b>Adreso</b>"
 
 #: ui/certificate.glade:418
 msgid "Country"
-msgstr "Negara"
+msgstr "Lando"
 
 #: ui/certificate.glade:442
 msgid "Locality"
-msgstr "Lokalitas"
+msgstr "Loko"
 
 #: ui/certificate.glade:540
 msgid "State or Province"
-msgstr "State atau Propinsi"
+msgstr "Subŝtato aŭ provinco"
 
 #: ui/certificate.glade:570
 msgid "Certificate details"
-msgstr "Sertifikat detil"
+msgstr "Detaloj de atestilo"
 
 #: ui/certificate.glade:668
 msgid "Accept"
-msgstr "Terima"
+msgstr "Konsenti"
 
 #: ui/popup.glade:61
 msgid "mail content"
-msgstr "isi surat"
+msgstr "retmesaĝa enhavo"
 
 #: ui/popup.glade:116
 msgid "<small><b>From</b></small>"
-msgstr "<small><b>Dari</b></small>"
+msgstr "<small><b>De</b></small>"
 
 #: ui/popup.glade:140
 msgid "<small><b>Subject</b></small>"
-msgstr "<small><b>Subjek</b></small>"
+msgstr "<small><b>Temo</b></small>"
 
 #: ui/popup.glade:164
 msgid "<small><b>Date</b></small>"
-msgstr "<small><b>Tanggal</b></small>"
+msgstr "<small><b>Dato</b></small>"

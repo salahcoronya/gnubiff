@@ -5,6 +5,13 @@ Copyright (C) 2000-2012 Nicolas Rougier <Nicolas.Rougier@loria.fr> and
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 
+Version 2.2.16
+ * Robert Sowada
+   - Updated all translations
+   - Added eo translation (thanks to Felipe Castro)
+   - Added fi translation (thanks to Jorma Karvonen)
+   - Added sr translation (thanks to Miroslav Nikolic)
+
 Version 2.2.15		2012-02-26 10:38
  * Robert Sowada
    - Changed version to 2.2.15

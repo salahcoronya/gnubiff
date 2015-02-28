@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: gnubiff.cc,v $
-// Revision      : $Revision: 1.26.2.2 $
-// Revision date : $Date: 2008/09/07 20:16:45 $
+// Revision      : $Revision: 1.26.2.3 $
+// Revision date : $Date: 2011/12/29 19:01:27 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -60,7 +60,7 @@ int main (int argc, char **argv) {
 #endif
 
 	// Thread initialization
-	g_thread_init (NULL);
+//	g_thread_init (NULL);
 	gdk_threads_init ();
 
 	//
