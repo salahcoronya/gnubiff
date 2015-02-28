@@ -1,9 +1,16 @@
 gnubiff -- History of visible changes.
 
 Copyright (C) 2000-2012 Nicolas Rougier <Nicolas.Rougier@loria.fr>,
-              2004-2012 Robert Sowada <sowadart@gmx.de>
+              2004-2015 Robert Sowada <sowadart@gmx.de>
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
+
+Version 2.2.16
+This is a minor feature release. Changes:
+ * Updated translations
+ * Added Esperanto translation (thanks to Felipe Castro)
+ * Added Finnish translation (thanks to Jorma Karvonen)
+ * Added Serbian translation (thanks to Miroslav Nikolic)
 
 Version 2.2.15
 This is a minor bugfix release. Changes:
