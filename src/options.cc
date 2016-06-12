@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2011 Nicolas Rougier, 2004-2011 Robert Sowada
+// Copyright (c) 2000-2011 Nicolas Rougier, 2004-2016 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.cc,v $
-// Revision      : $Revision: 1.18.2.2 $
-// Revision date : $Date: 2008/04/25 22:53:03 $
+// Revision      : $Revision: 1.18.2.4 $
+// Revision date : $Date: 2012/01/08 21:02:06 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -282,24 +282,6 @@ Options::value_string (const std::string &name, gboolean respect_update)
 		option_update (option);
 	return option->value();
 }
-
-/**
- *  Get the value of the string option {\em name} as a pointer to a
- *  character array.  This function handles the OPTFLG_UPDATE flag, so use
- *  this function instead of getting the value directly.
- *
- *  @param  name           Name of the option to be obtained
- *  @param  respect_update Shall the OPTFLG_UPDATE flag be respected (the
- *                         default is true)?
- *  @return                Value of the option or a pointer to an empty string
- *                         if there is an error
- */
-const gchar *
-Options::value_gchar (const std::string &name, gboolean respect_update)
-{
-	return value_string(name, respect_update).c_str();
-}
-
 
 /**
  *  Get the value of the unsigned integer option {\em name}.  This function

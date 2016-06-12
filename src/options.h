@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2016 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: options.h,v $
-// Revision      : $Revision: 1.10.2.2 $
-// Revision date : $Date: 2007/09/08 18:06:30 $
+// Revision      : $Revision: 1.10.2.4 $
+// Revision date : $Date: 2012/01/08 21:02:06 $
 // Author(s)     : Robert Sowada, Nicolas Rougier
 // Short         : Container for storing options
 //
@@ -69,8 +69,6 @@ public:
 						 gboolean respect_update = true);
 	std::string value_string (const std::string &name,
 							  gboolean respect_update = true);
-	const gchar * value_gchar (const std::string &name,
-							   gboolean respect_update = true);
 	guint value_uint (const std::string &name, gboolean respect_update = true);
 	gboolean set_values (const std::string &name,
 						 const std::set<std::string> &values,

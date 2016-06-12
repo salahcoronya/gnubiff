@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.65.2.3 $
-// Revision date : $Date: 2008/04/25 22:52:58 $
+// Revision      : $Revision: 1.65.2.4 $
+// Revision date : $Date: 2016/06/12 08:29:49 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -112,17 +112,17 @@ Biff::Biff (guint ui_mode, std::string filename)
 	if (filename.size() > 0)
 		value ("config_file", filename);
 	value ("ui_mode", ui_mode);
+    std::string configfile = value_string ("config_file");
 
 	// Does the configuration file exist?
 	std::ifstream file;
-	file.open (value_gchar ("config_file"));
+	file.open (configfile.c_str());
 	if (file.is_open ()) {
 		file.close ();
 		load ();
 	}
 	else {
-		g_warning (_("Configuration file (%s) not found!"),
-				   value_gchar ("config_file"));
+		g_warning (_("Configuration file (%s) not found!"), configfile.c_str());
 		mailbox_.push_back (new Mailbox (this));
 	}
 	value ("config_file_loaded", true);
@@ -769,7 +769,8 @@ Biff::save (void)
 	save_endblock();
 
 	// Write Configuration to file
-	int fd = open (value_gchar ("config_file"), O_WRONLY | O_CREAT | O_TRUNC,
+    std::string configfile = value_string ("config_file");
+	int fd = open (configfile.c_str(), O_WRONLY | O_CREAT | O_TRUNC,
 				   S_IRUSR | S_IWUSR);
 	if (fd==-1)
 	    return false;
@@ -790,19 +791,19 @@ Biff::load (void)
 	mailbox_.clear();
 
 	// Is the configuration file a directory?
-	const gchar *config_file = value_gchar ("config_file");
-	if (g_file_test (config_file, G_FILE_TEST_IS_DIR)) {
-		g_warning ("Configuration file \"%s\" is a directory", config_file);
+    std::string configfile = value_string ("config_file");
+	if (g_file_test (configfile.c_str(), G_FILE_TEST_IS_DIR)) {
+      g_warning ("Configuration file \"%s\" is a directory", configfile.c_str());
 		return false;
 	}
 
 	// Open configuration file
 	std::ifstream file;
 	std::string line;
-	file.open (config_file);
+	file.open (configfile.c_str());
 	if (!file.is_open ()) {
 		mailbox_.push_back (new Mailbox (this));
-		g_warning (_("Cannot open your configuration file (%s)"), config_file);
+		g_warning (_("Cannot open your configuration file (%s)"), configfile.c_str());
 		return false;
 	}
 
@@ -835,7 +836,7 @@ Biff::load (void)
 	// Check if we got at least one mailbox definition
 	if (mailbox_.size() == 0) {
 		g_warning (_("Found no mailbox definition in your configuration "
-					 "file (%s)"), value_gchar ("config_file"));
+					 "file (%s)"), configfile.c_str());
 		mailbox_.push_back (new Mailbox (this));
 	}
 
