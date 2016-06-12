@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2016 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: biff.cc,v $
-// Revision      : $Revision: 1.65.2.2 $
-// Revision date : $Date: 2007/09/08 14:57:56 $
+// Revision      : $Revision: 1.65.2.3 $
+// Revision date : $Date: 2008/04/25 22:52:58 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -30,6 +30,7 @@
 #include "support.h"
 
 #include <algorithm>
+#include <cstring>
 #include <fcntl.h>
 #include <fstream>
 #include <sstream>

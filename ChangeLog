@@ -5,6 +5,12 @@ Copyright (C) 2000-2012 Nicolas Rougier <Nicolas.Rougier@loria.fr> and
 See the end for copying conditions.
 Please send gnubiff bug reports to gnubiff-bugs@lists.sourceforge.net
 
+Version 2.2.17
+ * Robert Sowada
+   - Changed version to 2.2.17
+   - Applied several patches from debian
+   - Added missing include-statements
+	
 Version 2.2.16		2015-02-28 22:20
  * Robert Sowada
    - Changed version to 2.2.16
