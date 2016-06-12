@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: pop.cc,v $
-// Revision      : $Revision: 1.35 $
-// Revision date : $Date: 2007/04/28 14:09:22 $
+// Revision      : $Revision: 1.36 $
+// Revision date : $Date: 2007/09/08 14:57:35 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 // 
@@ -204,7 +204,7 @@ Pop::fetch_mails (gboolean statusonly) throw (pop_err)
 			uid = msg_uid[i + start];
 
 		// Shall the message be deleted?
-		if (message_to_be_deleted (uid)) {
+		if (new_to_be_deleted_.find (uid) != new_to_be_deleted_.end ()) {
 			command_dele (start + i);
 			continue;
 		}

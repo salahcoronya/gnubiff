@@ -43,7 +43,7 @@
   </object>
   <object class="GtkWindow" id="dialog">
     <property name="title" translatable="yes">Popup</property>
-    <property name="resizable">False</property>
+    <property name="resizable">True</property>
     <property name="icon">gnubiff.png</property>
     <signal handler="GUI_on_delete_event" name="delete_event"/>
     <signal handler="GUI_on_destroy_event" name="destroy_event"/>

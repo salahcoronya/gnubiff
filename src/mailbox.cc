@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.99 $
-// Revision date : $Date: 2009/03/01 17:25:30 $
+// Revision      : $Revision: 1.100 $
+// Revision date : $Date: 2010/02/04 22:41:42 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -104,7 +104,7 @@ Mailbox::~Mailbox (void)
 	g_mutex_unlock (mutex_);
 
 	// Free all mutexes
-	g_mutex_unlock (mutex_);
+	g_mutex_free (mutex_);
 	g_mutex_lock (monitor_mutex_);
 	g_mutex_unlock (monitor_mutex_);
 	g_mutex_free (monitor_mutex_);
@@ -617,8 +617,10 @@ Mailbox::lookup_local (Mailbox &oldmailbox)
  *                message will not be stored. This option is needed for
  *                multipart messages that are parsed recursivly (The default is
  *                true).
+ *  @return       Message's unique identifier
  */
-void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
+std::string 
+Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 					 PartInfo *pi, Header *hh, guint pos, gboolean status)
 {
 	Header h;
@@ -632,7 +634,7 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 #ifdef DEBUG
 		g_message ("[%d] Ignored mail with id \"%s\"", uin (), uid.c_str ());
 #endif
-		return;
+		return uid;
 	}
 
 	// Information about the mail obtained before?
@@ -796,7 +798,7 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 			parse (mail, uid, &partinfo, &h, saved_pos, status);
 
 			// No need to parse rest of mail
-			return;
+			return uid;
 		}
 	}
 
@@ -805,7 +807,7 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 	// Content type: text/plain
 	else if ((partinfo.type_ == "text") && (partinfo.subtype_ == "plain")) {
 		// Get mail body
-		guint j = 0, pdl = biff_->value_uint("popup_body_lines");
+		guint j = 0, pdl = biff_->value_uint ("popup_body_lines");
 		while ((j < pdl) && (++pos < len)) {
 			if (j++)
 				h.add_to_body ("\n");
@@ -853,6 +855,8 @@ void Mailbox::parse (std::vector<std::string> &mail, std::string uid,
 				   h.mailid().c_str ());
 #endif
 	}
+
+	return h.mailid();
 }
 
 /** 
@@ -1006,22 +1010,27 @@ Mailbox::update_mailbox_status (void)
 		status (MAILBOX_OLD);
 
 	// Remove mails from hidden that are no longer needed
-	std::set<std::string> new_hidden;
-	std::set_intersection (hidden_.begin(), hidden_.end(),
-						   new_seen_.begin(), new_seen_.end(),
-						   std::insert_iterator<std::set<std::string> > (new_hidden, new_hidden.begin()));
+	std::set<std::string> set_temp;
 
-	// Save obtained values
 	g_mutex_lock (mutex_);
+	// Save obtained values
 	unread_ = new_unread_;
 	seen_ = new_seen_;
-	hidden_ = new_hidden;
+	std::set_intersection (hidden_.begin(), hidden_.end(),
+						   new_seen_.begin(), new_seen_.end(),
+						   std::insert_iterator<std::set<std::string> > (set_temp, set_temp.begin()));
+	hidden_ = set_temp;
+	// Remove already deleted messages
+	set_temp.clear ();
+	std::set_difference (to_be_deleted_.begin(), to_be_deleted_.end(),
+						 new_to_be_deleted_.begin(), new_to_be_deleted_.end(),
+						 std::insert_iterator<std::set<std::string> > (set_temp, set_temp.begin()));
 	g_mutex_unlock (mutex_);
 
 	// Clear sets for next update
 	new_unread_.clear ();
 	new_seen_.clear ();
-	to_be_deleted_.clear ();
+	new_to_be_deleted_.clear ();
 }
 
 /**
@@ -1030,6 +1039,11 @@ Mailbox::update_mailbox_status (void)
 void 
 Mailbox::start_checking (void)
 {
+	// Which messages are to be deleted during this update?
+	g_mutex_lock (mutex_);
+	new_to_be_deleted_ = to_be_deleted_;
+	g_mutex_lock (mutex_);
+
 	// Set mailbox status
 	status (MAILBOX_CHECK);
 

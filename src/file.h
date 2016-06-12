@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.h,v $
-// Revision      : $Revision: 1.4 $
-// Revision date : $Date: 2006/01/01 16:44:52 $
+// Revision      : $Revision: 1.5 $
+// Revision date : $Date: 2007/09/08 18:06:16 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -48,6 +48,7 @@ public:
 	//  base
 	// ========================================================================	
 	void fetch (void) throw (local_err);
+	void handle_message (std::vector<std::string> &msg, gint tmp_file = -1);
 };
 
 #endif

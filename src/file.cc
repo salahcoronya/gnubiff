@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: file.cc,v $
-// Revision      : $Revision: 1.20 $
-// Revision date : $Date: 2007/07/15 21:00:17 $
+// Revision      : $Revision: 1.21 $
+// Revision date : $Date: 2007/09/08 14:57:34 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -77,8 +77,9 @@ File::~File (void)
  */
 void File::fetch (void) throw (local_err)
 {
-	struct stat file_stat;
-	struct utimbuf timbuf;
+	struct	stat file_stat;
+	struct	utimbuf timbuf;
+	gint	tmp_file = -1;
 
 	// First we save access time (if the user wants this) of the
 	// mailfile to be able to reset it before exiting this function
@@ -98,8 +99,17 @@ void File::fetch (void) throw (local_err)
 		throw local_file_err ();
 	}
 
+	// Open temporary file if messages shall be deleted
+	if (!new_to_be_deleted_.empty()) {
+		gchar *tmp_filename = "gnubiff_XXXXXX";
+		tmp_file = g_mkstemp (tmp_filename);
+		if (tmp_file == -1)
+			g_warning (_("Cannot open temporary file."));
+	}
+	std::ofstream file_tmp (tmp_file);
+
 	std::vector<std::string> mail;
-	std::string line;
+	std::string line, uid;
 	gboolean header = true; // parsing mail header?
 	guint cnt = 0, max_cnt = 1 + biff_->value_uint ("min_body_lines");
 
@@ -114,8 +124,7 @@ void File::fetch (void) throw (local_err)
 		// a new mail header. We then parse previous mail, reset mail
 		// vector, store new line in it and go on reading file.
 		if ((line.find ("From ", 0) == 0) && (mail.size() > 0)) {
-			parse (mail);
-			mail.clear();
+			handle_message (mail, tmp_file);
 			header = true;
 		}
 		if ((line.size() == 0) && header) {
@@ -133,10 +142,11 @@ void File::fetch (void) throw (local_err)
 	// Do not forget to parse the last one that cannot rely on "From "
 	// from the next mail
 	if (mail.size() > 1)
-		parse (mail);
+		handle_message (mail, tmp_file);
 
-	// Close mailbox file
+	// Close files
 	file.close ();
+	file_tmp.close ();
 
 	// Restore access and modification time (if wanted)
 	if (value_bool ("file_restore_atime")) { 
@@ -146,4 +156,37 @@ void File::fetch (void) throw (local_err)
 		// noticed because of race conditions.
 		fam_get_all_pending_events ();
 	}
+}
+
+/**
+ *  
+ *
+ */
+void 
+File::handle_message (std::vector<std::string> &msg, gint tmp_file)
+{
+	std::string uid;
+	std::vector<std::string> msg_stored;
+
+	// If there are messages to be deleted then store the message
+	if (!new_to_be_deleted_.empty())
+		msg_stored = msg;
+
+	// Parse message and obtain its (hopefully) unique identifier
+	uid = parse (msg);
+
+	g_message ("##### UID=\"%s\"", uid.c_str());
+
+	// Shall the message be deleted?
+	if (new_to_be_deleted_.find (uid) != new_to_be_deleted_.end ())
+		new_seen_.erase (uid);
+	else {
+		if (!msg_stored.empty() && (tmp_file != -1)) {
+			// Message shall be kept
+
+		}
+	}
+
+	// Clear message
+	msg.clear();
 }

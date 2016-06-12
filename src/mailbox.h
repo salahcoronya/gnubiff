@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.h,v $
-// Revision      : $Revision: 1.64 $
-// Revision date : $Date: 2009/03/01 17:25:30 $
+// Revision      : $Revision: 1.65 $
+// Revision date : $Date: 2010/02/04 22:41:42 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -102,8 +102,12 @@ protected:
 	std::set<std::string>		new_seen_;
 
 	/** Set of gnubiff message ids of those mails that are to be
-		deleted the next time the mailbox is accessed. */
+	 *	deleted the next time the mailbox is accessed. */
 	std::set<std::string>		to_be_deleted_;
+
+	/** Message ids of messages that are to be deleted. In this set the
+	 *  ids are kept while updating the mailbox. */
+	std::set<std::string>		new_to_be_deleted_;
 public:
 	// ========================================================================
 	//  base
@@ -153,10 +157,10 @@ public:
 	void start_checking (void);
 	void set_status_mailbox_error (void);
 	void mail_displayed (void);
-	void parse (std::vector<std::string> &mail,
-				std::string uid = std::string(""),
-				class PartInfo *pi = NULL, class Header *hh = NULL,
-				guint pos = 0, gboolean status = true);
+	std::string parse (std::vector<std::string> &mail,
+					   std::string uid = std::string(""),
+					   class PartInfo *pi = NULL, class Header *hh = NULL,
+					   guint pos = 0, gboolean status = true);
 	guint static standard_port (guint protocol, guint auth,
 								gboolean strict = true);
 
