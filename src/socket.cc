@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: socket.cc,v $
-// Revision      : $Revision: 1.38 $
-// Revision date : $Date: 2010/08/28 17:01:25 $
+// Revision      : $Revision: 1.39 $
+// Revision date : $Date: 2016/06/12 08:30:18 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -211,7 +211,8 @@ Socket::open (std::string hostname, gushort port, guint authentication,
 #ifdef HAVE_LIBSSL
 	if (use_ssl_) {
 		if (certificate_.size() > 0) {
-			const gchar *capath = mailbox_->biff()->value_gchar ("dir_certificates");
+			std::string capathstr = mailbox_->biff()->value_string ("dir_certificates");
+            const gchar *capath = capathstr.c_str();
 			if (*capath == '\0')
 				capath = NULL;
 			if (!SSL_CTX_load_verify_locations (context_, certificate_.c_str(),

@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2016 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gtk.cc,v $
-// Revision      : $Revision: 1.34 $
-// Revision date : $Date: 2008/04/25 22:52:44 $
+// Revision      : $Revision: 1.35 $
+// Revision date : $Date: 2011/12/29 18:39:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -185,9 +185,10 @@ AppletGtk::show (std::string name)
 
 	gtk_widget_show (GTK_WIDGET (dialog));
 
-	if (biff_->value_bool ("applet_use_geometry"))
-		gtk_window_parse_geometry (dialog,
-								   biff_->value_gchar ("applet_geometry"));
+	if (biff_->value_bool ("applet_use_geometry")) {
+		std::string appletgeo = biff_->value_string ("applet_geometry");
+		gtk_window_parse_geometry (dialog, appletgeo.c_str());
+    }
 	if (biff_->value_bool ("applet_be_sticky"))
 		gtk_window_stick (dialog);
 	else

@@ -1,6 +1,6 @@
 // ========================================================================
 // gnubiff -- a mail notification program
-// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2007 Robert Sowada
+// Copyright (c) 2000-2007 Nicolas Rougier, 2004-2016 Robert Sowada
 //
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-popup.cc,v $
-// Revision      : $Revision: 1.48 $
-// Revision date : $Date: 2008/04/25 22:52:48 $
+// Revision      : $Revision: 1.49 $
+// Revision date : $Date: 2011/12/29 18:39:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -361,7 +361,8 @@ Popup::update (void)
 	// Update fonts
 	GtkWidget *treeview = get("treeview");
 	PangoFontDescription *font;
-	font = pango_font_description_from_string (biff_->value_gchar ("popup_font"));
+	std::string popupfont = biff_->value_string ("popup_font");
+	font = pango_font_description_from_string (popupfont.c_str());
 	gtk_widget_modify_font (treeview, font);
 	pango_font_description_free (font);
 
@@ -421,9 +422,10 @@ Popup::show (std::string name)
 //	gtk_window_present (dialog);
 
 	
-	if (biff_->value_bool ("popup_use_geometry"))
-		gtk_window_parse_geometry (dialog,
-								   biff_->value_gchar ("popup_geometry"));
+	if (biff_->value_bool ("popup_use_geometry")) {
+	std::string popupgeo = biff_->value_string ("popup_geometry");
+		gtk_window_parse_geometry (dialog, popupgeo.c_str());
+    }
 	if (biff_->value_bool ("popup_be_sticky"))
 		gtk_window_stick (dialog);
 	else
