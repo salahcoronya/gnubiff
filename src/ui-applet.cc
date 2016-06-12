@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet.cc,v $
-// Revision      : $Revision: 1.41 $
-// Revision date : $Date: 2007/09/08 14:57:35 $
+// Revision      : $Revision: 1.42 $
+// Revision date : $Date: 2009/04/05 16:07:18 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -30,6 +30,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cstdio>
+#include <cstdlib>
 #include <string>
 #include <glib.h>
 
