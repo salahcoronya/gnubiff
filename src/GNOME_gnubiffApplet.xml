@@ -1,4 +1,18 @@
-<menuitem name="Item 1" action="Props" />
-<menuitem name="Item 2" action="MailApp" />
-<menuitem name="Item 3" action="MailRead" />
-<menuitem name="Item 4" action="Info" />
+<section>
+  <item>
+    <attribute name="label" translatable="yes">_Preferences...</attribute>
+    <attribute name="action">gnubiff.props</attribute>
+  </item>
+  <item>
+    <attribute name="label" translatable="yes">_Run command</attribute>
+    <attribute name="action">gnubiff.mail-app</attribute>
+  </item>
+  <item>
+    <attribute name="label" translatable="yes">_Mark mailboxes read</attribute>
+    <attribute name="action">gnubiff.mail-read</attribute>
+  </item>
+  <item>
+    <attribute name="label" translatable="yes">_Info</attribute>
+    <attribute name="action">gnubiff.info</attribute>
+  </item>
+</section>

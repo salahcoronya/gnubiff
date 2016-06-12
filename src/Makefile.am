@@ -86,7 +86,7 @@ gnubiff_LDADD        = $(INTLLIBS) $(GNUBIFF_DEP_LIBS) $(FAM_LIBS)
 if USE_GNOME
 gnubiff_SOURCES      += $(gnome_sources)
 gnubiff_LDADD        += $(GNOME_DEP_LIBS)
-panelappletdir       = `pkg-config --variable=libpanel_applet_dir libpanelapplet-4.0`
+panelappletdir       = `pkg-config --variable=libpanel_applet_dir libpanel-applet`
 panelapplet_in_files = org.gnome.panel.applet.GnubiffApplet.panel-applet.in
 panelapplet_DATA     = $(panelapplet_in_files:.panel-applet.in=.panel-applet)
 uidir			     = $(datadir)/gnome-2.0/ui

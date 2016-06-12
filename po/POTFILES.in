@@ -39,3 +39,4 @@ src/local.cc
 src/mh_basic.cc
 src/mh_sylpheed.cc
 ui/gnubiff.desktop.in
+src/ui-applet.cc

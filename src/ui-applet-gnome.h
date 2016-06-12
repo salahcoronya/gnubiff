@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.h,v $
-// Revision      : $Revision: 1.16 $
-// Revision date : $Date: 2007/09/08 18:06:19 $
+// Revision      : $Revision: 1.17 $
+// Revision date : $Date: 2011/12/29 18:39:07 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -31,7 +31,6 @@
 #define __APPLET_GNOME_H__
 
 #include <panel-applet.h>
-#include <panel-applet-gconf.h>
 #include "ui-applet-gui.h"
 
 

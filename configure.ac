@@ -170,7 +170,7 @@ AM_GNU_GETTEXT([external])
 ######################################################################
 if test "$OPT_USEGNOME" = "yes"; then
 	PKG_CHECK_MODULES(GNOME_DEP, [
-	    libpanelapplet-4.0
+	    libpanel-applet
     	], [
 		AC_SUBST(GNOME_DEP_CFLAGS)
 		AC_SUBST(GNOME_DEP_LIBS)
