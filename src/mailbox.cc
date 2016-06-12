@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: mailbox.cc,v $
-// Revision      : $Revision: 1.92.2.5 $
-// Revision date : $Date: 2009/03/01 17:15:58 $
+// Revision      : $Revision: 1.92.2.6 $
+// Revision date : $Date: 2010/02/04 22:42:08 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -104,7 +104,7 @@ Mailbox::~Mailbox (void)
 	g_mutex_unlock (mutex_);
 
 	// Free all mutexes
-	g_mutex_unlock (mutex_);
+	g_mutex_free (mutex_);
 	g_mutex_lock (monitor_mutex_);
 	g_mutex_unlock (monitor_mutex_);
 	g_mutex_free (monitor_mutex_);
