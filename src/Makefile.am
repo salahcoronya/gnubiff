@@ -79,7 +79,7 @@ gnubiff$(EXEEXT): $(gnubiff_OBJECTS) $(gnubiff_DEPENDENCIES)
 
 gnubiff_SOURCES      = $(common_sources)
 gnubiff_LDADD        = $(INTLLIBS) $(GNUBIFF_DEP_LIBS) $(FAM_LIBS)
-panelappletdir       = `pkg-config --variable=libpanel_applet_dir libpanelapplet-4.0`
+panelappletdir       = `pkg-config --variable=libpanel_applet_dir libpanel-applet`
 panelapplet_in_files =
 panelapplet_DATA     =
 servicedir           = /usr/share/dbus-1/services

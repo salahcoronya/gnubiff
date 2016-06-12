@@ -24,8 +24,7 @@ src/ui-properties.cc
 src/gtk_image_animation.cc
 src/ui-popup.cc
 src/support.cc
-src/GNOME_gnubiffApplet.xml
-src/GNOME_gnubiffApplet.server.in
+[type: gettext/glade]src/GNOME_gnubiffApplet.xml
 ui/applet-gtk.ui
 ui/preferences.ui
 ui/properties.ui
@@ -37,3 +36,4 @@ src/local.cc
 src/mh_basic.cc
 src/mh_sylpheed.cc
 ui/gnubiff.desktop.in
+src/ui-applet.cc

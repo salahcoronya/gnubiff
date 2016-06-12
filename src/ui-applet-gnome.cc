@@ -17,8 +17,8 @@
 // ========================================================================
 //
 // File          : $RCSfile: ui-applet-gnome.cc,v $
-// Revision      : $Revision: 1.26.2.2 $
-// Revision date : $Date: 2008/04/25 22:53:05 $
+// Revision      : $Revision: 1.26.2.4 $
+// Revision date : $Date: 2012/01/08 21:00:23 $
 // Author(s)     : Nicolas Rougier, Robert Sowada
 // Short         : 
 //
@@ -88,36 +88,44 @@ extern "C" {
 	}
 
 
-	static void APPLET_GNOME_on_menu_properties (GtkAction *action,
-                                                 AppletGnome *data)
+	static void APPLET_GNOME_on_menu_properties (GSimpleAction *action,
+	                                             GVariant *parameter,
+	                                             gpointer user_data)
 	{
+		AppletGnome *data = (AppletGnome *)user_data;
 		if (data)
 			data->show_dialog_preferences ();
 		else
 			unknown_internal_error ();
 	}
 
-	void APPLET_GNOME_on_menu_command (GtkAction *action,
-                                       AppletGnome *data)
+	void APPLET_GNOME_on_menu_command (GSimpleAction *action,
+	                                   GVariant *parameter,
+	                                   gpointer user_data)
 	{
+		AppletGnome *data = (AppletGnome *)user_data;
 		if (data)
 			data->execute_command ("double_command", "use_double_command");
 		else
 			unknown_internal_error ();
 	}
 
-	void APPLET_GNOME_on_menu_mail_read (GtkAction *action,
-                                         AppletGnome *data)
+	void APPLET_GNOME_on_menu_mail_read (GSimpleAction *action,
+	                                     GVariant *parameter,
+	                                     gpointer user_data)
 	{
+		AppletGnome *data = (AppletGnome *)user_data;
 		if (data)
 			data->mark_messages_as_read ();
 		else
 			unknown_internal_error ();
 	}
 
-	void APPLET_GNOME_on_menu_info (GtkAction *action,
-                                    AppletGnome *data)
+	void APPLET_GNOME_on_menu_info (GSimpleAction *action,
+	                                GVariant *parameter,
+	                                gpointer user_data)
 	{
+		AppletGnome *data = (AppletGnome *)user_data;
 		if (data)
 			data->show_dialog_about ();
 		else
@@ -159,18 +167,21 @@ void
 AppletGnome::dock (GtkWidget *applet)
 {
 	// Create the applet's menu
-    static const GtkActionEntry gnubiff_menu_actions [] = {
-        { "Props",    GTK_STOCK_PROPERTIES, N_("_Preferences..."), NULL, NULL, G_CALLBACK (APPLET_GNOME_on_menu_properties) },
-        { "MailApp",  GTK_STOCK_PROPERTIES, N_("_Run command"), NULL, NULL, G_CALLBACK (APPLET_GNOME_on_menu_command) },
-        { "MailRead", GTK_STOCK_PROPERTIES, N_("_Mark mailboxes read"), NULL, NULL, G_CALLBACK (APPLET_GNOME_on_menu_mail_read) },
-        { "Info",     GTK_STOCK_ABOUT,      N_("_Info"), NULL, NULL, G_CALLBACK (APPLET_GNOME_on_menu_info) }
+    static const GActionEntry gnubiff_menu_actions [] = {
+        { "props",     APPLET_GNOME_on_menu_properties },
+        { "mail-app",  APPLET_GNOME_on_menu_command },
+        { "mail-read", APPLET_GNOME_on_menu_mail_read },
+        { "info",      APPLET_GNOME_on_menu_info }
     };
-    GtkActionGroup * action_group = gtk_action_group_new ("ShowDesktop Applet Actions");
-    gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
-    gtk_action_group_add_actions (action_group, gnubiff_menu_actions, G_N_ELEMENTS (gnubiff_menu_actions), this);
+    GSimpleActionGroup * action_group = g_simple_action_group_new ();
+    g_action_map_add_action_entries (G_ACTION_MAP (action_group),
+                                     gnubiff_menu_actions,
+                                     G_N_ELEMENTS (gnubiff_menu_actions),
+                                     this);
     gchar *ui_path = g_build_filename (GNUBIFF_UIDIR, "GNOME_gnubiffApplet.xml", NULL);
-    panel_applet_setup_menu_from_file (PANEL_APPLET (applet), ui_path, action_group);
+    panel_applet_setup_menu_from_file (PANEL_APPLET (applet), ui_path, action_group, GETTEXT_PACKAGE);
     g_free (ui_path);
+    gtk_widget_insert_action_group (applet, "gnubiff", G_ACTION_GROUP (action_group));
     g_object_unref (action_group);
 
 	// We need the PANEL_APPLET_EXPAND_MINOR for getting the correct size of
